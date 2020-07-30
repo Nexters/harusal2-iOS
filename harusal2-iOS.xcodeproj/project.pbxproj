@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */; };
+		EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E83F24D09D7900360B2A /* AppDelegate.swift */; };
+		EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E84124D09D7900360B2A /* SceneDelegate.swift */; };
+		EB51E84724D09D7900360B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84524D09D7900360B2A /* Main.storyboard */; };
+		EB51E84924D09D7900360B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84824D09D7900360B2A /* Assets.xcassets */; };
+		EB51E84C24D09D7900360B2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84A24D09D7900360B2A /* LaunchScreen.storyboard */; };
+		EB51E85724D09D7A00360B2A /* harusal2_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E85624D09D7A00360B2A /* harusal2_iOSUITests.swift */; };
+		EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E86724D09FE600360B2A /* BaseViewController.swift */; };
+		EB51E86E24D0BD0500360B2A /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E86D24D0BD0500360B2A /* Money.swift */; };
+		EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB51E85324D09D7A00360B2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB51E83424D09D7900360B2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB51E83B24D09D7900360B2A;
+			remoteInfo = "harusal2-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_harusal2_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.debug.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EB51E83C24D09D7900360B2A /* harusal2-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "harusal2-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB51E83F24D09D7900360B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EB51E84124D09D7900360B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EB51E84624D09D7900360B2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB51E84824D09D7900360B2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB51E84B24D09D7900360B2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB51E84D24D09D7900360B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB51E85224D09D7A00360B2A /* harusal2-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "harusal2-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB51E85624D09D7A00360B2A /* harusal2_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = harusal2_iOSUITests.swift; sourceTree = "<group>"; };
+		EB51E85824D09D7A00360B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB51E86724D09FE600360B2A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EB51E86D24D0BD0500360B2A /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
+		EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB51E83924D09D7900360B2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB51E84F24D09D7A00360B2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A2A281F4A789097337371AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ACD9FDDD7EABD99B3E46073E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */,
+				F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EB51E83324D09D7900360B2A = {
+			isa = PBXGroup;
+			children = (
+				EB51E83E24D09D7900360B2A /* harusal2-iOS */,
+				EB51E85524D09D7A00360B2A /* harusal2-iOSUITests */,
+				EB51E83D24D09D7900360B2A /* Products */,
+				ACD9FDDD7EABD99B3E46073E /* Pods */,
+				2A2A281F4A789097337371AE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EB51E83D24D09D7900360B2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB51E83C24D09D7900360B2A /* harusal2-iOS.app */,
+				EB51E85224D09D7A00360B2A /* harusal2-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB51E83E24D09D7900360B2A /* harusal2-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EB51E86124D09F9800360B2A /* Source */,
+				EB51E83F24D09D7900360B2A /* AppDelegate.swift */,
+				EB51E84524D09D7900360B2A /* Main.storyboard */,
+				EB51E84124D09D7900360B2A /* SceneDelegate.swift */,
+				EB51E84824D09D7900360B2A /* Assets.xcassets */,
+				EB51E84A24D09D7900360B2A /* LaunchScreen.storyboard */,
+				EB51E84D24D09D7900360B2A /* Info.plist */,
+			);
+			path = "harusal2-iOS";
+			sourceTree = "<group>";
+		};
+		EB51E85524D09D7A00360B2A /* harusal2-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB51E85624D09D7A00360B2A /* harusal2_iOSUITests.swift */,
+				EB51E85824D09D7A00360B2A /* Info.plist */,
+			);
+			path = "harusal2-iOSUITests";
+			sourceTree = "<group>";
+		};
+		EB51E86124D09F9800360B2A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				EB51E86224D09FA000360B2A /* Base */,
+				EB51E86424D09FAD00360B2A /* View */,
+				EB51E86324D09FA800360B2A /* Model */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		EB51E86224D09FA000360B2A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EB51E86724D09FE600360B2A /* BaseViewController.swift */,
+				EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		EB51E86324D09FA800360B2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB51E86D24D0BD0500360B2A /* Money.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EB51E86424D09FAD00360B2A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB51E86524D09FBF00360B2A /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EB51E86524D09FBF00360B2A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EB51E86624D09FCA00360B2A /* StoryBoard */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EB51E86624D09FCA00360B2A /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB51E83B24D09D7900360B2A /* harusal2-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB51E85B24D09D7A00360B2A /* Build configuration list for PBXNativeTarget "harusal2-iOS" */;
+			buildPhases = (
+				877B9B56B6DB775E550ED166 /* [CP] Check Pods Manifest.lock */,
+				EB51E83824D09D7900360B2A /* Sources */,
+				EB51E83924D09D7900360B2A /* Frameworks */,
+				EB51E83A24D09D7900360B2A /* Resources */,
+				CD1C3CA8685E7E33CAC17F10 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "harusal2-iOS";
+			productName = "harusal2-iOS";
+			productReference = EB51E83C24D09D7900360B2A /* harusal2-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB51E85124D09D7A00360B2A /* harusal2-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB51E85E24D09D7A00360B2A /* Build configuration list for PBXNativeTarget "harusal2-iOSUITests" */;
+			buildPhases = (
+				EB51E84E24D09D7A00360B2A /* Sources */,
+				EB51E84F24D09D7A00360B2A /* Frameworks */,
+				EB51E85024D09D7A00360B2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB51E85424D09D7A00360B2A /* PBXTargetDependency */,
+			);
+			name = "harusal2-iOSUITests";
+			productName = "harusal2-iOSUITests";
+			productReference = EB51E85224D09D7A00360B2A /* harusal2-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB51E83424D09D7900360B2A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = nexters;
+				TargetAttributes = {
+					EB51E83B24D09D7900360B2A = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					EB51E85124D09D7A00360B2A = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = EB51E83B24D09D7900360B2A;
+					};
+				};
+			};
+			buildConfigurationList = EB51E83724D09D7900360B2A /* Build configuration list for PBXProject "harusal2-iOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB51E83324D09D7900360B2A;
+			productRefGroup = EB51E83D24D09D7900360B2A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB51E83B24D09D7900360B2A /* harusal2-iOS */,
+				EB51E85124D09D7A00360B2A /* harusal2-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB51E83A24D09D7900360B2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB51E84C24D09D7900360B2A /* LaunchScreen.storyboard in Resources */,
+				EB51E84924D09D7900360B2A /* Assets.xcassets in Resources */,
+				EB51E84724D09D7900360B2A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB51E85024D09D7A00360B2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		877B9B56B6DB775E550ED166 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-harusal2-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD1C3CA8685E7E33CAC17F10 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB51E83824D09D7900360B2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB51E86E24D0BD0500360B2A /* Money.swift in Sources */,
+				EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */,
+				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
+				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
+				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB51E84E24D09D7A00360B2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB51E85724D09D7A00360B2A /* harusal2_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB51E85424D09D7A00360B2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB51E83B24D09D7900360B2A /* harusal2-iOS */;
+			targetProxy = EB51E85324D09D7A00360B2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EB51E84524D09D7900360B2A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB51E84624D09D7900360B2A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EB51E84A24D09D7900360B2A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB51E84B24D09D7900360B2A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB51E85924D09D7A00360B2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB51E85A24D09D7A00360B2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB51E85C24D09D7A00360B2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "harusal2-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexters.zzallang.harusal2-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB51E85D24D09D7A00360B2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "harusal2-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexters.zzallang.harusal2-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EB51E85F24D09D7A00360B2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "harusal2-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexters.zzallang.harusal2-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "harusal2-iOS";
+			};
+			name = Debug;
+		};
+		EB51E86024D09D7A00360B2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "harusal2-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexters.zzallang.harusal2-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "harusal2-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB51E83724D09D7900360B2A /* Build configuration list for PBXProject "harusal2-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB51E85924D09D7A00360B2A /* Debug */,
+				EB51E85A24D09D7A00360B2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB51E85B24D09D7A00360B2A /* Build configuration list for PBXNativeTarget "harusal2-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB51E85C24D09D7A00360B2A /* Debug */,
+				EB51E85D24D09D7A00360B2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB51E85E24D09D7A00360B2A /* Build configuration list for PBXNativeTarget "harusal2-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB51E85F24D09D7A00360B2A /* Debug */,
+				EB51E86024D09D7A00360B2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB51E83424D09D7900360B2A /* Project object */;
+}
