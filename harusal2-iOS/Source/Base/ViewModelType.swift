@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ViewModelType {
-    associatedtype Inputs
+    associatedtype Inputs // general
     associatedtype Outputs
 }
