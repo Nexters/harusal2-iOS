@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Realm
 
 struct Money {
     var number: Int
