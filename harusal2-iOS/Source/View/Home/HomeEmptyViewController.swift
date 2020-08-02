@@ -15,6 +15,8 @@ class HomeEmptyViewController: BaseViewController {
     @IBOutlet weak var label : UILabel!
     @IBOutlet weak var setDepositButton : UIButton!
     @IBOutlet weak var menuBarButtonItem : UIBarButtonItem!
+    @IBOutlet weak var receiptBarButtonItem : UIBarButtonItem!
+    @IBOutlet weak var containsetDepositButtonView : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,7 @@ class HomeEmptyViewController: BaseViewController {
     override func setConstraints() {
         
         label.preferredMaxLayoutWidth = 176
-        
+        containsetDepositButtonView.roundView(by: 80)
     }
     
    

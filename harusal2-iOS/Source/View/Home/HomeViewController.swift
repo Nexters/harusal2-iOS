@@ -27,7 +27,7 @@ class HomeViewController: BaseViewController {
     }
     
     override func setConstraints() {
-        addreceiptButton.layer.cornerRadius = addreceiptButton.frame.width/2
+        addreceiptButton.roundView(by: 2)
         containLeftLabelView.roundView(by: 80)
     }
 
