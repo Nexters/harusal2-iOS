@@ -10,5 +10,7 @@ import Foundation
 import Realm
 
 struct Money {
-    var number: Int
+    var day: Int
+    var income : Int
+    var expense : Int
 }
