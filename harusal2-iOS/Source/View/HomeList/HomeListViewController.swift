@@ -11,6 +11,7 @@ import UIKit
 class HomeListViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
     
     let cellIdentifier = "dayCell"
+    let firstCellIdentifier = "firstCell"
     @IBOutlet weak var dayCV : UICollectionView!
     var dayList : [Money] = []
    
@@ -43,21 +44,32 @@ class HomeListViewController: UIViewController,UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dayList.count
+        return self.dayList.count + 1 // firstCell 때문에 + 1
     }
        
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: DayCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! DayCVCell
         
-        let dayData: Money = self.dayList[indexPath.item]
         
-        cell.dayLabel?.text = String(dayData.day)
-        cell.totalExpenseLabel?.text = "\(dayData.expense)원"
-        cell.totalIncomeLabel?.text = "\(dayData.income)원"
         
-        print("\(dayData.day) , \(dayData.expense) , \(dayData.income)")
-        
-        return cell
+        if indexPath.row == 0{
+            let cell : FirstCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.firstCellIdentifier, for: indexPath) as! FirstCollectionViewCell
+            
+            //날짜, 예산, 이미지 아이콘 등록
+            return cell
+        }
+        else{
+            let cell: DayCVCell = collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: indexPath) as! DayCVCell
+            
+            let dayData: Money = self.dayList[indexPath.row - 1] // firstCell 이 0을 차지하므로 - 1
+            
+            cell.dayLabel?.text = String(dayData.day)
+            cell.totalExpenseLabel?.text = "\(dayData.expense)원"
+            cell.totalIncomeLabel?.text = "\(dayData.income)원"
+            
+            print("\(indexPath.row)")
+            
+            return cell
+        }
     }
     
     /*

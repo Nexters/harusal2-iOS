@@ -207,8 +207,54 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="firstCell" id="J6A-D4-fWW" customClass="FirstCollectionViewCell" customModule="harusal2_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tpt-gQ-H0B">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="7Bq-PU-QEB">
+                                                    <rect key="frame" x="27" y="57" width="110.5" height="97"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 일수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iV-Ld-yef">
+                                                            <rect key="frame" x="0.0" y="0.0" width="110.5" height="36"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 예산" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdR-ou-4bR">
+                                                            <rect key="frame" x="0.0" y="61" width="110.5" height="36"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qsf-7f-fcU">
+                                                    <rect key="frame" x="270" y="57.5" width="120" height="119"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="I0z-og-ZtC"/>
+                                                        <constraint firstAttribute="height" constant="120" id="g9p-6k-rwl"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Qsf-7f-fcU" firstAttribute="top" secondItem="tpt-gQ-H0B" secondAttribute="top" constant="57" id="ZQh-l8-CQi"/>
+                                                <constraint firstItem="7Bq-PU-QEB" firstAttribute="top" secondItem="tpt-gQ-H0B" secondAttribute="top" constant="57" id="bu9-eb-iD6"/>
+                                                <constraint firstAttribute="trailing" secondItem="Qsf-7f-fcU" secondAttribute="trailing" constant="24" id="gOD-5s-WSH"/>
+                                                <constraint firstItem="7Bq-PU-QEB" firstAttribute="leading" secondItem="tpt-gQ-H0B" secondAttribute="leading" constant="27" id="qhv-pv-3g7"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="414" height="233"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="Qsf-7f-fcU" id="gIe-E8-5Zu"/>
+                                            <outlet property="leftDay" destination="5iV-Ld-yef" id="o4g-1E-EoJ"/>
+                                            <outlet property="leftMoney" destination="xdR-ou-4bR" id="H2d-90-iH1"/>
+                                        </connections>
+                                    </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dayCell" id="8TE-of-pef" customClass="DayCVCell" customModule="harusal2_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
+                                        <rect key="frame" x="0.0" y="243" width="414" height="205"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="be5-IE-TG5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="205"/>
@@ -300,47 +346,6 @@
                                             <outlet property="totalExpenseLabel" destination="P2b-SW-ztE" id="OZk-uL-WeC"/>
                                             <outlet property="totalIncomeLabel" destination="VM3-y2-1yi" id="lVO-4h-7rB"/>
                                         </connections>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="J6A-D4-fWW">
-                                        <rect key="frame" x="0.0" y="215" width="414" height="233"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tpt-gQ-H0B">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="7Bq-PU-QEB">
-                                                    <rect key="frame" x="27" y="57" width="110.5" height="97"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 일수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iV-Ld-yef">
-                                                            <rect key="frame" x="0.0" y="0.0" width="110.5" height="36"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 예산" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdR-ou-4bR">
-                                                            <rect key="frame" x="0.0" y="61" width="110.5" height="36"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qsf-7f-fcU">
-                                                    <rect key="frame" x="270" y="57.5" width="120" height="119"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="I0z-og-ZtC"/>
-                                                        <constraint firstAttribute="height" constant="120" id="g9p-6k-rwl"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Qsf-7f-fcU" firstAttribute="top" secondItem="tpt-gQ-H0B" secondAttribute="top" constant="57" id="ZQh-l8-CQi"/>
-                                                <constraint firstItem="7Bq-PU-QEB" firstAttribute="top" secondItem="tpt-gQ-H0B" secondAttribute="top" constant="57" id="bu9-eb-iD6"/>
-                                                <constraint firstAttribute="trailing" secondItem="Qsf-7f-fcU" secondAttribute="trailing" constant="24" id="gOD-5s-WSH"/>
-                                                <constraint firstItem="7Bq-PU-QEB" firstAttribute="leading" secondItem="tpt-gQ-H0B" secondAttribute="leading" constant="27" id="qhv-pv-3g7"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="414" height="233"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
