@@ -8,7 +8,9 @@
 
 import UIKit
 
-class DayCVCell: UICollectionViewCell {
+class DayTVCell: UITableViewCell {
+    
+//    static let cellIdentifier = "dayCell"
     
     @IBOutlet weak var dayLabel : UILabel!
     @IBOutlet weak var totalExpenseLabel : UILabel!
