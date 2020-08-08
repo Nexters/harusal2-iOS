@@ -83,84 +83,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 생활비 10,000원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8B-Si-fjE">
-                                <rect key="frame" x="24" y="248" width="155" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,000 원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSb-qR-efm">
-                                <rect key="frame" x="24" y="272" width="203" height="57.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PxF-zz-tSA">
-                                <rect key="frame" x="24" y="352" width="366" height="82"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iic-bh-XTG">
-                                        <rect key="frame" x="296" y="26" width="30" height="30"/>
-                                        <state key="normal" title="&gt;">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="93t-G7-SO1">
-                                        <rect key="frame" x="22" y="20" width="147.5" height="42"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 일수 D-28" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgf-NS-0Z5">
-                                                <rect key="frame" x="0.0" y="0.0" width="108" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="20.5" id="dx4-hA-BV5"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="남은 예산 282,000원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UB5-hF-K1Z">
-                                                <rect key="frame" x="0.0" y="27.5" width="147.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="beh-UB-mlr"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="iic-bh-XTG" firstAttribute="centerY" secondItem="PxF-zz-tSA" secondAttribute="centerY" id="DGC-og-vkD"/>
-                                    <constraint firstAttribute="trailing" secondItem="iic-bh-XTG" secondAttribute="trailing" constant="40" id="LTv-Z2-uNW"/>
-                                    <constraint firstItem="93t-G7-SO1" firstAttribute="centerY" secondItem="PxF-zz-tSA" secondAttribute="centerY" id="NNl-WT-Uut"/>
-                                    <constraint firstItem="93t-G7-SO1" firstAttribute="leading" secondItem="PxF-zz-tSA" secondAttribute="leading" constant="22" id="Qyj-Vu-w6t"/>
-                                    <constraint firstAttribute="height" constant="82" id="UWh-JK-zat"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVa-qi-NTn">
-                                <rect key="frame" x="183" y="718" width="48" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVa-qi-NTn">
+                                <rect key="frame" x="342" y="814" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="nVa-qi-NTn" secondAttribute="height" multiplier="1:1" id="Pl7-mm-ySP"/>
-                                    <constraint firstAttribute="width" constant="48" id="aSo-me-zrE"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="+">
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Fp-zE-PnZ">
+                                <rect key="frame" x="20" y="421" width="374" height="441"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="0.74680204459999999" blue="0.42836287429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BreakDownCell" rowHeight="60" id="pm2-sC-hC3" customClass="BreakDownCell" customModule="harusal2_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pm2-sC-hC3" id="ygp-WS-VUq">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SR8-4A-On5">
+                                                    <rect key="frame" x="140" y="19.5" width="62" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5V-Qg-8Vn">
+                                                    <rect key="frame" x="344" y="19" width="20" height="22"/>
+                                                    <state key="normal" image="arrow.right.circle" catalog="system"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZi-f0-yFx">
+                                                    <rect key="frame" x="10" y="18" width="48.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SR8-4A-On5" firstAttribute="leading" secondItem="ygp-WS-VUq" secondAttribute="leading" constant="140" id="3qk-HG-HO9"/>
+                                                <constraint firstItem="SR8-4A-On5" firstAttribute="centerY" secondItem="zZi-f0-yFx" secondAttribute="centerY" id="Y8y-yt-tPO"/>
+                                                <constraint firstItem="zZi-f0-yFx" firstAttribute="leading" secondItem="ygp-WS-VUq" secondAttribute="leading" constant="10" id="mex-m7-UgH"/>
+                                                <constraint firstItem="zZi-f0-yFx" firstAttribute="centerY" secondItem="ygp-WS-VUq" secondAttribute="centerY" id="o9T-Ab-E4k"/>
+                                                <constraint firstItem="x5V-Qg-8Vn" firstAttribute="centerY" secondItem="SR8-4A-On5" secondAttribute="centerY" id="owv-v8-8iO"/>
+                                                <constraint firstAttribute="trailing" secondItem="x5V-Qg-8Vn" secondAttribute="trailing" constant="10" id="sVs-AV-NU1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="SR8-4A-On5" id="bHf-bg-nSd"/>
+                                            <outlet property="priceLabel" destination="zZi-f0-yFx" id="9rq-8K-ndZ"/>
+                                            <outlet property="showDetailButton" destination="x5V-Qg-8Vn" id="J67-RK-1IH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IB-LX-lfo">
+                                <rect key="frame" x="0.0" y="88" width="414" height="280"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 생활비 10,000원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8B-Si-fjE">
+                                        <rect key="frame" x="129.5" y="248.5" width="155" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,000 원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSb-qR-efm">
+                                        <rect key="frame" x="105.5" y="176" width="203" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mgI-5O-3YF">
+                                        <rect key="frame" x="107" y="40.5" width="200" height="129"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mgI-5O-3YF" secondAttribute="height" multiplier="20:13" id="Vei-XJ-94L"/>
+                                            <constraint firstAttribute="height" constant="130" id="jbF-ml-PYm"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RSb-qR-efm" firstAttribute="centerX" secondItem="mgI-5O-3YF" secondAttribute="centerX" id="FGt-Pf-Q6g"/>
+                                    <constraint firstItem="mgI-5O-3YF" firstAttribute="centerX" secondItem="7IB-LX-lfo" secondAttribute="centerX" id="Phv-n6-jyF"/>
+                                    <constraint firstAttribute="height" constant="280" id="T9I-iL-oiu"/>
+                                    <constraint firstItem="mgI-5O-3YF" firstAttribute="top" secondItem="7IB-LX-lfo" secondAttribute="top" constant="40" id="UzL-zR-N5c"/>
+                                    <constraint firstItem="RSb-qR-efm" firstAttribute="top" secondItem="mgI-5O-3YF" secondAttribute="bottom" constant="6" id="YAY-K5-DvN"/>
+                                    <constraint firstItem="d8B-Si-fjE" firstAttribute="top" secondItem="RSb-qR-efm" secondAttribute="bottom" constant="15" id="bgr-F0-KMd"/>
+                                    <constraint firstItem="d8B-Si-fjE" firstAttribute="centerX" secondItem="RSb-qR-efm" secondAttribute="centerX" id="xtj-KB-4fb"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="오늘의 소비 | 2020.07.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-rV-gqI">
+                                <rect key="frame" x="20" y="379" width="221" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RVB-y9-hAM" firstAttribute="bottom" secondItem="nVa-qi-NTn" secondAttribute="bottom" constant="96" id="3od-9W-Pzc"/>
-                            <constraint firstItem="PxF-zz-tSA" firstAttribute="top" secondItem="RVB-y9-hAM" secondAttribute="top" constant="264" id="AaD-ff-XaR"/>
-                            <constraint firstItem="d8B-Si-fjE" firstAttribute="top" secondItem="RVB-y9-hAM" secondAttribute="top" constant="160" id="G0R-HA-JOM"/>
-                            <constraint firstItem="d8B-Si-fjE" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" constant="24" id="H9e-Ht-bZD"/>
-                            <constraint firstItem="RSb-qR-efm" firstAttribute="top" secondItem="RVB-y9-hAM" secondAttribute="top" constant="184" id="JBq-bq-Wvi"/>
-                            <constraint firstItem="nVa-qi-NTn" firstAttribute="centerX" secondItem="RVB-y9-hAM" secondAttribute="centerX" id="JFX-fC-cbj"/>
-                            <constraint firstItem="RSb-qR-efm" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" constant="24" id="JsR-FU-LRr"/>
-                            <constraint firstItem="PxF-zz-tSA" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" constant="24" id="OmC-kj-7i0"/>
-                            <constraint firstItem="RVB-y9-hAM" firstAttribute="trailing" secondItem="PxF-zz-tSA" secondAttribute="trailing" constant="24" id="guR-0Q-F9U"/>
+                            <constraint firstItem="5Si-rV-gqI" firstAttribute="top" secondItem="7IB-LX-lfo" secondAttribute="bottom" constant="11" id="3uw-Ji-5Xk"/>
+                            <constraint firstItem="7IB-LX-lfo" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" id="HKd-v7-AS7"/>
+                            <constraint firstItem="7IB-LX-lfo" firstAttribute="trailing" secondItem="RVB-y9-hAM" secondAttribute="trailing" id="Id1-us-Wx1"/>
+                            <constraint firstItem="7IB-LX-lfo" firstAttribute="top" secondItem="RVB-y9-hAM" secondAttribute="top" id="Jrk-Oa-WQb"/>
+                            <constraint firstItem="2Fp-zE-PnZ" firstAttribute="top" secondItem="5Si-rV-gqI" secondAttribute="bottom" constant="21" id="PKa-vS-X3p"/>
+                            <constraint firstItem="2Fp-zE-PnZ" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" constant="20" id="RD5-w0-il5"/>
+                            <constraint firstItem="RVB-y9-hAM" firstAttribute="trailing" secondItem="2Fp-zE-PnZ" secondAttribute="trailing" constant="20" id="USv-7I-kED"/>
+                            <constraint firstItem="RVB-y9-hAM" firstAttribute="bottom" secondItem="2Fp-zE-PnZ" secondAttribute="bottom" id="bk4-JZ-lF4"/>
+                            <constraint firstItem="5Si-rV-gqI" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" constant="20" id="jwH-sp-ck2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RVB-y9-hAM"/>
                     </view>
@@ -168,20 +197,20 @@
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="kcT-yu-sWa"/>
                         <barButtonItem key="rightBarButtonItem" image="bubble.right.fill" catalog="system" id="c2B-N0-KYi">
                             <connections>
-                                <segue destination="TR5-i2-vVt" kind="show" id="NJG-kR-1hS"/>
+                                <segue destination="TR5-i2-vVt" kind="show" id="jI1-UQ-ZfB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addreceiptButton" destination="nVa-qi-NTn" id="5hN-sN-pV1"/>
-                        <outlet property="containLeftLabelView" destination="PxF-zz-tSA" id="xC0-7H-eN3"/>
-                        <outlet property="leftDayForMonthLabel" destination="hgf-NS-0Z5" id="iHR-6Z-58E"/>
-                        <outlet property="leftMoneyForMonthLabel" destination="UB5-hF-K1Z" id="Dse-OC-L6S"/>
+                        <outlet property="breakDownTV" destination="2Fp-zE-PnZ" id="HaD-Iy-cYR"/>
+                        <outlet property="headerViewHeightConstraint" destination="T9I-iL-oiu" id="YdK-aI-KaJ"/>
+                        <outlet property="imageViewHeightConstraint" destination="jbF-ml-PYm" id="23l-T5-uao"/>
                         <outlet property="menuBarButtonItem" destination="kcT-yu-sWa" id="ZFj-U0-5Rd"/>
                         <outlet property="receiptBarButtonItem" destination="c2B-N0-KYi" id="BNi-3p-oSN"/>
-                        <outlet property="seeReceiptView" destination="iic-bh-XTG" id="Fxr-yN-wXW"/>
                         <outlet property="todayMoneyDescriptionLabel" destination="d8B-Si-fjE" id="FLB-jX-fwe"/>
                         <outlet property="todayMoneyLabel" destination="RSb-qR-efm" id="CUm-mh-Bzr"/>
+                        <outlet property="todayMoneyLabelCenterX" destination="FGt-Pf-Q6g" id="yQV-Ad-mHC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtT-J1-Fyx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -339,8 +368,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="bubble.right.fill" catalog="system" width="128" height="110"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
