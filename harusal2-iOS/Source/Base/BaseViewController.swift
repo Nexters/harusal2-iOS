@@ -12,7 +12,6 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         self.addComponents()
         self.setConstraints()
         self.onBind()

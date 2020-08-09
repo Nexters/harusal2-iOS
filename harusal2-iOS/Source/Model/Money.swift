@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Realm
+import RealmSwift
 
 struct Money {
     var day: Int

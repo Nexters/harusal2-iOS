@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */; };
+		EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */; };
+		EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */; };
+		EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */; };
+		EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CD24D32EAE00DF65D6 /* HomeViewController.swift */; };
+		EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CF24D339E000DF65D6 /* UIView+.swift */; };
 		EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E83F24D09D7900360B2A /* AppDelegate.swift */; };
 		EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E84124D09D7900360B2A /* SceneDelegate.swift */; };
 		EB51E84724D09D7900360B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84524D09D7900360B2A /* Main.storyboard */; };
@@ -17,6 +22,13 @@
 		EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E86724D09FE600360B2A /* BaseViewController.swift */; };
 		EB51E86E24D0BD0500360B2A /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E86D24D0BD0500360B2A /* Money.swift */; };
 		EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */; };
+		EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842624DED0E30036902B /* BreakDownCell.swift */; };
+		EB53842924DED3F00036902B /* BreakDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842824DED3F00036902B /* BreakDown.swift */; };
+		EB53842B24DF054C0036902B /* HomeViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842A24DF054C0036902B /* HomeViewController+.swift */; };
+		EB538BF924D7D2190074B752 /* DayTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BF824D7D2190074B752 /* DayTVCell.swift */; };
+		EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFA24D7D6BA0074B752 /* HomeListViewController.swift */; };
+		EB538BFD24D7F0050074B752 /* FirstTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFC24D7F0050074B752 /* FirstTVCell.swift */; };
+		EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +44,11 @@
 /* Begin PBXFileReference section */
 		8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_harusal2_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.debug.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewController.swift; sourceTree = "<group>"; };
+		EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewModel.swift; sourceTree = "<group>"; };
+		EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		EB4D09CD24D32EAE00DF65D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EB4D09CF24D339E000DF65D6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EB51E83C24D09D7900360B2A /* harusal2-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "harusal2-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB51E83F24D09D7900360B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB51E84124D09D7900360B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +62,13 @@
 		EB51E86724D09FE600360B2A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EB51E86D24D0BD0500360B2A /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		EB53842624DED0E30036902B /* BreakDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDownCell.swift; sourceTree = "<group>"; };
+		EB53842824DED3F00036902B /* BreakDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDown.swift; sourceTree = "<group>"; };
+		EB53842A24DF054C0036902B /* HomeViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+.swift"; sourceTree = "<group>"; };
+		EB538BF824D7D2190074B752 /* DayTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTVCell.swift; sourceTree = "<group>"; };
+		EB538BFA24D7D6BA0074B752 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
+		EB538BFC24D7F0050074B752 /* FirstTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTVCell.swift; sourceTree = "<group>"; };
+		EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewModel.swift; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +106,15 @@
 				F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EB4D09D124D33BE000DF65D6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EB4D09CF24D339E000DF65D6 /* UIView+.swift */,
+				EB53842A24DF054C0036902B /* HomeViewController+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		EB51E83324D09D7900360B2A = {
@@ -130,6 +163,7 @@
 		EB51E86124D09F9800360B2A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				EB4D09D124D33BE000DF65D6 /* Extension */,
 				EB51E86224D09FA000360B2A /* Base */,
 				EB51E86424D09FAD00360B2A /* View */,
 				EB51E86324D09FA800360B2A /* Model */,
@@ -150,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				EB51E86D24D0BD0500360B2A /* Money.swift */,
+				EB53842824DED3F00036902B /* BreakDown.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +192,7 @@
 		EB51E86424D09FAD00360B2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB538BF724D7D1960074B752 /* HomeList */,
 				EB51E86524D09FBF00360B2A /* Home */,
 			);
 			path = View;
@@ -165,7 +201,11 @@
 		EB51E86524D09FBF00360B2A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EB538BF624D7D17E0074B752 /* Empty */,
 				EB51E86624D09FCA00360B2A /* StoryBoard */,
+				EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */,
+				EB4D09CD24D32EAE00DF65D6 /* HomeViewController.swift */,
+				EB53842624DED0E30036902B /* BreakDownCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -175,6 +215,26 @@
 			children = (
 			);
 			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		EB538BF624D7D17E0074B752 /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */,
+				EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */,
+			);
+			path = Empty;
+			sourceTree = "<group>";
+		};
+		EB538BF724D7D1960074B752 /* HomeList */ = {
+			isa = PBXGroup;
+			children = (
+				EB538BF824D7D2190074B752 /* DayTVCell.swift */,
+				EB538BFA24D7D6BA0074B752 /* HomeListViewController.swift */,
+				EB538BFC24D7F0050074B752 /* FirstTVCell.swift */,
+				EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */,
+			);
+			path = HomeList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,9 +384,21 @@
 			files = (
 				EB51E86E24D0BD0500360B2A /* Money.swift in Sources */,
 				EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */,
+				EB538BF924D7D2190074B752 /* DayTVCell.swift in Sources */,
+				EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */,
+				EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */,
+				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
 				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
+				EB53842924DED3F00036902B /* BreakDown.swift in Sources */,
+				EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */,
+				EB53842B24DF054C0036902B /* HomeViewController+.swift in Sources */,
+				EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */,
+				EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */,
 				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
+				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
 				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,
+				EB538BFD24D7F0050074B752 /* FirstTVCell.swift in Sources */,
+				EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
