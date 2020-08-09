@@ -13,6 +13,7 @@ class InitMoneyViewController: UIViewController {
     @IBOutlet weak var monthBudgetText : UITextField!
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var butgetPerDayLabel: UILabel!
+    @IBOutlet weak var clearButton: UIButton!
     
     @IBAction func showText(_ sender:UITextField){
         let text = self.monthBudgetText.text ?? "0"
@@ -23,6 +24,12 @@ class InitMoneyViewController: UIViewController {
     
     @IBAction func tapViewHideKeyBoard(_ sender:UIGestureRecognizer){
         self.view.endEditing(true)
+    }
+    
+    @IBAction func clearTextField(_ sender:UIButton) {
+        self.monthBudgetText.text = nil
+        self.budgetLabel.text = "0원"
+        self.butgetPerDayLabel.text = "0원"
     }
 
     override func viewDidLoad() {

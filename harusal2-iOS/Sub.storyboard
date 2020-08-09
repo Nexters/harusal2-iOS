@@ -143,6 +143,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jL-2B-SnH">
                                 <rect key="frame" x="359" y="387.5" width="30" height="30"/>
                                 <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="clearTextField:" destination="mDv-pV-a2i" eventType="touchUpInside" id="uWY-YB-Pt8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -174,6 +177,7 @@
                     <connections>
                         <outlet property="budgetLabel" destination="UO7-WD-nvL" id="Bj4-zS-dwJ"/>
                         <outlet property="butgetPerDayLabel" destination="Z6S-KO-Pyd" id="BEB-jj-AIX"/>
+                        <outlet property="clearButton" destination="4jL-2B-SnH" id="WbO-Ka-zaw"/>
                         <outlet property="monthBudgetText" destination="654-M3-I5f" id="F8F-tS-Mhc"/>
                     </connections>
                 </viewController>
