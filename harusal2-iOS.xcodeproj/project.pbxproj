@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		307BCD5A24E00F5300A20E35 /* Sub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307BCD5924E00F5300A20E35 /* Sub.storyboard */; };
 		3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */; };
 		EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */; };
 		EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		307BCD5924E00F5300A20E35 /* Sub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sub.storyboard; sourceTree = "<group>"; };
 		8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_harusal2_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.debug.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				EB51E86124D09F9800360B2A /* Source */,
 				EB51E83F24D09D7900360B2A /* AppDelegate.swift */,
 				EB51E84524D09D7900360B2A /* Main.storyboard */,
+				307BCD5924E00F5300A20E35 /* Sub.storyboard */,
 				EB51E84124D09D7900360B2A /* SceneDelegate.swift */,
 				EB51E84824D09D7900360B2A /* Assets.xcassets */,
 				EB51E84A24D09D7900360B2A /* LaunchScreen.storyboard */,
@@ -323,6 +326,7 @@
 				EB51E84C24D09D7900360B2A /* LaunchScreen.storyboard in Resources */,
 				EB51E84924D09D7900360B2A /* Assets.xcassets in Resources */,
 				EB51E84724D09D7900360B2A /* Main.storyboard in Resources */,
+				307BCD5A24E00F5300A20E35 /* Sub.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
