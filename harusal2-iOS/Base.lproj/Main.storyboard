@@ -83,17 +83,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nVa-qi-NTn">
-                                <rect key="frame" x="342" y="814" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Fp-zE-PnZ">
-                                <rect key="frame" x="20" y="421" width="374" height="441"/>
+                                <rect key="frame" x="20" y="397" width="374" height="465"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.74680204459999999" blue="0.42836287429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -139,7 +130,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IB-LX-lfo">
-                                <rect key="frame" x="0.0" y="88" width="414" height="280"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 생활비 10,000원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8B-Si-fjE">
                                         <rect key="frame" x="129.5" y="248.5" width="155" height="19.5"/>
@@ -165,36 +156,68 @@
                                 <constraints>
                                     <constraint firstItem="RSb-qR-efm" firstAttribute="centerX" secondItem="mgI-5O-3YF" secondAttribute="centerX" id="FGt-Pf-Q6g"/>
                                     <constraint firstItem="mgI-5O-3YF" firstAttribute="centerX" secondItem="7IB-LX-lfo" secondAttribute="centerX" id="Phv-n6-jyF"/>
-                                    <constraint firstAttribute="height" constant="280" id="T9I-iL-oiu"/>
+                                    <constraint firstAttribute="height" constant="300" id="T9I-iL-oiu"/>
                                     <constraint firstItem="mgI-5O-3YF" firstAttribute="top" secondItem="7IB-LX-lfo" secondAttribute="top" constant="40" id="UzL-zR-N5c"/>
                                     <constraint firstItem="RSb-qR-efm" firstAttribute="top" secondItem="mgI-5O-3YF" secondAttribute="bottom" constant="6" id="YAY-K5-DvN"/>
                                     <constraint firstItem="d8B-Si-fjE" firstAttribute="top" secondItem="RSb-qR-efm" secondAttribute="bottom" constant="15" id="bgr-F0-KMd"/>
                                     <constraint firstItem="d8B-Si-fjE" firstAttribute="centerX" secondItem="RSb-qR-efm" secondAttribute="centerX" id="xtj-KB-4fb"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="오늘의 소비 | 2020.07.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-rV-gqI">
-                                <rect key="frame" x="20" y="379" width="221" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 소비 | 2020.07.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-rV-gqI">
+                                <rect key="frame" x="20" y="355" width="177.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmU-Qx-qw6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BD-A6-Pzp">
+                                        <rect key="frame" x="49" y="68" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b70-rc-jg6">
+                                        <rect key="frame" x="49" y="122" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZm-cq-DfK">
+                                        <rect key="frame" x="49" y="172" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="jwq-QU-RmA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5Si-rV-gqI" firstAttribute="top" secondItem="7IB-LX-lfo" secondAttribute="bottom" constant="11" id="3uw-Ji-5Xk"/>
+                            <constraint firstItem="nmU-Qx-qw6" firstAttribute="top" secondItem="RVB-y9-hAM" secondAttribute="top" id="4e1-4e-pq3"/>
                             <constraint firstItem="7IB-LX-lfo" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" id="HKd-v7-AS7"/>
                             <constraint firstItem="7IB-LX-lfo" firstAttribute="trailing" secondItem="RVB-y9-hAM" secondAttribute="trailing" id="Id1-us-Wx1"/>
                             <constraint firstItem="7IB-LX-lfo" firstAttribute="top" secondItem="RVB-y9-hAM" secondAttribute="top" id="Jrk-Oa-WQb"/>
+                            <constraint firstItem="RVB-y9-hAM" firstAttribute="bottom" secondItem="nmU-Qx-qw6" secondAttribute="bottom" id="MVZ-WU-VeW"/>
                             <constraint firstItem="2Fp-zE-PnZ" firstAttribute="top" secondItem="5Si-rV-gqI" secondAttribute="bottom" constant="21" id="PKa-vS-X3p"/>
                             <constraint firstItem="2Fp-zE-PnZ" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" constant="20" id="RD5-w0-il5"/>
                             <constraint firstItem="RVB-y9-hAM" firstAttribute="trailing" secondItem="2Fp-zE-PnZ" secondAttribute="trailing" constant="20" id="USv-7I-kED"/>
                             <constraint firstItem="RVB-y9-hAM" firstAttribute="bottom" secondItem="2Fp-zE-PnZ" secondAttribute="bottom" id="bk4-JZ-lF4"/>
                             <constraint firstItem="5Si-rV-gqI" firstAttribute="leading" secondItem="RVB-y9-hAM" secondAttribute="leading" constant="20" id="jwH-sp-ck2"/>
+                            <constraint firstItem="nmU-Qx-qw6" firstAttribute="centerX" secondItem="RVB-y9-hAM" secondAttribute="centerX" id="zIz-TL-J2i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RVB-y9-hAM"/>
                     </view>
                     <navigationItem key="navigationItem" id="Hua-yW-yHy">
-                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="kcT-yu-sWa"/>
+                        <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="kcT-yu-sWa">
+                            <connections>
+                                <action selector="touchInsideMenuButton:" destination="eb2-tr-cfT" id="TJF-SV-b48"/>
+                                <segue destination="ccm-z6-B7r" kind="custom" identifier="slideMenu" customClass="SegueFromLeft" customModule="harusal2_iOS" customModuleProvider="target" id="lGy-ta-juA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="bubble.right.fill" catalog="system" id="c2B-N0-KYi">
                             <connections>
                                 <segue destination="TR5-i2-vVt" kind="show" id="jI1-UQ-ZfB"/>
@@ -202,12 +225,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addreceiptButton" destination="nVa-qi-NTn" id="5hN-sN-pV1"/>
                         <outlet property="breakDownTV" destination="2Fp-zE-PnZ" id="HaD-Iy-cYR"/>
                         <outlet property="headerViewHeightConstraint" destination="T9I-iL-oiu" id="YdK-aI-KaJ"/>
                         <outlet property="imageViewHeightConstraint" destination="jbF-ml-PYm" id="23l-T5-uao"/>
                         <outlet property="menuBarButtonItem" destination="kcT-yu-sWa" id="ZFj-U0-5Rd"/>
                         <outlet property="receiptBarButtonItem" destination="c2B-N0-KYi" id="BNi-3p-oSN"/>
+                        <outlet property="slideMenuCenterX" destination="zIz-TL-J2i" id="g6B-Dh-Ihf"/>
+                        <outlet property="slideMenuView" destination="nmU-Qx-qw6" id="iUT-UT-OP9"/>
                         <outlet property="todayMoneyDescriptionLabel" destination="d8B-Si-fjE" id="FLB-jX-fwe"/>
                         <outlet property="todayMoneyLabel" destination="RSb-qR-efm" id="CUm-mh-Bzr"/>
                         <outlet property="todayMoneyLabelCenterX" destination="FGt-Pf-Q6g" id="yQV-Ad-mHC"/>
@@ -226,7 +250,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CQW-Ea-ghE">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="180" id="pEF-9v-C98" customClass="DayTVCell" customModule="harusal2_iOS" customModuleProvider="target">
@@ -333,20 +357,53 @@
             </objects>
             <point key="canvasLocation" x="3584.057971014493" y="102.45535714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Slide Menu View Controller-->
         <scene sceneID="PJ8-km-TMc">
             <objects>
-                <viewController id="ccm-z6-B7r" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yth-dH-1cO">
+                <viewController modalPresentationStyle="fullScreen" id="ccm-z6-B7r" customClass="SlideMenuViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yth-dH-1cO" customClass="Slide">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rP8-6V-e4k">
+                                <rect key="frame" x="20" y="165" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9Q-X9-3YS">
+                                <rect key="frame" x="20" y="233" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZpD-oK-TiW">
+                                <rect key="frame" x="20" y="306" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lE-qd-v6B">
+                                <rect key="frame" x="20" y="389" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHV-AJ-gQi">
+                                <rect key="frame" x="362" y="48" width="18" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="xmark" catalog="system"/>
+                                <connections>
+                                    <segue destination="eb2-tr-cfT" kind="custom" customClass="SegueCloseLeft" customModule="harusal2_iOS" customModuleProvider="target" id="jYa-ED-jTY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="9zt-cS-b1q"/>
                     </view>
+                    <navigationItem key="navigationItem" id="50a-Bt-VQr">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Btq-40-ZyS"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9j-SR-v4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4303" y="102"/>
+            <point key="canvasLocation" x="2996" y="812"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4U-Ms-V79">
@@ -366,12 +423,35 @@
             </objects>
             <point key="canvasLocation" x="1828.985507246377" y="105.80357142857143"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BFg-gU-4X1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sJh-OC-CZh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2O7-4C-CNA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ccm-z6-B7r" kind="relationship" relationship="rootViewController" id="dhc-l5-afp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NQI-he-sZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1829" y="765"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lGy-ta-juA"/>
+        <segue reference="jYa-ED-jTY"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="bubble.right.fill" catalog="system" width="128" height="110"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

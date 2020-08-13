@@ -12,19 +12,18 @@ import RxCocoa
 
 class HomeViewController: BaseViewController{
     
-    
     @IBOutlet weak var menuBarButtonItem : UIBarButtonItem!
     @IBOutlet weak var receiptBarButtonItem : UIBarButtonItem!
     @IBOutlet weak var todayMoneyDescriptionLabel : UILabel!
     @IBOutlet weak var todayMoneyLabel : UILabel!
-    @IBOutlet weak var addreceiptButton : UIButton!
+    @IBOutlet weak var slideMenuView: UIView!
     
     @IBOutlet weak var breakDownTV: UITableView!
     
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var todayMoneyLabelCenterX: NSLayoutConstraint!
-    
+    @IBOutlet weak var slideMenuCenterX: NSLayoutConstraint!
     
     let headerViewMaxHeight: CGFloat = 280
     let headerViewMinHeight: CGFloat = 140
@@ -32,24 +31,46 @@ class HomeViewController: BaseViewController{
     let imageViewMinHeight: CGFloat = 0
     let todayMoneyLabelMinX: CGFloat = -80
     let todayMoneyLabelMaxX: CGFloat = 0
+    var slideMenuMaxX : CGFloat!
+    var slideMenuMinX : CGFloat!
     
     let viewModel = HomeViewModel()
     let disposeBag = DisposeBag()
     
+    func prepareAnimation(){
+        slideMenuCenterX.constant = slideMenuMinX
+    }
+    
+    func openSlideMenu(){
+        slideMenuCenterX.constant = slideMenuMaxX
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func closeSlideMenu(){
+        slideMenuCenterX.constant = slideMenuMinX
+        view.layoutIfNeeded()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         breakDownTV.delegate = self
+        slideMenuMaxX = 0
+        slideMenuMinX = -self.view.bounds.maxX
+        
+        prepareAnimation()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        closeSlideMenu()
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     override func setConstraints() {
-        addreceiptButton.roundView(by: 2)
         self.view.backgroundColor = .orange
         breakDownTV.backgroundColor = .orange
-        
     }
     
     override func onBind() {
@@ -65,6 +86,22 @@ class HomeViewController: BaseViewController{
                    return UITableViewCell()
                 }
         }.disposed(by: disposeBag)
+        
+        menuBarButtonItem.rx.tap
+            .subscribe( onNext:
+                {
+//                    self.navigationController?.isNavigationBarHidden = true
+//                    self.openSlideMenu()
+//                    let slideMenu = self.storyboard?.instantiateViewController(withIdentifier: "slideMenu")
+//                    if let menu = slideMenu{
+//                        self.present(menu, animated: true, completion: nil)
+//                    } else{
+//                        return
+//                    }
+                    self.performSegue(withIdentifier: "slideMenu", sender: self)
+                })
+            .disposed(by: disposeBag)
+        
     }
     
     
