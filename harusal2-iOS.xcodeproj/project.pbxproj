@@ -28,11 +28,13 @@
 		EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */; };
 		EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842624DED0E30036902B /* BreakDownCell.swift */; };
 		EB53842924DED3F00036902B /* BreakDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842824DED3F00036902B /* BreakDown.swift */; };
-		EB53842B24DF054C0036902B /* HomeViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842A24DF054C0036902B /* HomeViewController+.swift */; };
+		EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842A24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift */; };
 		EB538BF924D7D2190074B752 /* DayTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BF824D7D2190074B752 /* DayTVCell.swift */; };
 		EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFA24D7D6BA0074B752 /* HomeListViewController.swift */; };
 		EB538BFD24D7F0050074B752 /* FirstTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFC24D7F0050074B752 /* FirstTVCell.swift */; };
 		EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */; };
+		EB5D46CE24E52C0C00E25800 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */; };
+		EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,11 +74,13 @@
 		EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EB53842624DED0E30036902B /* BreakDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDownCell.swift; sourceTree = "<group>"; };
 		EB53842824DED3F00036902B /* BreakDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDown.swift; sourceTree = "<group>"; };
-		EB53842A24DF054C0036902B /* HomeViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+.swift"; sourceTree = "<group>"; };
+		EB53842A24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		EB538BF824D7D2190074B752 /* DayTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTVCell.swift; sourceTree = "<group>"; };
 		EB538BFA24D7D6BA0074B752 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
 		EB538BFC24D7F0050074B752 /* FirstTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTVCell.swift; sourceTree = "<group>"; };
 		EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewModel.swift; sourceTree = "<group>"; };
+		EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
+		EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				EB4D09CF24D339E000DF65D6 /* UIView+.swift */,
-				EB53842A24DF054C0036902B /* HomeViewController+.swift */,
+				EB53842A24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -211,7 +215,11 @@
 		EB51E86424D09FAD00360B2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				307BCD5B24E0113D00A20E35 /* Init */,
+=======
+				EB5D46CC24E52BF700E25800 /* Menu */,
+>>>>>>> develop
 				EB538BF724D7D1960074B752 /* HomeList */,
 				EB51E86524D09FBF00360B2A /* Home */,
 			);
@@ -255,6 +263,15 @@
 				EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */,
 			);
 			path = HomeList;
+			sourceTree = "<group>";
+		};
+		EB5D46CC24E52BF700E25800 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */,
+				EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,14 +428,19 @@
 				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
 				307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */,
 				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
 				307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */,
+=======
+				EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */,
+>>>>>>> develop
 				EB53842924DED3F00036902B /* BreakDown.swift in Sources */,
 				EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */,
-				EB53842B24DF054C0036902B /* HomeViewController+.swift in Sources */,
+				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
 				EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */,
 				307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */,
 				EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */,
 				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
+				EB5D46CE24E52C0C00E25800 /* SlideMenuViewController.swift in Sources */,
 				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
 				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,
 				EB538BFD24D7F0050074B752 /* FirstTVCell.swift in Sources */,
