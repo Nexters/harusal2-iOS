@@ -215,11 +215,8 @@
 		EB51E86424D09FAD00360B2A /* View */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				307BCD5B24E0113D00A20E35 /* Init */,
-=======
 				EB5D46CC24E52BF700E25800 /* Menu */,
->>>>>>> develop
 				EB538BF724D7D1960074B752 /* HomeList */,
 				EB51E86524D09FBF00360B2A /* Home */,
 			);
@@ -428,11 +425,8 @@
 				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
 				307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */,
 				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
-<<<<<<< HEAD
 				307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */,
-=======
 				EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */,
->>>>>>> develop
 				EB53842924DED3F00036902B /* BreakDown.swift in Sources */,
 				EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */,
 				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
