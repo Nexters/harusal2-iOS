@@ -59,6 +59,8 @@ class HomeViewController: BaseViewController{
         slideMenuMaxX = 0
         slideMenuMinX = -self.view.bounds.maxX
         
+        aa = 100
+        
         prepareAnimation()
     }
     
