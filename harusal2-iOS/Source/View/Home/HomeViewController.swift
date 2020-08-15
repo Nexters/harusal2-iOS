@@ -16,14 +16,14 @@ class HomeViewController: BaseViewController{
     @IBOutlet weak var receiptBarButtonItem : UIBarButtonItem!
     @IBOutlet weak var todayMoneyDescriptionLabel : UILabel!
     @IBOutlet weak var todayMoneyLabel : UILabel!
-    @IBOutlet weak var slideMenuView: UIView!
+//    @IBOutlet weak var slideMenuView: UIView!
     
     @IBOutlet weak var breakDownTV: UITableView!
     
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var todayMoneyLabelCenterX: NSLayoutConstraint!
-    @IBOutlet weak var slideMenuCenterX: NSLayoutConstraint!
+//    @IBOutlet weak var slideMenuCenterX: NSLayoutConstraint!
     
     let headerViewMaxHeight: CGFloat = 280
     let headerViewMinHeight: CGFloat = 140
@@ -31,43 +31,38 @@ class HomeViewController: BaseViewController{
     let imageViewMinHeight: CGFloat = 0
     let todayMoneyLabelMinX: CGFloat = -80
     let todayMoneyLabelMaxX: CGFloat = 0
-    var slideMenuMaxX : CGFloat!
-    var slideMenuMinX : CGFloat!
+//    var slideMenuMaxX : CGFloat!
+//    var slideMenuMinX : CGFloat!
     
     let viewModel = HomeViewModel()
     let disposeBag = DisposeBag()
     
-    func prepareAnimation(){
-        slideMenuCenterX.constant = slideMenuMinX
-    }
+//    func prepareAnimation(){
+//        slideMenuCenterX.constant = slideMenuMinX
+//    }
     
-    func openSlideMenu(){
-        slideMenuCenterX.constant = slideMenuMaxX
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
+//    func openSlideMenu(){
+//        slideMenuCenterX.constant = slideMenuMaxX
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.view.layoutIfNeeded()
+//        })
+//    }
     
-    func closeSlideMenu(){
-        slideMenuCenterX.constant = slideMenuMinX
-        view.layoutIfNeeded()
-    }
+//    func closeSlideMenu(){
+//        slideMenuCenterX.constant = slideMenuMinX
+//        view.layoutIfNeeded()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        breakDownTV.delegate = self
-        slideMenuMaxX = 0
-        slideMenuMinX = -self.view.bounds.maxX
-        
-        aa = 100
-        
-        prepareAnimation()
+        breakDownTV.rx.setDelegate(self)
+        .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        closeSlideMenu()
-        self.navigationController?.isNavigationBarHidden = false
+//        closeSlideMenu()
+//        self.navigationController?.isNavigationBarHidden = false
     }
     
     override func setConstraints() {
@@ -88,6 +83,15 @@ class HomeViewController: BaseViewController{
                    return UITableViewCell()
                 }
         }.disposed(by: disposeBag)
+        
+        breakDownTV.rx.itemSelected.subscribe(onNext: { indexPath in
+            if let navi = self.navigationController, let storyBoard = self.storyboard {
+                let listDetailVC = storyBoard.instantiateViewController(identifier: "ListDetailViewController")
+                navi.pushViewController(listDetailVC, animated: true)
+            } else {
+                return
+            }
+        }).disposed(by: disposeBag)
         
         menuBarButtonItem.rx.tap
             .subscribe( onNext:

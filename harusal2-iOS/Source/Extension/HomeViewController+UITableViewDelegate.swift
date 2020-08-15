@@ -15,7 +15,7 @@ extension HomeViewController: UITableViewDelegate{
         let y: CGFloat = scrollView.contentOffset.y
         let newHeaderViewHeight: CGFloat = headerViewHeightConstraint.constant - y
         let newImageViewHeight: CGFloat = imageViewHeightConstraint.constant - y
-        let newTodayMoneyLabelCenterX: CGFloat = todayMoneyLabelCenterX.constant - y*4/7
+        let newTodayMoneyLabelCenterX: CGFloat = todayMoneyLabelCenterX.constant - y * 160/300
         
         print(y)
         

@@ -17,6 +17,8 @@
 		EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */; };
 		EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CD24D32EAE00DF65D6 /* HomeViewController.swift */; };
 		EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CF24D339E000DF65D6 /* UIView+.swift */; };
+		EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668824E78FA0004A9007 /* ListDetailViewController.swift */; };
+		EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668C24E79DD6004A9007 /* ListEditViewController.swift */; };
 		EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E83F24D09D7900360B2A /* AppDelegate.swift */; };
 		EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E84124D09D7900360B2A /* SceneDelegate.swift */; };
 		EB51E84724D09D7900360B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84524D09D7900360B2A /* Main.storyboard */; };
@@ -35,6 +37,7 @@
 		EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */; };
 		EB5D46CE24E52C0C00E25800 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */; };
 		EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */; };
+		EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,8 @@
 		EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EB4D09CD24D32EAE00DF65D6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EB4D09CF24D339E000DF65D6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		EB51668824E78FA0004A9007 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		EB51668C24E79DD6004A9007 /* ListEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditViewController.swift; sourceTree = "<group>"; };
 		EB51E83C24D09D7900360B2A /* harusal2-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "harusal2-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB51E83F24D09D7900360B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB51E84124D09D7900360B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +86,7 @@
 		EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewModel.swift; sourceTree = "<group>"; };
 		EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
+		EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueCloseLeft.swift; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +143,22 @@
 				EB53842A24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		EB51668724E78F5D004A9007 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				EB51668824E78FA0004A9007 /* ListDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		EB51668B24E79DC6004A9007 /* ListEdit */ = {
+			isa = PBXGroup;
+			children = (
+				EB51668C24E79DD6004A9007 /* ListEditViewController.swift */,
+			);
+			path = ListEdit;
 			sourceTree = "<group>";
 		};
 		EB51E83324D09D7900360B2A = {
@@ -254,6 +276,8 @@
 		EB538BF724D7D1960074B752 /* HomeList */ = {
 			isa = PBXGroup;
 			children = (
+				EB51668B24E79DC6004A9007 /* ListEdit */,
+				EB51668724E78F5D004A9007 /* Detail */,
 				EB538BF824D7D2190074B752 /* DayTVCell.swift */,
 				EB538BFA24D7D6BA0074B752 /* HomeListViewController.swift */,
 				EB538BFC24D7F0050074B752 /* FirstTVCell.swift */,
@@ -267,6 +291,7 @@
 			children = (
 				EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */,
 				EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */,
+				EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -420,6 +445,7 @@
 				EB51E86E24D0BD0500360B2A /* Money.swift in Sources */,
 				EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */,
 				EB538BF924D7D2190074B752 /* DayTVCell.swift in Sources */,
+				EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */,
 				EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */,
 				EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */,
 				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
@@ -434,8 +460,10 @@
 				307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */,
 				EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */,
 				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
+				EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */,
 				EB5D46CE24E52C0C00E25800 /* SlideMenuViewController.swift in Sources */,
 				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
+				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,
 				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,
 				EB538BFD24D7F0050074B752 /* FirstTVCell.swift in Sources */,
 				EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */,
