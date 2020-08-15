@@ -1,24 +1,28 @@
 //
-//  SlideMenuViewController.swift
+//  ListEditViewController.swift
 //  harusal2-iOS
 //
-//  Created by 지현우 on 2020/08/13.
+//  Created by 지현우 on 2020/08/15.
 //  Copyright © 2020 nexters. All rights reserved.
 //
 
 import UIKit
-import RxCocoa
 
-class SlideMenuViewController: BaseViewController {
+class ListEditViewController: BaseViewController {
 
-    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var segment: UISegmentedControl!
+    @IBOutlet weak var moneyTextField: UITextField!
+    @IBOutlet weak var desTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.title = "환경설정"
-        
+
         // Do any additional setup after loading the view.
+    }
+    
+    override func setConstraints() {
+        moneyTextField.keyboardType = .numberPad
     }
     
 
