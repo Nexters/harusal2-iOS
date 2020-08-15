@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		307BCD5A24E00F5300A20E35 /* Sub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307BCD5924E00F5300A20E35 /* Sub.storyboard */; };
+		307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */; };
+		307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5E24E0116900A20E35 /* InitDayViewController.swift */; };
+		307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */; };
 		3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */; };
 		EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */; };
 		EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */; };
@@ -47,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		307BCD5924E00F5300A20E35 /* Sub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sub.storyboard; sourceTree = "<group>"; };
+		307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitMoneyViewController.swift; sourceTree = "<group>"; };
+		307BCD5E24E0116900A20E35 /* InitDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayViewController.swift; sourceTree = "<group>"; };
+		307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayPickerViewController.swift; sourceTree = "<group>"; };
 		8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_harusal2_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.debug.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +117,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		307BCD5B24E0113D00A20E35 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */,
+				307BCD5E24E0116900A20E35 /* InitDayViewController.swift */,
+				307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
 		ACD9FDDD7EABD99B3E46073E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +187,7 @@
 				EB51E86124D09F9800360B2A /* Source */,
 				EB51E83F24D09D7900360B2A /* AppDelegate.swift */,
 				EB51E84524D09D7900360B2A /* Main.storyboard */,
+				307BCD5924E00F5300A20E35 /* Sub.storyboard */,
 				EB51E84124D09D7900360B2A /* SceneDelegate.swift */,
 				EB51E84824D09D7900360B2A /* Assets.xcassets */,
 				EB51E84A24D09D7900360B2A /* LaunchScreen.storyboard */,
@@ -218,6 +237,7 @@
 		EB51E86424D09FAD00360B2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				307BCD5B24E0113D00A20E35 /* Init */,
 				EB5D46CC24E52BF700E25800 /* Menu */,
 				EB538BF724D7D1960074B752 /* HomeList */,
 				EB51E86524D09FBF00360B2A /* Home */,
@@ -362,6 +382,7 @@
 				EB51E84C24D09D7900360B2A /* LaunchScreen.storyboard in Resources */,
 				EB51E84924D09D7900360B2A /* Assets.xcassets in Resources */,
 				EB51E84724D09D7900360B2A /* Main.storyboard in Resources */,
+				307BCD5A24E00F5300A20E35 /* Sub.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,12 +449,15 @@
 				EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */,
 				EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */,
 				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
+				307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */,
 				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
+				307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */,
 				EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */,
 				EB53842924DED3F00036902B /* BreakDown.swift in Sources */,
 				EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */,
 				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
 				EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */,
+				307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */,
 				EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */,
 				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
 				EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */,

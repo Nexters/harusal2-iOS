@@ -16,6 +16,8 @@ class HomeViewModel : ViewModelType{
 
     
     
+    
+    
     struct Inputs {
         
     }

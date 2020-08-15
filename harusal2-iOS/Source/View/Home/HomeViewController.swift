@@ -57,11 +57,6 @@ class HomeViewController: BaseViewController{
         super.viewDidLoad()
         breakDownTV.rx.setDelegate(self)
         .disposed(by: disposeBag)
-        
-//        slideMenuMaxX = 0
-//        slideMenuMinX = -self.view.bounds.maxX
-//
-//        prepareAnimation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
