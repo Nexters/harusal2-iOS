@@ -19,6 +19,7 @@
 		EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CF24D339E000DF65D6 /* UIView+.swift */; };
 		EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668824E78FA0004A9007 /* ListDetailViewController.swift */; };
 		EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668C24E79DD6004A9007 /* ListEditViewController.swift */; };
+		EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668E24E7CE50004A9007 /* UITextField+.swift */; };
 		EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E83F24D09D7900360B2A /* AppDelegate.swift */; };
 		EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E84124D09D7900360B2A /* SceneDelegate.swift */; };
 		EB51E84724D09D7900360B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84524D09D7900360B2A /* Main.storyboard */; };
@@ -64,6 +65,7 @@
 		EB4D09CF24D339E000DF65D6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EB51668824E78FA0004A9007 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		EB51668C24E79DD6004A9007 /* ListEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditViewController.swift; sourceTree = "<group>"; };
+		EB51668E24E7CE50004A9007 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		EB51E83C24D09D7900360B2A /* harusal2-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "harusal2-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB51E83F24D09D7900360B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB51E84124D09D7900360B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			children = (
 				EB4D09CF24D339E000DF65D6 /* UIView+.swift */,
 				EB53842A24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift */,
+				EB51668E24E7CE50004A9007 /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB51E86E24D0BD0500360B2A /* Money.swift in Sources */,
+				EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */,
 				EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */,
 				EB538BF924D7D2190074B752 /* DayTVCell.swift in Sources */,
 				EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */,

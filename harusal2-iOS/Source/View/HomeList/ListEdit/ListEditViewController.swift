@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ListEditViewController: BaseViewController {
 
@@ -14,18 +16,54 @@ class ListEditViewController: BaseViewController {
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var desTextField: UITextField!
+    let disposeBag = DisposeBag()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        desTextField.addDoneButtonOnDesKeyboard()
+        moneyTextField.addDoneButtonOnDesKeyboard()
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func onBind() {
+        
+        NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+            .subscribe(onNext: { notification in
+                print("hide")
+                print(self.view.frame.origin.y)
+                
+                self.view.frame.origin.y = .zero
+                
+            }).disposed(by: disposeBag)
+        
+            
+        
+        NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
+                   .subscribe(onNext: { notification in
+                    print("show")
+                    if let keyboard = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+                        self.desTextField.isEditing == true, self.view.frame.origin.y == 0 {
+                           let keyboardHeight = keyboard.cgRectValue.height
+                        self.view.frame.origin.y -= keyboardHeight/3
+                       } else {
+                           return
+                       }
+                    
+                   }).disposed(by: disposeBag)
+        
+       
     }
     
     override func setConstraints() {
         moneyTextField.keyboardType = .numberPad
     }
     
-
+    
+    
     /*
     // MARK: - Navigation
 
