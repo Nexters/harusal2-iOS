@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R1a-pc-fcP">
-                                <rect key="frame" x="20" y="218" width="374" height="104.5"/>
+                                <rect key="frame" x="20" y="218" width="374" height="84"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 달 예산은 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVL-Zi-e8M">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
@@ -98,33 +98,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiP-Gl-Gw3">
-                                        <rect key="frame" x="0.0" y="84" width="374" height="20.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="하루 생활비" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD7-0B-EJQ" userLabel="하루 생활비">
-                                                <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="90" id="sOw-sw-muY"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="10000원" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-KO-Pyd" userLabel="하루 생활비">
-                                                <rect key="frame" x="90" y="0.0" width="284" height="20.5"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="f8T-Jj-DAo"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="한달 예산을 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="654-M3-I5f">
-                                <rect key="frame" x="20" y="372.5" width="374" height="60"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="한달 예산을 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="654-M3-I5f">
+                                <rect key="frame" x="20" y="352" width="374" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="5QR-W7-fhs"/>
                                 </constraints>
@@ -135,18 +112,41 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30만원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UO7-WD-nvL">
-                                <rect key="frame" x="20" y="442.5" width="50" height="20.5"/>
+                                <rect key="frame" x="20" y="422" width="50" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jL-2B-SnH">
-                                <rect key="frame" x="359" y="387.5" width="30" height="30"/>
+                                <rect key="frame" x="359" y="367" width="30" height="30"/>
                                 <state key="normal" title="X"/>
                                 <connections>
                                     <action selector="clearTextField:" destination="mDv-pV-a2i" eventType="touchUpInside" id="uWY-YB-Pt8"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JiP-Gl-Gw3">
+                                <rect key="frame" x="20" y="450" width="154" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="하루 생활비" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD7-0B-EJQ" userLabel="하루 생활비">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="sOw-sw-muY"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="10000원" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6S-KO-Pyd" userLabel="하루 생활비">
+                                        <rect key="frame" x="90" y="0.0" width="64" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="f8T-Jj-DAo"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
@@ -172,7 +172,10 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="예산 설정" id="e79-vg-Nv1">
-                        <barButtonItem key="rightBarButtonItem" id="We4-Ka-qBX"/>
+                        <rightBarButtonItems>
+                            <barButtonItem id="We4-Ka-qBX"/>
+                            <barButtonItem title="X" id="tXv-ky-T3T"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="budgetLabel" destination="UO7-WD-nvL" id="Bj4-zS-dwJ"/>
@@ -265,21 +268,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ew2-Cr-GEG">
                                 <rect key="frame" x="20" y="218" width="374" height="105"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="생활비 사용 기간은 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFF-m5-D3C">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="42.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="매달 시작일자를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFF-m5-D3C">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="63"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="7.22 ~ 8.21입니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2m-LD-nmN">
-                                        <rect key="frame" x="0.0" y="42.5" width="374" height="42"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="골라주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2m-LD-nmN">
+                                        <rect key="frame" x="0.0" y="63" width="374" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매달 시작일자를 골라주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ka-4i-Vow">
-                                        <rect key="frame" x="0.0" y="84.5" width="374" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -293,6 +290,13 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGd-xy-wwY">
                                 <rect key="frame" x="0.0" y="353" width="414" height="216"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="생활비 사용 기한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1S-Xb-WlT">
+                                <rect key="frame" x="34" y="732" width="112" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
