@@ -39,6 +39,7 @@
 		EB5D46CE24E52C0C00E25800 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */; };
 		EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */; };
 		EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */; };
+		EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F4EEA24EBD0C200D35DBB /* Converter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueCloseLeft.swift; sourceTree = "<group>"; };
+		EB7F4EEA24EBD0C200D35DBB /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +235,7 @@
 			children = (
 				EB51E86D24D0BD0500360B2A /* Money.swift */,
 				EB53842824DED3F00036902B /* BreakDown.swift */,
+				EB7F4EEA24EBD0C200D35DBB /* Converter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB51E86E24D0BD0500360B2A /* Money.swift in Sources */,
+				EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */,
 				EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */,
 				EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */,
 				EB538BF924D7D2190074B752 /* DayTVCell.swift in Sources */,

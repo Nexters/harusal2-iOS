@@ -7,9 +7,23 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct BreakDown {
-    var isIncome: Bool
-    var price : Int
-    var content: String
+@objcMembers class BreakDown : Object {
+    dynamic var id: Int = 0
+    dynamic var date: String = ""
+    dynamic var amount: Int = 0
+    dynamic var content: String = ""
+    dynamic var type: Int = 0
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    func autoIncrementKey() -> Int{
+        let realm = try! Realm()
+        return (realm.objects(BreakDown.self).max(ofProperty: "id")
+            as Int? ?? 0) + 1
+    }
+    
 }

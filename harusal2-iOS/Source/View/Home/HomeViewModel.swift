@@ -33,18 +33,18 @@ class HomeViewModel : ViewModelType{
     
     func setDummyData(){
         var arr : [BreakDown] = []
-        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
-        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
-        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
-        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
-        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
-        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
-        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
-        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
-        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
-        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
-        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
-        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
+//        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
+//        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
+//        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
+//        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
+//        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
+//        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
+//        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
+//        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
+//        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
+//        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
+//        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
+//        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
         useList.accept(useList.value + arr)
     }
     

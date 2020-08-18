@@ -17,8 +17,8 @@ class BreakDownCell: UITableViewCell {
     @IBOutlet weak var showDetailButton: UIButton!
     
     func update(_ breakDown: BreakDown){
-        self.priceLabel.text = String(breakDown.price)
-        if breakDown.isIncome {
+        self.priceLabel.text = String(breakDown.amount)
+        if breakDown.type == 0 {
             self.priceLabel.textColor = .blue
         }
         else{
