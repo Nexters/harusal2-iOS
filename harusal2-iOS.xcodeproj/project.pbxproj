@@ -27,7 +27,6 @@
 		EB51E84C24D09D7900360B2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84A24D09D7900360B2A /* LaunchScreen.storyboard */; };
 		EB51E85724D09D7A00360B2A /* harusal2_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E85624D09D7A00360B2A /* harusal2_iOSUITests.swift */; };
 		EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E86724D09FE600360B2A /* BaseViewController.swift */; };
-		EB51E86E24D0BD0500360B2A /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E86D24D0BD0500360B2A /* Money.swift */; };
 		EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */; };
 		EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842624DED0E30036902B /* BreakDownCell.swift */; };
 		EB53842924DED3F00036902B /* BreakDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB53842824DED3F00036902B /* BreakDown.swift */; };
@@ -40,6 +39,7 @@
 		EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */; };
 		EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */; };
 		EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F4EEA24EBD0C200D35DBB /* Converter.swift */; };
+		EB7F4EEF24EC078700D35DBB /* DBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F4EEE24EC078700D35DBB /* DBRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +78,6 @@
 		EB51E85624D09D7A00360B2A /* harusal2_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = harusal2_iOSUITests.swift; sourceTree = "<group>"; };
 		EB51E85824D09D7A00360B2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB51E86724D09FE600360B2A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		EB51E86D24D0BD0500360B2A /* Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EB53842624DED0E30036902B /* BreakDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDownCell.swift; sourceTree = "<group>"; };
 		EB53842824DED3F00036902B /* BreakDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDown.swift; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
 		EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueCloseLeft.swift; sourceTree = "<group>"; };
 		EB7F4EEA24EBD0C200D35DBB /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		EB7F4EEE24EC078700D35DBB /* DBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRepository.swift; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,10 +213,10 @@
 		EB51E86124D09F9800360B2A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				EB7F4EEC24EC075900D35DBB /* Data */,
 				EB4D09D124D33BE000DF65D6 /* Extension */,
 				EB51E86224D09FA000360B2A /* Base */,
 				EB51E86424D09FAD00360B2A /* View */,
-				EB51E86324D09FA800360B2A /* Model */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -233,9 +233,7 @@
 		EB51E86324D09FA800360B2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB51E86D24D0BD0500360B2A /* Money.swift */,
 				EB53842824DED3F00036902B /* BreakDown.swift */,
-				EB7F4EEA24EBD0C200D35DBB /* Converter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,6 +298,24 @@
 				EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		EB7F4EEC24EC075900D35DBB /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EB7F4EEA24EBD0C200D35DBB /* Converter.swift */,
+				EB7F4EED24EC076500D35DBB /* Repository */,
+				EB51E86324D09FA800360B2A /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EB7F4EED24EC076500D35DBB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EB7F4EEE24EC078700D35DBB /* DBRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,7 +464,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB51E86E24D0BD0500360B2A /* Money.swift in Sources */,
 				EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */,
 				EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */,
 				EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */,
@@ -473,6 +488,7 @@
 				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
 				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,
 				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,
+				EB7F4EEF24EC078700D35DBB /* DBRepository.swift in Sources */,
 				EB538BFD24D7F0050074B752 /* FirstTVCell.swift in Sources */,
 				EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */,
 			);

@@ -14,6 +14,7 @@ class HomeViewModel : ViewModelType{
     
     let useList = BehaviorRelay<[BreakDown]>(value: [])// BehaviorSubject로 한 이유 : VC에서 ViewModel을 먼저 생성하기 때문에,
 
+    let db = DBRepository.shared // 싱글톤
     
     
     
@@ -27,25 +28,15 @@ class HomeViewModel : ViewModelType{
     }
     
     init() {
-        setDummyData()
+        getAllData()
     }
     
     
-    func setDummyData(){
-        var arr : [BreakDown] = []
-//        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
-//        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
-//        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
-//        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
-//        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
-//        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
-//        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
-//        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
-//        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
-//        arr.append(BreakDown(isIncome: true,price: 1000, content: "돈 주움"))
-//        arr.append(BreakDown(isIncome: false,price: 4000, content: "떡볶이 사머금"))
-//        arr.append(BreakDown(isIncome: true,price: 100000, content: "용돈 받았어"))
-        useList.accept(useList.value + arr)
+    
+    func getAllData(){
+        let arr = db.readAllData()
+        useList.accept( useList.value + arr )
+        
     }
     
 }
