@@ -16,6 +16,7 @@ class ListEditViewController: BaseViewController {
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var desTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     let disposeBag = DisposeBag()
     
     
@@ -31,31 +32,45 @@ class ListEditViewController: BaseViewController {
     
     override func onBind() {
         
-        NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
-            .subscribe(onNext: { notification in
-                print("hide")
-                print(self.view.frame.origin.y)
-                
-                self.view.frame.origin.y = .zero
-                
-            }).disposed(by: disposeBag)
-        
-            
-        
-        NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
-                   .subscribe(onNext: { notification in
-                    print("show")
-                    if let keyboard = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-                        self.desTextField.isEditing == true, self.view.frame.origin.y == 0 {
-                           let keyboardHeight = keyboard.cgRectValue.height
-                        self.view.frame.origin.y -= keyboardHeight/3
-                       } else {
-                           return
-                       }
-                    
-                   }).disposed(by: disposeBag)
+        hideKeyboard()
+        showKeyboard()
+        saveInfo()
         
        
+    }
+    
+    private func saveInfo(){
+        saveButton.rx.tap
+            .subscribe(onNext: {
+                //정보 저장
+                if let navi = self.navigationController {
+                    navi.popViewController(animated: true)
+                }else{
+                    return
+                }
+            }).disposed(by: disposeBag)
+    }
+    
+    private func hideKeyboard(){
+        NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+        .subscribe(onNext: { notification in
+                self.view.frame.origin.y = .zero
+            }).disposed(by: disposeBag)
+    }
+    
+    private func showKeyboard(){
+        NotificationCenter.default
+            .rx
+            .notification(UIResponder.keyboardWillShowNotification)
+            .subscribe(onNext: { notification in
+                    if let keyboard = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+                    self.desTextField.isEditing == true, self.view.frame.origin.y == 0 {
+                        let keyboardHeight = keyboard.cgRectValue.height
+                        self.view.frame.origin.y -= keyboardHeight/3
+                    } else {
+                        return
+                    }
+                }).disposed(by: disposeBag)
     }
     
     override func setConstraints() {

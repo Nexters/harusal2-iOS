@@ -454,6 +454,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS5-dO-73L">
+                                <rect key="frame" x="100" y="834" width="214" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="저장하기"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -470,9 +475,11 @@
                             <constraint firstItem="CCf-IO-pKy" firstAttribute="top" secondItem="ign-LU-RbX" secondAttribute="bottom" constant="10" id="ObF-Z7-TOA"/>
                             <constraint firstItem="CCf-IO-pKy" firstAttribute="trailing" secondItem="ign-LU-RbX" secondAttribute="trailing" id="PAy-cq-ZQo"/>
                             <constraint firstItem="CCf-IO-pKy" firstAttribute="leading" secondItem="ign-LU-RbX" secondAttribute="leading" id="Va1-zT-etf"/>
+                            <constraint firstItem="gS5-dO-73L" firstAttribute="centerX" secondItem="oeb-7r-MSv" secondAttribute="centerX" id="dYr-3B-SA1"/>
                             <constraint firstItem="hxq-FR-gFn" firstAttribute="top" secondItem="3Nz-m6-tEl" secondAttribute="bottom" constant="50" id="k3D-tf-pKN"/>
                             <constraint firstItem="CCf-IO-pKy" firstAttribute="firstBaseline" secondItem="ign-LU-RbX" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="lwQ-Dg-GUP"/>
                             <constraint firstItem="VZd-6o-Wlz" firstAttribute="top" secondItem="CCf-IO-pKy" secondAttribute="bottom" constant="50" id="mHJ-Wp-D16"/>
+                            <constraint firstItem="gS5-dO-73L" firstAttribute="bottom" secondItem="oeb-7r-MSv" secondAttribute="bottom" constant="16" id="odx-oE-cuh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oeb-7r-MSv"/>
                     </view>
@@ -480,6 +487,7 @@
                         <outlet property="dateLabel" destination="3Nz-m6-tEl" id="OAF-iD-Tgf"/>
                         <outlet property="desTextField" destination="nHB-xO-t8y" id="FCx-Tb-atc"/>
                         <outlet property="moneyTextField" destination="CCf-IO-pKy" id="pCV-D2-M2F"/>
+                        <outlet property="saveButton" destination="gS5-dO-73L" id="El3-vg-oMd"/>
                         <outlet property="segment" destination="ign-LU-RbX" id="yUq-hP-1jj"/>
                     </connections>
                 </viewController>
@@ -631,6 +639,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9j-SR-v4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="665" y="119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4U-Ms-V79">
