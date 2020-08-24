@@ -49,6 +49,19 @@ class ListEditViewController: BaseViewController {
         }
     }
     
+    @IBAction func tappedBG(_ sender: Any) {
+        if dateTextField.isEditing == true{
+            print("1")
+            dateTextField.resignFirstResponder()
+        } else if moneyTextField.isEditing == true{
+            print("2")
+            moneyTextField.resignFirstResponder()
+        } else{
+            print("3")
+            desTextField.resignFirstResponder()
+        }
+    }
+    
     private func createDatePicker(){
         //toolbar
         let toolbar = UIToolbar()

@@ -66,6 +66,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        breakDownTV.reloadData()
     }
     
     override func setConstraints() {

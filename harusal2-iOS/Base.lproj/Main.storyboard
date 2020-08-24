@@ -494,6 +494,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="oeb-7r-MSv" firstAttribute="trailing" secondItem="ign-LU-RbX" secondAttribute="trailing" constant="12" id="5s4-Tc-muh"/>
                             <constraint firstItem="nHB-xO-t8y" firstAttribute="leading" secondItem="CCf-IO-pKy" secondAttribute="leading" id="8LL-nK-VPj"/>
@@ -518,6 +519,9 @@
                             <constraint firstItem="x16-km-7x8" firstAttribute="top" secondItem="5bC-v6-Q4U" secondAttribute="bottom" constant="12" id="yPm-il-mZp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oeb-7r-MSv"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="m6c-Qv-4BQ" appends="YES" id="fXf-ee-Jyr"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateTextField" destination="7NQ-G1-Cdz" id="jfB-tD-Wxr"/>
@@ -530,6 +534,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Po5-ff-RIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="m6c-Qv-4BQ">
+                    <connections>
+                        <action selector="tappedBG:" destination="UIn-Z1-H9p" id="3xV-da-Ewu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5069.5652173913049" y="101.78571428571428"/>
         </scene>
@@ -720,7 +729,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lGy-ta-juA"/>
         <segue reference="A2h-BA-4Bh"/>
     </inferredMetricsTieBreakers>
     <resources>
