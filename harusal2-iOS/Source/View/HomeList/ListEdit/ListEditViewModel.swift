@@ -17,15 +17,16 @@ class ListEditViewModel{
     }
     
     
-    
     var breakDown : BreakDown?
     
-    func updateData(){
+    func updateData(date: String?, amount: Int?, content: String?, type: Int){
         
-        guard let data = breakDown, let date = self.date else{
+        guard let data = breakDown else{
             return
         }
-        data.update(date: date, amount: data.amount+100, content: data.content, type: data.type)
+        let numberFormatter = NumberFormatter()
+        
+        data.update(date: date!, amount: amount ?? 0, content: content ?? "", type: type)
         
     }
     

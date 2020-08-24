@@ -59,8 +59,6 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         viewModel.getAllData{
             self.breakDownTV.reloadData()
         }
-//        breakDownTV.rx.setDelegate(self)
-//        .disposed(by: disposeBag)
         
     }
     

@@ -96,7 +96,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SR8-4A-On5">
-                                                    <rect key="frame" x="140" y="19.5" width="62" height="21"/>
+                                                    <rect key="frame" x="122" y="19.5" width="163" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="163" id="7tW-b1-PBm"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -106,15 +109,18 @@
                                                     <state key="normal" image="arrow.right.circle" catalog="system"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZi-f0-yFx">
-                                                    <rect key="frame" x="10" y="18" width="48.5" height="24"/>
+                                                    <rect key="frame" x="10" y="18" width="100" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="lyJ-Yw-wAR"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="SR8-4A-On5" firstAttribute="leading" secondItem="ygp-WS-VUq" secondAttribute="leading" constant="140" id="3qk-HG-HO9"/>
                                                 <constraint firstItem="SR8-4A-On5" firstAttribute="centerY" secondItem="zZi-f0-yFx" secondAttribute="centerY" id="Y8y-yt-tPO"/>
+                                                <constraint firstItem="SR8-4A-On5" firstAttribute="leading" secondItem="zZi-f0-yFx" secondAttribute="trailing" constant="12" id="gQF-7U-wrS"/>
                                                 <constraint firstItem="zZi-f0-yFx" firstAttribute="leading" secondItem="ygp-WS-VUq" secondAttribute="leading" constant="10" id="mex-m7-UgH"/>
                                                 <constraint firstItem="zZi-f0-yFx" firstAttribute="centerY" secondItem="ygp-WS-VUq" secondAttribute="centerY" id="o9T-Ab-E4k"/>
                                                 <constraint firstItem="x5V-Qg-8Vn" firstAttribute="centerY" secondItem="SR8-4A-On5" secondAttribute="centerY" id="owv-v8-8iO"/>
@@ -468,7 +474,7 @@
                                     <constraint firstAttribute="height" constant="56" id="EUB-wL-un5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZd-6o-Wlz">
                                 <rect key="frame" x="20" y="404" width="35" height="24"/>
