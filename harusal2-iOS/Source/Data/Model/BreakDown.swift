@@ -26,4 +26,15 @@ import RealmSwift
             as Int? ?? 0) + 1
     }
     
+    func update(date: String, amount: Int, content: String, type: Int){
+        try! realm?.write{
+            self.date=date
+            self.amount=amount
+            self.content=content
+            self.type=type
+        }
+    }
+    
+    
+    
 }

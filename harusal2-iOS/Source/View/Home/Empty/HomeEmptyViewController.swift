@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
 
 class HomeEmptyViewController: BaseViewController {
 
@@ -34,7 +32,6 @@ class HomeEmptyViewController: BaseViewController {
     }
     
     override func setConstraints() {
-        
         label.preferredMaxLayoutWidth = 176
         containsetDepositButtonView.roundView(by: 80)
     }

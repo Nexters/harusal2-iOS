@@ -128,6 +128,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="eb2-tr-cfT" id="HbR-aC-BQK"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IB-LX-lfo">
                                 <rect key="frame" x="0.0" y="44" width="414" height="300"/>
@@ -187,7 +190,7 @@
                     <navigationItem key="navigationItem" id="Hua-yW-yHy">
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="kcT-yu-sWa">
                             <connections>
-                                <action selector="touchInsideMenuButton:" destination="eb2-tr-cfT" id="TJF-SV-b48"/>
+                                <action selector="tappedMenuBarButton:" destination="eb2-tr-cfT" id="tJI-bV-FOS"/>
                                 <segue destination="oYc-Am-uLg" kind="custom" identifier="slideMenu" customClass="SegueFromLeft" customModule="harusal2_iOS" customModuleProvider="target" id="lGy-ta-juA"/>
                             </connections>
                         </barButtonItem>
@@ -370,6 +373,9 @@
                                 <rect key="frame" x="100" y="828" width="214" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="수정하기"/>
+                                <connections>
+                                    <action selector="tappedEditButton:" destination="41A-p0-OfG" eventType="touchUpInside" id="PW8-Eb-uSA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -410,30 +416,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.08.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nz-m6-tEl">
-                                <rect key="frame" x="20" y="136" width="149" height="34"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bC-v6-Q4U">
+                                <rect key="frame" x="20" y="76" width="35" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x16-km-7x8">
+                                <rect key="frame" x="20" y="112" width="374" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="오늘날짜" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7NQ-G1-Cdz">
+                                        <rect key="frame" x="8" y="13" width="366" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4k2-b6-BAW">
+                                        <rect key="frame" x="341" y="19" width="21" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="calendar" catalog="system"/>
+                                        <connections>
+                                            <action selector="tappedSelectDateButton:" destination="UIn-Z1-H9p" eventType="touchUpInside" id="vge-5g-Qn7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="18N-LL-LR7"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="금액" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxq-FR-gFn">
-                                <rect key="frame" x="20" y="220" width="35" height="24"/>
+                                <rect key="frame" x="20" y="212" width="35" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ign-LU-RbX">
-                                <rect key="frame" x="12" y="256" width="390" height="41"/>
+                                <rect key="frame" x="12" y="248" width="390" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="FK3-dn-tus"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="나간 돈"/>
+                                    <segment title="들어온 돈"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="1" green="0.74680204459999999" blue="0.42836287429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCf-IO-pKy">
-                                <rect key="frame" x="12" y="306" width="390" height="56"/>
+                                <rect key="frame" x="12" y="298" width="390" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="EUB-wL-un5"/>
                                 </constraints>
@@ -441,59 +471,67 @@
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내역" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZd-6o-Wlz">
-                                <rect key="frame" x="20" y="412" width="35" height="24"/>
+                                <rect key="frame" x="20" y="404" width="35" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHB-xO-t8y">
-                                <rect key="frame" x="12" y="446" width="390" height="56"/>
+                                <rect key="frame" x="12" y="438" width="390" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="x4n-DD-avK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS5-dO-73L">
-                                <rect key="frame" x="100" y="834" width="214" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS5-dO-73L">
+                                <rect key="frame" x="162" y="834" width="90" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="저장하기"/>
+                                <connections>
+                                    <action selector="saveInfo:" destination="UIn-Z1-H9p" eventType="touchUpInside" id="3v4-fX-20T"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="3Nz-m6-tEl" firstAttribute="leading" secondItem="oeb-7r-MSv" secondAttribute="leading" constant="20" id="4Yb-5z-ROc"/>
                             <constraint firstItem="oeb-7r-MSv" firstAttribute="trailing" secondItem="ign-LU-RbX" secondAttribute="trailing" constant="12" id="5s4-Tc-muh"/>
-                            <constraint firstItem="hxq-FR-gFn" firstAttribute="leading" secondItem="3Nz-m6-tEl" secondAttribute="leading" id="7Cj-06-Cao"/>
                             <constraint firstItem="nHB-xO-t8y" firstAttribute="leading" secondItem="CCf-IO-pKy" secondAttribute="leading" id="8LL-nK-VPj"/>
                             <constraint firstItem="nHB-xO-t8y" firstAttribute="trailing" secondItem="CCf-IO-pKy" secondAttribute="trailing" id="BSG-TN-oEg"/>
-                            <constraint firstItem="3Nz-m6-tEl" firstAttribute="top" secondItem="oeb-7r-MSv" secondAttribute="top" constant="92" id="DcS-95-OvA"/>
+                            <constraint firstItem="5bC-v6-Q4U" firstAttribute="top" secondItem="oeb-7r-MSv" secondAttribute="top" constant="32" id="Ev5-N3-FeQ"/>
                             <constraint firstItem="ign-LU-RbX" firstAttribute="leading" secondItem="oeb-7r-MSv" secondAttribute="leading" constant="12" id="Fku-08-JT1"/>
                             <constraint firstItem="nHB-xO-t8y" firstAttribute="top" secondItem="VZd-6o-Wlz" secondAttribute="bottom" constant="10" id="GDt-Qo-yla"/>
                             <constraint firstItem="ign-LU-RbX" firstAttribute="top" secondItem="hxq-FR-gFn" secondAttribute="bottom" constant="12" id="GFh-xB-1Lc"/>
+                            <constraint firstItem="5bC-v6-Q4U" firstAttribute="leading" secondItem="oeb-7r-MSv" secondAttribute="leading" constant="20" id="HcQ-nl-alx"/>
                             <constraint firstItem="VZd-6o-Wlz" firstAttribute="leading" secondItem="hxq-FR-gFn" secondAttribute="leading" id="KFw-OU-rfw"/>
                             <constraint firstItem="CCf-IO-pKy" firstAttribute="top" secondItem="ign-LU-RbX" secondAttribute="bottom" constant="10" id="ObF-Z7-TOA"/>
+                            <constraint firstItem="hxq-FR-gFn" firstAttribute="top" secondItem="x16-km-7x8" secondAttribute="bottom" constant="40" id="Ojg-th-cGd"/>
                             <constraint firstItem="CCf-IO-pKy" firstAttribute="trailing" secondItem="ign-LU-RbX" secondAttribute="trailing" id="PAy-cq-ZQo"/>
+                            <constraint firstItem="oeb-7r-MSv" firstAttribute="trailing" secondItem="x16-km-7x8" secondAttribute="trailing" constant="20" id="Tnv-oD-Umg"/>
                             <constraint firstItem="CCf-IO-pKy" firstAttribute="leading" secondItem="ign-LU-RbX" secondAttribute="leading" id="Va1-zT-etf"/>
+                            <constraint firstItem="hxq-FR-gFn" firstAttribute="leading" secondItem="5bC-v6-Q4U" secondAttribute="leading" id="Y16-Q5-Dkd"/>
+                            <constraint firstItem="x16-km-7x8" firstAttribute="leading" secondItem="oeb-7r-MSv" secondAttribute="leading" constant="20" id="aCr-fJ-15R"/>
                             <constraint firstItem="gS5-dO-73L" firstAttribute="centerX" secondItem="oeb-7r-MSv" secondAttribute="centerX" id="dYr-3B-SA1"/>
-                            <constraint firstItem="hxq-FR-gFn" firstAttribute="top" secondItem="3Nz-m6-tEl" secondAttribute="bottom" constant="50" id="k3D-tf-pKN"/>
                             <constraint firstItem="CCf-IO-pKy" firstAttribute="firstBaseline" secondItem="ign-LU-RbX" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="lwQ-Dg-GUP"/>
                             <constraint firstItem="VZd-6o-Wlz" firstAttribute="top" secondItem="CCf-IO-pKy" secondAttribute="bottom" constant="50" id="mHJ-Wp-D16"/>
                             <constraint firstItem="gS5-dO-73L" firstAttribute="bottom" secondItem="oeb-7r-MSv" secondAttribute="bottom" constant="16" id="odx-oE-cuh"/>
+                            <constraint firstItem="x16-km-7x8" firstAttribute="top" secondItem="5bC-v6-Q4U" secondAttribute="bottom" constant="12" id="yPm-il-mZp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oeb-7r-MSv"/>
                     </view>
                     <connections>
-                        <outlet property="dateLabel" destination="3Nz-m6-tEl" id="OAF-iD-Tgf"/>
+                        <outlet property="dateTextField" destination="7NQ-G1-Cdz" id="jfB-tD-Wxr"/>
+                        <outlet property="dateView" destination="x16-km-7x8" id="P0D-A3-PnI"/>
                         <outlet property="desTextField" destination="nHB-xO-t8y" id="FCx-Tb-atc"/>
                         <outlet property="moneyTextField" destination="CCf-IO-pKy" id="pCV-D2-M2F"/>
                         <outlet property="saveButton" destination="gS5-dO-73L" id="El3-vg-oMd"/>
                         <outlet property="segment" destination="ign-LU-RbX" id="yUq-hP-1jj"/>
+                        <outlet property="selectDateButton" destination="4k2-b6-BAW" id="pGh-Le-oyw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Po5-ff-RIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5071" y="102"/>
+            <point key="canvasLocation" x="5069.5652173913049" y="101.78571428571428"/>
         </scene>
         <!--Slide Menu View Controller-->
         <scene sceneID="PJ8-km-TMc">
@@ -682,11 +720,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="lGy-ta-juA"/>
         <segue reference="A2h-BA-4Bh"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="bubble.right.fill" catalog="system" width="128" height="110"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>

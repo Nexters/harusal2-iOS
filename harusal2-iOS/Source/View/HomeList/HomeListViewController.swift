@@ -7,15 +7,13 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
 
 class HomeListViewController: BaseViewController{
     
+    
 
     @IBOutlet weak var dayTV : UITableView!
-    var viewModel: HomeListViewModel!
-    let disposeBag = DisposeBag()
+    var viewModel: HomeListViewModel = HomeListViewModel()
    
     // CVCell의 하단버튼 누르면 펼쳐보기 Animation
     // 펼쳐보기 내의 List의 Cell 누르면 수정화면으로 넘어가기
@@ -33,7 +31,6 @@ class HomeListViewController: BaseViewController{
 //        self.dayTV.rowHeight = UITableView.automaticDimension
         
         // Do any additional setup after loading the view.
-        self.dayTV.reloadData()
     }
     
     override func setConstraints() {
@@ -41,20 +38,17 @@ class HomeListViewController: BaseViewController{
         self.dayTV.rowHeight = 180
     }
     
+    
     override func onBind() {
-        viewModel = HomeListViewModel()
         
-        viewModel.dayList.asObservable()
-            .bind(to: dayTV.rx.items) { tableView, index, data in //RxCocoa를 이용해서 Emit 된 [Money]를 dayTV.items 에 바인딩
-                let cell = self.dayTV.dequeueReusableCell(withIdentifier: "cell") as! DayTVCell 
-                cell.dayLabel.text = String(data.day)
-                cell.totalExpenseLabel.text = String(data.expense)
-                cell.totalIncomeLabel.text = String(data.income)
-                return cell
-        }.disposed(by: disposeBag)
-        
-        
-        
+//        viewModel.dayList.asObservable()
+//            .bind(to: dayTV.rx.items) { tableView, index, data in //RxCocoa를 이용해서 Emit 된 [Money]를 dayTV.items 에 바인딩
+//                let cell = self.dayTV.dequeueReusableCell(withIdentifier: "cell") as! DayTVCell
+//                cell.dayLabel.text = String(data.day)
+//                cell.totalExpenseLabel.text = String(data.expense)
+//                cell.totalIncomeLabel.text = String(data.income)
+//                return cell
+//        }.disposed(by: disposeBag)
         
     }
 

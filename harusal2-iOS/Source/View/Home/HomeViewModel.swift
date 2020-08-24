@@ -7,36 +7,20 @@
 //
 
 import Foundation
-import RxRelay
-import RxSwift
 
-class HomeViewModel : ViewModelType{
+class HomeViewModel{
     
-    let useList = BehaviorRelay<[BreakDown]>(value: [])// BehaviorSubject로 한 이유 : VC에서 ViewModel을 먼저 생성하기 때문에,
+    var breakDownList : [BreakDown] = []// BehaviorSubject로 한 이유 : VC에서 ViewModel을 먼저 생성하기 때문에,
 
     let db = DBRepository.shared // 싱글톤
     
     
-    
-    
-    struct Inputs {
+    func getAllData(refresh: @escaping () -> ()){
+       breakDownList = db.readAllData()
         
-    }
-    
-    struct Outputs {
-        
-    }
-    
-    init() {
-        getAllData()
-    }
-    
-    
-    
-    func getAllData(){
-        let arr = db.readAllData()
-        useList.accept( useList.value + arr )
-        
+        DispatchQueue.main.async {
+            refresh()
+        }
     }
     
 }

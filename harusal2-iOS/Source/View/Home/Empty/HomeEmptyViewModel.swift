@@ -8,14 +8,7 @@
 
 import Foundation
 
-class HomeEmptyViewModel: ViewModelType {
+class HomeEmptyViewModel{
     
-    struct Inputs{
-        
-    }
-    
-    struct Outputs {
-        
-    }
     
 }

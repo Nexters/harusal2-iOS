@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
 
 class ListDetailViewController: BaseViewController {
 
@@ -16,30 +14,46 @@ class ListDetailViewController: BaseViewController {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var desLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
-    let disposeBag = DisposeBag()
+    let viewModel = ListDetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("load")
+        updateUI()
         
         
     }
-    
-    override func onBind() {
-        
-        editButton.rx.tap
-            .subscribe(onNext: {
-                if let storyBoard = self.storyboard, let navi = self.navigationController {
-                    let listDetailVC = storyBoard.instantiateViewController(withIdentifier: "ListEditViewController")
-                    navi.pushViewController(listDetailVC, animated: true)
-                } else {
-                    return
-                }
-            }).disposed(by: disposeBag)
-        
+    @IBAction func tappedEditButton(_ sender: Any) {
+        if let storyBoard = self.storyboard, let navi = self.navigationController {
+                           guard let listEditVC = storyBoard.instantiateViewController(withIdentifier: "ListEditViewController") as? ListEditViewController else{
+                               return
+                           }
+                           //전달할 변수
+                           listEditVC.viewModel.breakDown = self.viewModel.breakDown
+                           
+                           navi.pushViewController(listEditVC, animated: true)
+                       } else {
+                           return
+                       }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("appear")
+        updateUI()
+    }
 
+    func updateUI(){
+        if let breakDown = viewModel.breakDown {
+            dateLabel.text = breakDown.date
+            moneyLabel.text = "\(breakDown.amount)"
+            desLabel.text = breakDown.content
+        } else {
+            return
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -7,86 +7,113 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class ListEditViewController: BaseViewController {
 
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateView: UIView!
+    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet weak var selectDateButton: UIButton!
     @IBOutlet weak var segment: UISegmentedControl!
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var desTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
-    let disposeBag = DisposeBag()
-    
+    let datePicker = UIDatePicker()
+    let viewModel = ListEditViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        desTextField.addDoneButtonOnDesKeyboard()
-        moneyTextField.addDoneButtonOnDesKeyboard()
+        createDatePicker()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
+               
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+        updateUI()
+        
+        viewModel.dateChanged = { str in
+            self.dateTextField.text = str
+        }
         
         
         // Do any additional setup after loading the view.
     }
     
-    override func onBind() {
+    func updateUI(){
+        if let breakDown = viewModel.breakDown {
+            dateTextField.text = breakDown.date
+            moneyTextField.text = "\(breakDown.amount)"
+            desTextField.text = breakDown.content
+        } else {
+            return
+        }
+    }
+    
+    private func createDatePicker(){
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
         
-        hideKeyboard()
-        showKeyboard()
-        saveInfo()
+        //bar button
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneBtn], animated: true)
+        //assign toolbar
+        dateTextField.inputAccessoryView = toolbar
         
-       
+        dateTextField.inputView = datePicker
+        
+        datePicker.datePickerMode = .date
+        
     }
     
-    private func saveInfo(){
-        saveButton.rx.tap
-            .subscribe(onNext: {
-                //정보 저장
-                if let navi = self.navigationController {
-                    navi.popViewController(animated: true)
-                }else{
-                    return
-                }
-            }).disposed(by: disposeBag)
+    @objc func donePressed(){
+        
+        let converter = Converter()
+        let date = converter.convertDate(datePicker.date)
+        
+        viewModel.date = date
+        self.view.endEditing(true)
+    }
+    @IBAction func tappedSelectDateButton(_ sender: Any) {
+        self.dateTextField.becomeFirstResponder()
     }
     
-    private func hideKeyboard(){
-        NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
-        .subscribe(onNext: { notification in
-                self.view.frame.origin.y = .zero
-            }).disposed(by: disposeBag)
+    @IBAction func saveInfo(_ sender: Any) {
+        // Todo : 이전화면으로 이동하면서 데이터 전달
+        if let navi = self.navigationController {
+            viewModel.updateData()
+            navi.popViewController(animated: true)
+        }else{
+            return
+        }
     }
     
-    private func showKeyboard(){
-        NotificationCenter.default
-            .rx
-            .notification(UIResponder.keyboardWillShowNotification)
-            .subscribe(onNext: { notification in
-                    if let keyboard = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
-                    self.desTextField.isEditing == true, self.view.frame.origin.y == 0 {
-                        let keyboardHeight = keyboard.cgRectValue.height
-                        self.view.frame.origin.y -= keyboardHeight/3
-                    } else {
-                        return
-                    }
-                }).disposed(by: disposeBag)
-    }
-    
+
     override func setConstraints() {
         moneyTextField.keyboardType = .numberPad
+        desTextField.addDoneButtonOnDesKeyboard()
+        moneyTextField.addDoneButtonOnDesKeyboard()
+        segment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: UIControl.State.normal)//세그먼트 Text Color 변경
+        dateView.roundView(by: 100)
+        dateView.setBorder(thick: CGFloat(1), color: UIColor.black.cgColor)
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension ListEditViewController {
+    @objc private func adjustInputView(noti: Notification) {
+        guard let userInfo = noti.userInfo else { return }
+        // 키보드 높이에 따른 인풋뷰 위치 변경
+        
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        if noti.name == UIResponder.keyboardWillShowNotification, desTextField.isEditing==true{
+            let keyboardHeight = keyboardFrame.height
+            self.view.frame.origin.y -= keyboardHeight/3
+        } else if desTextField.isEditing == true {
+            self.view.frame.origin.y = .zero
+        }
     }
-    */
-
 }
