@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-class HomeViewController: BaseViewController{
+class HomeViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate{
+    
     
     @IBOutlet weak var menuBarButtonItem : UIBarButtonItem!
     @IBOutlet weak var receiptBarButtonItem : UIBarButtonItem!
@@ -35,7 +34,7 @@ class HomeViewController: BaseViewController{
 //    var slideMenuMinX : CGFloat!
     
     let viewModel = HomeViewModel()
-    let disposeBag = DisposeBag()
+//    let disposeBag = DisposeBag()
     
 //    func prepareAnimation(){
 //        slideMenuCenterX.constant = slideMenuMinX
@@ -55,14 +54,17 @@ class HomeViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        breakDownTV.rx.setDelegate(self)
-        .disposed(by: disposeBag)
+        breakDownTV.delegate = self
+        breakDownTV.dataSource = self
+        viewModel.getAllData{
+            self.breakDownTV.reloadData()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        closeSlideMenu()
-//        self.navigationController?.isNavigationBarHidden = false
+        breakDownTV.reloadData()
     }
     
     override func setConstraints() {
@@ -70,56 +72,44 @@ class HomeViewController: BaseViewController{
         breakDownTV.backgroundColor = .orange
     }
     
-    override func onBind() {
-        viewModel.useList.asObservable()
-            .bind(to: breakDownTV.rx.items) { tableView, index, data in //RxCocoa를 이용
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "BreakDownCell") as? BreakDownCell{
-                    cell.update(data)
-                    cell.roundView(by: 50)
-                    cell.layer.borderWidth = 3
-                    cell.layer.borderColor = UIColor.orange.cgColor
-                    return cell
-                } else{
-                   return UITableViewCell()
-                }
-        }.disposed(by: disposeBag)
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(viewModel.breakDownList.count)
+        return viewModel.breakDownList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell =  tableView.dequeueReusableCell(withIdentifier: "BreakDownCell") as? BreakDownCell else {
+            return UITableViewCell()
+        }
+        cell.roundView(by: 50)
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.orange.cgColor
         
-        breakDownTV.rx.itemSelected.subscribe(onNext: { indexPath in
-            if let navi = self.navigationController, let storyBoard = self.storyboard {
-                let listDetailVC = storyBoard.instantiateViewController(identifier: "ListDetailViewController")
-                navi.pushViewController(listDetailVC, animated: true)
-            } else {
-                return
+        let breakDown = viewModel.breakDownList[indexPath.row]
+        //UI Update
+        cell.update(breakDown)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let navi = self.navigationController, let storyBoard = self.storyboard {
+            guard let listDetailVC = storyBoard.instantiateViewController(identifier: "ListDetailViewController") as? ListDetailViewController else{
+                            return
             }
-        }).disposed(by: disposeBag)
-        
-        menuBarButtonItem.rx.tap
-            .subscribe( onNext:
-                {
-//                    self.navigationController?.isNavigationBarHidden = true
-//                    self.openSlideMenu()
-//                    let slideMenu = self.storyboard?.instantiateViewController(withIdentifier: "slideMenu")
-//                    if let menu = slideMenu{
-//                        self.present(menu, animated: true, completion: nil)
-//                    } else{
-//                        return
-//                    }
-                    self.performSegue(withIdentifier: "slideMenu", sender: self)
-                })
-            .disposed(by: disposeBag)
+            //전달할 변수
+            listDetailVC.viewModel.breakDown = self.viewModel.breakDownList[indexPath.row]
+            navi.pushViewController(listDetailVC, animated: true)
+        } else {
+            return
+        }
         
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tappedMenuBarButton(_ sender: Any) {
+        self.navigationController?.isNavigationBarHidden = true
+        self.performSegue(withIdentifier: "slideMenu", sender: self)
     }
-    */
 
 }

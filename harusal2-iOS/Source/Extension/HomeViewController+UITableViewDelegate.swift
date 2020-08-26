@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension HomeViewController: UITableViewDelegate{
+extension HomeViewController{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y: CGFloat = scrollView.contentOffset.y

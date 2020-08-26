@@ -14,7 +14,7 @@
 		<key>Pods-harusal2-iOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>4</integer>
 		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
@@ -26,7 +26,7 @@
 		<key>Realm.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>1</integer>
 		</dict>
 		<key>RealmSwift.xcscheme</key>
 		<dict>
@@ -38,7 +38,7 @@
 		<key>RealmSwift.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>5</integer>
 		</dict>
 		<key>RxCocoa.xcscheme</key>
 		<dict>
@@ -62,7 +62,7 @@
 		<key>RxRelay.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>6</integer>
 		</dict>
 		<key>RxSwift.xcscheme</key>
 		<dict>

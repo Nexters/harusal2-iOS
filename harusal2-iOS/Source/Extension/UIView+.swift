@@ -14,4 +14,9 @@ extension UIView {
         self.layer.cornerRadius = self.frame.width/CGFloat(n)
     }
     
+    func setBorder(thick: CGFloat, color: CGColor){
+        self.layer.borderWidth = thick
+        self.layer.borderColor = color
+    }
+    
 }
