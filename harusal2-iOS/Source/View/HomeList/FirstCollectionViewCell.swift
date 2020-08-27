@@ -59,12 +59,9 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 }
             
                 footer.expandHandler = { () -> Void in
-                    //Expand 애니메이션 처리하기
-                    
-                    
-                    
                     self.cellCount += 1
                     self.expandFromFirstCollectionViewHandler?()
+                    //Expand 애니메이션 처리하기
                     self.secondCV.reloadData()
                 }
                 
@@ -78,22 +75,23 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 return UICollectionReusableView()
         }
     }
-    
-    
 }
 
 extension FirstCollectionViewCell: UICollectionViewDelegateFlowLayout{
     
+    //cell Size 65
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.size.width, height: 100)
+        return CGSize(width: collectionView.bounds.size.width, height: 65)
         
     }
     
+    //Header Size 100
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width, height: 100)
     }
     
+    //Footer Size 65
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width, height: 65)
     }
