@@ -15,9 +15,12 @@ class FirstCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         secondCV.dataSource = self
+        secondCV.delegate = self
     }
     
 }
+
+//Second Item이 2개 이상일 때 First Cell 크기 조절해야함
 
 extension FirstCollectionViewCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -38,6 +41,10 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SecondHeaderView", for: indexPath) as? SecondHeaderView else {
                     return UICollectionReusableView()
                 }
+                
+                header.frame.size.width = collectionView.bounds.size.width
+                
+                
                 return header
             case UICollectionView.elementKindSectionFooter:
                 guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SecondFooterView", for: indexPath) as? SecondFooterView else {
@@ -48,6 +55,15 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
             default:
                 return UICollectionReusableView()
         }
+    }
+}
+
+extension FirstCollectionViewCell: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.bounds.size.width, height: 100)
+        
     }
 }
     

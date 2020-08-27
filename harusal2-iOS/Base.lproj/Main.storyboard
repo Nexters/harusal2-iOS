@@ -235,7 +235,6 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OaS-RI-DH3">
                                     <size key="itemSize" width="414" height="363"/>
-                                    <size key="estimatedItemSize" width="414" height="363"/>
                                     <size key="headerReferenceSize" width="50" height="140"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -244,7 +243,7 @@
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FirstCollectionViewCell" id="DAW-gt-irM" customClass="FirstCollectionViewCell" customModule="harusal2_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="140" width="414" height="363"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="507-Zt-IF1">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fQl-9m-48N">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -259,10 +258,10 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OTy-sq-nuL">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OTy-sq-nuL">
                                                     <rect key="frame" x="10" y="54" width="394" height="299"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cBQ-20-Sjh">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cBQ-20-Sjh">
                                                         <size key="itemSize" width="394" height="101"/>
                                                         <size key="headerReferenceSize" width="50" height="126"/>
                                                         <size key="footerReferenceSize" width="50" height="70"/>
@@ -272,10 +271,11 @@
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SecondCollectionViewCell" id="qaW-tL-nP9" customClass="SecondCollectionViewCell" customModule="harusal2_iOS" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="126" width="394" height="101"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ok4-OQ-53w">
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="M22-0k-rsa">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="101"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </collectionViewCellContentView>
+                                                            <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <size key="customSize" width="394" height="101"/>
                                                         </collectionViewCell>
                                                     </cells>
@@ -324,6 +324,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                         </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="EDt-RD-itQ" firstAttribute="centerY" secondItem="zk6-u3-Xh3" secondAttribute="centerY" id="50N-Tx-ITn"/>
                                                             <constraint firstItem="j1P-dj-N3g" firstAttribute="centerY" secondItem="EDt-RD-itQ" secondAttribute="centerY" id="8Ha-NX-z6V"/>
@@ -347,6 +348,7 @@
                                                                 <state key="normal" title="Expand"/>
                                                             </button>
                                                         </subviews>
+                                                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstItem="Rw0-ad-fjS" firstAttribute="centerY" secondItem="kHW-0Q-g6S" secondAttribute="centerY" id="jKH-hT-PFa"/>
                                                             <constraint firstItem="Rw0-ad-fjS" firstAttribute="centerX" secondItem="kHW-0Q-g6S" secondAttribute="centerX" id="rg4-4Z-p19"/>
@@ -358,10 +360,10 @@
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="48B-NL-nIw" firstAttribute="leading" secondItem="507-Zt-IF1" secondAttribute="leading" constant="20" id="EAS-yV-X9E"/>
-                                                <constraint firstItem="OTy-sq-nuL" firstAttribute="leading" secondItem="507-Zt-IF1" secondAttribute="leading" constant="10" id="G3H-2i-7i2"/>
+                                                <constraint firstItem="48B-NL-nIw" firstAttribute="leading" secondItem="fQl-9m-48N" secondAttribute="leading" constant="20" id="EAS-yV-X9E"/>
+                                                <constraint firstItem="OTy-sq-nuL" firstAttribute="leading" secondItem="fQl-9m-48N" secondAttribute="leading" constant="10" id="G3H-2i-7i2"/>
                                                 <constraint firstAttribute="bottom" secondItem="OTy-sq-nuL" secondAttribute="bottom" constant="10" id="Ur4-PB-G2U"/>
-                                                <constraint firstItem="48B-NL-nIw" firstAttribute="top" secondItem="507-Zt-IF1" secondAttribute="top" constant="20" id="jkc-lo-EpY"/>
+                                                <constraint firstItem="48B-NL-nIw" firstAttribute="top" secondItem="fQl-9m-48N" secondAttribute="top" constant="20" id="jkc-lo-EpY"/>
                                                 <constraint firstItem="OTy-sq-nuL" firstAttribute="top" secondItem="48B-NL-nIw" secondAttribute="bottom" constant="10" id="smP-tX-Gw3"/>
                                                 <constraint firstAttribute="trailing" secondItem="OTy-sq-nuL" secondAttribute="trailing" constant="10" id="wxi-nq-mTa"/>
                                             </constraints>

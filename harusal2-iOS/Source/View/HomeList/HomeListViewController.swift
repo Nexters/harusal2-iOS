@@ -30,6 +30,7 @@ class HomeListViewController: BaseViewController{
         super.viewDidLoad()
 //        self.dayTV.rowHeight = UITableView.automaticDimension
         firstCV.dataSource = self
+        firstCV.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -57,7 +58,7 @@ class HomeListViewController: BaseViewController{
 extension HomeListViewController: UICollectionViewDataSource {
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     // 셀 어떻게 표시 할까?
@@ -104,5 +105,15 @@ extension HomeListViewController: UICollectionViewDataSource {
         }
     }
 }
+
+extension HomeListViewController: UICollectionViewDelegateFlowLayout{
+ 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 363)
+    }
+    
+}
+
+
 
 
