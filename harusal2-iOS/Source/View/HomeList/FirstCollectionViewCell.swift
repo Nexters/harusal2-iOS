@@ -13,6 +13,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondCV: UICollectionView!
     
     var cellCount = 0
+    var expandFromFirstCollectionViewHandler : (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +22,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
         secondCV.roundView(by: 50)
         secondCV.reloadData()
     }
+    
     
 }
 
@@ -58,7 +60,11 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
             
                 footer.expandHandler = { () -> Void in
                     //Expand 애니메이션 처리하기
+                    
+                    
+                    
                     self.cellCount += 1
+                    self.expandFromFirstCollectionViewHandler?()
                     self.secondCV.reloadData()
                 }
                 

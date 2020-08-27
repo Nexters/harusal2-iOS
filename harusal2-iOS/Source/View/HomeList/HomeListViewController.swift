@@ -13,6 +13,9 @@ class HomeListViewController: BaseViewController{
     
 
     @IBOutlet weak var firstCV : UICollectionView!
+    
+    var firstCellSize = CGFloat(230)
+    
     var viewModel: HomeListViewModel = HomeListViewModel()
    
     // CVCell의 하단버튼 누르면 펼쳐보기 Animation
@@ -20,44 +23,17 @@ class HomeListViewController: BaseViewController{
     // 수정화면으로 넘어가면서 해당 Data 전달
     // dayCV 아래로 내리면 맨위로 보내는 Floating Button 생성
     
-    
-    
-    
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.dayTV.rowHeight = UITableView.automaticDimension
         firstCV.dataSource = self
         firstCV.delegate = self
-        // Do any additional setup after loading the view.
     }
-    
-    override func setConstraints() {
-        
-        
-    }
-    
-    
-    override func onBind() {
-        
-//        viewModel.dayList.asObservable()
-//            .bind(to: dayTV.rx.items) { tableView, index, data in //RxCocoa를 이용해서 Emit 된 [Money]를 dayTV.items 에 바인딩
-//                let cell = self.dayTV.dequeueReusableCell(withIdentifier: "cell") as! DayTVCell
-//                cell.dayLabel.text = String(data.day)
-//                cell.totalExpenseLabel.text = String(data.expense)
-//                cell.totalIncomeLabel.text = String(data.income)
-//                return cell
-//        }.disposed(by: disposeBag)
-        
-    }
-
 }
 
 extension HomeListViewController: UICollectionViewDataSource {
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //오늘 날짜가 21일 21개
         return 2
     }
     
@@ -69,6 +45,11 @@ extension HomeListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        cell.expandFromFirstCollectionViewHandler = {() -> Void in
+            self.firstCellSize += 100
+            self.firstCV.reloadData()
+        }
+        
         //UI Update
         
         return cell
@@ -78,26 +59,10 @@ extension HomeListViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            // TODO: 헤더 구성하기
-//
-//            guard let item = trackManager.todaysTrack else {
-//                return UICollectionReusableView()
-//            }
-            //SupplementaryView -> 헤더 or 푸터
+            
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FirstHeaderView", for: indexPath) as? FirstHeaderView else {
                 return UICollectionReusableView()
             }
-            
-//            header.update(with: item)
-//            header.tapHandler = {item -> Void in
-//                //Player를 띄운다
-//                let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil) // 스토리보드 가져오기
-//                guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else{
-//                    return
-//                }
-//                playerVC.simplePlayer.replaceCurrentItem(with: item)
-//                self.present(playerVC, animated: true, completion: nil)
-//            }
             
             return header
         default:
@@ -109,7 +74,7 @@ extension HomeListViewController: UICollectionViewDataSource {
 extension HomeListViewController: UICollectionViewDelegateFlowLayout{
  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width, height: 230)
+        return CGSize(width: collectionView.bounds.size.width, height: self.firstCellSize)
     }
     
 }
