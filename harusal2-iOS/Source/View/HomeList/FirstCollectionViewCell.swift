@@ -12,6 +12,8 @@ import UIKit
 class FirstCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondCV: UICollectionView!
     
+    var cellCount = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         secondCV.dataSource = self
@@ -26,7 +28,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
 
 extension FirstCollectionViewCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return cellCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -54,6 +56,12 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                     return UICollectionReusableView()
                 }
             
+                footer.expandHandler = { () -> Void in
+                    //Expand 애니메이션 처리하기
+                    self.cellCount += 1
+                    self.secondCV.reloadData()
+                }
+                
                 //여기서 헤더와 푸터의 크기를 설정하니 -> 보이기가 이상함...
                 //Cell의 갯수를 0으로 해도 헤더와 푸터가 붙지않고 사이에 공간이 남는 현상 생김
 //                footer.frame.size.width = collectionView.bounds.size.width
@@ -64,13 +72,15 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 return UICollectionReusableView()
         }
     }
+    
+    
 }
 
 extension FirstCollectionViewCell: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.size.width, height: 0)
+        return CGSize(width: collectionView.bounds.size.width, height: 100)
         
     }
     
