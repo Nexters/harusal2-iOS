@@ -109,7 +109,7 @@ extension HomeListViewController: UICollectionViewDataSource {
 extension HomeListViewController: UICollectionViewDelegateFlowLayout{
  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width, height: 363)
+        return CGSize(width: collectionView.bounds.size.width, height: 230)
     }
     
 }

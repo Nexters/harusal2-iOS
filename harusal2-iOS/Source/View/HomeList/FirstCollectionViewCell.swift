@@ -16,6 +16,8 @@ class FirstCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         secondCV.dataSource = self
         secondCV.delegate = self
+        secondCV.roundView(by: 50)
+        secondCV.reloadData()
     }
     
 }
@@ -24,7 +26,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
 
 extension FirstCollectionViewCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,7 +44,8 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                     return UICollectionReusableView()
                 }
                 
-                header.frame.size.width = collectionView.bounds.size.width
+                
+//                header.frame.size.height = 100
                 
                 
                 return header
@@ -51,6 +54,11 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                     return UICollectionReusableView()
                 }
             
+                //여기서 헤더와 푸터의 크기를 설정하니 -> 보이기가 이상함...
+                //Cell의 갯수를 0으로 해도 헤더와 푸터가 붙지않고 사이에 공간이 남는 현상 생김
+//                footer.frame.size.width = collectionView.bounds.size.width
+//                footer.frame.size.height = 65
+                
                 return footer
             default:
                 return UICollectionReusableView()
@@ -62,9 +70,18 @@ extension FirstCollectionViewCell: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.size.width, height: 100)
+        return CGSize(width: collectionView.bounds.size.width, height: 0)
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 100)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width, height: 65)
+    }
+    
 }
     
 
