@@ -46,18 +46,21 @@ extension HomeListViewController: UICollectionViewDataSource {
         
         cell.expandFromFirstCollectionViewHandler = {() -> Void in
             
-            //SecondCollectionViewCell 갯수 * 크기 만큼
-            //애니메이션 처리
-//            self.nowExpandCellSize = self.firstCellSize
+//          SecondCollectionViewCell 갯수 * 크기 만큼
             
+            //다른 Cell들을 클릭했을 때를 위해 초기화
+            self.nowExpandCellSize = self.firstCellSize
+            //클릭한 FirstCollectionViewCell Num 가져오기
             self.nowExpandCellNum = indexPath.item //indexPath.item --> 날짜
-            //해당 날짜에 있는 데이터 갯수 * 100 만큼 nowExpandCellSize 증가
+            
+//            해당 날짜에 있는 데이터 갯수 * 65 만큼 nowExpandCellSize 증가
             self.nowExpandCellSize += 65
             
 //            self.firstCV.reloadData() 데이터를 리로드하기보다는 layout만 건드리는 것으로 변경
 
-            //CollectionView Cell 의 애니메이션은 performBatchUpdates로 해결
-            //TableView의 CEll은 tableview.beginUpdates(), tableview.endUpdates() 로 해결 가능?
+//            애니메이션 처리 -> OK
+//            CollectionView Cell 의 애니메이션은 performBatchUpdates로 해결
+//            TableView의 CEll은 tableview.beginUpdates(), tableview.endUpdates() 로 해결 가능?
             collectionView.performBatchUpdates({
                 collectionView.collectionViewLayout.invalidateLayout()
             }, completion: nil)
@@ -77,6 +80,7 @@ extension HomeListViewController: UICollectionViewDataSource {
                 guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FirstHeaderView", for: indexPath) as? FirstHeaderView else {
                     return UICollectionReusableView()
                 }
+                
                 return header
             default:
                 return UICollectionReusableView()

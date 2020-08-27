@@ -203,7 +203,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="bubble.right.fill" catalog="system" id="c2B-N0-KYi">
                             <connections>
-                                <segue destination="TR5-i2-vVt" kind="show" id="jI1-UQ-ZfB"/>
+                                <action selector="tappedReceiptButton:" destination="eb2-tr-cfT" id="b8a-Hs-G3y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -222,10 +222,10 @@
             </objects>
             <point key="canvasLocation" x="2739.130434782609" y="105.80357142857143"/>
         </scene>
-        <!--Home List View Controller-->
+        <!--HomeListViewController-->
         <scene sceneID="AfE-dF-pBV">
             <objects>
-                <viewController storyboardIdentifier="HomeListViewController" modalPresentationStyle="fullScreen" id="TR5-i2-vVt" customClass="HomeListViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeListViewController" title="HomeListViewController" modalPresentationStyle="fullScreen" id="TR5-i2-vVt" customClass="HomeListViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OLG-XT-BCa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

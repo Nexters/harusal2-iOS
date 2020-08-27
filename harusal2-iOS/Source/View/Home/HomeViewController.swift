@@ -34,6 +34,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
 //    var slideMenuMinX : CGFloat!
     
     let viewModel = HomeViewModel()
+    
 //    let disposeBag = DisposeBag()
     
 //    func prepareAnimation(){
@@ -112,4 +113,17 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         self.performSegue(withIdentifier: "slideMenu", sender: self)
     }
 
+    @IBAction func tappedReceiptButton(_ sender: Any) {
+        if let navi = self.navigationController, let storyBoard = self.storyboard {
+            guard let homeListVC = storyBoard.instantiateViewController(identifier: "HomeListViewController") as? HomeListViewController else {
+                return
+            }
+            
+            homeListVC.viewModel.breakDownList = self.viewModel.breakDownList
+            navi.pushViewController(homeListVC, animated: true)
+            
+        }else{
+            
+        }
+    }
 }
