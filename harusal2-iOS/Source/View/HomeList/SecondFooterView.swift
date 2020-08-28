@@ -12,8 +12,19 @@ import UIKit
 class SecondFooterView: UICollectionReusableView {
     @IBOutlet weak var expandButton: UIButton!
     
+    var expandHandler : (() -> Void)?
+    
+    var count = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    @IBAction func touchUpExpandButton(_ sender: Any) {
+        
+        expandHandler?()
+        
+    }
+    
     
 }

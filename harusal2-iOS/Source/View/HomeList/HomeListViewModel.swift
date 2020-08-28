@@ -11,7 +11,7 @@ import Foundation
 
 class HomeListViewModel{
     
-    var dayList : [BreakDown] = []
+    var breakDownList : [BreakDown] = []
                 
     init() {
         //화면 켜질 때 데이터 불러오기

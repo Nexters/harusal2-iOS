@@ -18,29 +18,25 @@ class ListDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("load")
         updateUI()
-        
-        
     }
+    
     @IBAction func tappedEditButton(_ sender: Any) {
         if let storyBoard = self.storyboard, let navi = self.navigationController {
-                           guard let listEditVC = storyBoard.instantiateViewController(withIdentifier: "ListEditViewController") as? ListEditViewController else{
-                               return
-                           }
-                           //전달할 변수
-                           listEditVC.viewModel.breakDown = self.viewModel.breakDown
+            guard let listEditVC = storyBoard.instantiateViewController(withIdentifier: "ListEditViewController") as? ListEditViewController else{
+                    return
+                }
+            //전달할 변수
+            listEditVC.viewModel.breakDown = self.viewModel.breakDown
                            
-                           navi.pushViewController(listEditVC, animated: true)
-                       } else {
-                           return
-                       }
+            navi.pushViewController(listEditVC, animated: true)
+        } else {
+            return
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("appear")
         updateUI()
     }
 
