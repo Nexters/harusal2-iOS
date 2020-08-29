@@ -126,4 +126,16 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             
         }
     }
+    @IBAction func tappedAddButton(_ sender: Any) {
+        
+        if let navi = self.navigationController, let storyBoard = self.storyboard{
+            guard let addVC = storyBoard.instantiateViewController(identifier: "AddMoneyViewController") as? AddMoneyViewController else {
+                return
+            }
+            
+            navi.pushViewController(addVC, animated: true)
+            
+        }
+        
+    }
 }

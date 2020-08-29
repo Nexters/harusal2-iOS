@@ -20,6 +20,7 @@
 		EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668824E78FA0004A9007 /* ListDetailViewController.swift */; };
 		EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668C24E79DD6004A9007 /* ListEditViewController.swift */; };
 		EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668E24E7CE50004A9007 /* UITextField+.swift */; };
+		EB51CD1C24FA2CC3006F0419 /* AddRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */; };
 		EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E83F24D09D7900360B2A /* AppDelegate.swift */; };
 		EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E84124D09D7900360B2A /* SceneDelegate.swift */; };
 		EB51E84724D09D7900360B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84524D09D7900360B2A /* Main.storyboard */; };
@@ -45,6 +46,10 @@
 		EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */; };
 		EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F4EEA24EBD0C200D35DBB /* Converter.swift */; };
 		EB7F4EEF24EC078700D35DBB /* DBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F4EEE24EC078700D35DBB /* DBRepository.swift */; };
+		EB826FD024F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FCF24F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift */; };
+		EB826FD324F93038007C43C8 /* AddMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */; };
+		EB826FD524F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */; };
+		EB826FD724F94238007C43C8 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD624F94238007C43C8 /* AddRecordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +77,7 @@
 		EB51668824E78FA0004A9007 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		EB51668C24E79DD6004A9007 /* ListEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditViewController.swift; sourceTree = "<group>"; };
 		EB51668E24E7CE50004A9007 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewModel.swift; sourceTree = "<group>"; };
 		EB51E83C24D09D7900360B2A /* harusal2-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "harusal2-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB51E83F24D09D7900360B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB51E84124D09D7900360B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +107,10 @@
 		EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueCloseLeft.swift; sourceTree = "<group>"; };
 		EB7F4EEA24EBD0C200D35DBB /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		EB7F4EEE24EC078700D35DBB /* DBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRepository.swift; sourceTree = "<group>"; };
+		EB826FCF24F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListEditViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoneyViewController.swift; sourceTree = "<group>"; };
+		EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddMoneyViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		EB826FD624F94238007C43C8 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +166,8 @@
 				EB4D09CF24D339E000DF65D6 /* UIView+.swift */,
 				EB53842A24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift */,
 				EB51668E24E7CE50004A9007 /* UITextField+.swift */,
+				EB826FCF24F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift */,
+				EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -264,6 +276,7 @@
 		EB51E86524D09FBF00360B2A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EB826FD124F93028007C43C8 /* Add */,
 				EB538BF624D7D17E0074B752 /* Empty */,
 				EB51E86624D09FCA00360B2A /* StoryBoard */,
 				EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */,
@@ -331,6 +344,16 @@
 				EB7F4EEE24EC078700D35DBB /* DBRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		EB826FD124F93028007C43C8 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */,
+				EB826FD624F94238007C43C8 /* AddRecordViewController.swift */,
+				EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,15 +517,20 @@
 				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
 				307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */,
 				EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */,
+				EB826FD024F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift in Sources */,
 				EB53842924DED3F00036902B /* BreakDown.swift in Sources */,
 				EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */,
 				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
 				EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */,
 				307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */,
 				EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */,
+				EB51CD1C24FA2CC3006F0419 /* AddRecordViewModel.swift in Sources */,
 				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
+				EB826FD724F94238007C43C8 /* AddRecordViewController.swift in Sources */,
 				EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */,
+				EB826FD324F93038007C43C8 /* AddMoneyViewController.swift in Sources */,
 				EB5D46CE24E52C0C00E25800 /* SlideMenuViewController.swift in Sources */,
+				EB826FD524F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift in Sources */,
 				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
 				EB52556B24F39E430002BD2E /* ListDetailViewModel.swift in Sources */,
 				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,
