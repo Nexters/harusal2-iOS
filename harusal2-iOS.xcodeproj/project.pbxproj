@@ -11,6 +11,9 @@
 		307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */; };
 		307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5E24E0116900A20E35 /* InitDayViewController.swift */; };
 		307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */; };
+		308F51F524FA6103003E5682 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F51F424FA6103003E5682 /* AlarmViewController.swift */; };
+		308F51F724FA612A003E5682 /* EditMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F51F624FA612A003E5682 /* EditMoneyViewController.swift */; };
+		308F51F924FA6148003E5682 /* EditDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F51F824FA6148003E5682 /* EditDayViewController.swift */; };
 		3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */; };
 		EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */; };
 		EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */; };
@@ -62,6 +65,9 @@
 		307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitMoneyViewController.swift; sourceTree = "<group>"; };
 		307BCD5E24E0116900A20E35 /* InitDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayViewController.swift; sourceTree = "<group>"; };
 		307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayPickerViewController.swift; sourceTree = "<group>"; };
+		308F51F424FA6103003E5682 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		308F51F624FA612A003E5682 /* EditMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMoneyViewController.swift; sourceTree = "<group>"; };
+		308F51F824FA6148003E5682 /* EditDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDayViewController.swift; sourceTree = "<group>"; };
 		8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_harusal2_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.debug.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewController.swift; sourceTree = "<group>"; };
@@ -311,6 +317,9 @@
 				EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */,
 				EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */,
 				EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */,
+				308F51F424FA6103003E5682 /* AlarmViewController.swift */,
+				308F51F624FA612A003E5682 /* EditMoneyViewController.swift */,
+				308F51F824FA6148003E5682 /* EditDayViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -480,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB52557324F405690002BD2E /* FirstCollectionViewCell.swift in Sources */,
+				308F51F724FA612A003E5682 /* EditMoneyViewController.swift in Sources */,
 				EB52556924F39CE20002BD2E /* ListEditViewModel.swift in Sources */,
 				EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */,
 				EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */,
@@ -490,6 +500,8 @@
 				EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */,
 				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
 				EB52557124F403BF0002BD2E /* SecondFooterView.swift in Sources */,
+				308F51F924FA6148003E5682 /* EditDayViewController.swift in Sources */,
+				308F51F524FA6103003E5682 /* AlarmViewController.swift in Sources */,
 				307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */,
 				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
 				307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */,
