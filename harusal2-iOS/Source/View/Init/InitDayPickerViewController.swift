@@ -11,6 +11,7 @@ import UIKit
 class InitDayPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     private var values: [String] = []
+    lazy var today = returnTodayMonthDate()
     
     lazy var pickerView: UIPickerView = {
         let picker = UIPickerView()
@@ -23,15 +24,27 @@ class InitDayPickerViewController: UIViewController, UIPickerViewDelegate, UIPic
         return picker
     }()
     
+    @IBOutlet weak var monthlyBudgetDurationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(self.pickerView)
-    
-        setPickerValues()
+        
+        initView()
     }
     
-    func setPickerValues() {
-        let todayMonth = returnTodayMonth()
+    func returnTodayMonthDate() -> (Int,Int) {
+        return (9,17-1)  // TODO : 월,일 받아오기
+    }
+    
+    func initView(){
+        monthlyBudgetDurationLabel.text = "\(today.0).\(today.1+1)~\(today.0+1).\(today.1)"
+        
+        setPickerValues(todayMonth: today.0)
+        setPickerDefaultValue(todayDate: today.1)
+    }
+
+    func setPickerValues(todayMonth: Int){
         var lastDate = 0
         
         switch todayMonth {
@@ -45,8 +58,8 @@ class InitDayPickerViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
-    func returnTodayMonth() -> Int {
-        return 9  // TODO : 몇 월인지 받아오기
+    func setPickerDefaultValue(todayDate: Int) {
+        self.pickerView.selectRow(todayDate, inComponent: 0, animated: true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -75,6 +88,11 @@ class InitDayPickerViewController: UIViewController, UIPickerViewDelegate, UIPic
 
         return pickerLabel!
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        monthlyBudgetDurationLabel.text = "\(today.0).\(row+1)~\(today.0+1).\(row)"
+     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return 100.0

@@ -362,6 +362,9 @@
                         <viewLayoutGuide key="safeArea" id="pJx-k4-zI2"/>
                     </view>
                     <navigationItem key="navigationItem" title="예산 설정" id="Djo-RH-pwp"/>
+                    <connections>
+                        <outlet property="monthlyBudgetDurationLabel" destination="xmN-sN-FV7" id="zir-EV-kNn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eU-WZ-IOO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
