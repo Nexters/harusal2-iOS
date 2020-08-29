@@ -10,6 +10,8 @@ import UIKit
 
 class InitDayPickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var monthlyBudgetDurationLabel: UILabel!
+    
     private var values: [String] = []
     lazy var today = returnTodayMonthDate()
     
@@ -23,8 +25,6 @@ class InitDayPickerViewController: UIViewController, UIPickerViewDelegate, UIPic
 
         return picker
     }()
-    
-    @IBOutlet weak var monthlyBudgetDurationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

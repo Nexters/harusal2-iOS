@@ -13,7 +13,6 @@ class InitMoneyViewController: UIViewController {
     @IBOutlet weak var monthBudgetText : UITextField!
     @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var budgetPerDayLabel: UILabel!
-//    @IBOutlet weak var budgetPerDayTitleLabel: UILabel!
     
     @IBAction func showText(_ sender:UITextField){
         let text = self.monthBudgetText.text ?? "0"

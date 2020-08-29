@@ -138,7 +138,7 @@
                                     <constraint firstAttribute="height" constant="48" id="ncG-OO-OfT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="17일로 시작하기">
+                                <state key="normal" title="오늘부터 시작하기">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -153,20 +153,20 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2B-9Z-oki">
                                         <rect key="frame" x="0.0" y="0.0" width="259.5" height="33.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" verticalHuggingPriority="251" text="오늘은" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTa-qx-0Ea">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="33.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘은 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwW-iK-cQU">
+                                                <rect key="frame" x="0.0" y="0.0" width="79" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <color key="textColor" name="ColorTextMain"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="17" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5k-I6-yCt">
-                                                <rect key="frame" x="128" y="0.0" width="28.5" height="33.5"/>
+                                                <rect key="frame" x="79" y="0.0" width="28.5" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <color key="textColor" name="ColorTextMain"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일 입니다" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYf-Kt-hNy">
-                                                <rect key="frame" x="156.5" y="0.0" width="103" height="33.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="일 입니다" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYf-Kt-hNy">
+                                                <rect key="frame" x="107.5" y="0.0" width="152" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <color key="textColor" name="ColorTextMain"/>
                                                 <nil key="highlightedColor"/>
@@ -238,6 +238,10 @@
                         <viewLayoutGuide key="safeArea" id="7pn-dN-HrP"/>
                     </view>
                     <navigationItem key="navigationItem" title="예산 설정" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="XwM-Za-l9K"/>
+                    <connections>
+                        <outletCollection property="dayLabel" destination="a5k-I6-yCt" collectionClass="NSMutableArray" id="clF-Rx-rk1"/>
+                        <outletCollection property="dayLabel" destination="4Yw-Lg-feF" collectionClass="NSMutableArray" id="wV1-GG-c3b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8Z-h3-x2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
