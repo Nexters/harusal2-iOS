@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InitMoneyViewController: UIViewController {
+class InitMoneyViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var monthBudgetText : UITextField!
     @IBOutlet weak var budgetLabel: UILabel!
@@ -21,18 +21,12 @@ class InitMoneyViewController: UIViewController {
         self.budgetLabel.text = "\(text)원"
         self.butgetPerDayLabel.text = "\(String(calc/30))원"
     }
-    
-    @IBAction func tapViewHideKeyBoard(_ sender:UIGestureRecognizer){
-        self.view.endEditing(true)
-    }
-    
-    @IBAction func clearTextField(_ sender:UIButton) {
-        self.monthBudgetText.text = nil
-        self.budgetLabel.text = "0원"
-        self.butgetPerDayLabel.text = "0원"
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.monthBudgetText.becomeFirstResponder()
     }
 }
