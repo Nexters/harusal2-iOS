@@ -12,14 +12,14 @@ class InitMoneyViewController: UIViewController {
     
     @IBOutlet weak var monthBudgetText : UITextField!
     @IBOutlet weak var budgetLabel: UILabel!
-    @IBOutlet weak var butgetPerDayLabel: UILabel!
-    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var budgetPerDayLabel: UILabel!
+//    @IBOutlet weak var budgetPerDayTitleLabel: UILabel!
     
     @IBAction func showText(_ sender:UITextField){
         let text = self.monthBudgetText.text ?? "0"
         let calc = Int(text) ?? 1
         self.budgetLabel.text = "\(text)원"
-        self.butgetPerDayLabel.text = "\(String(calc/30))원"
+        self.budgetPerDayLabel.text = "\(String(calc/30))원"
     }
 
     override func viewDidLoad() {
@@ -44,7 +44,8 @@ extension InitMoneyViewController: UITextFieldDelegate {
         }
 
         let toolBar: UIToolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height:70))
-        toolBar.barStyle = UIBarStyle.black
+//        toolBar.barStyle = UIBarStyle.black
+        toolBar.barTintColor = UIColor.init(named: "ColorButton")
         toolBar.isTranslucent = false
         
         let flexsibleSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)

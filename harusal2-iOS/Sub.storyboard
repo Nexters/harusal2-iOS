@@ -168,7 +168,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="budgetLabel" destination="UO7-WD-nvL" id="Bj4-zS-dwJ"/>
-                        <outlet property="butgetPerDayLabel" destination="Z6S-KO-Pyd" id="BEB-jj-AIX"/>
+                        <outlet property="budgetPerDayLabel" destination="Z6S-KO-Pyd" id="cUg-c9-HGo"/>
                         <outlet property="monthBudgetText" destination="654-M3-I5f" id="F8F-tS-Mhc"/>
                     </connections>
                 </viewController>
@@ -316,9 +316,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGd-xy-wwY">
-                                <rect key="frame" x="138" y="277" width="138" height="331"/>
-                            </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생활비 사용 기한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1S-Xb-WlT">
                                 <rect key="frame" x="22" y="763.5" width="79.5" height="15.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -355,16 +352,12 @@
                             <constraint firstItem="dVt-NO-GSr" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" id="ITI-xg-Pcm"/>
                             <constraint firstItem="pJx-k4-zI2" firstAttribute="bottom" secondItem="dVt-NO-GSr" secondAttribute="bottom" id="Mhh-JJ-Vc1"/>
                             <constraint firstItem="D1S-Xb-WlT" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" constant="22" id="Oz3-0C-IhF"/>
-                            <constraint firstAttribute="trailing" secondItem="nGd-xy-wwY" secondAttribute="trailing" constant="138" id="daM-Fl-1cL"/>
                             <constraint firstItem="pJx-k4-zI2" firstAttribute="trailing" secondItem="dVt-NO-GSr" secondAttribute="trailing" id="gUP-hO-dWq"/>
-                            <constraint firstItem="dVt-NO-GSr" firstAttribute="top" secondItem="nGd-xy-wwY" secondAttribute="bottom" constant="190" id="kA0-MR-rW4"/>
                             <constraint firstItem="xmN-sN-FV7" firstAttribute="leading" secondItem="D1S-Xb-WlT" secondAttribute="trailing" constant="4" id="kFy-5v-dHD"/>
                             <constraint firstItem="sVC-LE-ICi" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" constant="20" id="ncK-Gr-Pax"/>
-                            <constraint firstItem="nGd-xy-wwY" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" constant="138" id="oJZ-Z0-gpZ"/>
                             <constraint firstItem="dVt-NO-GSr" firstAttribute="top" secondItem="xmN-sN-FV7" secondAttribute="bottom" constant="19.5" id="tPI-Rh-sWH"/>
                             <constraint firstItem="xmN-sN-FV7" firstAttribute="centerY" secondItem="D1S-Xb-WlT" secondAttribute="centerY" id="x1D-Z0-afl"/>
                             <constraint firstItem="dVt-NO-GSr" firstAttribute="top" secondItem="D1S-Xb-WlT" secondAttribute="bottom" constant="19" id="xN8-qc-q4W"/>
-                            <constraint firstItem="nGd-xy-wwY" firstAttribute="top" secondItem="sVC-LE-ICi" secondAttribute="bottom" constant="90" id="xjW-50-gcc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pJx-k4-zI2"/>
                     </view>
