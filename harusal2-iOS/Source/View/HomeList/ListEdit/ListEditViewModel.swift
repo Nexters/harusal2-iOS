@@ -10,7 +10,7 @@ import Foundation
 
 class ListEditViewModel{
     
-    var date: String?{
+    var date: Date?{
         didSet{
             dateChanged?(date)
         }
@@ -19,7 +19,7 @@ class ListEditViewModel{
     
     var breakDown : BreakDown?
     
-    func updateData(date: String?, amount: Int?, content: String?, type: Int){
+    func updateData(date: Date?, amount: Int?, content: String?, type: Int){
         
         guard let data = breakDown else{
             return
@@ -30,7 +30,7 @@ class ListEditViewModel{
         
     }
     
-    var dateChanged : ((String?) -> ())?
+    var dateChanged : ((Date?) -> ())?
     
     
 }

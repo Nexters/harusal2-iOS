@@ -29,9 +29,11 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         updateUI()
         createDatePicker()
         
+        dateTextField.text = Converter().convertDate(Date())
+        
         viewModel.dateChanged = {
             //날짜 변경했을 때
-            self.dateTextField.text = $0
+            self.dateTextField.text = Converter().convertDate($0 ?? Date())
         }
     }
     
@@ -74,15 +76,14 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         let converter = Converter()
         let date = converter.convertDate(datePicker.date)
         
-        //날짜 저장
-        viewModel.date = date
-        
+        dateTextField.text = date
         self.view.endEditing(true)
     }
     @IBAction func tappedDoneButton(_ sender: Any) {
         var money = moneyLabel.text
-        money?.removeLast()
-        viewModel.updateData(date: viewModel.date, content: self.descriptionTextView.text, type: viewModel.type)
+        money?.removeLast() // "원" 빼기
+        viewModel.content = self.descriptionTextView.text
+        viewModel.addData()
     }
     
     @IBAction func tappedDateButton(_ sender: Any) {
@@ -115,6 +116,7 @@ extension AddRecordViewController: UITextViewDelegate{
             //1줄 높이일 때만 증가를 시킨다
             self.textViewHeight.constant = newSize.height
         }
+//        viewModel.content = textView.text
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         //TextView가 포커스를 잃었을 때

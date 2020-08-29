@@ -12,31 +12,38 @@ class AddRecordViewModel{
     
     var type = 0
     var money: String = ""
+    var content: String = ""
     let repository = DBRepository()
-    var date: String?{
+    var date: Date?{
         didSet{
             dateChanged?(date)
         }
     }
     
     
+    
     var breakDown : BreakDown?
     
-    func updateData(date: String?, content: String?, type: Int){
+    func addData(){
         
-        let data = BreakDown()
-        
-        let moneyInt = money.filter {
+        let str = money.filter {
             return Int(String($0)) != nil
         }
+        let moneyInt = Int(str)
         
-        repository.writeData(data: <#T##BreakDown#>)
+        let data = BreakDown()
+        data.id = data.autoIncrementKey()
+        data.amount = moneyInt ?? 0
+        data.type = type
+        data.content = content
+        data.date = date ?? Date()
         
-        data.update(date: date!, amount: moneyInt ?? 0, content: content ?? "", type: type)
+        repository.writeData(data: data)
+        
         
     }
     
-    var dateChanged : ((String?) -> ())?
+    var dateChanged : ((Date?) -> ())?
     
     
 }

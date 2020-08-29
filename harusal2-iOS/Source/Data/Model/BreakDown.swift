@@ -11,7 +11,7 @@ import RealmSwift
 
 @objcMembers class BreakDown : Object {
     dynamic var id: Int = 0
-    dynamic var date: String = ""
+    dynamic var date: Date = Date()
     dynamic var amount: Int = 0
     dynamic var content: String = ""
     dynamic var type: Int = 0
@@ -26,7 +26,7 @@ import RealmSwift
             as Int? ?? 0) + 1
     }
     
-    func update(date: String, amount: Int, content: String, type: Int){
+    func update(date: Date, amount: Int, content: String, type: Int){
         try! realm?.write{
             self.date=date
             self.amount=amount

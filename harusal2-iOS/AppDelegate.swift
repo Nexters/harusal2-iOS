@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(
+        schemaVersion: 1,
+        migrationBlock: { migration, oldSchemaVersion in
+          if (oldSchemaVersion < 1) {
+            // The enumerateObjects(ofType:_:) method iterates
+            // over every Person object stored in the Realm file
+            migration.enumerateObjects(ofType: BreakDown.className()) { oldObject, newObject in
+              // combine name fields into a single field
+              let dateString = oldObject!["date"] as! String
+                newObject!["date"] = Converter().convertString(dateString)
+            }
+          }
+        })
+        
         // Override point for customization after application launch.
         return true
     }
