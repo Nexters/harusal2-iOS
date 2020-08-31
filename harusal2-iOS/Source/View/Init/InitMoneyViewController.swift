@@ -12,27 +12,53 @@ class InitMoneyViewController: UIViewController {
     
     @IBOutlet weak var monthBudgetText : UITextField!
     @IBOutlet weak var budgetLabel: UILabel!
-    @IBOutlet weak var butgetPerDayLabel: UILabel!
-    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var budgetPerDayLabel: UILabel!
     
     @IBAction func showText(_ sender:UITextField){
         let text = self.monthBudgetText.text ?? "0"
         let calc = Int(text) ?? 1
         self.budgetLabel.text = "\(text)원"
-        self.butgetPerDayLabel.text = "\(String(calc/30))원"
-    }
-    
-    @IBAction func tapViewHideKeyBoard(_ sender:UIGestureRecognizer){
-        self.view.endEditing(true)
-    }
-    
-    @IBAction func clearTextField(_ sender:UIButton) {
-        self.monthBudgetText.text = nil
-        self.budgetLabel.text = "0원"
-        self.butgetPerDayLabel.text = "0원"
+        self.budgetPerDayLabel.text = "\(String(calc/30))원"
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        monthBudgetText.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.monthBudgetText.becomeFirstResponder()
+    }
+}
+
+extension InitMoneyViewController: UITextFieldDelegate {
+    public func textFieldShouldBeginEditing(_ sender: UITextField) -> Bool {
+        setupTextFieldsAccessoryView()
+        return true
+    }
+
+    func setupTextFieldsAccessoryView() {
+        guard monthBudgetText.inputAccessoryView == nil else {
+            return
+        }
+
+        let toolBar: UIToolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height:70))
+//        toolBar.barStyle = UIBarStyle.black
+        toolBar.barTintColor = UIColor.init(named: "ColorButton")
+        toolBar.isTranslucent = false
+        
+        let flexsibleSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+
+        let nextButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(didPressNextButton))
+    
+        toolBar.items = [flexsibleSpace, nextButton]
+    
+        monthBudgetText.inputAccessoryView = toolBar
+    }
+
+    @objc func didPressNextButton(button: UIButton) {
+        let storyBoard = UIStoryboard(name: "Sub", bundle:nil)
+        let memberDetailsViewController = storyBoard.instantiateViewController(withIdentifier: "InitDayViewControllerId")
+        self.navigationController?.pushViewController(memberDetailsViewController, animated:true)
     }
 }

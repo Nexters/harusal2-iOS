@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		303EB45C24E7ECFB00C3111A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303EB45B24E7ECFB00C3111A /* Colors.xcassets */; };
 		307BCD5A24E00F5300A20E35 /* Sub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307BCD5924E00F5300A20E35 /* Sub.storyboard */; };
 		307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */; };
 		307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5E24E0116900A20E35 /* InitDayViewController.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		303EB45B24E7ECFB00C3111A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		307BCD5924E00F5300A20E35 /* Sub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sub.storyboard; sourceTree = "<group>"; };
 		307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitMoneyViewController.swift; sourceTree = "<group>"; };
 		307BCD5E24E0116900A20E35 /* InitDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				307BCD5924E00F5300A20E35 /* Sub.storyboard */,
 				EB51E84124D09D7900360B2A /* SceneDelegate.swift */,
 				EB51E84824D09D7900360B2A /* Assets.xcassets */,
+				303EB45B24E7ECFB00C3111A /* Colors.xcassets */,
 				EB51E84A24D09D7900360B2A /* LaunchScreen.storyboard */,
 				EB51E84D24D09D7900360B2A /* Info.plist */,
 			);
@@ -416,6 +419,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303EB45C24E7ECFB00C3111A /* Colors.xcassets in Resources */,
 				EB51E84C24D09D7900360B2A /* LaunchScreen.storyboard in Resources */,
 				EB51E84924D09D7900360B2A /* Assets.xcassets in Resources */,
 				EB51E84724D09D7900360B2A /* Main.storyboard in Resources */,
