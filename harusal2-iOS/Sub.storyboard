@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4TZ-A9-kmi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -335,27 +336,7 @@
             </objects>
             <point key="canvasLocation" x="404" y="31"/>
         </scene>
-<<<<<<< HEAD
-        <!--Navigation Controller-->
-        <scene sceneID="o31-bX-5eF">
-            <objects>
-                <navigationController id="cIa-Yv-KWH" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KR9-7e-ZM5">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="uSk-zb-Hbe" kind="relationship" relationship="rootViewController" id="M93-je-LUa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rsq-zb-JoP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-30" y="1426"/>
-        </scene>
         <!--Edit Money View Controller-->
-=======
-        <!--View Controller-->
->>>>>>> develop
         <scene sceneID="Nbr-r0-p19">
             <objects>
                 <viewController id="mEc-uu-sI7" customClass="EditMoneyViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
