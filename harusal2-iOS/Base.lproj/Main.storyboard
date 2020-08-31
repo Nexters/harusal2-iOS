@@ -224,6 +224,7 @@
                         <outlet property="imageViewHeightConstraint" destination="jbF-ml-PYm" id="23l-T5-uao"/>
                         <outlet property="menuBarButtonItem" destination="kcT-yu-sWa" id="ZFj-U0-5Rd"/>
                         <outlet property="receiptBarButtonItem" destination="c2B-N0-KYi" id="BNi-3p-oSN"/>
+                        <outlet property="todayDateLabel" destination="5Si-rV-gqI" id="klZ-Ki-7kP"/>
                         <outlet property="todayMoneyDescriptionLabel" destination="d8B-Si-fjE" id="FLB-jX-fwe"/>
                         <outlet property="todayMoneyLabel" destination="RSb-qR-efm" id="CUm-mh-Bzr"/>
                         <outlet property="todayMoneyLabelCenterX" destination="FGt-Pf-Q6g" id="yQV-Ad-mHC"/>
@@ -1096,6 +1097,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="lGy-ta-juA"/>
         <segue reference="A2h-BA-4Bh"/>
     </inferredMetricsTieBreakers>
     <resources>

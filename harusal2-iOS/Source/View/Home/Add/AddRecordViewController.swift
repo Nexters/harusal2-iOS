@@ -83,6 +83,12 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         viewModel.content = self.descriptionTextView.text
         viewModel.date = self.dateTextField.text
         viewModel.addData()
+        if let navi = self.navigationController{
+            let viewControllers = navi.viewControllers
+            navi.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        }else{
+            return
+        }
     }
     
     @IBAction func tappedDateButton(_ sender: Any) {
