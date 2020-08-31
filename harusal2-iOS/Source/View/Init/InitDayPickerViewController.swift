@@ -13,7 +13,7 @@ class InitDayPickerViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var monthlyBudgetDurationLabel: UILabel!
     
     private var values: [String] = []
-    lazy var today = returnTodayMonthDate()
+    lazy var today = getTodayMonthDate()
     
     lazy var pickerView: UIPickerView = {
         let picker = UIPickerView()
@@ -33,7 +33,7 @@ class InitDayPickerViewController: UIViewController, UIPickerViewDelegate, UIPic
         initView()
     }
     
-    func returnTodayMonthDate() -> (Int,Int) {
+    func getTodayMonthDate() -> (Int,Int) {
         return (9,17-1)  // TODO : 월,일 받아오기
     }
     

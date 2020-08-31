@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4TZ-A9-kmi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gVU-RV-wL3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -445,6 +445,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MRl-6A-KI8"/>
                     </view>
+                    <connections>
+                        <outlet property="bugetPreDayLabel" destination="hbS-WF-hTB" id="DBa-w6-CKE"/>
+                        <outlet property="editMoneyText" destination="Oof-Fb-xOh" id="eKr-3d-dyV"/>
+                        <outlet property="editMoneyTextConverter" destination="geI-Zf-lJI" id="tER-FH-rVN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fq6-Fc-xgD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -461,7 +466,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8XJ-QD-fBF">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="매월 생활비 수정" id="Q5o-XC-BpW"/>
+                                    <navigationItem title="매월 시작일 수정" id="Q5o-XC-BpW"/>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작일 수정 시 남은 생활비가 다시 계산됩니다." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hp9-10-Ywg">
@@ -552,6 +557,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wba-h0-1fT"/>
                     </view>
+                    <connections>
+                        <outlet property="monthlyBudgetDurationLabel" destination="0pn-bd-PNs" id="cdE-TL-nWf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgS-ZR-WqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
