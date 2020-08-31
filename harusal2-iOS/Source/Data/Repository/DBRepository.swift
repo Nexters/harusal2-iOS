@@ -23,9 +23,22 @@ class DBRepository{
     
     
     func readAllData() -> [BreakDown]{
-        let aa = realm.objects(BreakDown.self).compactMap{ $0 }
-        print(aa)
-        return Array(aa)
+        let data = realm.objects(BreakDown.self).compactMap{ $0 }
+        return Array(data)
+    }
+    
+    func readTodayDate() -> [BreakDown]{
+        let today = Converter().convertDate(Date())
+        
+        let data = realm.objects(BreakDown.self).filter("date LIKE %@",today)
+        print(data)
+        return Array(data)
+    }
+    
+    func removeAll() {
+        try! realm.write{
+            realm.deleteAll()
+        }
     }
     
 }

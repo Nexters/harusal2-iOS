@@ -21,6 +21,7 @@
 		EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668C24E79DD6004A9007 /* ListEditViewController.swift */; };
 		EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668E24E7CE50004A9007 /* UITextField+.swift */; };
 		EB51CD1C24FA2CC3006F0419 /* AddRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */; };
+		EB51CD1E24FA5F49006F0419 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51CD1D24FA5F49006F0419 /* Date+.swift */; };
 		EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E83F24D09D7900360B2A /* AppDelegate.swift */; };
 		EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E84124D09D7900360B2A /* SceneDelegate.swift */; };
 		EB51E84724D09D7900360B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84524D09D7900360B2A /* Main.storyboard */; };
@@ -78,6 +79,7 @@
 		EB51668C24E79DD6004A9007 /* ListEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditViewController.swift; sourceTree = "<group>"; };
 		EB51668E24E7CE50004A9007 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewModel.swift; sourceTree = "<group>"; };
+		EB51CD1D24FA5F49006F0419 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		EB51E83C24D09D7900360B2A /* harusal2-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "harusal2-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB51E83F24D09D7900360B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB51E84124D09D7900360B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				EB51668E24E7CE50004A9007 /* UITextField+.swift */,
 				EB826FCF24F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift */,
 				EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */,
+				EB51CD1D24FA5F49006F0419 /* Date+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				EB826FD524F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift in Sources */,
 				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
 				EB52556B24F39E430002BD2E /* ListDetailViewModel.swift in Sources */,
+				EB51CD1E24FA5F49006F0419 /* Date+.swift in Sources */,
 				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,
 				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,
 				EB52557524F408E70002BD2E /* SecondCollectionViewCell.swift in Sources */,

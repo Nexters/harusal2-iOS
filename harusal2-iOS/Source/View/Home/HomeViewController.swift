@@ -55,17 +55,18 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         breakDownTV.delegate = self
         breakDownTV.dataSource = self
-        viewModel.getAllData{
-            self.breakDownTV.reloadData()
-        }
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        breakDownTV.reloadData()
+        viewModel.getAllData{
+            self.breakDownTV.reloadData()
+        }
     }
     
     override func setConstraints() {
@@ -75,7 +76,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(viewModel.breakDownList.count)
+        print("HomeTVCount \(viewModel.breakDownList.count)")
         return viewModel.breakDownList.count
     }
     

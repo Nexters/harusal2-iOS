@@ -33,7 +33,7 @@ class ListEditViewController: BaseViewController {
         
         updateUI()
         
-        viewModel.dateChanged = { self.dateTextField.text = Converter().convertDate($0 ?? Date()) }
+        viewModel.dateChanged = { self.dateTextField.text = $0 }
     }
     
     func updateUI(){
@@ -42,7 +42,7 @@ class ListEditViewController: BaseViewController {
         
         if let breakDown = viewModel.breakDown {
             amount = breakDown.amount
-            dateTextField.text = Converter().convertDate(breakDown.date)
+            dateTextField.text = breakDown.date
             moneyTextField.text = numberFormatter.string(from: NSNumber(value: breakDown.amount))
             desTextField.text = breakDown.content
             switch breakDown.type{
@@ -83,7 +83,7 @@ class ListEditViewController: BaseViewController {
     }
     
     @objc func donePressed(){
-        viewModel.date = datePicker.date
+        viewModel.date = Converter.shared.convertDate(Date())
         self.view.endEditing(true)
     }
     
@@ -93,17 +93,19 @@ class ListEditViewController: BaseViewController {
     
     @IBAction func saveInfo(_ sender: Any) {
         if let navi = self.navigationController {
-            var type = 0
             switch segment.selectedSegmentIndex {
             case 0:
-                type = 0
+                viewModel.type = 0
             case 1:
-                type = 1
+                viewModel.type = 1
             default:
-                type = -1
+                viewModel.type = -1
             }
-            print(amount)
-            viewModel.updateData(date: viewModel.date, amount: amount, content: desTextField.text, type: type)//업데이트
+            viewModel.content = desTextField.text ?? ""
+            viewModel.money = moneyTextField.text ?? ""
+            
+            viewModel.updateData()//업데이트
+            
             navi.popViewController(animated: true)
         }else{
             return

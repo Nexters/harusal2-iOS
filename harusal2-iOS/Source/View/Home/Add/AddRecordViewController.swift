@@ -20,7 +20,7 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
     let datePicker = UIDatePicker()
     let viewModel = AddRecordViewModel()
     var isEditingTextView = false
-    
+    let converter = Converter.shared
     //내역을 입력하지 않았을 때
     //Keyboard에 Done버튼과 DatePicker 붙히는 것 Extension으로 변경하기 -> 추후
     
@@ -29,11 +29,11 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         updateUI()
         createDatePicker()
         
-        dateTextField.text = Converter().convertDate(Date())
+        dateTextField.text = converter.convertDate(Date())
         
         viewModel.dateChanged = {
             //날짜 변경했을 때
-            self.dateTextField.text = Converter().convertDate($0 ?? Date())
+            self.dateTextField.text = $0
         }
     }
     
@@ -73,9 +73,7 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
 
     @objc func donePressed(){
         //Keyboard Accessory Done
-        let converter = Converter()
         let date = converter.convertDate(datePicker.date)
-        
         dateTextField.text = date
         self.view.endEditing(true)
     }
@@ -83,6 +81,7 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         var money = moneyLabel.text
         money?.removeLast() // "원" 빼기
         viewModel.content = self.descriptionTextView.text
+        viewModel.date = self.dateTextField.text
         viewModel.addData()
     }
     

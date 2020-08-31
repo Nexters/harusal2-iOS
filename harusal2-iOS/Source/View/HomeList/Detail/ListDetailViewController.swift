@@ -43,7 +43,7 @@ class ListDetailViewController: BaseViewController {
     func updateUI(){
         if let breakDown = viewModel.breakDown {
             
-            dateLabel.text = Converter().convertDate(breakDown.date)
+            dateLabel.text = breakDown.date
             moneyLabel.text = "\(breakDown.amount)"
             desLabel.text = breakDown.content
         } else {
