@@ -14,16 +14,22 @@ class FirstCollectionViewCell: UICollectionViewCell {
     
     var cellCount = 0
     var expandFromFirstCollectionViewHandler : (() -> Void)?
+    let viewModel : FirstCellViewModel = FirstCellViewModel()
+    var resizeHandler: (() -> Void)?
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        
         secondCV.dataSource = self
         secondCV.delegate = self
         secondCV.roundView(by: 50)
         secondCV.reloadData()
+        
     }
-    
-    
 }
 
 //Second Item이 2개 이상일 때 First Cell 크기 조절해야함
@@ -37,6 +43,9 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondCollectionViewCell", for: indexPath) as? SecondCollectionViewCell else {
             return UICollectionViewCell()
         }
+        if self.viewModel.dayList.count > 0{
+            cell.updateUI(self.viewModel.dayList[indexPath.item])
+        }
         
         return cell
     }
@@ -44,14 +53,14 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             case UICollectionView.elementKindSectionHeader:
+                
                 guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SecondHeaderView", for: indexPath) as? SecondHeaderView else {
                     return UICollectionReusableView()
                 }
-                
-                
-//                header.frame.size.height = 100
-                
-                
+                //HomeListViewController에서 self.cell.secondCV.reloadData()를 하기 때문에
+                //이곳 Flow를 진행
+                header.updateUI(data: viewModel.headerData)
+
                 return header
             case UICollectionView.elementKindSectionFooter:
                 guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SecondFooterView", for: indexPath) as? SecondFooterView else {
@@ -59,10 +68,10 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 }
             
                 footer.expandHandler = { () -> Void in
-                    self.cellCount += 1
+                    self.cellCount = self.viewModel.dayList.count
                     self.expandFromFirstCollectionViewHandler?()
-                    //Expand 애니메이션 처리하기
                     self.secondCV.reloadData()
+                    //Expand 애니메이션 처리하기
                 }
                 
                 //여기서 헤더와 푸터의 크기를 설정하니 -> 보이기가 이상함...

@@ -14,8 +14,6 @@ class SecondFooterView: UICollectionReusableView {
     
     var expandHandler : (() -> Void)?
     
-    var count = 0
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

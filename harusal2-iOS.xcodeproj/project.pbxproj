@@ -12,6 +12,7 @@
 		307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5E24E0116900A20E35 /* InitDayViewController.swift */; };
 		307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */; };
 		3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */; };
+		EB4731D124FCF90C00E91CED /* FirstCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4731D024FCF90C00E91CED /* FirstCellViewModel.swift */; };
 		EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */; };
 		EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */; };
 		EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */; };
@@ -70,6 +71,7 @@
 		307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayPickerViewController.swift; sourceTree = "<group>"; };
 		8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_harusal2_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.debug.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EB4731D024FCF90C00E91CED /* FirstCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCellViewModel.swift; sourceTree = "<group>"; };
 		EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewController.swift; sourceTree = "<group>"; };
 		EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewModel.swift; sourceTree = "<group>"; };
 		EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				EB52557024F403BF0002BD2E /* SecondFooterView.swift */,
 				EB52557224F405690002BD2E /* FirstCollectionViewCell.swift */,
 				EB52557424F408E70002BD2E /* SecondCollectionViewCell.swift */,
+				EB4731D024FCF90C00E91CED /* FirstCellViewModel.swift */,
 			);
 			path = HomeList;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				EB826FD524F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift in Sources */,
 				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
 				EB52556B24F39E430002BD2E /* ListDetailViewModel.swift in Sources */,
+				EB4731D124FCF90C00E91CED /* FirstCellViewModel.swift in Sources */,
 				EB51CD1E24FA5F49006F0419 /* Date+.swift in Sources */,
 				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,
 				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,

@@ -83,7 +83,7 @@ class ListEditViewController: BaseViewController {
     }
     
     @objc func donePressed(){
-        viewModel.date = Converter.shared.convertDate(Date())
+        viewModel.date = Converter.shared.convertDate(datePicker.date)
         self.view.endEditing(true)
     }
     

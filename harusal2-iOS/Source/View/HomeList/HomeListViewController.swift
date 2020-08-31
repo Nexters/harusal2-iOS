@@ -15,6 +15,7 @@ class HomeListViewController: BaseViewController{
     var nowExpandCellSize = CGFloat(230) // 현재 Expand 버튼이 눌린 Cell에 설정할 크기
     var nowExpandCellNum = 0 // 현재 Expand 버튼이 눌린 Cell 번호
     var viewModel: HomeListViewModel = HomeListViewModel()
+    var day = 0
     
     // CVCell의 하단버튼 누르면 펼쳐보기 -> OK
     // Animation
@@ -26,6 +27,7 @@ class HomeListViewController: BaseViewController{
         super.viewDidLoad()
         firstCV.dataSource = self
         firstCV.delegate = self
+        
     }
 }
 
@@ -33,7 +35,7 @@ extension HomeListViewController: UICollectionViewDataSource {
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //오늘 날짜가 21일 21개
-        return 2
+        return 31
     }
     
     // 셀 어떻게 표시 할까?
@@ -45,27 +47,43 @@ extension HomeListViewController: UICollectionViewDataSource {
         }
         
         cell.expandFromFirstCollectionViewHandler = {() -> Void in
-            
-//          SecondCollectionViewCell 갯수 * 크기 만큼
-            
-            //다른 Cell들을 클릭했을 때를 위해 초기화
-            self.nowExpandCellSize = self.firstCellSize
-            //클릭한 FirstCollectionViewCell Num 가져오기
-            self.nowExpandCellNum = indexPath.item //indexPath.item --> 날짜
-            
-//            해당 날짜에 있는 데이터 갯수 * 65 만큼 nowExpandCellSize 증가
-            self.nowExpandCellSize += 65
-            
-//            self.firstCV.reloadData() 데이터를 리로드하기보다는 layout만 건드리는 것으로 변경
+                    
+        //          SecondCollectionViewCell 갯수 * 크기 만큼
+                    
+                    //다른 Cell들을 클릭했을 때를 위해 초기화
+                    self.nowExpandCellSize = self.firstCellSize
+                    //클릭한 FirstCollectionViewCell Num 가져오기
+                    self.nowExpandCellNum = indexPath.item //indexPath.item --> 날짜
+                    
+        //            해당 날짜에 있는 데이터 갯수 * 65 만큼 nowExpandCellSize 증가
+                    self.nowExpandCellSize += CGFloat(65 * (cell.viewModel.dayList.count))
+                    
+        //            self.firstCV.reloadData() 데이터를 리로드하기보다는 layout만 건드리는 것으로 변경
 
-//            애니메이션 처리 -> OK
-//            CollectionView Cell 의 애니메이션은 performBatchUpdates로 해결
-//            TableView의 CEll은 tableview.beginUpdates(), tableview.endUpdates() 로 해결 가능?
-            collectionView.performBatchUpdates({
-                collectionView.collectionViewLayout.invalidateLayout()
-            }, completion: nil)
-            
+        //            애니메이션 처리 -> OK
+        //            CollectionView Cell 의 애니메이션은 performBatchUpdates로 해결
+        //            TableView의 CEll은 tableview.beginUpdates(), tableview.endUpdates() 로 해결 가능?
+                    collectionView.performBatchUpdates({
+                        collectionView.collectionViewLayout.invalidateLayout()
+                    }, completion: nil)
+                    
+                }
+        
+        //얘가 Reuse 되어서 내부에 SecondCollectionView의 UpdateUI() 가 호출되지 않음
+        
+        //SecondCollectionView의 HeaderView UI를 위해 날짜, 수입, 지출 저장
+        cell.viewModel.headerData = (viewModel.today - indexPath.item,0,0)
+        cell.viewModel.dayList = self.viewModel.getDailyData(day: (cell.viewModel.headerData.0))
+        //Reload하지 않으면 내부 UI가 바뀌지 않음
+        
+        if(cell.viewModel.flag == true){
+            cell.cellCount = cell.viewModel.dayList.count
+            cell.secondCV.reloadData()
         }
+        
+        cell.secondCV.reloadData()
+        
+        
         
         //UI Update
         
@@ -81,6 +99,8 @@ extension HomeListViewController: UICollectionViewDataSource {
                     return UICollectionReusableView()
                 }
                 
+                //FirstCV 헤더 updateUI
+                
                 return header
             default:
                 return UICollectionReusableView()
@@ -88,6 +108,8 @@ extension HomeListViewController: UICollectionViewDataSource {
         }
     }
 }
+
+
 
 extension HomeListViewController: UICollectionViewDelegateFlowLayout{
  

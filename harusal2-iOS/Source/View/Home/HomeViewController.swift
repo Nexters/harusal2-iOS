@@ -57,7 +57,6 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("HomeTVCount \(viewModel.breakDownList.count)")
         return viewModel.breakDownList.count
     }
     

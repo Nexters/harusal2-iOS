@@ -12,14 +12,27 @@ import Foundation
 class HomeListViewModel{
     
     var breakDownList : [BreakDown] = []
-                
+    var today : Int = 0
+    
     init() {
         //화면 켜질 때 데이터 불러오기
         
-        //나중에 페이징 구현하기
+        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
+            String($0)
+            } ?? "0") ?? 0
+    
     }
     
-    //Model에서 데이터 불러와 Observable<List>에 담기
-    //
+//    func leftMonthMoney() -> Int{
+//
+//    }
+    
+    func getDailyData(day: Int) -> [BreakDown] {
+        let todayData : [BreakDown] = breakDownList.filter {
+            return day == Int($0.date.split(separator: "-")[2])
+        }
+        
+        return todayData
+    }
     
 }
