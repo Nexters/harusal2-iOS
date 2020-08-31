@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		303EB45C24E7ECFB00C3111A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303EB45B24E7ECFB00C3111A /* Colors.xcassets */; };
+		30759F5A24FD2B0B00182E88 /* BasePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30759F5924FD2B0B00182E88 /* BasePickerView.swift */; };
 		307BCD5A24E00F5300A20E35 /* Sub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307BCD5924E00F5300A20E35 /* Sub.storyboard */; };
 		307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */; };
 		307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5E24E0116900A20E35 /* InitDayViewController.swift */; };
@@ -63,6 +64,7 @@
 
 /* Begin PBXFileReference section */
 		303EB45B24E7ECFB00C3111A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		30759F5924FD2B0B00182E88 /* BasePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickerView.swift; sourceTree = "<group>"; };
 		307BCD5924E00F5300A20E35 /* Sub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sub.storyboard; sourceTree = "<group>"; };
 		307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitMoneyViewController.swift; sourceTree = "<group>"; };
 		307BCD5E24E0116900A20E35 /* InitDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				EB51E86724D09FE600360B2A /* BaseViewController.swift */,
 				EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */,
+				30759F5924FD2B0B00182E88 /* BasePickerView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
 				EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */,
 				EB5D46CE24E52C0C00E25800 /* SlideMenuViewController.swift in Sources */,
+				30759F5A24FD2B0B00182E88 /* BasePickerView.swift in Sources */,
 				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
 				EB52556B24F39E430002BD2E /* ListDetailViewModel.swift in Sources */,
 				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,

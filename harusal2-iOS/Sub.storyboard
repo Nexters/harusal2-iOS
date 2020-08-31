@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gVU-RV-wL3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4TZ-A9-kmi">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -272,40 +272,55 @@
                                 <color key="textColor" name="ColorTextAlert"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sVC-LE-ICi">
-                                <rect key="frame" x="20" y="120" width="176" height="67"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매달 시작일자를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A0-pJ-DFM">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <color key="textColor" name="ColorTextMain"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="골라주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mmf-rq-gqw">
-                                        <rect key="frame" x="0.0" y="33.5" width="176" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.22~ 8.21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmN-sN-FV7">
                                 <rect key="frame" x="105.5" y="758" width="58" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="ColorTextAlert"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALA-N7-Ush">
+                                <rect key="frame" x="157" y="226" width="100" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="q33-G9-pGh"/>
+                                    <constraint firstAttribute="width" constant="100" id="yxN-Qz-jis"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매달 생활일자를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mp9-lq-k7m">
+                                <rect key="frame" x="20" y="120" width="176" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="골라주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng9-G1-GYA">
+                                <rect key="frame" x="20" y="158.5" width="374" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0a-lo-tEz">
+                                <rect key="frame" x="259" y="359.5" width="24.5" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="sVC-LE-ICi" firstAttribute="top" secondItem="pJx-k4-zI2" secondAttribute="top" constant="32" id="D9x-c9-2WE"/>
+                            <constraint firstItem="ALA-N7-Ush" firstAttribute="centerX" secondItem="ng9-G1-GYA" secondAttribute="centerX" id="EhP-cu-vhs"/>
                             <constraint firstItem="dVt-NO-GSr" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" id="ITI-xg-Pcm"/>
+                            <constraint firstItem="ALA-N7-Ush" firstAttribute="top" secondItem="ng9-G1-GYA" secondAttribute="bottom" constant="34" id="Jkp-h1-jwe"/>
+                            <constraint firstItem="mp9-lq-k7m" firstAttribute="top" secondItem="pJx-k4-zI2" secondAttribute="top" constant="32" id="Kzz-qr-5mk"/>
                             <constraint firstItem="pJx-k4-zI2" firstAttribute="bottom" secondItem="dVt-NO-GSr" secondAttribute="bottom" id="Mhh-JJ-Vc1"/>
+                            <constraint firstItem="ng9-G1-GYA" firstAttribute="top" secondItem="mp9-lq-k7m" secondAttribute="bottom" constant="5" id="NNE-dw-OQb"/>
                             <constraint firstItem="D1S-Xb-WlT" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" constant="22" id="Oz3-0C-IhF"/>
+                            <constraint firstItem="mp9-lq-k7m" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" constant="20" id="bJD-zX-EEp"/>
+                            <constraint firstItem="ng9-G1-GYA" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" constant="20" id="da2-Ar-VDU"/>
                             <constraint firstItem="pJx-k4-zI2" firstAttribute="trailing" secondItem="dVt-NO-GSr" secondAttribute="trailing" id="gUP-hO-dWq"/>
+                            <constraint firstItem="ALA-N7-Ush" firstAttribute="centerX" secondItem="upk-UC-FFR" secondAttribute="centerX" id="glj-ju-yq2"/>
                             <constraint firstItem="xmN-sN-FV7" firstAttribute="leading" secondItem="D1S-Xb-WlT" secondAttribute="trailing" constant="4" id="kFy-5v-dHD"/>
-                            <constraint firstItem="sVC-LE-ICi" firstAttribute="leading" secondItem="pJx-k4-zI2" secondAttribute="leading" constant="20" id="ncK-Gr-Pax"/>
                             <constraint firstItem="dVt-NO-GSr" firstAttribute="top" secondItem="xmN-sN-FV7" secondAttribute="bottom" constant="19.5" id="tPI-Rh-sWH"/>
+                            <constraint firstItem="a0a-lo-tEz" firstAttribute="leading" secondItem="ALA-N7-Ush" secondAttribute="trailing" constant="2" id="tkc-Te-K0O"/>
+                            <constraint firstItem="a0a-lo-tEz" firstAttribute="centerY" secondItem="ALA-N7-Ush" secondAttribute="centerY" id="vxL-uh-B2g"/>
                             <constraint firstItem="xmN-sN-FV7" firstAttribute="centerY" secondItem="D1S-Xb-WlT" secondAttribute="centerY" id="x1D-Z0-afl"/>
                             <constraint firstItem="dVt-NO-GSr" firstAttribute="top" secondItem="D1S-Xb-WlT" secondAttribute="bottom" constant="19" id="xN8-qc-q4W"/>
                         </constraints>
@@ -313,7 +328,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="예산 설정" id="Djo-RH-pwp"/>
                     <connections>
-                        <outlet property="monthlyBudgetDurationLabel" destination="xmN-sN-FV7" id="zir-EV-kNn"/>
+                        <outlet property="monthlyBudgetDurationLabel" destination="xmN-sN-FV7" id="hby-RO-OpM"/>
+                        <outlet property="pickerView" destination="ALA-N7-Ush" id="CIt-8i-mau"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1eU-WZ-IOO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
