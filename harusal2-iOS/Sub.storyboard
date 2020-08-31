@@ -524,14 +524,15 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43S-Oq-FM6">
-                                <rect key="frame" x="265" y="339.5" width="24.5" height="33.5"/>
+                                <rect key="frame" x="265" y="331.5" width="24.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9u2-j0-yEW">
-                                <rect key="frame" x="157" y="248" width="100" height="216"/>
+                                <rect key="frame" x="157" y="198" width="100" height="300"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="3AM-ge-Bgk"/>
                                     <constraint firstAttribute="width" constant="100" id="D73-2O-DJP"/>
                                 </constraints>
                             </pickerView>
@@ -542,7 +543,7 @@
                             <constraint firstItem="hp9-10-Ywg" firstAttribute="leading" secondItem="wba-h0-1fT" secondAttribute="leading" constant="20" id="5Vg-tq-Ls8"/>
                             <constraint firstItem="8XJ-QD-fBF" firstAttribute="leading" secondItem="Mps-3c-VuY" secondAttribute="leading" id="5jb-Za-Abr"/>
                             <constraint firstItem="wba-h0-1fT" firstAttribute="trailing" secondItem="8XJ-QD-fBF" secondAttribute="trailing" id="ABp-32-Sf5"/>
-                            <constraint firstItem="9u2-j0-yEW" firstAttribute="top" secondItem="65v-uX-sdg" secondAttribute="bottom" constant="80" id="C7N-Us-eJH"/>
+                            <constraint firstItem="9u2-j0-yEW" firstAttribute="top" secondItem="65v-uX-sdg" secondAttribute="bottom" constant="30" id="C7N-Us-eJH"/>
                             <constraint firstItem="9u2-j0-yEW" firstAttribute="centerX" secondItem="Mps-3c-VuY" secondAttribute="centerX" id="D3O-Xe-N7e"/>
                             <constraint firstItem="wba-h0-1fT" firstAttribute="bottom" secondItem="sOX-Cw-d0w" secondAttribute="bottom" id="GKG-95-73m"/>
                             <constraint firstItem="65v-uX-sdg" firstAttribute="leading" secondItem="wba-h0-1fT" secondAttribute="leading" constant="108" id="Itu-NY-Pxw"/>
@@ -559,6 +560,7 @@
                     </view>
                     <connections>
                         <outlet property="monthlyBudgetDurationLabel" destination="0pn-bd-PNs" id="cdE-TL-nWf"/>
+                        <outlet property="pickerView" destination="9u2-j0-yEW" id="d0A-P4-yud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bgS-ZR-WqO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
