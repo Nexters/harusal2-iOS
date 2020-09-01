@@ -747,6 +747,9 @@
                                         <state key="normal" title="알림 설정">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tappedAlarmButton:" destination="ccm-z6-B7r" eventType="touchUpInside" id="LYN-fb-okm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -864,6 +867,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="alarmButton" destination="isG-nx-21D" id="GwU-z2-wAA"/>
+                        <outlet property="alarmView" destination="Evl-u9-iQC" id="2rl-yY-tY2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9j-SR-v4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1111,6 +1118,88 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4307.2463768115949" y="751.33928571428567"/>
+        </scene>
+        <!--AlarmSlideViewController-->
+        <scene sceneID="bG7-3i-OaQ">
+            <objects>
+                <viewController storyboardIdentifier="AlarmSlideViewController" title="AlarmSlideViewController" id="FDy-ff-TV4" customClass="AlarmSlideViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ziW-pF-13E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfj-FY-0qK">
+                                <rect key="frame" x="20" y="76" width="374" height="64"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m1G-TQ-UyS">
+                                        <rect key="frame" x="305" y="16.5" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUSH 알림 설정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JV-6n-yE9">
+                                        <rect key="frame" x="20" y="21.5" width="113" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="m1G-TQ-UyS" firstAttribute="centerY" secondItem="2JV-6n-yE9" secondAttribute="centerY" id="6ma-U9-a6S"/>
+                                    <constraint firstAttribute="height" constant="64" id="Jh9-Zp-rl5"/>
+                                    <constraint firstItem="2JV-6n-yE9" firstAttribute="leading" secondItem="jfj-FY-0qK" secondAttribute="leading" constant="20" id="UD1-ep-AxM"/>
+                                    <constraint firstItem="2JV-6n-yE9" firstAttribute="centerY" secondItem="jfj-FY-0qK" secondAttribute="centerY" id="iCl-vA-Ost"/>
+                                    <constraint firstAttribute="trailing" secondItem="m1G-TQ-UyS" secondAttribute="trailing" constant="20" id="mbs-fc-D6Z"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kHY-gJ-Ta2">
+                                <rect key="frame" x="20" y="160" width="374" height="302"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlarmCell" rowHeight="60" id="xsb-mv-gyV" customClass="AlarmCell" customModule="harusal2_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xsb-mv-gyV" id="WMI-8J-qBv">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아침 AM 9:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fy9-iO-yja">
+                                                    <rect key="frame" x="32" y="18" width="116.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IQF-Wh-V9l">
+                                                    <rect key="frame" x="303" y="14.5" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="Fy9-iO-yja" firstAttribute="leading" secondItem="xsb-mv-gyV" secondAttribute="leading" constant="32" id="Qyr-bd-JaH"/>
+                                            <constraint firstItem="Fy9-iO-yja" firstAttribute="centerY" secondItem="xsb-mv-gyV" secondAttribute="centerY" id="qRU-R6-NF1"/>
+                                            <constraint firstAttribute="trailing" secondItem="IQF-Wh-V9l" secondAttribute="trailing" constant="22" id="reu-kB-2Mu"/>
+                                            <constraint firstItem="IQF-Wh-V9l" firstAttribute="centerY" secondItem="xsb-mv-gyV" secondAttribute="centerY" id="ubC-tI-k00"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j7g-5P-Un5" firstAttribute="trailing" secondItem="jfj-FY-0qK" secondAttribute="trailing" constant="20" id="7AL-fR-K5w"/>
+                            <constraint firstItem="kHY-gJ-Ta2" firstAttribute="leading" secondItem="j7g-5P-Un5" secondAttribute="leading" constant="20" id="Htm-8b-qGh"/>
+                            <constraint firstItem="jfj-FY-0qK" firstAttribute="leading" secondItem="j7g-5P-Un5" secondAttribute="leading" constant="20" id="QAD-7E-uul"/>
+                            <constraint firstItem="jfj-FY-0qK" firstAttribute="top" secondItem="j7g-5P-Un5" secondAttribute="top" constant="32" id="RTg-uj-zS5"/>
+                            <constraint firstItem="j7g-5P-Un5" firstAttribute="bottom" secondItem="kHY-gJ-Ta2" secondAttribute="bottom" constant="400" id="Y75-qw-tiP"/>
+                            <constraint firstItem="kHY-gJ-Ta2" firstAttribute="top" secondItem="jfj-FY-0qK" secondAttribute="bottom" constant="20" id="ZZM-P9-SLR"/>
+                            <constraint firstItem="j7g-5P-Un5" firstAttribute="trailing" secondItem="kHY-gJ-Ta2" secondAttribute="trailing" constant="20" id="pfB-KX-z3f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j7g-5P-Un5"/>
+                    </view>
+                    <connections>
+                        <outlet property="switchAlarm" destination="m1G-TQ-UyS" id="bxp-aP-naI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dSe-1p-lbt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1361" y="1154"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

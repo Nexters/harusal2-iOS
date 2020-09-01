@@ -22,14 +22,16 @@ class SecondFooterView: UICollectionReusableView {
     
     @IBAction func touchUpExpandButton(_ sender: Any) {
         
-        if expandButton.titleLabel?.text == "Expand"{
-            expandButton.setTitle("Contract", for: .normal)
-            expandHandler?()
-        }else{
-            expandButton.setTitle("Expand", for: .normal)
-            contractHandler?()
+        if expandHandler != nil{
+            //Handler가 초기화되어있지 않으면 Event 막음
+            if expandButton.titleLabel?.text == "Expand"{
+                expandButton.setTitle("Contract", for: .normal)
+                expandHandler?()
+            }else{
+                expandButton.setTitle("Expand", for: .normal)
+                contractHandler?()
+            }
         }
-        
     }
     
     

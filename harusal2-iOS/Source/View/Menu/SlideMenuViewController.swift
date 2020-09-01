@@ -10,7 +10,9 @@ import UIKit
 import RxCocoa
 
 class SlideMenuViewController: BaseViewController {
-
+    @IBOutlet weak var alarmView: UIView!
+    @IBOutlet weak var alarmButton: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -21,15 +23,21 @@ class SlideMenuViewController: BaseViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tappedAlarmButton(_ sender: Any) {
+        
+        if let navi = self.navigationController, let storyBoard = self.storyboard{
+            guard let alarmVC = storyBoard.instantiateViewController(identifier: "AlarmSlideViewController") as? AlarmSlideViewController else{
+                return
+            }
+            
+            navi.pushViewController(alarmVC, animated: true)
+            
+        }else{
+            
+        }
+        
     }
-    */
+    
+    
 
 }
