@@ -36,6 +36,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         todayDateLabel.text = "오늘의 소비 | \(Converter.shared.convertDate(Date()))"
         breakDownTV.delegate = self
         breakDownTV.dataSource = self
@@ -91,8 +92,27 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     }
     
     @IBAction func tappedMenuBarButton(_ sender: Any) {
-        self.navigationController?.isNavigationBarHidden = true
-        self.performSegue(withIdentifier: "slideMenu", sender: self)
+//        self.navigationController?.isNavigationBarHidden = true
+        
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "MenuNavigation") else{
+                    return
+                }
+
+                guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
+//                vc.view.addSubview(snapshot)
+//                self.view.window?.rootViewController = vc
+//
+//                UIView.animate(withDuration: 0.3, animations: {
+//                    snapshot.transform = CGAffineTransform(translationX: -500, y: 0)
+//        //            3D 애니메이션
+//        //            snapshot.layer.transform = CATransform3DMakeScale(0.1, 0.1, 0.1)
+//                }, completion: { finish in
+//                    snapshot.removeFromSuperview()
+//                })
+        self.slideLeft(from: snapshot, to: vc)
+        
+        
+//        self.performSegue(withIdentifier: "slideMenu", sender: self)
     }
 
     @IBAction func tappedReceiptButton(_ sender: Any) {

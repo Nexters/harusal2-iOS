@@ -22,9 +22,19 @@ class SlideMenuViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
     }
+    @IBAction func tappedCloseButton(_ sender: Any) {
+    
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
+                    return
+                }
+                
+                guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
+        self.popLeft(from: snapshot, to: vc)
+        
+    
+    }
     
     @IBAction func tappedAlarmButton(_ sender: Any) {
-        
         if let navi = self.navigationController, let storyBoard = self.storyboard{
             guard let alarmVC = storyBoard.instantiateViewController(identifier: "AlarmViewController") as? AlarmViewController else{
                 return

@@ -15,14 +15,9 @@ class HomeListViewModel{
     var today : Int = 0
     
     init() {
-        //화면 켜질 때 데이터 불러오기
-        
-        today = 31
-        
-//        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
-//            String($0)
-//            } ?? "0") ?? 0
-    
+        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
+            String($0)
+            } ?? "0") ?? 0
     }
     
 //    func leftMonthMoney() -> Int{

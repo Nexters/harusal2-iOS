@@ -61,6 +61,8 @@
 		EB826FD324F93038007C43C8 /* AddMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */; };
 		EB826FD524F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */; };
 		EB826FD724F94238007C43C8 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD624F94238007C43C8 /* AddRecordViewController.swift */; };
+		EBF52AF424FE8B3300F1CE89 /* InitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF52AF324FE8B3300F1CE89 /* InitViewModel.swift */; };
+		EBF52AF624FE929900F1CE89 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF52AF524FE929900F1CE89 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +135,8 @@
 		EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoneyViewController.swift; sourceTree = "<group>"; };
 		EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddMoneyViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		EB826FD624F94238007C43C8 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
+		EBF52AF324FE8B3300F1CE89 /* InitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewModel.swift; sourceTree = "<group>"; };
+		EBF52AF524FE929900F1CE89 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -169,6 +173,7 @@
 				307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */,
 				307BCD5E24E0116900A20E35 /* InitDayViewController.swift */,
 				307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */,
+				EBF52AF324FE8B3300F1CE89 /* InitViewModel.swift */,
 			);
 			path = Init;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */,
 				EB51CD1D24FA5F49006F0419 /* Date+.swift */,
 				EB4CE94424FE2B5500300148 /* UITextView+.swift */,
+				EBF52AF524FE929900F1CE89 /* UIViewController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 				EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */,
 				EB4CE95124FE607200300148 /* Budget.swift in Sources */,
 				EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */,
+				EBF52AF624FE929900F1CE89 /* UIViewController+.swift in Sources */,
 				EB52556D24F403A90002BD2E /* FirstHeaderView.swift in Sources */,
 				EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */,
 				EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */,
@@ -566,6 +573,7 @@
 				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
 				EB4CE94F24FE5FB800300148 /* Alarm.swift in Sources */,
 				EB52557124F403BF0002BD2E /* SecondFooterView.swift in Sources */,
+				EBF52AF424FE8B3300F1CE89 /* InitViewModel.swift in Sources */,
 				308F51F924FA6148003E5682 /* EditDayViewController.swift in Sources */,
 				308F51F524FA6103003E5682 /* AlarmViewController.swift in Sources */,
 				307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */,

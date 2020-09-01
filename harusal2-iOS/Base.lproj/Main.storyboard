@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ita-RZ-F0f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FDu-Ci-5g5">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="-116"/>
+            <point key="canvasLocation" x="-1342" y="209"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="iJD-CN-Azc">
@@ -210,7 +210,6 @@
                         <barButtonItem key="leftBarButtonItem" image="line.horizontal.3" catalog="system" id="kcT-yu-sWa">
                             <connections>
                                 <action selector="tappedMenuBarButton:" destination="eb2-tr-cfT" id="tJI-bV-FOS"/>
-                                <segue destination="oYc-Am-uLg" kind="custom" identifier="slideMenu" customClass="SegueFromLeft" customModule="harusal2_iOS" customModuleProvider="target" id="lGy-ta-juA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="bubble.right.fill" catalog="system" id="c2B-N0-KYi">
@@ -233,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtT-J1-Fyx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3649.275362318841" y="105.80357142857143"/>
+            <point key="canvasLocation" x="-2007" y="209"/>
         </scene>
         <!--HomeListViewController-->
         <scene sceneID="AfE-dF-pBV">
@@ -494,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4O3-bb-oOB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4494.202898550725" y="102.45535714285714"/>
+            <point key="canvasLocation" x="1625" y="209"/>
         </scene>
         <!--List Detail View Controller-->
         <scene sceneID="f7F-bh-8Ct">
@@ -577,7 +576,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7l-DW-aeP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5260.8695652173919" y="101.78571428571428"/>
+            <point key="canvasLocation" x="-207" y="209"/>
         </scene>
         <!--List Edit View Controller-->
         <scene sceneID="Gct-Bn-6Gx">
@@ -722,7 +721,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5979.7101449275369" y="101.78571428571428"/>
+            <point key="canvasLocation" x="513" y="209"/>
         </scene>
         <!--Slide Menu View Controller-->
         <scene sceneID="PJ8-km-TMc">
@@ -864,7 +863,7 @@
                     <navigationItem key="navigationItem" id="50a-Bt-VQr">
                         <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="Btq-40-ZyS">
                             <connections>
-                                <segue destination="eb2-tr-cfT" kind="custom" customClass="SegueCloseLeft" customModule="harusal2_iOS" customModuleProvider="target" id="A2h-BA-4Bh"/>
+                                <action selector="tappedCloseButton:" destination="ccm-z6-B7r" id="iPX-KJ-XOb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -875,12 +874,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9j-SR-v4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="753"/>
+            <point key="canvasLocation" x="-2007" y="960"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b4U-Ms-V79">
             <objects>
-                <navigationController storyboardIdentifier="nav2" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="4jT-2Q-2AS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="4jT-2Q-2AS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dcK-mi-Pm4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p32-8S-TfY">
@@ -897,12 +896,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQe-kY-3Ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2739.130434782609" y="105.80357142857143"/>
+            <point key="canvasLocation" x="-2883" y="209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SUT-ME-J2U">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="oYc-Am-uLg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MenuNavigation" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="oYc-Am-uLg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pOV-Lo-Ts7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -915,7 +914,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSB-iz-IY2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2745" y="854"/>
+            <point key="canvasLocation" x="-2884" y="960"/>
         </scene>
         <!--Add Money View Controller-->
         <scene sceneID="sa4-Vz-zoO">
@@ -990,7 +989,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uhh-Wr-dA4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3543" y="753"/>
+            <point key="canvasLocation" x="2433" y="210"/>
         </scene>
         <!--Add Record View Controller-->
         <scene sceneID="PJy-R1-wbP">
@@ -1119,12 +1118,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4307.2463768115949" y="751.33928571428567"/>
+            <point key="canvasLocation" x="3199" y="209"/>
         </scene>
         <!--예산 설정-->
         <scene sceneID="oyz-5a-sk1">
             <objects>
-                <viewController id="Dyl-if-8Ma" customClass="InitMoneyViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitMoneyViewController" id="Dyl-if-8Ma" customClass="InitMoneyViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JeK-O6-tUI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1139,9 +1138,12 @@
                                 <state key="normal" title="다음">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedDoneButton:" destination="Dyl-if-8Ma" eventType="touchUpInside" id="ykL-33-rhh"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qhU-mH-TDd">
-                                <rect key="frame" x="20" y="76" width="374" height="67"/>
+                                <rect key="frame" x="20" y="120" width="374" height="67"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이번 달 예산은 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTa-1L-ftX">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="33.5"/>
@@ -1158,7 +1160,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0원" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F88-xH-tRr">
-                                <rect key="frame" x="20" y="193" width="374" height="60"/>
+                                <rect key="frame" x="20" y="237" width="374" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CKn-8D-DxE"/>
                                 </constraints>
@@ -1169,13 +1171,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30만원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzJ-Yp-fuo">
-                                <rect key="frame" x="20" y="263" width="374" height="14.5"/>
+                                <rect key="frame" x="20" y="307" width="374" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="ColorTextMain"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="이번달 하루 생활비" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIl-v8-eFW" userLabel="하루 생활비">
-                                <rect key="frame" x="22" y="287.5" width="90" height="14.5"/>
+                                <rect key="frame" x="22" y="331.5" width="90" height="14.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="2gi-Ac-cEL"/>
                                 </constraints>
@@ -1184,7 +1186,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="10000원" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFX-66-LTr" userLabel="하루 생활비">
-                                <rect key="frame" x="115" y="287.5" width="50" height="14.5"/>
+                                <rect key="frame" x="115" y="331.5" width="50" height="14.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="svv-DE-f7q"/>
                                 </constraints>
@@ -1196,13 +1198,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="WdY-pg-LpF" firstAttribute="bottom" secondItem="hZH-Pm-E72" secondAttribute="bottom" id="2hR-6E-R4f"/>
                             <constraint firstItem="hZH-Pm-E72" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PzJ-Yp-fuo" secondAttribute="trailing" symbolic="YES" id="9IS-gy-bO3"/>
                             <constraint firstItem="qhU-mH-TDd" firstAttribute="leading" secondItem="hZH-Pm-E72" secondAttribute="leading" constant="20" id="ARL-UJ-io2"/>
                             <constraint firstItem="gIl-v8-eFW" firstAttribute="top" secondItem="PzJ-Yp-fuo" secondAttribute="bottom" constant="10" id="Bfd-IZ-xNW"/>
                             <constraint firstItem="hZH-Pm-E72" firstAttribute="trailing" secondItem="F88-xH-tRr" secondAttribute="trailing" constant="20" id="Bpr-3C-VQW"/>
                             <constraint firstItem="qhU-mH-TDd" firstAttribute="top" secondItem="hZH-Pm-E72" secondAttribute="top" constant="32" id="Dj1-pz-Yjy"/>
                             <constraint firstItem="F88-xH-tRr" firstAttribute="leading" secondItem="hZH-Pm-E72" secondAttribute="leading" constant="20" id="PBT-vh-v0x"/>
+                            <constraint firstItem="hZH-Pm-E72" firstAttribute="bottom" secondItem="WdY-pg-LpF" secondAttribute="bottom" id="Zxd-8X-zNR"/>
                             <constraint firstItem="hZH-Pm-E72" firstAttribute="trailing" secondItem="qhU-mH-TDd" secondAttribute="trailing" constant="20" id="eDq-4Z-EQG"/>
                             <constraint firstItem="hZH-Pm-E72" firstAttribute="trailing" secondItem="PzJ-Yp-fuo" secondAttribute="trailing" constant="20" id="gNn-om-MyN"/>
                             <constraint firstItem="gIl-v8-eFW" firstAttribute="leading" secondItem="hZH-Pm-E72" secondAttribute="leading" constant="22" id="gNr-rl-3Ht"/>
@@ -1225,17 +1227,19 @@
                     <connections>
                         <outlet property="budgetLabel" destination="PzJ-Yp-fuo" id="BLB-4S-sP5"/>
                         <outlet property="budgetPerDayLabel" destination="kFX-66-LTr" id="mfJ-EF-gEh"/>
+                        <outlet property="doneButton" destination="WdY-pg-LpF" id="2Yc-1W-5Yn"/>
+                        <outlet property="doneButtonBottom" destination="Zxd-8X-zNR" id="cYV-6h-8jW"/>
                         <outlet property="monthBudgetText" destination="F88-xH-tRr" id="3bi-Ll-7uM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vM-EK-lme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2926" y="1519"/>
+            <point key="canvasLocation" x="-1097.1014492753625" y="-521.65178571428567"/>
         </scene>
         <!--예산 설정-->
         <scene sceneID="aMF-5X-5Ch">
             <objects>
-                <viewController storyboardIdentifier="InitDayViewControllerId" id="b1v-Ji-tfe" customClass="InitDayViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitDayViewController" id="b1v-Ji-tfe" customClass="InitDayViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fIM-hb-6Hh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1256,6 +1260,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectToday:" destination="b1v-Ji-tfe" eventType="touchUpInside" id="e6t-nl-GbX"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jfH-Ma-tTm">
                                 <rect key="frame" x="20" y="76" width="259.5" height="100.5"/>
@@ -1329,6 +1336,9 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectDifferentDay:" destination="b1v-Ji-tfe" eventType="touchUpInside" id="ihZ-Gw-bdX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1352,12 +1362,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cID-LR-ykr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3693" y="1519"/>
+            <point key="canvasLocation" x="-326.08695652173918" y="-522.32142857142856"/>
         </scene>
         <!--예산 설정-->
         <scene sceneID="2lu-SM-1rh">
             <objects>
-                <viewController id="RFy-x9-kar" customClass="InitDayPickerViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InitDayPickerViewController" id="RFy-x9-kar" customClass="InitDayPickerViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDz-OL-ZBN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1389,26 +1399,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUz-yq-5Io">
-                                <rect key="frame" x="157" y="226" width="100" height="300"/>
+                                <rect key="frame" x="157" y="182" width="100" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Egm-q6-AnI"/>
                                     <constraint firstAttribute="height" constant="300" id="OLO-Oh-wMT"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매달 생활일자를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VB-D9-Ixk">
-                                <rect key="frame" x="20" y="120" width="176" height="33.5"/>
+                                <rect key="frame" x="20" y="76" width="176" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="골라주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbK-s9-DJl">
-                                <rect key="frame" x="20" y="158.5" width="374" height="33.5"/>
+                                <rect key="frame" x="20" y="114.5" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzM-HD-IqG">
-                                <rect key="frame" x="259" y="359.5" width="24.5" height="33.5"/>
+                                <rect key="frame" x="259" y="315.5" width="24.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1445,7 +1455,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehk-KM-SJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-454" y="102"/>
+            <point key="canvasLocation" x="447.82608695652175" y="-522.32142857142856"/>
         </scene>
         <!--Edit Money View Controller-->
         <scene sceneID="KZm-h4-xxI">
@@ -1564,7 +1574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kdc-UR-9jK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2746" y="2193"/>
+            <point key="canvasLocation" x="-117" y="960"/>
         </scene>
         <!--Edit Day View Controller-->
         <scene sceneID="woO-U2-SWO">
@@ -1676,7 +1686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apa-gO-pTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3536" y="2192"/>
+            <point key="canvasLocation" x="807" y="960"/>
         </scene>
         <!--AlarmViewController-->
         <scene sceneID="1Xw-g2-viu">
@@ -1780,30 +1790,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RI7-Kg-y5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="1167"/>
+            <point key="canvasLocation" x="-1009" y="960"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ywW-hZ-WwE">
+        <scene sceneID="syC-iA-8yc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ita-RZ-F0f" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FDu-Ci-5g5" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8KL-mB-xcR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jen-ze-ZHD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="RFy-x9-kar" kind="relationship" relationship="rootViewController" id="FYH-b2-KlU"/>
+                        <segue destination="Dyl-if-8Ma" kind="relationship" relationship="rootViewController" id="ebi-0R-y9u"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2BJ-mt-1KK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="69z-bU-wqL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1364" y="102"/>
+            <point key="canvasLocation" x="-2007.2463768115942" y="-521.65178571428567"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="uSr-IX-jOd"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
         <image name="bubble.right.fill" catalog="system" width="128" height="110"/>
