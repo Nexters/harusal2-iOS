@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		303EB45C24E7ECFB00C3111A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303EB45B24E7ECFB00C3111A /* Colors.xcassets */; };
-		30759F5A24FD2B0B00182E88 /* BasePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30759F5924FD2B0B00182E88 /* BasePickerView.swift */; };
 		30759F5C24FE00C600182E88 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30759F5B24FE00C600182E88 /* AlarmCell.swift */; };
 		307BCD5A24E00F5300A20E35 /* Sub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307BCD5924E00F5300A20E35 /* Sub.storyboard */; };
 		307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */; };
@@ -20,8 +19,9 @@
 		3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */; };
 		EB4731D124FCF90C00E91CED /* FirstCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4731D024FCF90C00E91CED /* FirstCellViewModel.swift */; };
 		EB4CE94524FE2B5500300148 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE94424FE2B5500300148 /* UITextView+.swift */; };
-		EB4CE94724FE4DAE00300148 /* AlarmSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE94624FE4DAE00300148 /* AlarmSlideViewController.swift */; };
-		EB4CE94A24FE510C00300148 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE94924FE510C00300148 /* AlarmCell.swift */; };
+		EB4CE94C24FE57DF00300148 /* BasePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE94B24FE57DF00300148 /* BasePickerView.swift */; };
+		EB4CE94F24FE5FB800300148 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE94E24FE5FB800300148 /* Alarm.swift */; };
+		EB4CE95124FE607200300148 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE95024FE607200300148 /* Budget.swift */; };
 		EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */; };
 		EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */; };
 		EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */; };
@@ -75,7 +75,6 @@
 
 /* Begin PBXFileReference section */
 		303EB45B24E7ECFB00C3111A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		30759F5924FD2B0B00182E88 /* BasePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickerView.swift; sourceTree = "<group>"; };
 		30759F5B24FE00C600182E88 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		307BCD5924E00F5300A20E35 /* Sub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sub.storyboard; sourceTree = "<group>"; };
 		307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitMoneyViewController.swift; sourceTree = "<group>"; };
@@ -88,8 +87,9 @@
 		B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.debug.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		EB4731D024FCF90C00E91CED /* FirstCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCellViewModel.swift; sourceTree = "<group>"; };
 		EB4CE94424FE2B5500300148 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
-		EB4CE94624FE4DAE00300148 /* AlarmSlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSlideViewController.swift; sourceTree = "<group>"; };
-		EB4CE94924FE510C00300148 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
+		EB4CE94B24FE57DF00300148 /* BasePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickerView.swift; sourceTree = "<group>"; };
+		EB4CE94E24FE5FB800300148 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		EB4CE95024FE607200300148 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewController.swift; sourceTree = "<group>"; };
 		EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewModel.swift; sourceTree = "<group>"; };
 		EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -185,10 +185,19 @@
 		EB4CE94824FE50E700300148 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				EB4CE94624FE4DAE00300148 /* AlarmSlideViewController.swift */,
-				EB4CE94924FE510C00300148 /* AlarmCell.swift */,
+				308F51F424FA6103003E5682 /* AlarmViewController.swift */,
+				30759F5B24FE00C600182E88 /* AlarmCell.swift */,
 			);
 			path = Alarm;
+			sourceTree = "<group>";
+		};
+		EB4CE94D24FE59AB00300148 /* Segue */ = {
+			isa = PBXGroup;
+			children = (
+				EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */,
+				EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */,
+			);
+			path = Segue;
 			sourceTree = "<group>";
 		};
 		EB4D09D124D33BE000DF65D6 /* Extension */ = {
@@ -282,9 +291,10 @@
 		EB51E86224D09FA000360B2A /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				EB4CE94D24FE59AB00300148 /* Segue */,
 				EB51E86724D09FE600360B2A /* BaseViewController.swift */,
 				EB530E1B24D145EF009FEBC8 /* ViewModelType.swift */,
-				30759F5924FD2B0B00182E88 /* BasePickerView.swift */,
+				EB4CE94B24FE57DF00300148 /* BasePickerView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -293,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				EB53842824DED3F00036902B /* BreakDown.swift */,
+				EB4CE94E24FE5FB800300148 /* Alarm.swift */,
+				EB4CE95024FE607200300148 /* Budget.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -359,12 +371,8 @@
 			isa = PBXGroup;
 			children = (
 				EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */,
-				EB5D46CF24E52EF700E25800 /* SegueFromLeft.swift */,
-				EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */,
-				308F51F424FA6103003E5682 /* AlarmViewController.swift */,
 				308F51F624FA612A003E5682 /* EditMoneyViewController.swift */,
 				308F51F824FA6148003E5682 /* EditDayViewController.swift */,
-				30759F5B24FE00C600182E88 /* AlarmCell.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -549,12 +557,14 @@
 				EB52556924F39CE20002BD2E /* ListEditViewModel.swift in Sources */,
 				EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */,
 				EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */,
+				EB4CE95124FE607200300148 /* Budget.swift in Sources */,
 				EB51E86824D09FE600360B2A /* BaseViewController.swift in Sources */,
 				EB52556D24F403A90002BD2E /* FirstHeaderView.swift in Sources */,
 				EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */,
 				EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */,
 				EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */,
 				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
+				EB4CE94F24FE5FB800300148 /* Alarm.swift in Sources */,
 				EB52557124F403BF0002BD2E /* SecondFooterView.swift in Sources */,
 				308F51F924FA6148003E5682 /* EditDayViewController.swift in Sources */,
 				308F51F524FA6103003E5682 /* AlarmViewController.swift in Sources */,
@@ -564,7 +574,6 @@
 				307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */,
 				EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */,
 				EB826FD024F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift in Sources */,
-				EB4CE94A24FE510C00300148 /* AlarmCell.swift in Sources */,
 				EB53842924DED3F00036902B /* BreakDown.swift in Sources */,
 				EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */,
 				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
@@ -584,10 +593,10 @@
 				EB4731D124FCF90C00E91CED /* FirstCellViewModel.swift in Sources */,
 				EB51CD1E24FA5F49006F0419 /* Date+.swift in Sources */,
 				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,
-				EB4CE94724FE4DAE00300148 /* AlarmSlideViewController.swift in Sources */,
 				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,
 				EB52557524F408E70002BD2E /* SecondCollectionViewCell.swift in Sources */,
 				EB52556F24F403B50002BD2E /* SecondHeaderView.swift in Sources */,
+				EB4CE94C24FE57DF00300148 /* BasePickerView.swift in Sources */,
 				EB7F4EEF24EC078700D35DBB /* DBRepository.swift in Sources */,
 				EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */,
 			);

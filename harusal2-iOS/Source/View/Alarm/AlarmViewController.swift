@@ -17,13 +17,20 @@ class AlarmViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //DB에서 불러오기
+        self.alarmSwitch.isOn = false
+        self.navigationItem.title = "알람 설정"
         alarmTableView.delegate = self
         alarmTableView.dataSource = self
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        if alarmSwitch.isOn{
+            return items.count
+        }else{
+            return 0
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,4 +43,8 @@ class AlarmViewController: UIViewController,  UITableViewDelegate, UITableViewDa
 
         return cell
     }
+    @IBAction func tappedSwitch(_ sender: Any) {
+        self.alarmTableView.reloadData()
+    }
 }
+

@@ -26,7 +26,7 @@ class SlideMenuViewController: BaseViewController {
     @IBAction func tappedAlarmButton(_ sender: Any) {
         
         if let navi = self.navigationController, let storyBoard = self.storyboard{
-            guard let alarmVC = storyBoard.instantiateViewController(identifier: "AlarmSlideViewController") as? AlarmSlideViewController else{
+            guard let alarmVC = storyBoard.instantiateViewController(identifier: "AlarmViewController") as? AlarmViewController else{
                 return
             }
             
