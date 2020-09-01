@@ -21,7 +21,10 @@ class AddRecordViewModel{
     var breakDown : BreakDown?
     
     func convertMoney(str: String) -> Int{
-        return Int(str) ?? 0
+        let money = str.filter{
+            return Int(String($0)) != nil
+        }
+        return Int(money) ?? 0
         
     }
     
@@ -32,7 +35,7 @@ class AddRecordViewModel{
         data.type = type
         data.content = content
         data.date = date ?? Converter.shared.convertDate(Date())
-        
+        print("저장 \(data)")
         repository.writeData(data: data)
         
         

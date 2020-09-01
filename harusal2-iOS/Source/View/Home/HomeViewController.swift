@@ -39,15 +39,15 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         todayDateLabel.text = "오늘의 소비 | \(Converter.shared.convertDate(Date()))"
         breakDownTV.delegate = self
         breakDownTV.dataSource = self
-        viewModel.getMonthData{
-            self.breakDownTV.reloadData()
-        }
         
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        viewModel.getMonthData{
+            self.breakDownTV.reloadData()
+        }
     }
     
     override func setConstraints() {

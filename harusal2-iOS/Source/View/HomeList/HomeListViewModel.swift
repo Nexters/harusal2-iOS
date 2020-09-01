@@ -33,8 +33,29 @@ class HomeListViewModel{
         let todayData : [BreakDown] = breakDownList.filter {
             return day == Int($0.date.split(separator: "-")[2])
         }
-        
         return todayData
+    }
+    
+    func getDailyOutCome(day: Int) -> Int{
+       let amount = self.getDailyData(day: day).filter{
+                  return $0.type == 0
+              }.map{data -> Int in
+                  return data.amount
+              }.reduce(0) {
+                  $0 + $1
+              }
+              return amount
+    }
+    
+    func getDailyInCome(day: Int) -> Int{
+         let amount = self.getDailyData(day: day).filter{
+                   return $0.type == 1
+               }.map{data -> Int in
+                   return data.amount
+               }.reduce(0) {
+                   $0 + $1
+               }
+               return amount
     }
     
 }

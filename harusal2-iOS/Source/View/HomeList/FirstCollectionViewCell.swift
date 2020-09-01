@@ -70,18 +70,13 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
             
                 footer.expandHandler = { () -> Void in
                     self.cellCount = self.viewModel.dayList.count
-                    
                     self.expandFromFirstCollectionViewHandler?()
-//                    footer.expandButton.titleLabel?.text = "Contract"
                     self.secondCV.reloadData()
-                    //Expand 애니메이션 처리하기
                 }
                 footer.contractHandler = { () -> Void in
                     self.cellCount = 0
                     self.contractFromFirstCollectionViewHandler?()
-//                    footer.expandButton.titleLabel?.text = "Expand"
                     self.secondCV.reloadData()
-                    
                 }
                 
                 //여기서 헤더와 푸터의 크기를 설정하니 -> 보이기가 이상함...

@@ -1,16 +1,15 @@
 //
-//  UITextField+.swift
+//  TextView+.swift
 //  harusal2-iOS
 //
-//  Created by 지현우 on 2020/08/15.
+//  Created by 지현우 on 2020/09/01.
 //  Copyright © 2020 nexters. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-extension UITextField{
-
+extension UITextView{
     
     @objc func done(){
             self.resignFirstResponder()

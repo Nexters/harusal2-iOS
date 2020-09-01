@@ -32,7 +32,7 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         dateTextField.text = converter.convertDate(Date())
         
         viewModel.dateChanged = {
-            //날짜 변경했을 때
+            //날짜 변경했을 때, Observe
             self.dateTextField.text = $0
         }
     }
@@ -80,21 +80,28 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
     @IBAction func tappedDoneButton(_ sender: Any) {
         var money = moneyLabel.text
         money?.removeLast() // "원" 빼기
+        
         if let amount = money{
             viewModel.money = amount
         }else{
             viewModel.money = "0"
         }
+        
         viewModel.content = self.descriptionTextView.text
         viewModel.date = self.dateTextField.text
-        print(viewModel.date)
+
         viewModel.addData()
-            if let navi = self.navigationController{
+        
+        DispatchQueue.main.async {
+            //ViewController 3개 Pop
+             if let navi = self.navigationController{
                 let viewControllers = navi.viewControllers
                 navi.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             }else{
                 return
             }
+        }
+           
         
         
     }
@@ -124,7 +131,6 @@ extension AddRecordViewController: UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         let fixedWidth = textView.frame.size.width
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-        print(newSize.height)
         if textView.frame.height < 80 {
             //1줄 높이일 때만 증가를 시킨다
             self.textViewHeight.constant = newSize.height
@@ -150,8 +156,10 @@ extension AddRecordViewController{
             let keyboardHeight = keyboardFrame.height
             let safeInsets = self.view.safeAreaInsets.bottom
             self.doneButtonBottom.constant = keyboardHeight - safeInsets
+//            self.view.frame.origin.y -= keyboardHeight - safeInsets
         } else if noti.name == UIResponder.keyboardWillHideNotification {
             self.doneButtonBottom.constant = .zero
+//            self.view.frame.origin.y = .zero
         }
     }
 }
