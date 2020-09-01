@@ -9,28 +9,30 @@
 import UIKit
 
 class AlarmViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
-    
+
     @IBOutlet weak var alarmSwitch: UISwitch!
     @IBOutlet weak var alarmTableView: UITableView!
-    @IBOutlet weak var tableItemTimeLabel: UILabel!
-    @IBOutlet weak var tableItemSwitch: UISwitch!
+    
+    private var items: [String] = ["아침 AM 9:00", "점심 PM 12:00", "저녁 PM 8:00"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         alarmTableView.delegate = self
         alarmTableView.dataSource = self
-        
-        self.alarmTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "AlarmCell") as? AlarmCell else {
+            return UITableViewCell()
+        }
+        
+        cell.tableItemTimeLabel.text = items[indexPath.row]
 
         return cell
     }

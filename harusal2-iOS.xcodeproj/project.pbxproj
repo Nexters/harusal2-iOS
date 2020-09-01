@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		303EB45C24E7ECFB00C3111A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 303EB45B24E7ECFB00C3111A /* Colors.xcassets */; };
 		30759F5A24FD2B0B00182E88 /* BasePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30759F5924FD2B0B00182E88 /* BasePickerView.swift */; };
+		30759F5C24FE00C600182E88 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30759F5B24FE00C600182E88 /* AlarmCell.swift */; };
 		307BCD5A24E00F5300A20E35 /* Sub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307BCD5924E00F5300A20E35 /* Sub.storyboard */; };
 		307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */; };
 		307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5E24E0116900A20E35 /* InitDayViewController.swift */; };
@@ -65,6 +66,7 @@
 /* Begin PBXFileReference section */
 		303EB45B24E7ECFB00C3111A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		30759F5924FD2B0B00182E88 /* BasePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePickerView.swift; sourceTree = "<group>"; };
+		30759F5B24FE00C600182E88 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		307BCD5924E00F5300A20E35 /* Sub.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sub.storyboard; sourceTree = "<group>"; };
 		307BCD5C24E0115E00A20E35 /* InitMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitMoneyViewController.swift; sourceTree = "<group>"; };
 		307BCD5E24E0116900A20E35 /* InitDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayViewController.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				308F51F424FA6103003E5682 /* AlarmViewController.swift */,
 				308F51F624FA612A003E5682 /* EditMoneyViewController.swift */,
 				308F51F824FA6148003E5682 /* EditDayViewController.swift */,
+				30759F5B24FE00C600182E88 /* AlarmCell.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
 				EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */,
 				307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */,
+				30759F5C24FE00C600182E88 /* AlarmCell.swift in Sources */,
 				EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */,
 				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
 				EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */,
