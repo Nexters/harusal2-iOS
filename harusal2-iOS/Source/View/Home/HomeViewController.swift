@@ -104,6 +104,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             homeListVC.viewModel.breakDownList = self.viewModel.breakDownList
             navi.pushViewController(homeListVC, animated: true)
             
+            
         }else{
             
         }

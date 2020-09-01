@@ -29,9 +29,7 @@ class SlideMenuViewController: BaseViewController {
             guard let alarmVC = storyBoard.instantiateViewController(identifier: "AlarmViewController") as? AlarmViewController else{
                 return
             }
-            
             navi.pushViewController(alarmVC, animated: true)
-            
         }else{
             
         }

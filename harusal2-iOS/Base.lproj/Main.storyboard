@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4jT-2Q-2AS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ita-RZ-F0f">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -75,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="106"/>
+            <point key="canvasLocation" x="668" y="-116"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="iJD-CN-Azc">
@@ -86,7 +86,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Fp-zE-PnZ">
-                                <rect key="frame" x="20" y="397" width="374" height="465"/>
+                                <rect key="frame" x="20" y="441" width="374" height="421"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="0.74680204459999999" blue="0.42836287429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -141,7 +141,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IB-LX-lfo">
-                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 생활비 10,000원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8B-Si-fjE">
                                         <rect key="frame" x="129.5" y="248.5" width="155" height="19.5"/>
@@ -175,7 +175,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 소비 | 2020.07.20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Si-rV-gqI">
-                                <rect key="frame" x="20" y="355" width="177.5" height="21"/>
+                                <rect key="frame" x="20" y="399" width="177.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -233,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtT-J1-Fyx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2739.130434782609" y="105.80357142857143"/>
+            <point key="canvasLocation" x="3649.275362318841" y="105.80357142857143"/>
         </scene>
         <!--HomeListViewController-->
         <scene sceneID="AfE-dF-pBV">
@@ -494,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4O3-bb-oOB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3584.057971014493" y="102.45535714285714"/>
+            <point key="canvasLocation" x="4494.202898550725" y="102.45535714285714"/>
         </scene>
         <!--List Detail View Controller-->
         <scene sceneID="f7F-bh-8Ct">
@@ -577,7 +577,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z7l-DW-aeP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4352" y="102"/>
+            <point key="canvasLocation" x="5260.8695652173919" y="101.78571428571428"/>
         </scene>
         <!--List Edit View Controller-->
         <scene sceneID="Gct-Bn-6Gx">
@@ -722,7 +722,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="5069.5652173913049" y="101.78571428571428"/>
+            <point key="canvasLocation" x="5979.7101449275369" y="101.78571428571428"/>
         </scene>
         <!--Slide Menu View Controller-->
         <scene sceneID="PJ8-km-TMc">
@@ -880,8 +880,9 @@
         <!--Navigation Controller-->
         <scene sceneID="b4U-Ms-V79">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4jT-2Q-2AS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nav2" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="4jT-2Q-2AS" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dcK-mi-Pm4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="p32-8S-TfY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -896,7 +897,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pQe-kY-3Ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828.985507246377" y="105.80357142857143"/>
+            <point key="canvasLocation" x="2739.130434782609" y="105.80357142857143"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SUT-ME-J2U">
@@ -914,7 +915,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSB-iz-IY2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2269.5652173913045" y="752.67857142857144"/>
+            <point key="canvasLocation" x="2745" y="854"/>
         </scene>
         <!--Add Money View Controller-->
         <scene sceneID="sa4-Vz-zoO">
@@ -1371,6 +1372,9 @@
                                 <state key="normal" title="완료">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedDoneButton:" destination="RFy-x9-kar" eventType="touchUpInside" id="e9R-PS-Lfi"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생활비 사용 기한" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWB-75-YMU">
                                 <rect key="frame" x="22" y="757.5" width="79.5" height="15.5"/>
@@ -1385,26 +1389,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AUz-yq-5Io">
-                                <rect key="frame" x="157" y="182" width="100" height="300"/>
+                                <rect key="frame" x="157" y="226" width="100" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Egm-q6-AnI"/>
                                     <constraint firstAttribute="height" constant="300" id="OLO-Oh-wMT"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="매달 생활일자를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VB-D9-Ixk">
-                                <rect key="frame" x="20" y="76" width="176" height="33.5"/>
+                                <rect key="frame" x="20" y="120" width="176" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="골라주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbK-s9-DJl">
-                                <rect key="frame" x="20" y="114.5" width="374" height="33.5"/>
+                                <rect key="frame" x="20" y="158.5" width="374" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RzM-HD-IqG">
-                                <rect key="frame" x="259" y="315.5" width="24.5" height="33.5"/>
+                                <rect key="frame" x="259" y="359.5" width="24.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1434,13 +1438,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="예산 설정" id="1sI-fX-HdD"/>
                     <connections>
+                        <outlet property="doneButton" destination="Idm-Ja-apM" id="xxL-YQ-k9S"/>
                         <outlet property="monthlyBudgetDurationLabel" destination="gS3-F8-h1i" id="xNz-la-nVw"/>
                         <outlet property="pickerView" destination="AUz-yq-5Io" id="aRm-Fp-8OR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehk-KM-SJV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4446" y="1519"/>
+            <point key="canvasLocation" x="-454" y="102"/>
         </scene>
         <!--Edit Money View Controller-->
         <scene sceneID="KZm-h4-xxI">
@@ -1777,9 +1782,27 @@
             </objects>
             <point key="canvasLocation" x="1393" y="1167"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ywW-hZ-WwE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ita-RZ-F0f" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8KL-mB-xcR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RFy-x9-kar" kind="relationship" relationship="rootViewController" id="FYH-b2-KlU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2BJ-mt-1KK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1364" y="102"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="A2h-BA-4Bh"/>
+        <segue reference="uSr-IX-jOd"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.circle" catalog="system" width="128" height="121"/>

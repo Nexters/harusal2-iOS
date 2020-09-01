@@ -95,8 +95,7 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         DispatchQueue.main.async {
             //ViewController 3개 Pop
              if let navi = self.navigationController{
-                let viewControllers = navi.viewControllers
-                navi.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+                navi.popToRootViewController(animated: true)
             }else{
                 return
             }
