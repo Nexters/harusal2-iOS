@@ -8,7 +8,6 @@
 
 import Foundation
 import RealmSwift
-import RxSwift
 
 class DBRepository{
    
@@ -24,9 +23,30 @@ class DBRepository{
     
     
     func readAllData() -> [BreakDown]{
-        let aa = realm.objects(BreakDown.self).compactMap{ $0 }
-        print(aa)
-        return Array(aa)
+        let data = realm.objects(BreakDown.self)
+        
+        return Array(data)
+    }
+    
+    func readTodayDate() -> [BreakDown]{
+        let today = Converter().convertDate(Date())
+        
+        let data = realm.objects(BreakDown.self).filter("date LIKE %@",today)
+        
+        return Array(data)
+    }
+    
+    func readMonthData() -> [BreakDown]{
+        let today = Converter.shared.convertDate(Date())
+        let month: String = String(today.split(separator: "-")[1])
+        let data = realm.objects(BreakDown.self).filter("date LIKE '?????\(month)???' ")
+        return Array(data)
+    }
+    
+    func removeAll() {
+        try! realm.write{
+            realm.deleteAll()
+        }
     }
     
 }

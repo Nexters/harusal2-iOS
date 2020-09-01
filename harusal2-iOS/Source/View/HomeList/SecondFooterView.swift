@@ -13,17 +13,25 @@ class SecondFooterView: UICollectionReusableView {
     @IBOutlet weak var expandButton: UIButton!
     
     var expandHandler : (() -> Void)?
-    
-    var count = 0
+    var contractHandler: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
+    
     @IBAction func touchUpExpandButton(_ sender: Any) {
         
-        expandHandler?()
-        
+        if expandHandler != nil{
+            //Handler가 초기화되어있지 않으면 Event 막음
+            if expandButton.titleLabel?.text == "Expand"{
+                expandButton.setTitle("Contract", for: .normal)
+                expandHandler?()
+            }else{
+                expandButton.setTitle("Expand", for: .normal)
+                contractHandler?()
+            }
+        }
     }
     
     

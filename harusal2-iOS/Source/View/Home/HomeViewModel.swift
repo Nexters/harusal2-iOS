@@ -16,7 +16,15 @@ class HomeViewModel{
     
     
     func getAllData(refresh: @escaping () -> ()){
-       breakDownList = db.readAllData()
+        breakDownList = db.readAllData()
+    
+        DispatchQueue.main.async {
+            refresh()
+        }
+    }
+    
+    func getMonthData(refresh: @escaping () -> ()){
+        breakDownList = db.readMonthData()
         
         DispatchQueue.main.async {
             refresh()

@@ -17,7 +17,7 @@ extension HomeViewController{
         let newImageViewHeight: CGFloat = imageViewHeightConstraint.constant - y
         let newTodayMoneyLabelCenterX: CGFloat = todayMoneyLabelCenterX.constant - y * 160/300
         
-        print(y)
+//        print(y)
         
         if newHeaderViewHeight > headerViewMaxHeight{
             headerViewHeightConstraint.constant = headerViewMaxHeight

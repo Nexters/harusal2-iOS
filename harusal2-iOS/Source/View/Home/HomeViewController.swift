@@ -15,7 +15,8 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var receiptBarButtonItem : UIBarButtonItem!
     @IBOutlet weak var todayMoneyDescriptionLabel : UILabel!
     @IBOutlet weak var todayMoneyLabel : UILabel!
-//    @IBOutlet weak var slideMenuView: UIView!
+    @IBOutlet weak var todayDateLabel: UILabel!
+    //    @IBOutlet weak var slideMenuView: UIView!
     
     @IBOutlet weak var breakDownTV: UITableView!
     
@@ -30,42 +31,23 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     let imageViewMinHeight: CGFloat = 0
     let todayMoneyLabelMinX: CGFloat = -80
     let todayMoneyLabelMaxX: CGFloat = 0
-//    var slideMenuMaxX : CGFloat!
-//    var slideMenuMinX : CGFloat!
     
     let viewModel = HomeViewModel()
     
-//    let disposeBag = DisposeBag()
-    
-//    func prepareAnimation(){
-//        slideMenuCenterX.constant = slideMenuMinX
-//    }
-    
-//    func openSlideMenu(){
-//        slideMenuCenterX.constant = slideMenuMaxX
-//        UIView.animate(withDuration: 0.3, animations: {
-//            self.view.layoutIfNeeded()
-//        })
-//    }
-    
-//    func closeSlideMenu(){
-//        slideMenuCenterX.constant = slideMenuMinX
-//        view.layoutIfNeeded()
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        todayDateLabel.text = "오늘의 소비 | \(Converter.shared.convertDate(Date()))"
         breakDownTV.delegate = self
         breakDownTV.dataSource = self
-        viewModel.getAllData{
-            self.breakDownTV.reloadData()
-        }
+        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        breakDownTV.reloadData()
+        viewModel.getMonthData{
+            self.breakDownTV.reloadData()
+        }
     }
     
     override func setConstraints() {
@@ -125,5 +107,17 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         }else{
             
         }
+    }
+    @IBAction func tappedAddButton(_ sender: Any) {
+        
+        if let navi = self.navigationController, let storyBoard = self.storyboard{
+            guard let addVC = storyBoard.instantiateViewController(identifier: "AddMoneyViewController") as? AddMoneyViewController else {
+                return
+            }
+            
+            navi.pushViewController(addVC, animated: true)
+            
+        }
+        
     }
 }
