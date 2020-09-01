@@ -13,6 +13,10 @@
 		307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD5E24E0116900A20E35 /* InitDayViewController.swift */; };
 		307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */; };
 		3E6F998685B43B49AE8FE9C8 /* Pods_harusal2_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */; };
+		EB4731D124FCF90C00E91CED /* FirstCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4731D024FCF90C00E91CED /* FirstCellViewModel.swift */; };
+		EB4CE94524FE2B5500300148 /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE94424FE2B5500300148 /* UITextView+.swift */; };
+		EB4CE94724FE4DAE00300148 /* AlarmSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE94624FE4DAE00300148 /* AlarmSlideViewController.swift */; };
+		EB4CE94A24FE510C00300148 /* AlarmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4CE94924FE510C00300148 /* AlarmCell.swift */; };
 		EB4D09C824D327FD00DF65D6 /* HomeEmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */; };
 		EB4D09CA24D3281300DF65D6 /* HomeEmptyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */; };
 		EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */; };
@@ -21,6 +25,8 @@
 		EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668824E78FA0004A9007 /* ListDetailViewController.swift */; };
 		EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668C24E79DD6004A9007 /* ListEditViewController.swift */; };
 		EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51668E24E7CE50004A9007 /* UITextField+.swift */; };
+		EB51CD1C24FA2CC3006F0419 /* AddRecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */; };
+		EB51CD1E24FA5F49006F0419 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51CD1D24FA5F49006F0419 /* Date+.swift */; };
 		EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E83F24D09D7900360B2A /* AppDelegate.swift */; };
 		EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB51E84124D09D7900360B2A /* SceneDelegate.swift */; };
 		EB51E84724D09D7900360B2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB51E84524D09D7900360B2A /* Main.storyboard */; };
@@ -46,6 +52,10 @@
 		EB5D46D224E5369800E25800 /* SegueCloseLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */; };
 		EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F4EEA24EBD0C200D35DBB /* Converter.swift */; };
 		EB7F4EEF24EC078700D35DBB /* DBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7F4EEE24EC078700D35DBB /* DBRepository.swift */; };
+		EB826FD024F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FCF24F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift */; };
+		EB826FD324F93038007C43C8 /* AddMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */; };
+		EB826FD524F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */; };
+		EB826FD724F94238007C43C8 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD624F94238007C43C8 /* AddRecordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +76,10 @@
 		307BCD6024E0117300A20E35 /* InitDayPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitDayPickerViewController.swift; sourceTree = "<group>"; };
 		8389BF54265F393775B75511 /* Pods_harusal2_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_harusal2_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14EC773D9B86E5404A64024 /* Pods-harusal2-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.debug.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		EB4731D024FCF90C00E91CED /* FirstCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCellViewModel.swift; sourceTree = "<group>"; };
+		EB4CE94424FE2B5500300148 /* UITextView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
+		EB4CE94624FE4DAE00300148 /* AlarmSlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSlideViewController.swift; sourceTree = "<group>"; };
+		EB4CE94924FE510C00300148 /* AlarmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmCell.swift; sourceTree = "<group>"; };
 		EB4D09C724D327FD00DF65D6 /* HomeEmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewController.swift; sourceTree = "<group>"; };
 		EB4D09C924D3281300DF65D6 /* HomeEmptyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyViewModel.swift; sourceTree = "<group>"; };
 		EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -74,6 +88,8 @@
 		EB51668824E78FA0004A9007 /* ListDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
 		EB51668C24E79DD6004A9007 /* ListEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditViewController.swift; sourceTree = "<group>"; };
 		EB51668E24E7CE50004A9007 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewModel.swift; sourceTree = "<group>"; };
+		EB51CD1D24FA5F49006F0419 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		EB51E83C24D09D7900360B2A /* harusal2-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "harusal2-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB51E83F24D09D7900360B2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB51E84124D09D7900360B2A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +119,10 @@
 		EB5D46D124E5369800E25800 /* SegueCloseLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueCloseLeft.swift; sourceTree = "<group>"; };
 		EB7F4EEA24EBD0C200D35DBB /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		EB7F4EEE24EC078700D35DBB /* DBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBRepository.swift; sourceTree = "<group>"; };
+		EB826FCF24F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListEditViewController + UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoneyViewController.swift; sourceTree = "<group>"; };
+		EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddMoneyViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		EB826FD624F94238007C43C8 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,12 +172,25 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EB4CE94824FE50E700300148 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+				EB4CE94624FE4DAE00300148 /* AlarmSlideViewController.swift */,
+				EB4CE94924FE510C00300148 /* AlarmCell.swift */,
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
 		EB4D09D124D33BE000DF65D6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				EB4D09CF24D339E000DF65D6 /* UIView+.swift */,
 				EB53842A24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift */,
 				EB51668E24E7CE50004A9007 /* UITextField+.swift */,
+				EB826FCF24F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift */,
+				EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */,
+				EB51CD1D24FA5F49006F0419 /* Date+.swift */,
+				EB4CE94424FE2B5500300148 /* UITextView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -256,6 +289,7 @@
 		EB51E86424D09FAD00360B2A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB4CE94824FE50E700300148 /* Alarm */,
 				307BCD5B24E0113D00A20E35 /* Init */,
 				EB5D46CC24E52BF700E25800 /* Menu */,
 				EB538BF724D7D1960074B752 /* HomeList */,
@@ -267,6 +301,7 @@
 		EB51E86524D09FBF00360B2A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EB826FD124F93028007C43C8 /* Add */,
 				EB538BF624D7D17E0074B752 /* Empty */,
 				EB51E86624D09FCA00360B2A /* StoryBoard */,
 				EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */,
@@ -304,6 +339,7 @@
 				EB52557024F403BF0002BD2E /* SecondFooterView.swift */,
 				EB52557224F405690002BD2E /* FirstCollectionViewCell.swift */,
 				EB52557424F408E70002BD2E /* SecondCollectionViewCell.swift */,
+				EB4731D024FCF90C00E91CED /* FirstCellViewModel.swift */,
 			);
 			path = HomeList;
 			sourceTree = "<group>";
@@ -334,6 +370,16 @@
 				EB7F4EEE24EC078700D35DBB /* DBRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		EB826FD124F93028007C43C8 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */,
+				EB826FD624F94238007C43C8 /* AddRecordViewController.swift */,
+				EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */,
+			);
+			path = Add;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,20 +542,30 @@
 				EB52557124F403BF0002BD2E /* SecondFooterView.swift in Sources */,
 				307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */,
 				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
+				EB4CE94524FE2B5500300148 /* UITextView+.swift in Sources */,
 				307BCD5D24E0115E00A20E35 /* InitMoneyViewController.swift in Sources */,
 				EB5D46D024E52EF700E25800 /* SegueFromLeft.swift in Sources */,
+				EB826FD024F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift in Sources */,
+				EB4CE94A24FE510C00300148 /* AlarmCell.swift in Sources */,
 				EB53842924DED3F00036902B /* BreakDown.swift in Sources */,
 				EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */,
 				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
 				EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */,
 				307BCD6124E0117300A20E35 /* InitDayPickerViewController.swift in Sources */,
 				EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */,
+				EB51CD1C24FA2CC3006F0419 /* AddRecordViewModel.swift in Sources */,
 				EB51E84224D09D7900360B2A /* SceneDelegate.swift in Sources */,
+				EB826FD724F94238007C43C8 /* AddRecordViewController.swift in Sources */,
 				EB51668924E78FA0004A9007 /* ListDetailViewController.swift in Sources */,
+				EB826FD324F93038007C43C8 /* AddMoneyViewController.swift in Sources */,
 				EB5D46CE24E52C0C00E25800 /* SlideMenuViewController.swift in Sources */,
+				EB826FD524F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift in Sources */,
 				EB53842724DED0E30036902B /* BreakDownCell.swift in Sources */,
 				EB52556B24F39E430002BD2E /* ListDetailViewModel.swift in Sources */,
+				EB4731D124FCF90C00E91CED /* FirstCellViewModel.swift in Sources */,
+				EB51CD1E24FA5F49006F0419 /* Date+.swift in Sources */,
 				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,
+				EB4CE94724FE4DAE00300148 /* AlarmSlideViewController.swift in Sources */,
 				EB530E1C24D145EF009FEBC8 /* ViewModelType.swift in Sources */,
 				EB52557524F408E70002BD2E /* SecondCollectionViewCell.swift in Sources */,
 				EB52556F24F403B50002BD2E /* SecondHeaderView.swift in Sources */,

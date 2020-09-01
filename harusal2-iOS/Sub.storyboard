@@ -485,10 +485,10 @@
             </objects>
             <point key="canvasLocation" x="1749" y="704"/>
         </scene>
-        <!--View Controller-->
+        <!--AlarmSlideViewController-->
         <scene sceneID="Zs7-ba-XR0">
             <objects>
-                <viewController id="zGU-7o-glf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlarmSlideViewController" title="AlarmSlideViewController" id="zGU-7o-glf" customClass="AlarmSlideViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aJh-L5-FGs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

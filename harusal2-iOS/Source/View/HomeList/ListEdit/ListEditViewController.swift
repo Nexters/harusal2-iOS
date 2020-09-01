@@ -14,22 +14,25 @@ class ListEditViewController: BaseViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var selectDateButton: UIButton!
     @IBOutlet weak var segment: UISegmentedControl!
+    @IBOutlet weak var desTextView: UITextView!
     @IBOutlet weak var moneyTextField: UITextField!
-    @IBOutlet weak var desTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var textViewHeight: NSLayoutConstraint!
     let datePicker = UIDatePicker()
     var amount = 0
+    var isEditingTextView = false
     let viewModel = ListEditViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardDidShowNotification, object: nil)
                
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         moneyTextField.delegate = self
+        desTextView.delegate = self
         
         updateUI()
         
@@ -44,7 +47,7 @@ class ListEditViewController: BaseViewController {
             amount = breakDown.amount
             dateTextField.text = breakDown.date
             moneyTextField.text = numberFormatter.string(from: NSNumber(value: breakDown.amount))
-            desTextField.text = breakDown.content
+            desTextView.text = breakDown.content
             switch breakDown.type{
                 case 0:
                     segment.selectedSegmentIndex = 0
@@ -59,13 +62,18 @@ class ListEditViewController: BaseViewController {
     }
     
     @IBAction func tappedBG(_ sender: Any) {
-        if dateTextField.isEditing == true{
-            dateTextField.resignFirstResponder()
-        } else if moneyTextField.isEditing == true{
-            moneyTextField.resignFirstResponder()
-        } else{
-            desTextField.resignFirstResponder()
-        }
+        
+            if dateTextField.isEditing{
+                dateTextField.resignFirstResponder()
+            }else if moneyTextField.isEditing{
+                moneyTextField.resignFirstResponder()
+            }
+            else if isEditingTextView{
+                desTextView.resignFirstResponder()
+                isEditingTextView=false
+            }
+                
+       
     }
     
     private func createDatePicker(){
@@ -83,30 +91,29 @@ class ListEditViewController: BaseViewController {
     }
     
     @objc func donePressed(){
-        
-        let converter = Converter()
-        let date = converter.convertDate(datePicker.date)
-        
-        viewModel.date = date
+        viewModel.date = Converter.shared.convertDate(datePicker.date)
         self.view.endEditing(true)
     }
+    
     @IBAction func tappedSelectDateButton(_ sender: Any) {
         self.dateTextField.becomeFirstResponder()
     }
     
     @IBAction func saveInfo(_ sender: Any) {
         if let navi = self.navigationController {
-            var type = 0
             switch segment.selectedSegmentIndex {
             case 0:
-                type = 0
+                viewModel.type = 0
             case 1:
-                type = 1
+                viewModel.type = 1
             default:
-                type = -1
+                viewModel.type = -1
             }
-            print(amount)
-            viewModel.updateData(date: dateTextField.text, amount: amount, content: desTextField.text, type: type)//업데이트
+            viewModel.content = desTextView.text ?? ""
+            viewModel.money = moneyTextField.text ?? ""
+            
+            viewModel.updateData()//업데이트
+            
             navi.popViewController(animated: true)
         }else{
             return
@@ -116,14 +123,43 @@ class ListEditViewController: BaseViewController {
 
     override func setConstraints() {
         moneyTextField.keyboardType = .numberPad
-        desTextField.addDoneButtonOnDesKeyboard()
+        desTextView.addDoneButtonOnDesKeyboard()
         moneyTextField.addDoneButtonOnDesKeyboard()
         segment.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: UIControl.State.normal)//세그먼트 Text Color 변경
         dateView.roundView(by: 100)
         dateView.setBorder(thick: CGFloat(1), color: UIColor.black.cgColor)
+        desTextView.layer.borderWidth = 1
+        desTextView.layer.borderColor = UIColor.gray.cgColor
     }
     
 
+}
+
+extension ListEditViewController: UITextViewDelegate{
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+            //TextView가 포커스를 얻었을 때
+            isEditingTextView = true
+        }
+        
+        func textViewDidChange(_ textView: UITextView) {
+            let fixedWidth = textView.frame.size.width
+            let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+            
+            if newSize.height > 87{
+                self.textViewHeight.constant = 87
+            }
+            else if textView.frame.height < 80 {
+                //1줄 높이일 때만 증가를 시킨다
+                self.textViewHeight.constant = newSize.height
+            }
+    //        viewModel.content = textView.text
+        }
+        func textViewDidEndEditing(_ textView: UITextView) {
+            //TextView가 포커스를 잃었을 때
+            isEditingTextView = false
+        }
+    
 }
 
 extension ListEditViewController {
@@ -134,53 +170,12 @@ extension ListEditViewController {
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-        
-        if noti.name == UIResponder.keyboardWillShowNotification, desTextField.isEditing==true{
+        print("isEditing \(isEditingTextView)")
+        if noti.name == UIResponder.keyboardDidShowNotification, isEditingTextView{
             let keyboardHeight = keyboardFrame.height
-            self.view.frame.origin.y -= keyboardHeight/3
+            self.view.frame.origin.y -= keyboardHeight/2
         } else if noti.name == UIResponder.keyboardWillHideNotification {
             self.view.frame.origin.y = .zero
         }
-    }
-}
-
-extension ListEditViewController: UITextFieldDelegate{
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        //replacementString : 방금 입력된 문자 하나 or 붙여넣기 된 문자열
-        // return -> 텍스트가 바뀌어야하면 true, 아니면 false
-        //이 메소드 내에서 textField.text는 현재 입력된 string이 붙기 전의 string
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.locale = Locale.current
-        formatter.maximumFractionDigits = 0
-        
-        if let removeAllSeprator = textField.text?.replacingOccurrences(of: formatter.groupingSeparator, with: ""){
-            var beforeFormattedString = removeAllSeprator + string
-            if formatter.number(from: string) != nil{
-                if let formattedNumber = formatter.number(from: beforeFormattedString), let formattedString = formatter.string(from: formattedNumber){
-                    textField.text = formattedString
-                    amount = Int(formattedNumber)
-                    return false
-                }
-            }else{ // 숫자가 아닐 때
-                if string == "" { //백스페이스일 때
-                    let lastIndex = beforeFormattedString.index(beforeFormattedString.endIndex, offsetBy: -1)
-                    beforeFormattedString = String(beforeFormattedString[..<lastIndex])
-                    if let formattedNumber = formatter.number(from: beforeFormattedString), let formattedString = formatter.string(from: formattedNumber){
-                        textField.text = formattedString
-                        amount = Int(formattedNumber)
-                        return false
-                    }
-                }else{ //문자일 때
-                    return false
-                }
-            }
-        }
-        return true
-        
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.layer.borderColor = UIColor.yellow.cgColor
     }
 }

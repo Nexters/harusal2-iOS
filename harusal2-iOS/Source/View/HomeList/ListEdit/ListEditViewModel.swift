@@ -10,24 +10,32 @@ import Foundation
 
 class ListEditViewModel{
     
+    var money: String = ""
+    var content: String = ""
+    var type: Int = 0
+    
     var date: String?{
         didSet{
             dateChanged?(date)
         }
     }
-    
+    func convertMoney(str: String) -> Int{
+        let newStr = str.filter {
+            return Int(String($0)) != nil
+        }
+        
+        return Int(newStr) ?? 0
+        
+    }
     
     var breakDown : BreakDown?
     
-    func updateData(date: String?, amount: Int?, content: String?, type: Int){
-        
+    func updateData(){
         guard let data = breakDown else{
             return
         }
-        let numberFormatter = NumberFormatter()
         
-        data.update(date: date!, amount: amount ?? 0, content: content ?? "", type: type)
-        
+        data.update(date: date ?? Converter.shared.convertDate(Date()), amount: convertMoney(str: money), content: content, type: type)
     }
     
     var dateChanged : ((String?) -> ())?

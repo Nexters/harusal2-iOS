@@ -18,7 +18,8 @@ class SecondCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func update(_ breakDown: BreakDown){
+    func updateUI(_ breakDown: BreakDown){
+        
         self.priceLabel.text = String(breakDown.amount)
         if breakDown.type == 0 {
             self.priceLabel.textColor = .blue
