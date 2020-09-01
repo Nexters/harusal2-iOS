@@ -17,9 +17,11 @@ class HomeListViewModel{
     init() {
         //화면 켜질 때 데이터 불러오기
         
-        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
-            String($0)
-            } ?? "0") ?? 0
+        today = 31
+        
+//        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
+//            String($0)
+//            } ?? "0") ?? 0
     
     }
     

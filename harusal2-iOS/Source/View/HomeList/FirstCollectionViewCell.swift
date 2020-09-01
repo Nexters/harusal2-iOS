@@ -12,8 +12,9 @@ import UIKit
 class FirstCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondCV: UICollectionView!
     
-    var cellCount = 0
+    var cellCount = 0 // 보여질 Cell의 개수
     var expandFromFirstCollectionViewHandler : (() -> Void)?
+    var contractFromFirstCollectionViewHandler : (() -> Void)?
     let viewModel : FirstCellViewModel = FirstCellViewModel()
     var resizeHandler: (() -> Void)?
     
@@ -21,9 +22,6 @@ class FirstCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        
         secondCV.dataSource = self
         secondCV.delegate = self
         secondCV.roundView(by: 50)
@@ -43,8 +41,10 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SecondCollectionViewCell", for: indexPath) as? SecondCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
         if self.viewModel.dayList.count > 0{
             cell.updateUI(self.viewModel.dayList[indexPath.item])
+            
         }
         
         return cell
@@ -60,6 +60,7 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 //HomeListViewController에서 self.cell.secondCV.reloadData()를 하기 때문에
                 //이곳 Flow를 진행
                 header.updateUI(data: viewModel.headerData)
+                
 
                 return header
             case UICollectionView.elementKindSectionFooter:
@@ -69,9 +70,18 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
             
                 footer.expandHandler = { () -> Void in
                     self.cellCount = self.viewModel.dayList.count
+                    
                     self.expandFromFirstCollectionViewHandler?()
+//                    footer.expandButton.titleLabel?.text = "Contract"
                     self.secondCV.reloadData()
                     //Expand 애니메이션 처리하기
+                }
+                footer.contractHandler = { () -> Void in
+                    self.cellCount = 0
+                    self.contractFromFirstCollectionViewHandler?()
+//                    footer.expandButton.titleLabel?.text = "Expand"
+                    self.secondCV.reloadData()
+                    
                 }
                 
                 //여기서 헤더와 푸터의 크기를 설정하니 -> 보이기가 이상함...

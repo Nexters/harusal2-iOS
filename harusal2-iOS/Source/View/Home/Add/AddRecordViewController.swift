@@ -80,15 +80,23 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
     @IBAction func tappedDoneButton(_ sender: Any) {
         var money = moneyLabel.text
         money?.removeLast() // "원" 빼기
+        if let amount = money{
+            viewModel.money = amount
+        }else{
+            viewModel.money = "0"
+        }
         viewModel.content = self.descriptionTextView.text
         viewModel.date = self.dateTextField.text
+        print(viewModel.date)
         viewModel.addData()
-        if let navi = self.navigationController{
-            let viewControllers = navi.viewControllers
-            navi.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-        }else{
-            return
-        }
+            if let navi = self.navigationController{
+                let viewControllers = navi.viewControllers
+                navi.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+            }else{
+                return
+            }
+        
+        
     }
     
     @IBAction func tappedDateButton(_ sender: Any) {
