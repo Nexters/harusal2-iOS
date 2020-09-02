@@ -16,33 +16,18 @@ class SecondFooterView: UICollectionReusableView {
     var contractHandler: (() -> Void)?
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        print("111 -> \(flag)")
-        
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
-    func updateUI(){
-        if flag{
-            expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
-            
-        }
-        else{
-
-            expandButton.setImage(UIImage(named: "btn_dropdown"), for: .normal)
-        }
-    }
-    
     @IBAction func touchUpExpandButton(_ sender: Any) {
-        
         if expandHandler != nil{
             //Handler가 초기화되어있지 않으면 Event 막음
-            print("333")
             if expandButton.currentImage == UIImage(named: "btn_dropdown"){
                 expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
                 expandHandler?()
@@ -52,6 +37,5 @@ class SecondFooterView: UICollectionReusableView {
             }
         }
     }
-    
     
 }

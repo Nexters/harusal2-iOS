@@ -18,6 +18,7 @@ class AlarmViewController: UIViewController,  UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         //DB에서 불러오기
+        self.setNavigationBlack()
         self.alarmSwitch.isOn = false
         self.navigationItem.title = "알람 설정"
         alarmTableView.delegate = self

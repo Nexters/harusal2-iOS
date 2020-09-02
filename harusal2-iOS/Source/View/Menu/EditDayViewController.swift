@@ -8,14 +8,11 @@
 
 import UIKit
 
-class EditDayViewController: BasePickerView {
+class EditDayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "매월 시작일 수정"
     }
     
-    override func getMonthAndDay()-> (Int,Int){
-        // TODO: DB에서 생활비 사용 기간 가져오기
-        return (8,30)
-    }
 }

@@ -26,6 +26,7 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBlack()
         updateUI()
         createDatePicker()
         

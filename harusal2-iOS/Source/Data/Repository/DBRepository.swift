@@ -27,6 +27,8 @@ class DBRepository{
     }
     
     
+    
+    
     func readAllData() -> [BreakDown]{
         let data = realm.objects(BreakDown.self)
         

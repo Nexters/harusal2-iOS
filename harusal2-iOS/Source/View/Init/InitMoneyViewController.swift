@@ -11,20 +11,16 @@ import UIKit
 class InitMoneyViewController: UIViewController {
     
     @IBOutlet weak var monthBudgetText : UITextField!
-    @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var budgetPerDayLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
+    let monthDay = MonthDay()
+    var money: Int = 0
     
     @IBOutlet weak var doneButtonBottom: NSLayoutConstraint!
-    @IBAction func showText(_ sender:UITextField){
-        let text = self.monthBudgetText.text ?? "0"
-        let calc = Int(text) ?? 1
-        self.budgetLabel.text = "\(text)원"
-        self.budgetPerDayLabel.text = "\(String(calc/30))원"
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBlack()
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
                
@@ -36,13 +32,21 @@ class InitMoneyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.monthBudgetText.becomeFirstResponder()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     @IBAction func tappedDoneButton(_ sender: Any) {
         if self.monthBudgetText.text == ""{
             self.showToast(vc: self, msg: "금액을 입력해주세요.", sec: 2.0)
         }
         else{
             if let navi = self.navigationController, let storyBoard = self.storyboard{
-                let dayVC = storyBoard.instantiateViewController(identifier: "InitDayViewController")
+                guard let dayVC = storyBoard.instantiateViewController(identifier: "InitDayViewController") as? InitDayViewController else{
+                    return
+                }
+                dayVC.viewModel.budget?.money = self.money
                 navi.pushViewController(dayVC, animated: true)
             }else{
                 return

@@ -21,6 +21,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <barButtonItem image="line.horizontal.3" catalog="system" id="QMQ-ln-gKf"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="zN8-fg-gdj"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Rcc-Nb-7gb"/>
                                     <barButtonItem image="bubble.right.fill" catalog="system" id="ffA-N2-cO4"/>
                                 </items>
@@ -328,17 +329,28 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9O-rz-St9">
-                                                                        <rect key="frame" x="354" y="21" width="20" height="22"/>
-                                                                        <state key="normal" image="arrow.right.circle" catalog="system"/>
+                                                                        <rect key="frame" x="350" y="20" width="24" height="24"/>
+                                                                        <state key="normal" image="icn_arrow_24"/>
                                                                     </button>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBA-Qi-Vpq">
+                                                                        <rect key="frame" x="16" y="62" width="362" height="1"/>
+                                                                        <color key="backgroundColor" name="HomeListBackground"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="1" id="Txe-RQ-Z3T"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="J9O-rz-St9" secondAttribute="trailing" constant="20" id="BVV-T4-Apt"/>
                                                                     <constraint firstItem="MPc-fI-Ioe" firstAttribute="centerY" secondItem="u71-qu-Fj0" secondAttribute="centerY" id="EWV-T6-iwy"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="fBA-Qi-Vpq" secondAttribute="bottom" constant="1" id="IjZ-WQ-aDs"/>
                                                                     <constraint firstItem="u71-qu-Fj0" firstAttribute="leading" secondItem="M22-0k-rsa" secondAttribute="leading" constant="20" id="T5D-sV-iYd"/>
                                                                     <constraint firstItem="MPc-fI-Ioe" firstAttribute="leading" secondItem="u71-qu-Fj0" secondAttribute="trailing" constant="8" id="Zhl-AS-xgh"/>
+                                                                    <constraint firstItem="fBA-Qi-Vpq" firstAttribute="leading" secondItem="M22-0k-rsa" secondAttribute="leading" constant="16" id="aPH-pB-3fJ"/>
                                                                     <constraint firstItem="J9O-rz-St9" firstAttribute="centerY" secondItem="M22-0k-rsa" secondAttribute="centerY" id="aQz-ac-8Db"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="fBA-Qi-Vpq" secondAttribute="trailing" constant="16" id="aa5-yS-rb0"/>
                                                                     <constraint firstItem="u71-qu-Fj0" firstAttribute="centerY" secondItem="M22-0k-rsa" secondAttribute="centerY" id="dHy-xT-zPc"/>
+                                                                    <constraint firstItem="fBA-Qi-Vpq" firstAttribute="centerX" secondItem="M22-0k-rsa" secondAttribute="centerX" id="ibB-MZ-fvR"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -416,9 +428,10 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rw0-ad-fjS">
                                                                 <rect key="frame" x="185" y="20.5" width="24" height="24"/>
-                                                                <state key="normal" image="btn_dropup_24">
+                                                                <state key="normal" image="btn_dropdown">
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                                 </state>
+                                                                <state key="selected" image="btn_dropup_24"/>
                                                                 <connections>
                                                                     <action selector="touchUpExpandButton:" destination="kHW-0Q-g6S" eventType="touchUpInside" id="kQx-dK-VIN"/>
                                                                 </connections>
@@ -444,7 +457,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="OTy-sq-nuL" secondAttribute="trailing" constant="10" id="wxi-nq-mTa"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="HomeListBackground"/>
                                         <size key="customSize" width="414" height="230"/>
                                         <connections>
                                             <outlet property="secondCV" destination="OTy-sq-nuL" id="yaH-tU-pon"/>
@@ -775,9 +788,6 @@
                                         <state key="normal" title="알림 설정">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
-                                        <connections>
-                                            <action selector="tappedAlarmButton:" destination="ccm-z6-B7r" eventType="touchUpInside" id="LYN-fb-okm"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -891,13 +901,15 @@
                     <navigationItem key="navigationItem" id="50a-Bt-VQr">
                         <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="Btq-40-ZyS">
                             <connections>
-                                <action selector="tappedCloseButton:" destination="ccm-z6-B7r" id="iPX-KJ-XOb"/>
+                                <action selector="tappedCloseButton" destination="ccm-z6-B7r" id="nBE-kv-auq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alarmButton" destination="isG-nx-21D" id="GwU-z2-wAA"/>
                         <outlet property="alarmView" destination="Evl-u9-iQC" id="2rl-yY-tY2"/>
+                        <outlet property="dayView" destination="tkQ-5e-hkA" id="NvQ-sf-Qsa"/>
+                        <outlet property="initView" destination="vUv-tO-Ixf" id="s3m-aJ-4Or"/>
+                        <outlet property="moneyView" destination="9GE-ed-DTx" id="wwg-IG-Yit"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9j-SR-v4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1194,9 +1206,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="showText:" destination="Dyl-if-8Ma" eventType="editingChanged" id="d6o-jS-ydT"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="이번달 하루 생활비" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIl-v8-eFW" userLabel="하루 생활비">
                                 <rect key="frame" x="22" y="417" width="90" height="14.5"/>
@@ -1247,7 +1256,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="budgetPerDayLabel" destination="kFX-66-LTr" id="mfJ-EF-gEh"/>
+                        <outlet property="budgetPerDayLabel" destination="kFX-66-LTr" id="qNc-Ju-jnS"/>
                         <outlet property="doneButton" destination="WdY-pg-LpF" id="2Yc-1W-5Yn"/>
                         <outlet property="doneButtonBottom" destination="Zxd-8X-zNR" id="cYV-6h-8jW"/>
                         <outlet property="monthBudgetText" destination="F88-xH-tRr" id="3bi-Ll-7uM"/>
@@ -1476,6 +1485,7 @@
                     <navigationItem key="navigationItem" title="예산 설정" id="1sI-fX-HdD"/>
                     <connections>
                         <outlet property="doneButton" destination="Idm-Ja-apM" id="xxL-YQ-k9S"/>
+                        <outlet property="durationLabel" destination="gS3-F8-h1i" id="xrX-tO-gPO"/>
                         <outlet property="monthlyBudgetDurationLabel" destination="gS3-F8-h1i" id="xNz-la-nVw"/>
                         <outlet property="pickerView" destination="AUz-yq-5Io" id="aRm-Fp-8OR"/>
                     </connections>
@@ -1484,20 +1494,14 @@
             </objects>
             <point key="canvasLocation" x="447.82608695652175" y="-522.32142857142856"/>
         </scene>
-        <!--Edit Money View Controller-->
+        <!--EditMoneyViewController-->
         <scene sceneID="KZm-h4-xxI">
             <objects>
-                <viewController id="LnL-TA-6Aj" customClass="EditMoneyViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditMoneyViewController" title="EditMoneyViewController" id="LnL-TA-6Aj" customClass="EditMoneyViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ui9-qe-Sol">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfm-cF-yDq">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="이번 달 생활비 수정" id="4bp-PB-bmM"/>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eub-yr-zcc">
                                 <rect key="frame" x="0.0" y="792" width="414" height="70"/>
                                 <color key="backgroundColor" name="ColorButton"/>
@@ -1516,7 +1520,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-o0-BdC">
-                                <rect key="frame" x="120" y="144" width="174" height="24"/>
+                                <rect key="frame" x="120" y="100" width="174" height="24"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U6I-sp-rdj">
                                         <rect key="frame" x="33" y="5" width="108" height="14"/>
@@ -1549,26 +1553,14 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30만원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCk-lb-uC7">
-                                <rect key="frame" x="182" y="278" width="50" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="ColorTextGrey"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEA-FQ-8fa">
-                                <rect key="frame" x="110" y="212" width="194" height="47"/>
+                                <rect key="frame" x="126.5" y="168" width="161" height="47"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="300,000" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hLG-Nc-N8R">
                                         <rect key="frame" x="0.0" y="0.0" width="161" height="47"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f52-yH-qGj">
-                                        <rect key="frame" x="161" y="0.0" width="33" height="47"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -1577,26 +1569,22 @@
                             <constraint firstItem="dEA-FQ-8fa" firstAttribute="top" secondItem="gdM-o0-BdC" secondAttribute="bottom" constant="44" id="0xb-Sz-gvy"/>
                             <constraint firstItem="UaE-MS-hJj" firstAttribute="bottom" secondItem="Eub-yr-zcc" secondAttribute="bottom" id="7Ex-yz-XC3"/>
                             <constraint firstAttribute="trailing" secondItem="Cbb-ac-NOe" secondAttribute="trailing" constant="20" id="E85-Iq-BF0"/>
-                            <constraint firstItem="gdM-o0-BdC" firstAttribute="top" secondItem="bfm-cF-yDq" secondAttribute="bottom" constant="56" id="K2R-It-zfR"/>
                             <constraint firstItem="UaE-MS-hJj" firstAttribute="trailing" secondItem="gdM-o0-BdC" secondAttribute="trailing" constant="120" id="Rtg-a3-v0Q"/>
-                            <constraint firstItem="bfm-cF-yDq" firstAttribute="leading" secondItem="UaE-MS-hJj" secondAttribute="leading" id="SyV-1e-Lcm"/>
                             <constraint firstItem="dEA-FQ-8fa" firstAttribute="centerX" secondItem="Ui9-qe-Sol" secondAttribute="centerX" id="Tse-fH-O5U"/>
-                            <constraint firstItem="bfm-cF-yDq" firstAttribute="top" secondItem="UaE-MS-hJj" secondAttribute="top" id="cAE-1M-veG"/>
-                            <constraint firstItem="bfm-cF-yDq" firstAttribute="trailing" secondItem="UaE-MS-hJj" secondAttribute="trailing" id="csV-AE-hb9"/>
-                            <constraint firstItem="mCk-lb-uC7" firstAttribute="top" secondItem="dEA-FQ-8fa" secondAttribute="bottom" constant="19" id="dRZ-xZ-3wL"/>
+                            <constraint firstItem="gdM-o0-BdC" firstAttribute="top" secondItem="UaE-MS-hJj" secondAttribute="top" constant="56" id="crw-wb-tNx"/>
                             <constraint firstItem="Cbb-ac-NOe" firstAttribute="leading" secondItem="UaE-MS-hJj" secondAttribute="leading" constant="20" id="fgv-mk-xE1"/>
                             <constraint firstItem="Eub-yr-zcc" firstAttribute="leading" secondItem="UaE-MS-hJj" secondAttribute="leading" id="h7x-HM-occ"/>
                             <constraint firstItem="Eub-yr-zcc" firstAttribute="top" secondItem="Cbb-ac-NOe" secondAttribute="bottom" constant="10" id="nQT-DA-XRo"/>
                             <constraint firstItem="gdM-o0-BdC" firstAttribute="leading" secondItem="UaE-MS-hJj" secondAttribute="leading" constant="120" id="oWi-vw-Fsn"/>
-                            <constraint firstItem="mCk-lb-uC7" firstAttribute="centerX" secondItem="Ui9-qe-Sol" secondAttribute="centerX" id="qCt-a6-6eW"/>
                             <constraint firstItem="UaE-MS-hJj" firstAttribute="trailing" secondItem="Eub-yr-zcc" secondAttribute="trailing" id="qbf-NB-8Qe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UaE-MS-hJj"/>
                     </view>
                     <connections>
                         <outlet property="bugetPreDayLabel" destination="p2M-Ff-Yvo" id="KCw-V1-MdJ"/>
+                        <outlet property="doneButton" destination="Eub-yr-zcc" id="Hx5-lZ-xzi"/>
+                        <outlet property="doneButtonBottom" destination="7Ex-yz-XC3" id="WQg-cv-MTA"/>
                         <outlet property="editMoneyText" destination="hLG-Nc-N8R" id="cdZ-AL-B2f"/>
-                        <outlet property="editMoneyTextConverter" destination="mCk-lb-uC7" id="3ZQ-qM-xmX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kdc-UR-9jK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1606,17 +1594,11 @@
         <!--Edit Day View Controller-->
         <scene sceneID="woO-U2-SWO">
             <objects>
-                <viewController id="AIN-Vu-cdw" customClass="EditDayViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditDayViewController" id="AIN-Vu-cdw" customClass="EditDayViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pqD-4a-f4k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-b0-o9O">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="매월 시작일 수정" id="18Q-bz-gXa"/>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작일 수정 시 남은 생활비가 다시 계산됩니다." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-Bl-sqr">
                                 <rect key="frame" x="20" y="752" width="374" height="21"/>
                                 <constraints>
@@ -1638,7 +1620,7 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgE-zb-3hb">
-                                <rect key="frame" x="108" y="144" width="198" height="24"/>
+                                <rect key="frame" x="108" y="100" width="198" height="24"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iI-dc-ctM">
                                         <rect key="frame" x="27" y="5" width="144.5" height="14"/>
@@ -1672,13 +1654,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPW-fQ-Id1">
-                                <rect key="frame" x="265" y="331.5" width="24.5" height="33.5"/>
+                                <rect key="frame" x="265" y="287.5" width="24.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXp-Ak-WgL">
-                                <rect key="frame" x="157" y="198" width="100" height="300"/>
+                                <rect key="frame" x="157" y="154" width="100" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="2HB-Xo-dfR"/>
                                     <constraint firstAttribute="width" constant="100" id="Ttl-Yt-5wo"/>
@@ -1687,20 +1669,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="cnS-b0-o9O" firstAttribute="top" secondItem="CxU-ss-IY8" secondAttribute="top" id="2fk-UP-zMR"/>
                             <constraint firstItem="gPW-fQ-Id1" firstAttribute="centerY" secondItem="fXp-Ak-WgL" secondAttribute="centerY" id="6mj-6V-hVz"/>
                             <constraint firstItem="fXp-Ak-WgL" firstAttribute="centerX" secondItem="pqD-4a-f4k" secondAttribute="centerX" id="A1A-GR-9Ve"/>
                             <constraint firstItem="CxU-ss-IY8" firstAttribute="bottom" secondItem="iDI-jV-9L8" secondAttribute="bottom" id="AUv-9g-nLL"/>
-                            <constraint firstItem="lgE-zb-3hb" firstAttribute="top" secondItem="cnS-b0-o9O" secondAttribute="bottom" constant="56" id="Eq8-zR-PMf"/>
                             <constraint firstItem="iDI-jV-9L8" firstAttribute="top" secondItem="J5X-Bl-sqr" secondAttribute="bottom" constant="19" id="GGy-KM-uqO"/>
                             <constraint firstItem="gPW-fQ-Id1" firstAttribute="leading" secondItem="fXp-Ak-WgL" secondAttribute="trailing" constant="8" id="GSJ-vl-prO"/>
                             <constraint firstItem="iDI-jV-9L8" firstAttribute="leading" secondItem="CxU-ss-IY8" secondAttribute="leading" id="NbU-dt-S24"/>
-                            <constraint firstItem="CxU-ss-IY8" firstAttribute="trailing" secondItem="cnS-b0-o9O" secondAttribute="trailing" id="Uxd-PR-HYE"/>
                             <constraint firstItem="fXp-Ak-WgL" firstAttribute="top" secondItem="lgE-zb-3hb" secondAttribute="bottom" constant="30" id="VwA-p6-GWo"/>
                             <constraint firstAttribute="trailing" secondItem="iDI-jV-9L8" secondAttribute="trailing" id="WFB-08-fan"/>
-                            <constraint firstItem="cnS-b0-o9O" firstAttribute="leading" secondItem="pqD-4a-f4k" secondAttribute="leading" id="gbZ-vr-XWy"/>
                             <constraint firstItem="CxU-ss-IY8" firstAttribute="trailing" secondItem="lgE-zb-3hb" secondAttribute="trailing" constant="108" id="oH6-I1-XZd"/>
                             <constraint firstItem="J5X-Bl-sqr" firstAttribute="leading" secondItem="CxU-ss-IY8" secondAttribute="leading" constant="20" id="tEi-ud-PKv"/>
+                            <constraint firstItem="lgE-zb-3hb" firstAttribute="top" secondItem="CxU-ss-IY8" secondAttribute="top" constant="56" id="tTB-kx-Tr2"/>
                             <constraint firstItem="lgE-zb-3hb" firstAttribute="leading" secondItem="CxU-ss-IY8" secondAttribute="leading" constant="108" id="xEU-vN-dau"/>
                             <constraint firstItem="CxU-ss-IY8" firstAttribute="trailing" secondItem="J5X-Bl-sqr" secondAttribute="trailing" constant="20" id="yfg-EI-OG6"/>
                         </constraints>
@@ -1713,7 +1692,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apa-gO-pTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="960"/>
+            <point key="canvasLocation" x="1151" y="980"/>
         </scene>
         <!--AlarmViewController-->
         <scene sceneID="1Xw-g2-viu">
@@ -1839,7 +1818,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.right.circle" catalog="system" width="128" height="121"/>
+        <image name="btn_dropdown" width="24" height="24"/>
         <image name="btn_dropup_24" width="24" height="24"/>
         <image name="bubble.right.fill" catalog="system" width="128" height="110"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
@@ -1865,11 +1844,11 @@
         <namedColor name="ColorTextAlert">
             <color red="0.90196078431372551" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="ColorTextGrey">
-            <color red="0.37254901960784315" green="0.3843137254901961" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="ColorTextMain">
             <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HomeListBackground">
+            <color red="0.95686274509803926" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

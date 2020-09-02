@@ -24,8 +24,8 @@ class SecondHeaderView: UICollectionReusableView {
     func updateUI(data: (Int,Int,Int)){
         
         self.dayLabel.text = String(data.0)
-        self.outMoney.text = "-\(String(data.1))"
-        self.inMoney.text = "+\(String(data.2))"
+        self.outMoney.text = "-\(String(data.1))원"
+        self.inMoney.text = "+\(String(data.2))원"
     }
     
 }

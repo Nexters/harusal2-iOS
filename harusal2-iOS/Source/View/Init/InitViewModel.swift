@@ -10,14 +10,17 @@ import Foundation
 
 class InitViewModel{
     
-    var money: Int = 0
-    var startDay: Int = 0
-    var endDay:Int = 0
+    var budget : Budget?
     var today: Int
+    
     init() {
         today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
         String($0)
         } ?? "0")!
+    }
+    
+    func setStartDate(date: Date){
+        budget?.startDate = Converter.shared.convertDate(date)
     }
     
 }

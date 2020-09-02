@@ -8,17 +8,27 @@
 
 import UIKit
 
-class InitDayPickerViewController: BasePickerView {
+class InitDayPickerViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var monthlyBudgetDurationLabel: UILabel!
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var durationLabel: UILabel!
+    var viewModel = InitViewModel()
+    
+    lazy var monthAndDay = getMonthAndDay(date: Date())
+    var values: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBlack()
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        setInitView()
     }
     
-    override func getMonthAndDay()-> (Int,Int){
-        // TODO: DB에서 오늘 날짜 가져오기
-        return (9,10)
-    }
+    
     
     @IBAction func tappedDoneButton(_ sender: Any) {
 

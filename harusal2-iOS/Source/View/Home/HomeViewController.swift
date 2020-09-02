@@ -73,7 +73,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         animation?.contentMode = .scaleAspectFill
         if let ani = self.animation{
             self.animationView.addSubview(ani)
-                   DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                   DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
                        ani.play()
                    })
         }else{

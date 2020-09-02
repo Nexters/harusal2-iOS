@@ -72,15 +72,11 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 }
                 
                 if self.isTodayCellHandler?() == true && self.firstFooterFlag{
-                    firstFooterFlag = false
-                    footer.flag = true
+                    //첫 Cell만 Expand 버튼 Up 버튼으로
                     DispatchQueue.main.async {
-                        
-                        footer.updateUI()
+                        footer.expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
+                        self.firstFooterFlag = false
                     }
-                    
-                }else{
-                    footer.expandButton.setImage(UIImage(named: "btn_dropdown"), for: .normal)
                 }
                 
                 if self.viewModel.dayList.count > 0{

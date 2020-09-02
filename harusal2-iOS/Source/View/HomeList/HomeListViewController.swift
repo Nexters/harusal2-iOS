@@ -10,7 +10,9 @@ import UIKit
 
 class HomeListViewController: BaseViewController{
     @IBOutlet weak var firstCV : UICollectionView!
-    
+    var centerView = UIView()
+    var centerButton = UIButton(type: .custom)
+    var centerLabel = UILabel()
     var firstCellSize = CGFloat(230) // 처음 Cell Size
     var nowExpandCellSize = CGFloat(230) // 현재 Expand 버튼이 눌린 Cell에 설정할 크기
     var nowExpandCellNum = 0 // 현재 Expand 버튼이 눌린 Cell 번호
@@ -30,6 +32,9 @@ class HomeListViewController: BaseViewController{
         firstCellFooterFlag = true
         firstCV.dataSource = self
         firstCV.delegate = self
+        self.setNavigationBlack()
+        addCenterView()
+        
         
     }
     
@@ -42,15 +47,37 @@ class HomeListViewController: BaseViewController{
         expandDic[0] = zeroCellSize
     }
     
-    @IBAction func tappedPlusButton(_ sender: Any) {
+    func addCenterView(){
+        centerView.frame = CGRect.init(x: 0, y: 0, width: 120, height: 20)
         
+        centerButton.setImage(UIImage(named: "icn_dropdown_S_20"), for: .normal)
+        centerButton.frame = CGRect.init(x: 100, y: 0, width: 20, height: 20)
+        centerButton.tintColor = .black
+        
+        centerLabel.frame = CGRect.init(x: 0, y: 0, width: 100, height: 20)
+        centerLabel.text = "07.06-08.05"
+        
+        centerView.addSubview(centerLabel)
+        centerView.addSubview(centerButton)
+        
+        //기간 선택 팝업 화면(Modal)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedTitle(_:)))
+        self.navigationItem.titleView?.isUserInteractionEnabled = true
+        self.navigationItem.titleView?.addGestureRecognizer(tap)
+        
+        self.navigationItem.titleView = centerView;
+    }
+    
+    @objc func tappedTitle(_ sender: Any){
+        
+    }
+    
+    @IBAction func tappedPlusButton(_ sender: Any) {
         if let navi = self.navigationController, let sb = self.storyboard{
             guard let addVC = sb.instantiateViewController(identifier: "AddMoneyViewController") as? AddMoneyViewController else {
                 return
             }
-            
             navi.pushViewController(addVC, animated: true)
-            
         }else{
             return
         }
@@ -72,7 +99,16 @@ extension HomeListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstCollectionViewCell", for: indexPath) as? FirstCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
+        if indexPath.item == 0 && self.firstCellFooterFlag{
+            cell.isTodayCellHandler = {() -> Bool in
+                self.firstCellFooterFlag = false
+                return true
+            }
+        }else{
+            cell.isTodayCellHandler = {() -> Bool in
+                return false
+            }
+        }
         //Cell Reuse될 때 초기화 -> 초기화 안했을 시 cell에 남아있던 cellCount 때문에 SecondCV의 Cell이 생김
         cell.cellCount = 0
         //SecondCV의 HeaderView 데이터 입력
@@ -84,7 +120,6 @@ extension HomeListViewController: UICollectionViewDataSource {
         
         if self.expandDic[indexPath.item] != nil{
             // Expand되었던 Cell 저장해서 Reuse되었을 때 복구
-            
             cell.selectedSecondCell = {
                 //SecondCell Click Event
                 if let navi = self.navigationController, let storyBoard = self.storyboard {
@@ -105,17 +140,6 @@ extension HomeListViewController: UICollectionViewDataSource {
             collectionView.performBatchUpdates({
                 collectionView.collectionViewLayout.invalidateLayout()
             }, completion: nil)
-        }
-        
-        if indexPath.item == 0 && self.firstCellFooterFlag{
-            cell.isTodayCellHandler = {() -> Bool in
-                self.firstCellFooterFlag = false
-                return true
-            }
-        }else{
-            cell.isTodayCellHandler = {() -> Bool in
-                return false
-            }
         }
         
         cell.expandFromFirstCollectionViewHandler = {() -> Void in

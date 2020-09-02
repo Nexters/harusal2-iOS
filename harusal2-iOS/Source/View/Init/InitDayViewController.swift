@@ -13,10 +13,11 @@ class InitDayViewController: BaseViewController {
     @IBOutlet var dayLabel: [UILabel]?
     
     var day: String = ""
-    let viewModel = InitViewModel()
+    var viewModel = InitViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBlack()
         day = String(viewModel.today)
         setTodayLabel()
     }
@@ -34,6 +35,9 @@ class InitDayViewController: BaseViewController {
             return
                     
         }
+        
+        self.viewModel.budget?.startDate = Converter.shared.convertDate(Date())
+        
         self.slideLeft(from: snapshot, to: vc)
         
     }
@@ -42,7 +46,10 @@ class InitDayViewController: BaseViewController {
     
     @IBAction func selectDifferentDay(_ sender: Any) {
         if let navi = self.navigationController, let sb = self.storyboard{
-            let pickerVC = sb.instantiateViewController(identifier: "InitDayPickerViewController")
+            guard let pickerVC = sb.instantiateViewController(identifier: "InitDayPickerViewController") as? InitDayPickerViewController else{
+                return
+            }
+            pickerVC.viewModel = self.viewModel
             navi.pushViewController(pickerVC, animated: true)
         }else{
             return

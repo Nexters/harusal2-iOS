@@ -1,15 +1,15 @@
 //
-//  AddViewController+UITextFieldDelegate.swift
+//  EditMoneyViewController + TextFieldDelegate.swift
 //  harusal2-iOS
 //
-//  Created by 지현우 on 2020/08/28.
+//  Created by 지현우 on 2020/09/02.
 //  Copyright © 2020 nexters. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-extension InitMoneyViewController: UITextFieldDelegate{
+extension EditMoneyViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //replacementString : 방금 입력된 문자 하나 or 붙여넣기 된 문자열
         // return -> 텍스트가 바뀌어야하면 true, 아니면 false
@@ -31,20 +31,18 @@ extension InitMoneyViewController: UITextFieldDelegate{
             if formatter.number(from: string) != nil{
                 if let formattedNumber = formatter.number(from: beforeFormattedString), let formattedString = formatter.string(from: formattedNumber){
                     textField.text = formattedString + "원"
-                        self.money = Int(formattedNumber)
-                        self.budgetPerDayLabel.text = "\(editDailyMoney(moneyNum: formattedNumber))원"
-                        //한글 Label 설정 클로저
+                    editDailyMoney(moneyStr: formattedNumber)
+                    //한글 Label 설정 클로저
                     
                     return false
                 }
             }else{ // 숫자가 아닐 때
-                if string == "" { //지울 때
+                if string == "" { //백스페이스일 때
                     let lastIndex = beforeFormattedString.index(beforeFormattedString.endIndex, offsetBy: -1)
                     beforeFormattedString = String(beforeFormattedString[..<lastIndex])
                     if let formattedNumber = formatter.number(from: beforeFormattedString), let formattedString = formatter.string(from: formattedNumber){
-                        
-                            textField.text = formattedString + "원"
-                        
+                        textField.text = formattedString + "원"
+
                         //한글 Label 설정 클로저
                         
                         return false
@@ -57,9 +55,15 @@ extension InitMoneyViewController: UITextFieldDelegate{
         return true
         
     }
-    func editDailyMoney(moneyNum : NSNumber) -> Int{
-            let money = Int(moneyNum)/30
-            
-            return money
+    
+    func editDailyMoney(moneyStr : NSNumber){
+//        let money = String(Int(moneyStr)).reversed().map{
+//            
+//        }
+        
+        
+        
     }
+    
 }
+

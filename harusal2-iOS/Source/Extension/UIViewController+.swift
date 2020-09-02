@@ -83,4 +83,8 @@ extension UIViewController {
         
     }
     
+    func setNavigationBlack(){
+        self.navigationController?.navigationBar.tintColor = .black
+    }
+    
 }
