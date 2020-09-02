@@ -48,4 +48,13 @@ class InitDayViewController: BaseViewController {
             return
         }
     }
+    @IBAction func tappedCloseButton(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
+            return
+        }
+        
+        guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
+        
+        self.popLeft(from: snapshot, to: vc)
+    }
 }

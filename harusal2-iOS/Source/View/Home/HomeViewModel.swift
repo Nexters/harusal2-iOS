@@ -10,7 +10,8 @@ import Foundation
 
 class HomeViewModel{
     
-    var breakDownList : [BreakDown] = []// BehaviorSubject로 한 이유 : VC에서 ViewModel을 먼저 생성하기 때문에,
+    var breakDownList : [BreakDown] = []
+    var todayList: [BreakDown] = []
 
     let db = DBRepository.shared // 싱글톤
     
@@ -23,8 +24,10 @@ class HomeViewModel{
         }
     }
     
-    func getMonthData(refresh: @escaping () -> ()){
-        breakDownList = db.readMonthData()
+    
+    
+    func getTodayData(refresh: @escaping () -> ()){
+        breakDownList = db.readTodayDate()
         
         DispatchQueue.main.async {
             refresh()

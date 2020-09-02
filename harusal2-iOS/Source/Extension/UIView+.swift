@@ -12,6 +12,7 @@ extension UIView {
     
     func roundView(by n: Float){
         self.layer.cornerRadius = self.frame.width/CGFloat(n)
+        self.clipsToBounds = true
     }
     
     func setBorder(thick: CGFloat, color: CGColor){

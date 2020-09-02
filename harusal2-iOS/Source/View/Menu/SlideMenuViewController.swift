@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxCocoa
 
 class SlideMenuViewController: BaseViewController {
     @IBOutlet weak var alarmView: UIView!

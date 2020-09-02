@@ -13,16 +13,28 @@ class HomeListViewModel{
     
     var breakDownList : [BreakDown] = []
     var today : Int = 0
+    let db = DBRepository.shared // 싱글톤
     
     init() {
         today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
             String($0)
             } ?? "0") ?? 0
+        
+        
+        
     }
     
 //    func leftMonthMoney() -> Int{
 //
 //    }
+    
+    func getMonthData(refresh: @escaping () -> ()){
+        breakDownList = db.readMonthData()
+        
+        DispatchQueue.main.async {
+            refresh()
+        }
+    }
     
     func getDailyData(day: Int) -> [BreakDown] {
         let todayData : [BreakDown] = breakDownList.filter {

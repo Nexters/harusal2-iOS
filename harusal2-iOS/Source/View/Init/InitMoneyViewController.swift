@@ -29,20 +29,37 @@ class InitMoneyViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
                
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.monthBudgetText.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.monthBudgetText.becomeFirstResponder()
     }
     @IBAction func tappedDoneButton(_ sender: Any) {
-        if let navi = self.navigationController, let storyBoard = self.storyboard{
-            let dayVC = storyBoard.instantiateViewController(identifier: "InitDayViewController")
-            navi.pushViewController(dayVC, animated: true)
-        }else{
-            return
+        if self.monthBudgetText.text == ""{
+            self.showToast(vc: self, msg: "금액을 입력해주세요.", sec: 2.0)
+        }
+        else{
+            if let navi = self.navigationController, let storyBoard = self.storyboard{
+                let dayVC = storyBoard.instantiateViewController(identifier: "InitDayViewController")
+                navi.pushViewController(dayVC, animated: true)
+            }else{
+                return
+            }
         }
     }
     
+    @IBAction func tappedCloseButton(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
+            return
+        }
+        
+        guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
+        
+//        self.showToast(vc: self, msg: "hello", sec: 2.0)
+        self.popLeft(from: snapshot, to: vc, toastMessage: "나중에 예산을 작성해주세요.", sec: 1.0)
+    }
 }
 extension InitMoneyViewController {
     @objc private func adjustInputView(noti: Notification) {
@@ -53,7 +70,7 @@ extension InitMoneyViewController {
             return
         }
 
-        if noti.name == UIResponder.keyboardWillShowNotification, monthBudgetText.isEditing{
+        if noti.name == UIResponder.keyboardWillShowNotification{
             let keyboardHeight = keyboardFrame.height
             let safeInsets = self.view.safeAreaInsets.bottom
             self.doneButtonBottom.constant = keyboardHeight - safeInsets

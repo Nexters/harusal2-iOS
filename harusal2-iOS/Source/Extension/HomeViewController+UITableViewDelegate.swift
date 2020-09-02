@@ -14,22 +14,22 @@ extension HomeViewController{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let y: CGFloat = scrollView.contentOffset.y
         let newHeaderViewHeight: CGFloat = headerViewHeightConstraint.constant - y
-        let newImageViewHeight: CGFloat = imageViewHeightConstraint.constant - y
+        let newImageViewHeight: CGFloat = animationViewHeightConstraint.constant - y
         let newTodayMoneyLabelCenterX: CGFloat = todayMoneyLabelCenterX.constant - y * 160/300
         
 //        print(y)
         
         if newHeaderViewHeight > headerViewMaxHeight{
             headerViewHeightConstraint.constant = headerViewMaxHeight
-            imageViewHeightConstraint.constant = imageViewMaxHeight
+            animationViewHeightConstraint.constant = imageViewMaxHeight
             todayMoneyLabelCenterX.constant = todayMoneyLabelMaxX
         } else if newHeaderViewHeight < headerViewMinHeight{
             headerViewHeightConstraint.constant = headerViewMinHeight
-            imageViewHeightConstraint.constant = imageViewMinHeight
+            animationViewHeightConstraint.constant = imageViewMinHeight
             todayMoneyLabelCenterX.constant = todayMoneyLabelMinX
         }else{
             headerViewHeightConstraint.constant = newHeaderViewHeight
-            imageViewHeightConstraint.constant = newImageViewHeight
+            animationViewHeightConstraint.constant = newImageViewHeight
             todayMoneyLabelCenterX.constant = newTodayMoneyLabelCenterX
             scrollView.contentOffset.y = 0 // block Scroll View
         }
