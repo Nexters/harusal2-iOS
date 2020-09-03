@@ -11,6 +11,7 @@ import UIKit
 class InitDayViewController: BaseViewController {
     
     @IBOutlet var dayLabel: [UILabel]?
+    let sp = SharedPreference.shared
     
     var day: String = ""
     var viewModel = InitViewModel()
@@ -36,9 +37,12 @@ class InitDayViewController: BaseViewController {
                     
         }
         
-        self.viewModel.budget?.startDate = Converter.shared.convertDate(Date())
-        
+        sp.setFirstRun()
+        self.viewModel.setStartDate(date: Converter.shared.convertDate(Date()))
+        self.viewModel.setBudget()
         self.slideLeft(from: snapshot, to: vc)
+       
+        
         
     }
     

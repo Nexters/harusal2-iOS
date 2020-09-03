@@ -12,6 +12,7 @@ class HomeViewModel{
     
     var breakDownList : [BreakDown] = []
     var todayList: [BreakDown] = []
+    var budget: Budget = Budget()
 
     let db = DBRepository.shared // 싱글톤
     
@@ -32,6 +33,11 @@ class HomeViewModel{
         DispatchQueue.main.async {
             refresh()
         }
+    }
+    
+    func getLatestBudget(){
+        self.budget = db.readLatestBudget() ?? Budget()
+        print("Read --> \(self.budget)")
     }
     
 }

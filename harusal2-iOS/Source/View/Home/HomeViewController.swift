@@ -40,6 +40,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getLatestBudget()
         
         todayDateLabel.text = "\(Converter.shared.convertDate(Date()))"
         breakDownTV.delegate = self

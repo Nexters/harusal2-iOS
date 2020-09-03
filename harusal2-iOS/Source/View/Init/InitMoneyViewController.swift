@@ -13,7 +13,6 @@ class InitMoneyViewController: UIViewController {
     @IBOutlet weak var monthBudgetText : UITextField!
     @IBOutlet weak var budgetPerDayLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
-    let monthDay = MonthDay()
     var money: Int = 0
     
     @IBOutlet weak var doneButtonBottom: NSLayoutConstraint!
@@ -30,7 +29,11 @@ class InitMoneyViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.monthBudgetText.becomeFirstResponder()
+//        DispatchQueue.main.async {
+//            self.showToast(vc: self, msg: "처음 와쪄염", sec: 1.0)
+//        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -46,7 +49,7 @@ class InitMoneyViewController: UIViewController {
                 guard let dayVC = storyBoard.instantiateViewController(identifier: "InitDayViewController") as? InitDayViewController else{
                     return
                 }
-                dayVC.viewModel.budget?.money = self.money
+                dayVC.viewModel.budget.money = self.money
                 navi.pushViewController(dayVC, animated: true)
             }else{
                 return

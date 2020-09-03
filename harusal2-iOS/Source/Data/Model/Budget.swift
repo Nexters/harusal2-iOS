@@ -22,7 +22,7 @@ import RealmSwift
     
     func autoIncrementKey() -> Int{
         let realm = try! Realm()
-        return (realm.objects(BreakDown.self).max(ofProperty: "id")
+        return (realm.objects(Budget.self).max(ofProperty: "id")
             as Int? ?? 0) + 1
     }
     
