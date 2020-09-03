@@ -11,54 +11,75 @@ import UIKit
 class InitMoneyViewController: UIViewController {
     
     @IBOutlet weak var monthBudgetText : UITextField!
-    @IBOutlet weak var budgetLabel: UILabel!
     @IBOutlet weak var budgetPerDayLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
+    let monthDay = MonthDay()
+    var money: Int = 0
     
-    @IBAction func showText(_ sender:UITextField){
-        let text = self.monthBudgetText.text ?? "0"
-        let calc = Int(text) ?? 1
-        self.budgetLabel.text = "\(text)원"
-        self.budgetPerDayLabel.text = "\(String(calc/30))원"
-    }
+    @IBOutlet weak var doneButtonBottom: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        monthBudgetText.delegate = self
+        self.setNavigationBlack()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
+               
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        self.monthBudgetText.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.monthBudgetText.becomeFirstResponder()
     }
-}
-
-extension InitMoneyViewController: UITextFieldDelegate {
-    public func textFieldShouldBeginEditing(_ sender: UITextField) -> Bool {
-        setupTextFieldsAccessoryView()
-        return true
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
     }
-
-    func setupTextFieldsAccessoryView() {
-        guard monthBudgetText.inputAccessoryView == nil else {
+    
+    @IBAction func tappedDoneButton(_ sender: Any) {
+        if self.monthBudgetText.text == ""{
+            self.showToast(vc: self, msg: "금액을 입력해주세요.", sec: 2.0)
+        }
+        else{
+            if let navi = self.navigationController, let storyBoard = self.storyboard{
+                guard let dayVC = storyBoard.instantiateViewController(identifier: "InitDayViewController") as? InitDayViewController else{
+                    return
+                }
+                dayVC.viewModel.budget?.money = self.money
+                navi.pushViewController(dayVC, animated: true)
+            }else{
+                return
+            }
+        }
+    }
+    
+    @IBAction func tappedCloseButton(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
+            return
+        }
+        
+        guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
+        
+//        self.showToast(vc: self, msg: "hello", sec: 2.0)
+        self.popLeft(from: snapshot, to: vc, toastMessage: "나중에 예산을 작성해주세요.", sec: 1.0)
+    }
+}
+extension InitMoneyViewController {
+    @objc private func adjustInputView(noti: Notification) {
+        guard let userInfo = noti.userInfo else { return }
+        // 키보드 높이에 따른 인풋뷰 위치 변경
+        
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
 
-        let toolBar: UIToolbar = UIToolbar(frame:CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height:70))
-//        toolBar.barStyle = UIBarStyle.black
-        toolBar.barTintColor = UIColor.init(named: "ColorButton")
-        toolBar.isTranslucent = false
-        
-        let flexsibleSpace: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-
-        let nextButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(didPressNextButton))
-    
-        toolBar.items = [flexsibleSpace, nextButton]
-    
-        monthBudgetText.inputAccessoryView = toolBar
-    }
-
-    @objc func didPressNextButton(button: UIButton) {
-        let storyBoard = UIStoryboard(name: "Sub", bundle:nil)
-        let memberDetailsViewController = storyBoard.instantiateViewController(withIdentifier: "InitDayViewControllerId")
-        self.navigationController?.pushViewController(memberDetailsViewController, animated:true)
+        if noti.name == UIResponder.keyboardWillShowNotification{
+            let keyboardHeight = keyboardFrame.height
+            let safeInsets = self.view.safeAreaInsets.bottom
+            self.doneButtonBottom.constant = keyboardHeight - safeInsets
+        } else if noti.name == UIResponder.keyboardWillHideNotification {
+            self.doneButtonBottom.constant = .zero
+        }
     }
 }

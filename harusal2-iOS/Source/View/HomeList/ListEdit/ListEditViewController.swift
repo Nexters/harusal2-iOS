@@ -26,6 +26,7 @@ class ListEditViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
+        self.setNavigationBlack()
         
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardDidShowNotification, object: nil)
                

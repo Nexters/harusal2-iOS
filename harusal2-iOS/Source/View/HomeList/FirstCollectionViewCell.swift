@@ -12,16 +12,20 @@ import UIKit
 class FirstCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondCV: UICollectionView!
     
-    var cellCount = 0 // 보여질 Cell의 개수
+    var cellCount = 0 // SecondCV의 보여질 Cell의 개수 -> ViewModel의 List는 모든 데이터를 갖고 있으므로 따로 선언
     var expandFromFirstCollectionViewHandler : (() -> Void)?
     var contractFromFirstCollectionViewHandler : (() -> Void)?
+    var isTodayCellHandler: (() -> Bool)?
+    var selectedSecondCell: (() -> Void)?
+    var firstReload: (() -> Void)?
     let viewModel : FirstCellViewModel = FirstCellViewModel()
     var resizeHandler: (() -> Void)?
-    
+    var firstFooterFlag = true
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        firstFooterFlag = true
         secondCV.dataSource = self
         secondCV.delegate = self
         secondCV.roundView(by: 50)
@@ -44,7 +48,6 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
         
         if self.viewModel.dayList.count > 0{
             cell.updateUI(self.viewModel.dayList[indexPath.item])
-            
         }
         
         return cell
@@ -61,11 +64,19 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 //이곳 Flow를 진행
                 header.updateUI(data: viewModel.headerData)
                 
-
                 return header
+            
             case UICollectionView.elementKindSectionFooter:
                 guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SecondFooterView", for: indexPath) as? SecondFooterView else {
                     return UICollectionReusableView()
+                }
+                
+                if self.isTodayCellHandler?() == true && self.firstFooterFlag{
+                    //첫 Cell만 Expand 버튼 Up 버튼으로
+                    DispatchQueue.main.async {
+                        footer.expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
+                        self.firstFooterFlag = false
+                    }
                 }
                 
                 if self.viewModel.dayList.count > 0{
@@ -90,9 +101,16 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
 //                footer.frame.size.height = 65
                 
                 return footer
+            
             default:
                 return UICollectionReusableView()
         }
+    }
+}
+
+extension FirstCollectionViewCell: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedSecondCell?()
     }
 }
 

@@ -20,12 +20,13 @@ class SecondCollectionViewCell: UICollectionViewCell {
     
     func updateUI(_ breakDown: BreakDown){
         
-        self.priceLabel.text = String(breakDown.amount)
         if breakDown.type == 0 {
-            self.priceLabel.textColor = .blue
+            self.priceLabel.textColor = .red
+            self.priceLabel.text = "-\(String(breakDown.amount))원"
         }
         else{
-            self.priceLabel.textColor = .red
+            self.priceLabel.textColor = .black
+            self.priceLabel.text = "+\(String(breakDown.amount))원"
         }
         self.contentLabel.text = String(breakDown.content)
     }

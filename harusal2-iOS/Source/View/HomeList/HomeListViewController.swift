@@ -10,13 +10,16 @@ import UIKit
 
 class HomeListViewController: BaseViewController{
     @IBOutlet weak var firstCV : UICollectionView!
-    
+    var centerView = UIView()
+    var centerButton = UIButton(type: .custom)
+    var centerLabel = UILabel()
     var firstCellSize = CGFloat(230) // 처음 Cell Size
     var nowExpandCellSize = CGFloat(230) // 현재 Expand 버튼이 눌린 Cell에 설정할 크기
     var nowExpandCellNum = 0 // 현재 Expand 버튼이 눌린 Cell 번호
     var viewModel: HomeListViewModel = HomeListViewModel()
     var day = 0
-    var expandDic : [Int : CGFloat] = [:]
+    var firstCellFooterFlag = true
+    var expandDic : [Int : CGFloat] = [:] // Expand 된 CellNum : Cell 높이(기본높이 + Item 갯수)
     
     // CVCell의 하단버튼 누르면 펼쳐보기 -> OK
     // Animation
@@ -26,10 +29,58 @@ class HomeListViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let zeroCellSize : CGFloat = firstCellSize + CGFloat(65 * viewModel.getDailyData(day: viewModel.today).count)
-        expandDic[0] = zeroCellSize
+        firstCellFooterFlag = true
         firstCV.dataSource = self
         firstCV.delegate = self
+        self.setNavigationBlack()
+        addCenterView()
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.getMonthData {
+            self.firstCV.reloadData()
+        }
+        let zeroCellSize : CGFloat = firstCellSize + CGFloat(65 * viewModel.getDailyData(day: viewModel.today).count)
+        expandDic[0] = zeroCellSize
+    }
+    
+    func addCenterView(){
+        centerView.frame = CGRect.init(x: 0, y: 0, width: 120, height: 20)
+        
+        centerButton.setImage(UIImage(named: "icn_dropdown_S_20"), for: .normal)
+        centerButton.frame = CGRect.init(x: 100, y: 0, width: 20, height: 20)
+        centerButton.tintColor = .black
+        
+        centerLabel.frame = CGRect.init(x: 0, y: 0, width: 100, height: 20)
+        centerLabel.text = "07.06-08.05"
+        
+        centerView.addSubview(centerLabel)
+        centerView.addSubview(centerButton)
+        
+        //기간 선택 팝업 화면(Modal)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedTitle(_:)))
+        self.navigationItem.titleView?.isUserInteractionEnabled = true
+        self.navigationItem.titleView?.addGestureRecognizer(tap)
+        
+        self.navigationItem.titleView = centerView;
+    }
+    
+    @objc func tappedTitle(_ sender: Any){
+        
+    }
+    
+    @IBAction func tappedPlusButton(_ sender: Any) {
+        if let navi = self.navigationController, let sb = self.storyboard{
+            guard let addVC = sb.instantiateViewController(identifier: "AddMoneyViewController") as? AddMoneyViewController else {
+                return
+            }
+            navi.pushViewController(addVC, animated: true)
+        }else{
+            return
+        }
         
     }
 }
@@ -37,9 +88,8 @@ class HomeListViewController: BaseViewController{
 extension HomeListViewController: UICollectionViewDataSource {
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //오늘 날짜가 21일 21개
-        return 31
-//        return self.viewModel.today
+//        return 31
+        return self.viewModel.today
     }
     
     // 셀 어떻게 표시 할까?
@@ -49,7 +99,16 @@ extension HomeListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstCollectionViewCell", for: indexPath) as? FirstCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
+        if indexPath.item == 0 && self.firstCellFooterFlag{
+            cell.isTodayCellHandler = {() -> Bool in
+                self.firstCellFooterFlag = false
+                return true
+            }
+        }else{
+            cell.isTodayCellHandler = {() -> Bool in
+                return false
+            }
+        }
         //Cell Reuse될 때 초기화 -> 초기화 안했을 시 cell에 남아있던 cellCount 때문에 SecondCV의 Cell이 생김
         cell.cellCount = 0
         //SecondCV의 HeaderView 데이터 입력
@@ -61,6 +120,20 @@ extension HomeListViewController: UICollectionViewDataSource {
         
         if self.expandDic[indexPath.item] != nil{
             // Expand되었던 Cell 저장해서 Reuse되었을 때 복구
+            cell.selectedSecondCell = {
+                //SecondCell Click Event
+                if let navi = self.navigationController, let storyBoard = self.storyboard {
+                    guard let listDetailVC = storyBoard.instantiateViewController(identifier: "ListDetailViewController") as? ListDetailViewController else{
+                                    return
+                    }
+                    //전달할 변수
+                    listDetailVC.viewModel.breakDown = self.viewModel.breakDownList[indexPath.row]
+                    navi.pushViewController(listDetailVC, animated: true)
+                } else {
+                    return
+                }
+            }
+            
             self.nowExpandCellSize = self.firstCellSize + CGFloat(65 * cell.viewModel.dayList.count)
             cell.cellCount = cell.viewModel.dayList.count
 
@@ -70,9 +143,7 @@ extension HomeListViewController: UICollectionViewDataSource {
         }
         
         cell.expandFromFirstCollectionViewHandler = {() -> Void in
-                    
         //          SecondCollectionViewCell 갯수 * 크기 만큼
-                    
             //다른 Cell들을 클릭했을 때를 위해 초기화
             self.nowExpandCellSize = self.firstCellSize
             //클릭한 FirstCollectionViewCell Num 가져오기
@@ -91,6 +162,7 @@ extension HomeListViewController: UICollectionViewDataSource {
                 collectionView.collectionViewLayout.invalidateLayout()
             }, completion: nil)
         }
+        
         cell.contractFromFirstCollectionViewHandler = {() -> Void in
             self.nowExpandCellNum = indexPath.item
             self.expandDic[self.nowExpandCellNum] = nil

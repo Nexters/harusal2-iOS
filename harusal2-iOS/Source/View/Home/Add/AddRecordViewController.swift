@@ -26,6 +26,7 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setNavigationBlack()
         updateUI()
         createDatePicker()
         
@@ -93,9 +94,8 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         viewModel.addData()
         
         DispatchQueue.main.async {
-            //ViewController 3개 Pop
-             if let navi = self.navigationController{
-                let viewControllers = navi.viewControllers
+            //ViewController 2개 이전으로 이동
+             if let navi = self.navigationController, let viewControllers = self.navigationController?.viewControllers{
                 navi.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
             }else{
                 return

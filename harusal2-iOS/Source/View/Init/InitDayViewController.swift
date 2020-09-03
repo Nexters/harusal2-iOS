@@ -8,24 +8,60 @@
 
 import UIKit
 
-class InitDayViewController: UIViewController {
+class InitDayViewController: BaseViewController {
     
     @IBOutlet var dayLabel: [UILabel]?
     
-    lazy var day: String = returnDay()
+    var day: String = ""
+    var viewModel = InitViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setNavigationBlack()
+        day = String(viewModel.today)
         setTodayLabel()
-    }
-    
-    func returnDay() -> String {
-        return String(17)  // TODO : 일 가져오기
     }
     
     func setTodayLabel(){
         dayLabel?[0].text = day
         dayLabel?[1].text = day
+    }
+    
+    @IBAction func selectToday(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
+                return
+            }
+        guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else {
+            return
+                    
+        }
+        
+        self.viewModel.budget?.startDate = Converter.shared.convertDate(Date())
+        
+        self.slideLeft(from: snapshot, to: vc)
+        
+    }
+    
+    
+    
+    @IBAction func selectDifferentDay(_ sender: Any) {
+        if let navi = self.navigationController, let sb = self.storyboard{
+            guard let pickerVC = sb.instantiateViewController(identifier: "InitDayPickerViewController") as? InitDayPickerViewController else{
+                return
+            }
+            pickerVC.viewModel = self.viewModel
+            navi.pushViewController(pickerVC, animated: true)
+        }else{
+            return
+        }
+    }
+    @IBAction func tappedCloseButton(_ sender: Any) {
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
+            return
+        }
+        
+        guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
+        
+        self.popLeft(from: snapshot, to: vc)
     }
 }

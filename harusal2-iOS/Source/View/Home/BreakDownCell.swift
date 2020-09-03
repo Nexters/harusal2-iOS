@@ -18,8 +18,11 @@ class BreakDownCell: UITableViewCell {
     
     func update(_ breakDown: BreakDown){
         self.priceLabel.text = String(breakDown.amount)
+        
+        
         if breakDown.type == 0 {
-            self.priceLabel.textColor = .blue
+            //오늘 돈 지출 초과시
+            self.priceLabel.textColor = .black
         }
         else{
             self.priceLabel.textColor = .red
