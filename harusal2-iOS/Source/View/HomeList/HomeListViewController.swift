@@ -20,6 +20,7 @@ class HomeListViewController: BaseViewController{
     var day = 0
     var firstCellFooterFlag = true
     var expandDic : [Int : CGFloat] = [:] // Expand 된 CellNum : Cell 높이(기본높이 + Item 갯수)
+
     
     // CVCell의 하단버튼 누르면 펼쳐보기 -> OK
     // Animation
@@ -34,7 +35,7 @@ class HomeListViewController: BaseViewController{
         firstCV.delegate = self
         self.setNavigationBlack()
         addCenterView()
-        
+       
         
     }
     
@@ -100,15 +101,36 @@ extension HomeListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         if indexPath.item == 0 && self.firstCellFooterFlag{
+            self.firstCellFooterFlag = false
+            cell.label.text = "Today"
+            cell.label.isHidden = false
             cell.isTodayCellHandler = {() -> Bool in
-                self.firstCellFooterFlag = false
                 return true
             }
         }else{
+            self.firstCellFooterFlag = false
             cell.isTodayCellHandler = {() -> Bool in
                 return false
             }
+            if indexPath.item == 0{
+                cell.label.text = "Today"
+                cell.label.isHidden = false
+                cell.secondCVTop.constant = 55
+            }
+           else if indexPath.item == 1{
+                cell.label.text = "Daily"
+                cell.label.isHidden = false
+                cell.secondCVTop.constant = 55
+            }else{
+                cell.label.isHidden = true
+                cell.label.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+                cell.secondCVTop.constant = 10
+            }
         }
+        
+        
+        
+        
         //Cell Reuse될 때 초기화 -> 초기화 안했을 시 cell에 남아있던 cellCount 때문에 SecondCV의 Cell이 생김
         cell.cellCount = 0
         //SecondCV의 HeaderView 데이터 입력
@@ -185,6 +207,8 @@ extension HomeListViewController: UICollectionViewDataSource {
                 guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FirstHeaderView", for: indexPath) as? FirstHeaderView else {
                     return UICollectionReusableView()
                 }
+                print(indexPath.item)
+                header.updateUI(money: viewModel.getLatestBudget())
                 
                 //FirstCV 헤더 updateUI
                 
@@ -207,8 +231,11 @@ extension HomeListViewController: UICollectionViewDelegateFlowLayout{
             
             return CGSize(width: collectionView.bounds.size.width, height: self.expandDic[indexPath.item] ?? self.firstCellSize)
         }else{
-            
-            return CGSize(width: collectionView.bounds.size.width, height: self.firstCellSize)
+            if indexPath.item == 1 || indexPath.item == 0{
+                return CGSize(width: collectionView.bounds.size.width, height: self.firstCellSize)
+            }else{
+                return CGSize(width: collectionView.bounds.size.width, height: self.firstCellSize - 45)
+            }
         }
         
     }

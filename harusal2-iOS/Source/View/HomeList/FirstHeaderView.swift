@@ -18,4 +18,8 @@ class FirstHeaderView: UICollectionReusableView{
         super.awakeFromNib()
     }
     
+    func updateUI(money: String){
+        moneyLabel.text = money
+    }
+    
 }

@@ -22,7 +22,6 @@ class DBRepository{
     
     func writeBudget(data: Budget){
         try! realm.write{
-            print("write --> \(data)")
             realm.add(data, update: .all)
         }
     }
@@ -30,11 +29,8 @@ class DBRepository{
     func readLatestBudget() -> Budget?{
         var data = realm.objects(Budget.self)
         if let bud = data.last{
-            print("All \(data)")
-            print("Last \(bud)")
             return bud
         }else{
-            print("데이터가 없음")
             return nil
         }
     }

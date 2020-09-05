@@ -24,12 +24,12 @@ class SharedPreference{
     
     func openOnBoarding() -> Bool{
         if sp.bool(forKey: "OnBoarding"){
-                   //처음 아님
-                   return true
-               }else{
-                   //처음임
-                   return false
-               }
+            //처음 아님
+            return true
+        }else{
+            //처음임
+            return false
+        }
     }
     
     func setOnBoarding(){

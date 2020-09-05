@@ -22,10 +22,10 @@ class BreakDownCell: UITableViewCell {
         
         if breakDown.type == 0 {
             //오늘 돈 지출 초과시
-            self.priceLabel.textColor = .black
+            self.priceLabel.textColor = .red
         }
         else{
-            self.priceLabel.textColor = .red
+            self.priceLabel.textColor = .black
         }
         self.contentLabel.text = String(breakDown.content)
     }

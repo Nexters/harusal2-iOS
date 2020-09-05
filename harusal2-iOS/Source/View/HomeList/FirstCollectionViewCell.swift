@@ -11,8 +11,10 @@ import UIKit
 
 class FirstCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var secondCV: UICollectionView!
-    
+    @IBOutlet weak var label: UILabel!
     var cellCount = 0 // SecondCV의 보여질 Cell의 개수 -> ViewModel의 List는 모든 데이터를 갖고 있으므로 따로 선언
+    
+    @IBOutlet weak var secondCVTop: NSLayoutConstraint!
     var expandFromFirstCollectionViewHandler : (() -> Void)?
     var contractFromFirstCollectionViewHandler : (() -> Void)?
     var isTodayCellHandler: (() -> Bool)?
@@ -73,10 +75,9 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 
                 if self.isTodayCellHandler?() == true && self.firstFooterFlag{
                     //첫 Cell만 Expand 버튼 Up 버튼으로
-                    DispatchQueue.main.async {
                         footer.expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
                         self.firstFooterFlag = false
-                    }
+                    
                 }
                 
                 if self.viewModel.dayList.count > 0{

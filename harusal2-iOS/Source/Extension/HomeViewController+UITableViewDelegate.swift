@@ -12,30 +12,64 @@ import UIKit
 extension HomeViewController{
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         let y: CGFloat = scrollView.contentOffset.y
         let newHeaderViewHeight: CGFloat = headerViewHeightConstraint.constant - y
-        let newImageViewHeight: CGFloat = animationViewHeightConstraint.constant - y
-        let newTodayMoneyLabelCenterX: CGFloat = todayMoneyLabelCenterX.constant - y * 160/300
+        let newHeaderViewTop : CGFloat = headerViewTop.constant - y * 170/140
+        // * (자신이 올라갈)
+        let newTodayMoneyLabelCenterX: CGFloat = todayMoneyLabelCenterX.constant - y * 100/140
+        let newCenterX : CGFloat = centerX.constant + y * 100/140
+        let newMoneyTop : CGFloat = moneyTop.constant + y * 50/140
+        print("headerTop - >\(newHeaderViewTop)")
         
-//        print(y)
-        
-        if newHeaderViewHeight > headerViewMaxHeight{
+        if newHeaderViewHeight > headerViewMaxHeight{//280
             headerViewHeightConstraint.constant = headerViewMaxHeight
-            animationViewHeightConstraint.constant = imageViewMaxHeight
+//            animationViewHeightConstraint.constant = animationViewMaxHeight
+            headerViewTop.constant = headerViewTopMax
             todayMoneyLabelCenterX.constant = todayMoneyLabelMaxX
-        } else if newHeaderViewHeight < headerViewMinHeight{
+            centerX.constant = minX
+            moneyTop.constant = 12
+            animationView.layoutIfNeeded()
+        } else if newHeaderViewHeight < headerViewMinHeight{//140
             headerViewHeightConstraint.constant = headerViewMinHeight
-            animationViewHeightConstraint.constant = imageViewMinHeight
+//            animationViewHeightConstraint.constant = animationViewMinHeight
+            headerViewTop.constant = -170+(self.navigationController?.navigationBar.frame.height)! // 170 -> height : 130, Top : 40, NavigationBar Height
             todayMoneyLabelCenterX.constant = todayMoneyLabelMinX
+            moneyTop.constant = 62
+            centerX.constant = maxX
+            animationView.layoutIfNeeded()
         }else{
             headerViewHeightConstraint.constant = newHeaderViewHeight
-            animationViewHeightConstraint.constant = newImageViewHeight
+//            animationViewHeightConstraint.constant = newAnimationViewHeight
+            animationView.alpha = (newHeaderViewHeight-140)/140
+            print(animationView.alpha)
+            headerViewTop.constant = newHeaderViewTop
+            moneyTop.constant = newMoneyTop
+            centerX.constant = newCenterX
             todayMoneyLabelCenterX.constant = newTodayMoneyLabelCenterX
             scrollView.contentOffset.y = 0 // block Scroll View
         }
         
+        
+        
     }
-    
-    
-    
 }
+
+//class ResizeImageView : UIImageView{
+//
+//    override var intrinsicContentSize: CGSize{
+//        if let myImage = self.image {
+//            let myImageWidth = myImage.size.width
+//            let myImageHeight = myImage.size.height
+//            let myViewWidth = self.frame.size.width
+//
+//            let ratio = myViewWidth/myImageWidth
+//            let scaledHeight = myImageHeight * ratio
+//
+//            return CGSize(width: myViewWidth, height: scaledHeight)
+//        }
+//
+//        return CGSize(width: -1.0, height: -1.0)
+//    }
+//
+//}

@@ -18,6 +18,7 @@ class ListEditViewController: BaseViewController {
     @IBOutlet weak var moneyTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var textViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var doneButtonBottom: NSLayoutConstraint!
     let datePicker = UIDatePicker()
     var amount = 0
     var isEditingTextView = false
@@ -27,10 +28,11 @@ class ListEditViewController: BaseViewController {
         super.viewDidLoad()
         createDatePicker()
         self.setNavigationBlack()
+        print("aa\(self.view.frame.origin.y)")
         
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didShow), name: UIResponder.keyboardDidShowNotification, object: nil)
                
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         moneyTextField.delegate = self
         desTextView.delegate = self
@@ -38,6 +40,11 @@ class ListEditViewController: BaseViewController {
         updateUI()
         
         viewModel.dateChanged = { self.dateTextField.text = $0 }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func updateUI(){
@@ -63,18 +70,8 @@ class ListEditViewController: BaseViewController {
     }
     
     @IBAction func tappedBG(_ sender: Any) {
-        
-            if dateTextField.isEditing{
-                dateTextField.resignFirstResponder()
-            }else if moneyTextField.isEditing{
-                moneyTextField.resignFirstResponder()
-            }
-            else if isEditingTextView{
-                desTextView.resignFirstResponder()
-                isEditingTextView=false
-            }
-                
-       
+        self.view.endEditing(true)
+        isEditingTextView = false
     }
     
     private func createDatePicker(){
@@ -93,7 +90,7 @@ class ListEditViewController: BaseViewController {
     
     @objc func donePressed(){
         viewModel.date = Converter.shared.convertDate(datePicker.date)
-        self.view.endEditing(true)
+        self.desTextView.resignFirstResponder()
     }
     
     @IBAction func tappedSelectDateButton(_ sender: Any) {
@@ -141,9 +138,13 @@ extension ListEditViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
             //TextView가 포커스를 얻었을 때
             isEditingTextView = true
+        print("yes")
         }
         
         func textViewDidChange(_ textView: UITextView) {
+            
+            print("55")
+            isEditingTextView = false
             let fixedWidth = textView.frame.size.width
             let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
             
@@ -155,6 +156,7 @@ extension ListEditViewController: UITextViewDelegate{
                 self.textViewHeight.constant = newSize.height
             }
     //        viewModel.content = textView.text
+    print("66")
         }
         func textViewDidEndEditing(_ textView: UITextView) {
             //TextView가 포커스를 잃었을 때
@@ -164,19 +166,36 @@ extension ListEditViewController: UITextViewDelegate{
 }
 
 extension ListEditViewController {
-    @objc private func adjustInputView(noti: Notification) {
+    @objc private func didShow(noti: Notification) {
         guard let userInfo = noti.userInfo else { return }
         // 키보드 높이에 따른 인풋뷰 위치 변경
         
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-        print("isEditing \(isEditingTextView)")
-        if noti.name == UIResponder.keyboardDidShowNotification, isEditingTextView{
+        if isEditingTextView == true{
+            isEditingTextView = false
             let keyboardHeight = keyboardFrame.height
-            self.view.frame.origin.y -= keyboardHeight/2
-        } else if noti.name == UIResponder.keyboardWillHideNotification {
-            self.view.frame.origin.y = .zero
+            let safeInset = self.view.safeAreaInsets.bottom
+            
+            self.view.bounds.origin.y += (keyboardHeight - safeInset)
+            
+            
         }
     }
+    
+    @objc private func willHide(noti: Notification) {
+        guard let userInfo = noti.userInfo else { return }
+        // 키보드 높이에 따른 인풋뷰 위치 변경
+        
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        
+        self.view.bounds.origin.y = .zero
+        
+        
+    }
+    
 }
