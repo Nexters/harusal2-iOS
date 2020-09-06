@@ -21,7 +21,6 @@ class DBRepository{
     }
     
     func writeBudget(data: Budget){
-        print("write --> \(data)")
         try! realm.write{
             realm.add(data, update: .all)
         }
@@ -63,7 +62,6 @@ class DBRepository{
         let newEnd = Converter.shared.getDateNight(zeroEnd)
         
         let data = realm.objects(BreakDown.self).filter("date BETWEEN {%@,%@}",newStart,newEnd)
-        print("month -->\(data)")
         return Array(data)
     }
     

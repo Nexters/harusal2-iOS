@@ -29,10 +29,8 @@ class SplashViewController: BaseViewController {
     
     func openOnBoarding(){
         if sp.openOnBoarding(){
-            print("한번 봄")
             isFirstRun()
          }else{
-            print("안봄")
              guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "OnBoardingNavigation") else{
                                     return
                                 }

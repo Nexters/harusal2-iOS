@@ -1876,7 +1876,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="NormalMain"/>
+                        <color key="backgroundColor" name="BadMain"/>
                         <constraints>
                             <constraint firstItem="X9f-1k-Mnq" firstAttribute="centerX" secondItem="BiV-Vd-eif" secondAttribute="centerX" id="EYr-35-zcY"/>
                             <constraint firstItem="X9f-1k-Mnq" firstAttribute="top" secondItem="BiV-Vd-eif" secondAttribute="top" constant="243" id="d23-WP-CT7"/>
@@ -1902,7 +1902,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54t-3j-Phz" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="67" y="180" width="280" height="240"/>
-                                <color key="backgroundColor" name="NormalMain"/>
+                                <color key="backgroundColor" name="BadMain"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="0q1-Dz-0Sp"/>
                                     <constraint firstAttribute="height" constant="240" id="v2E-38-QFS"/>
@@ -1948,7 +1948,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="NormalMain"/>
+                        <color key="backgroundColor" name="BadMain"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jxS-0E-UYw" firstAttribute="top" secondItem="54t-3j-Phz" secondAttribute="bottom" constant="32" id="1bT-1r-n7k"/>
@@ -1985,7 +1985,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Om6-Id-jpp" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="67" y="180" width="280" height="240"/>
-                                <color key="backgroundColor" name="NormalMain"/>
+                                <color key="backgroundColor" name="BadMain"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="D9B-pe-86h"/>
                                     <constraint firstAttribute="width" constant="280" id="U3a-0y-GIW"/>
@@ -2031,7 +2031,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="NormalMain"/>
+                        <color key="backgroundColor" name="BadMain"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="oYz-xY-ayF" firstAttribute="leading" secondItem="BIO-iO-QSc" secondAttribute="trailing" constant="8" id="7Z7-Va-CTG"/>
@@ -2067,7 +2067,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CsG-Gv-dP9" customClass="AnimationView" customModule="Lottie">
                                 <rect key="frame" x="67" y="180" width="280" height="240"/>
-                                <color key="backgroundColor" name="NormalMain"/>
+                                <color key="backgroundColor" name="BadMain"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="hRh-gJ-CQe"/>
                                     <constraint firstAttribute="width" constant="280" id="jnG-KQ-WwJ"/>
@@ -2127,7 +2127,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" name="NormalMain"/>
+                        <color key="backgroundColor" name="BadMain"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="CsG-Gv-dP9" firstAttribute="centerX" secondItem="hYy-iX-sty" secondAttribute="centerX" id="1w0-be-PJ7"/>
@@ -2209,6 +2209,9 @@
         <image name="radio btn_on_24" width="24" height="24"/>
         <image name="splash img" width="146" height="179"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="BadMain">
+            <color red="0.98431372549019602" green="0.6588235294117647" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ButtonBlack">
             <color red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -2231,9 +2234,6 @@
             <color red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HomeListBackground">
-            <color red="0.95686274509803926" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="NormalMain">
             <color red="0.95686274509803926" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>

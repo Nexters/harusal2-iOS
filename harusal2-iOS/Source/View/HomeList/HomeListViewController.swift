@@ -52,12 +52,12 @@ class HomeListViewController: BaseViewController, SelectTermDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateTitleUI()
         firstCellFooterFlag = true
         viewModel.getLatestBudget(refresh: nil)
         viewModel.getMonthData{
             self.firstCV.reloadData()
         }
+        updateTitleUI()
         let zeroCellSize : CGFloat = firstCellSize + CGFloat(65 * viewModel.getDailyData(day: viewModel.today).count)
         expandDic[0] = zeroCellSize
     }
@@ -112,7 +112,7 @@ extension HomeListViewController: UICollectionViewDataSource {
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return 31
-        return self.viewModel.today
+        return self.viewModel.getCellNum()
     }
     
     // 셀 어떻게 표시 할까?
@@ -167,7 +167,7 @@ extension HomeListViewController: UICollectionViewDataSource {
         //Cell Reuse될 때 초기화 -> 초기화 안했을 시 cell에 남아있던 cellCount 때문에 SecondCV의 Cell이 생김
         cell.cellCount = 0
         //SecondCV의 HeaderView 데이터 입력
-        cell.viewModel.headerData = (viewModel.today - indexPath.item,
+        cell.viewModel.headerData = (viewModel.getHeaderDay(index: indexPath.item),
                                      viewModel.getDailyOutCome(day: viewModel.today - indexPath.item),
                                      viewModel.getDailyInCome(day: viewModel.today - indexPath.item))
         //SecondCV에 넣은 데이터 입력

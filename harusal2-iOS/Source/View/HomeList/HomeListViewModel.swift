@@ -17,10 +17,40 @@ class HomeListViewModel{
     var selectBudget: Budget?
     let db = DBRepository.shared // 싱글톤
     
+    
+    
+    
     init() {
-        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
-            String($0)
-            } ?? "0") ?? 0
+        today = 4
+//        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
+//            String($0)
+//            } ?? "0") ?? 0
+    }
+    
+    func getCellNum() -> Int{
+        let startMonth = Int(String(Converter.shared.convertDate(budget.startDate).split(separator: "-")[1]))!
+        let startDay = Int(String(Converter.shared.convertDate(budget.startDate).split(separator: "-")[2]))!
+        var cellNum = today
+        if today < startDay{
+            cellNum += getLastDay(month: startMonth)
+        }
+        
+        return cellNum - startDay + 1
+        
+    }
+    
+    func getLastDay(month: Int) -> Int {
+        var lastDate = 0
+        switch month {
+        case 2 :
+            lastDate = 29
+        case 4, 6, 9, 11 :
+            lastDate = 30
+        default :
+            lastDate = 31
+        }
+        
+        return lastDate
     }
     
     func getMonthData(refresh: ()->()){
@@ -59,10 +89,8 @@ class HomeListViewModel{
     
     func getLatestBudget(refresh: (()-> ())?){
         if self.selectBudget == nil{
-            print("최근것")
             self.budget = db.readLatestBudget() ?? Budget()
         }else{
-            print("넘어온게 있음")
             self.budget = selectBudget!
             selectBudget = nil
         }
@@ -119,7 +147,19 @@ class HomeListViewModel{
     func separateMonthDay(date: Date) -> String{
         let strDate = Converter.shared.convertDate(date)
         let str: String = strDate.split(separator: "-")[1] + "." + strDate.split(separator: "-")[2]
+        print("separate -> \(str)")
         return str
+    }
+    
+    func getHeaderDay(index: Int) -> Int{
+        if today - index > 0{
+            print(today-index)
+            return today - index
+        }else{
+            let lastMonthDay = self.budget.termDay + today
+            print(lastMonthDay-index)
+            return lastMonthDay - index
+        }
     }
     
 }
