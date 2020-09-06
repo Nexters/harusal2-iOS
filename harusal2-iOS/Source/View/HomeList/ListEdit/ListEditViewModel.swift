@@ -14,9 +14,9 @@ class ListEditViewModel{
     var content: String = ""
     var type: Int = 0
     
-    var date: String?{
+    var date: Date?{
         didSet{
-            dateChanged?(date)
+            dateChanged?(Converter.shared.convertDate(date ?? Date()))
         }
     }
     func convertMoney(str: String) -> Int{
@@ -35,7 +35,7 @@ class ListEditViewModel{
             return
         }
         
-        data.update(date: date ?? Converter.shared.convertDate(Date()), amount: convertMoney(str: money), content: content, type: type)
+        data.update(date: date ?? Date(), amount: convertMoney(str: money), content: content, type: type)
     }
     
     var dateChanged : ((String?) -> ())?

@@ -52,14 +52,14 @@ extension ListEditViewController: UITextFieldDelegate{
         textField.layer.borderColor = UIColor.orange.cgColor
         textField.layer.borderWidth = 1
         textField.roundView(by: 100)
-        textField.layoutIfNeeded()
+//        textField.layoutIfNeeded()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.layer.borderColor = UIColor.gray.cgColor
         textField.layer.borderWidth = 1
         textField.roundView(by: 100)
-        textField.layoutIfNeeded()
+//        textField.layoutIfNeeded()
     }
 }
 

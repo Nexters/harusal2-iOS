@@ -11,35 +11,45 @@ import Lottie
 
 class HomeViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate{
     
-    @IBOutlet private weak var animationView: AnimationView!
+    @IBOutlet weak var animationView: AnimationView!
     private var animation : AnimationView?
     @IBOutlet weak var menuBarButtonItem : UIBarButtonItem!
     @IBOutlet weak var receiptBarButtonItem : UIBarButtonItem!
     @IBOutlet weak var todayMoneyDescriptionLabel : UILabel!
     @IBOutlet weak var todayMoneyLabel : UILabel!
     @IBOutlet weak var todayDateLabel: UILabel!
+    @IBOutlet weak var todayDateSubLabel: UILabel!
     //    @IBOutlet weak var slideMenuView: UIView!
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var breakDownTV: UITableView!
     
+    @IBOutlet weak var moneyTop: NSLayoutConstraint!
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var animationViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var headerViewTop: NSLayoutConstraint!
     @IBOutlet weak var todayMoneyLabelCenterX: NSLayoutConstraint!
-//    @IBOutlet weak var slideMenuCenterX: NSLayoutConstraint!
+    @IBOutlet weak var centerX: NSLayoutConstraint!
+    //    @IBOutlet weak var slideMenuCenterX: NSLayoutConstraint!
     var state = 3
     var str : String = ""
     let headerViewMaxHeight: CGFloat = 280
     let headerViewMinHeight: CGFloat = 140
-    let imageViewMaxHeight: CGFloat = 130
-    let imageViewMinHeight: CGFloat = 0
-    let todayMoneyLabelMinX: CGFloat = -80
+    let headerViewTopMax: CGFloat = 40
+    
+    let minX : CGFloat = 0
+    let maxX : CGFloat = 100
+    let todayMoneyLabelMinX: CGFloat = -100
     let todayMoneyLabelMaxX: CGFloat = 0
     
     let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.updateHeaderUI = { (todayMoney: String, todayBreakDown: String) -> Void in
+            self.todayMoneyLabel.text = todayBreakDown
+            self.todayMoneyDescriptionLabel.text = "오늘의 생활비 \(todayMoney)"
+        }
+        
         
         todayDateLabel.text = "\(Converter.shared.convertDate(Date()))"
         breakDownTV.delegate = self
@@ -55,6 +65,8 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         viewModel.getTodayData {
             self.breakDownTV.reloadData()
         }
+        viewModel.getLatestBudget()
+        str = viewModel.getMode()
         setColor()
         startLottie()
     }
@@ -63,19 +75,29 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         super.viewDidAppear(animated)
     }
     
-    override func setConstraints() {
-//        self.view.backgroundColor = .orange
-//        breakDownTV.backgroundColor = .orange
+    func changeTextColor(color: UIColor){
+        if color == UIColor(named: "NormalMain"){
+            todayDateLabel.textColor = UIColor(named: "NormalText")
+            todayMoneyLabel.textColor = UIColor(named: "NormalText")
+            todayMoneyDescriptionLabel.textColor = UIColor(named: "NormalText")
+            todayDateSubLabel.textColor = UIColor(named: "NormalText")
+        }else{
+            todayDateLabel.textColor = UIColor.white
+            todayMoneyLabel.textColor = UIColor.white
+            todayMoneyDescriptionLabel.textColor = UIColor.white
+            todayDateSubLabel.textColor = UIColor.white
+        }
     }
     
     func startLottie(){
-        animation = AnimationView(name: "welcome_coin")
-        animation?.contentMode = .scaleAspectFill
+        animation = AnimationView(name: "\(str)")
+        animation?.contentMode = .scaleAspectFit
         if let ani = self.animation{
             self.animationView.addSubview(ani)
-                   DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
-                       ani.play()
-                   })
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
+                ani.play()
+            })
+            
         }else{
             return
         }
@@ -87,20 +109,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         var mainColor : UIColor
         var bgColor : UIColor
         
-        switch state {
-        case 0:
-            str = "VeryBad"
-        case 1:
-            str = "Bad"
-        case 2:
-            str = "Normal"
-        case 3:
-            str = "Good"
-        case 4:
-            str = "VeryGood"
-        default:
-            str = ""
-        }
+        
         mainColor = UIColor(named: "\(str)Main") ?? UIColor.white
         bgColor = UIColor(named: "\(str)Background") ?? UIColor.white
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
@@ -110,11 +119,20 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         self.topView.backgroundColor = mainColor
         self.breakDownTV.backgroundColor = mainColor
         self.todayMoneyDescriptionLabel.backgroundColor = bgColor
+        
+        changeTextColor(color: mainColor)
+        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.breakDownList.count
+        if viewModel.breakDownList.count == 0 {
+            tableView.setHomeEmptyView(width: tableView.frame.width, height: tableView.frame.height, color: UIColor(named: "\(str)Main") ?? UIColor.white)
+            return 0
+        }else{
+            tableView.backgroundView = nil
+            return viewModel.breakDownList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

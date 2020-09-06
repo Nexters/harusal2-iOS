@@ -141,6 +141,7 @@ extension AddRecordViewController: UITextViewDelegate{
         //TextView가 포커스를 잃었을 때
         isEditingTextView = false
     }
+    
 }
 
 extension AddRecordViewController{
@@ -156,10 +157,8 @@ extension AddRecordViewController{
             let keyboardHeight = keyboardFrame.height
             let safeInsets = self.view.safeAreaInsets.bottom
             self.doneButtonBottom.constant = keyboardHeight - safeInsets
-//            self.view.frame.origin.y -= keyboardHeight - safeInsets
         } else if noti.name == UIResponder.keyboardWillHideNotification {
             self.doneButtonBottom.constant = .zero
-//            self.view.frame.origin.y = .zero
         }
     }
 }

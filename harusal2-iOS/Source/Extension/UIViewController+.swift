@@ -42,6 +42,7 @@ extension UIViewController {
         }
     
     func popLeft(from snapshot: UIView, to vc: UIViewController){
+        print("pop")
         vc.view.addSubview(snapshot)
         self.view.window?.rootViewController = vc
 

@@ -15,17 +15,40 @@ class SecondFooterView: UICollectionReusableView {
     var expandHandler : (() -> Void)?
     var contractHandler: (() -> Void)?
     
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
+        let tap = UITapGestureRecognizer(target: self, action:#selector(self.handleTap(_:)))
+        self.addGestureRecognizer(tap)
+    }
+    
+    func updateUI(){
+        if expandHandler != nil{
+            //Handler가 초기화되어있지 않으면 Event 막음
+            if expandButton.currentImage == UIImage(named: "btn_dropdown"){
+                print("SecondFooterView -> 아래꺼로 바꿈")
+                expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
+                expandHandler?()
+            }else{
+                print("SecondFooterView -> 위꺼로 바꿈")
+                expandButton.setImage(UIImage(named: "btn_dropdown"), for: .normal)
+                contractHandler?()
+            }
+        }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        expand()
+    }
+    
     @IBAction func touchUpExpandButton(_ sender: Any) {
+       expand()
+    }
+    
+    func expand(){
         if expandHandler != nil{
             //Handler가 초기화되어있지 않으면 Event 막음
             if expandButton.currentImage == UIImage(named: "btn_dropdown"){

@@ -44,22 +44,12 @@ class ListDetailViewController: BaseViewController {
     func updateUI(){
         if let breakDown = viewModel.breakDown {
             
-            dateLabel.text = breakDown.date
+            dateLabel.text = Converter.shared.convertDate(breakDown.date)
             moneyLabel.text = "\(breakDown.amount)"
             desLabel.text = breakDown.content
         } else {
             return
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSource, InitDay {
     
     
     func setInitView(){
@@ -16,24 +16,6 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
         
         setPickerValues(todayMonth: monthAndDay.0, day: monthAndDay.1)
         setPickerDefaultValue()
-    }
-    
-    func checkLastDay(month: Int, day: Int) -> Bool{
-        switch month {
-        case 2 :
-            if day == 29{
-                return true
-            }
-        case 4, 6, 9, 11 :
-            if day == 30{
-                return true
-            }
-        default :
-            if day == 31{
-                return true
-            }
-        }
-        return false
     }
     
     func getLastDay(month: Int) -> Int{
@@ -81,13 +63,18 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let today = Converter.shared.convertDate(Date())
         var str = ""
         if self.values[row] == 1{
             //매월 1일로 설정했을 때 (a월 , b일)이라면 -> (a월, 마지막일수)
             str = "\(monthAndDay.0).\(self.values[row])~\(monthAndDay.0).\(getLastDay(month: monthAndDay.0))"
+        let date = "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.values[row])"
+            self.viewModel.setStartDate(date: Converter.shared.convertString(date))
         }else{
             //매월 1일로 설정했을 때 (a월 , b일)이라면 -> (a+1월, b-1일)
             str = "\(monthAndDay.0).\(self.values[row])~\(monthAndDay.0+1).\(self.values[row]-1)"
+            let date = "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.values[row])"
+            self.viewModel.setStartDate(date: Converter.shared.convertString(date))
         }
        
         monthlyBudgetDurationLabel.text = str

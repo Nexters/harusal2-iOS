@@ -13,8 +13,8 @@ import RealmSwift
     dynamic var id: Int = 0
     dynamic var money: Int = 0
     dynamic var termDay: Int = 0
-    dynamic var startDate: String = ""
-    dynamic var endDate: String = ""
+    dynamic var startDate: Date = Date()
+    dynamic var endDate: Date = Date()
 
     override class func primaryKey() -> String? {
         return "id"
@@ -22,11 +22,11 @@ import RealmSwift
     
     func autoIncrementKey() -> Int{
         let realm = try! Realm()
-        return (realm.objects(BreakDown.self).max(ofProperty: "id")
+        return (realm.objects(Budget.self).max(ofProperty: "id")
             as Int? ?? 0) + 1
     }
     
-    func update(money: Int, termDay: Int, startDate: String, endDate: String){
+    func update(money: Int, termDay: Int, startDate: Date, endDate: Date){
         try! realm?.write{
             self.money = money
             self.termDay = termDay

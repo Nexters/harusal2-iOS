@@ -14,13 +14,40 @@ class Converter{
     
     init() {
         formatter.dateFormat = "yyyy-MM-dd"
-        formatter.timeZone = TimeZone.autoupdatingCurrent
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
 //        formatter.timeStyle = .none
     }
     
     func convertDate(_ date: Date) -> String{
         let str = formatter.string(from: date)
         return str
+    }
+    
+    func getLastDay(month: Int) -> Int {
+        var lastDate = 0
+        switch month {
+        case 2 :
+            lastDate = 29
+        case 4, 6, 9, 11 :
+            lastDate = 30
+        default :
+            lastDate = 31
+        }
+        
+        return lastDate
+    }
+    
+    func getDateNight(_ date: Date) -> Date{
+        let calendar = Calendar.current
+        let newDate = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: date)!
+        
+        return newDate
+    }
+    
+    func getDateZero(_ date: Date) -> Date{
+        let str = convertDate(date)
+        let newDate = convertString(str)
+        return newDate
     }
     
     func convertString(_ str: String) -> Date{

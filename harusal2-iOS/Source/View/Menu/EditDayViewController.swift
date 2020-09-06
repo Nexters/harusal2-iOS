@@ -9,7 +9,9 @@
 import UIKit
 
 class EditDayViewController: UIViewController {
+    @IBOutlet weak var pickerView: UIPickerView!
     
+    @IBOutlet weak var dateTermLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "매월 시작일 수정"

@@ -8,18 +8,25 @@
 
 import UIKit
 
-class HomeListViewController: BaseViewController{
+class HomeListViewController: BaseViewController, SelectTermDelegate{
+    func selectBudget(budget: Budget) {
+        self.viewModel.selectBudget = budget
+        viewModel.getLatestBudget{
+            self.firstCV.reloadData()
+        }
+    }
+    
     @IBOutlet weak var firstCV : UICollectionView!
-    var centerView = UIView()
-    var centerButton = UIButton(type: .custom)
-    var centerLabel = UILabel()
+    let centerView = UIView()
+    let centerButton = UIButton(type: .custom)
+    let centerLabel = UILabel()
     var firstCellSize = CGFloat(230) // 처음 Cell Size
     var nowExpandCellSize = CGFloat(230) // 현재 Expand 버튼이 눌린 Cell에 설정할 크기
     var nowExpandCellNum = 0 // 현재 Expand 버튼이 눌린 Cell 번호
-    var viewModel: HomeListViewModel = HomeListViewModel()
-    var day = 0
+    let viewModel: HomeListViewModel = HomeListViewModel()
     var firstCellFooterFlag = true
     var expandDic : [Int : CGFloat] = [:] // Expand 된 CellNum : Cell 높이(기본높이 + Item 갯수)
+
     
     // CVCell의 하단버튼 누르면 펼쳐보기 -> OK
     // Animation
@@ -29,22 +36,34 @@ class HomeListViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstCellFooterFlag = true
         firstCV.dataSource = self
         firstCV.delegate = self
         self.setNavigationBlack()
         addCenterView()
         
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedTitle(_:)))
+        centerView.isUserInteractionEnabled = true
+        centerView.addGestureRecognizer(tap)
+        
+       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getMonthData {
+        firstCellFooterFlag = true
+        viewModel.getLatestBudget(refresh: nil)
+        viewModel.getMonthData{
             self.firstCV.reloadData()
         }
+        updateTitleUI()
         let zeroCellSize : CGFloat = firstCellSize + CGFloat(65 * viewModel.getDailyData(day: viewModel.today).count)
         expandDic[0] = zeroCellSize
+    }
+    
+    func updateTitleUI(){
+        centerLabel.text = "\(viewModel.separateMonthDay(date: viewModel.budget.startDate))~\(viewModel.separateMonthDay(date: viewModel.budget.endDate))"
     }
     
     func addCenterView(){
@@ -55,21 +74,25 @@ class HomeListViewController: BaseViewController{
         centerButton.tintColor = .black
         
         centerLabel.frame = CGRect.init(x: 0, y: 0, width: 100, height: 20)
-        centerLabel.text = "07.06-08.05"
         
         centerView.addSubview(centerLabel)
         centerView.addSubview(centerButton)
+        self.navigationItem.titleView = centerView;
         
         //기간 선택 팝업 화면(Modal)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedTitle(_:)))
-        self.navigationItem.titleView?.isUserInteractionEnabled = true
-        self.navigationItem.titleView?.addGestureRecognizer(tap)
-        
-        self.navigationItem.titleView = centerView;
     }
     
     @objc func tappedTitle(_ sender: Any){
+        guard let sb = self.storyboard else{
+            return
+        }
+        guard let selectTermVC = sb.instantiateViewController(identifier: "SelectTermViewController") as? SelectTermViewController else{
+            return
+        }
+        selectTermVC.selectTermDelegate = self
+        selectTermVC.viewModel.nowBudget = self.viewModel.budget
         
+        present(selectTermVC, animated: true, completion: nil)
     }
     
     @IBAction func tappedPlusButton(_ sender: Any) {
@@ -89,7 +112,7 @@ extension HomeListViewController: UICollectionViewDataSource {
     // 몇개 표시 할까?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return 31
-        return self.viewModel.today
+        return self.viewModel.getCellNum()
     }
     
     // 셀 어떻게 표시 할까?
@@ -99,20 +122,52 @@ extension HomeListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstCollectionViewCell", for: indexPath) as? FirstCollectionViewCell else {
             return UICollectionViewCell()
         }
-        if indexPath.item == 0 && self.firstCellFooterFlag{
-            cell.isTodayCellHandler = {() -> Bool in
-                self.firstCellFooterFlag = false
-                return true
+        
+        if indexPath.item == 0{
+            cell.label.text = "Today"
+            cell.label.frame = CGRect(x: 20, y: 20, width: 64, height: 25)
+            cell.secondCVTop.constant = 55
+            cell.label.isHidden = false
+            
+            if expandDic[0] != nil{
+                cell.isTodayCellHandler = {() -> Bool in
+                    return true
+                }
+            }else{
+                cell.isTodayCellHandler = {() -> Bool in
+                    return false
+                }
             }
         }else{
-            cell.isTodayCellHandler = {() -> Bool in
-                return false
+            if expandDic[indexPath.item] != nil{
+                cell.isTodayCellHandler = {() -> Bool in
+                    return true
+                }
+            }else{
+                cell.isTodayCellHandler = {() -> Bool in
+                    return false
+                }
+            }
+            
+            if indexPath.item == 1{
+                cell.label.text = "Daily"
+                cell.label.isHidden = false
+                cell.label.frame = CGRect(x: 20, y: 20, width: 64, height: 25)
+                cell.secondCVTop.constant = 55
+            }else{
+                cell.label.isHidden = true
+                cell.label.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+                cell.secondCVTop.constant = 10
             }
         }
+        
+        
+        
+        
         //Cell Reuse될 때 초기화 -> 초기화 안했을 시 cell에 남아있던 cellCount 때문에 SecondCV의 Cell이 생김
         cell.cellCount = 0
         //SecondCV의 HeaderView 데이터 입력
-        cell.viewModel.headerData = (viewModel.today - indexPath.item,
+        cell.viewModel.headerData = (viewModel.getHeaderDay(index: indexPath.item),
                                      viewModel.getDailyOutCome(day: viewModel.today - indexPath.item),
                                      viewModel.getDailyInCome(day: viewModel.today - indexPath.item))
         //SecondCV에 넣은 데이터 입력
@@ -158,17 +213,25 @@ extension HomeListViewController: UICollectionViewDataSource {
         //            애니메이션 처리 -> OK
         //            CollectionView Cell 의 애니메이션은 performBatchUpdates로 해결
         //            TableView의 CEll은 tableview.beginUpdates(), tableview.endUpdates() 로 해결 가능?
+
             collectionView.performBatchUpdates({
                 collectionView.collectionViewLayout.invalidateLayout()
-            }, completion: nil)
+            }, completion: { (finish) -> Void in
+                self.firstCV.reloadData()
+            })
+            
         }
         
         cell.contractFromFirstCollectionViewHandler = {() -> Void in
             self.nowExpandCellNum = indexPath.item
             self.expandDic[self.nowExpandCellNum] = nil
+            
+
             collectionView.performBatchUpdates({
                 collectionView.collectionViewLayout.invalidateLayout()
-            }, completion: nil)
+            }, completion: { (finish) -> Void in
+                self.firstCV.reloadData()
+            })
         }
         
         //여기서 Reload하지 않으면 내부 UI(날짜)가 바뀌지 않음
@@ -185,6 +248,7 @@ extension HomeListViewController: UICollectionViewDataSource {
                 guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FirstHeaderView", for: indexPath) as? FirstHeaderView else {
                     return UICollectionReusableView()
                 }
+                header.updateUI(money: viewModel.getMoneyInOut(), startDate: viewModel.separateDate(date: viewModel.budget.startDate), endDate: viewModel.separateDate(date: viewModel.budget.endDate))
                 
                 //FirstCV 헤더 updateUI
                 
@@ -207,8 +271,11 @@ extension HomeListViewController: UICollectionViewDelegateFlowLayout{
             
             return CGSize(width: collectionView.bounds.size.width, height: self.expandDic[indexPath.item] ?? self.firstCellSize)
         }else{
-            
-            return CGSize(width: collectionView.bounds.size.width, height: self.firstCellSize)
+            if indexPath.item == 1 || indexPath.item == 0{
+                return CGSize(width: collectionView.bounds.size.width, height: self.firstCellSize)
+            }else{
+                return CGSize(width: collectionView.bounds.size.width, height: self.firstCellSize - 45)
+            }
         }
         
     }

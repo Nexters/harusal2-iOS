@@ -13,20 +13,27 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
-        schemaVersion: 3,
+        schemaVersion: 7,
         migrationBlock: { migration, oldSchemaVersion in
-          if (oldSchemaVersion < 3) {
+          if (oldSchemaVersion < 7) {
             // The enumerateObjects(ofType:_:) method iterates
             // over every Person object stored in the Realm file
             migration.enumerateObjects(ofType: BreakDown.className()) { oldObject, newObject in
               // combine name fields into a single field
-                let dateString = Converter().convertDate(oldObject?["date"] as! Date)
-                
-                newObject!["date"] = dateString
+//                let dateString = oldObject?["date"]
+//                print(dateString)
+//
+//                newObject!["date"] = Converter.shared.convertString(dateString as? String ?? "")
+            }
+            migration.enumerateObjects(ofType: Budget.className()) { oldObject, newObject in
+              // combine name fields into a single field
+//              let start = oldObject?["startDate"]
+//              let end = oldObject?["endDate"]
+//                
+//                newObject!["startDate"] = Converter.shared.convertString(start as? String ?? "")
+//                newObject!["endDate"] = Converter.shared.convertString(end as? String ?? "")
             }
           }
         })

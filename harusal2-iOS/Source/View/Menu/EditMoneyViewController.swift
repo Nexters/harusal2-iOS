@@ -14,7 +14,6 @@ class EditMoneyViewController: UIViewController {
     @IBOutlet weak var editMoneyText: UITextField!
     @IBOutlet weak var doneButtonBottom: NSLayoutConstraint!
     @IBOutlet weak var doneButton: UIButton!
-    let monthDay: MonthDay = MonthDay()
     
     override func viewDidLoad() {
         super.viewDidLoad()

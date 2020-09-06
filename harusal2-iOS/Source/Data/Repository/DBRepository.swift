@@ -26,8 +26,20 @@ class DBRepository{
         }
     }
     
+    func readLatestBudget() -> Budget?{
+        let data = realm.objects(Budget.self)
+        if let bud = data.last{
+            return bud
+        }else{
+            return nil
+        }
+    }
     
-    
+    func readAllBudget() -> [Budget]{
+        let data = realm.objects(Budget.self)
+        
+        return Array(data)
+    }
     
     func readAllData() -> [BreakDown]{
         let data = realm.objects(BreakDown.self)
@@ -36,17 +48,20 @@ class DBRepository{
     }
     
     func readTodayDate() -> [BreakDown]{
-        let today = Converter().convertDate(Date())
+        let today = Converter.shared.getDateZero(Date())
+        let tomorrow = Converter.shared.getDateNight(Date())
         
-        let data = realm.objects(BreakDown.self).filter("date LIKE %@",today)
+        let data = realm.objects(BreakDown.self).filter("date BETWEEN {%@,%@}",today,tomorrow)
         
         return Array(data)
     }
     
-    func readMonthData() -> [BreakDown]{
-        let today = Converter.shared.convertDate(Date())
-        let month: String = String(today.split(separator: "-")[1])
-        let data = realm.objects(BreakDown.self).filter("date LIKE '?????\(month)???' ")
+    func readMonthData(startDate: Date, endDate: Date) -> [BreakDown]{
+        let newStart = Converter.shared.getDateZero(startDate)
+        let zeroEnd = Converter.shared.getDateZero(endDate)
+        let newEnd = Converter.shared.getDateNight(zeroEnd)
+        
+        let data = realm.objects(BreakDown.self).filter("date BETWEEN {%@,%@}",newStart,newEnd)
         return Array(data)
     }
     
