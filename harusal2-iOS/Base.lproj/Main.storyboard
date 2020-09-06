@@ -248,6 +248,7 @@
                         <outlet property="moneyTop" destination="94Q-GE-4gV" id="4ky-zJ-Pvp"/>
                         <outlet property="receiptBarButtonItem" destination="c2B-N0-KYi" id="BNi-3p-oSN"/>
                         <outlet property="todayDateLabel" destination="5Si-rV-gqI" id="klZ-Ki-7kP"/>
+                        <outlet property="todayDateSubLabel" destination="hua-4N-Xsj" id="loJ-K8-Yey"/>
                         <outlet property="todayMoneyDescriptionLabel" destination="d8B-Si-fjE" id="FLB-jX-fwe"/>
                         <outlet property="todayMoneyLabel" destination="RSb-qR-efm" id="CUm-mh-Bzr"/>
                         <outlet property="todayMoneyLabelCenterX" destination="CHR-Ph-f9N" id="T6O-TI-qrw"/>

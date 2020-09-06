@@ -26,12 +26,9 @@ class HomeListViewModel{
 //
 //    }
     
-    func getMonthData(refresh: @escaping () -> ()){
+    func getMonthData(refresh: ()->()){
         breakDownList = db.readMonthData()
-        //Add BreakDown을 한 뒤에 firstCV의 reload()
-        DispatchQueue.main.async {
-            refresh()
-        }
+        refresh()
     }
     
     func getDailyData(day: Int) -> [BreakDown] {

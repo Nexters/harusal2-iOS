@@ -18,6 +18,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var todayMoneyDescriptionLabel : UILabel!
     @IBOutlet weak var todayMoneyLabel : UILabel!
     @IBOutlet weak var todayDateLabel: UILabel!
+    @IBOutlet weak var todayDateSubLabel: UILabel!
     //    @IBOutlet weak var slideMenuView: UIView!
     @IBOutlet weak var topView: UIView!
     
@@ -75,6 +76,20 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         super.viewDidAppear(animated)
     }
     
+    func changeTextColor(color: UIColor){
+        if color == UIColor(named: "NormalMain"){
+            todayDateLabel.textColor = UIColor(named: "NormalText")
+            todayMoneyLabel.textColor = UIColor(named: "NormalText")
+            todayMoneyDescriptionLabel.textColor = UIColor(named: "NormalText")
+            todayDateSubLabel.textColor = UIColor(named: "NormalText")
+        }else{
+            todayDateLabel.textColor = UIColor.white
+            todayMoneyLabel.textColor = UIColor.white
+            todayMoneyDescriptionLabel.textColor = UIColor.white
+            todayDateSubLabel.textColor = UIColor.white
+        }
+    }
+    
     func startLottie(){
         animation = AnimationView(name: "\(str)")
         animation?.contentMode = .scaleAspectFit
@@ -105,6 +120,9 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         self.topView.backgroundColor = mainColor
         self.breakDownTV.backgroundColor = mainColor
         self.todayMoneyDescriptionLabel.backgroundColor = bgColor
+        
+        changeTextColor(color: mainColor)
+        
     }
     
     

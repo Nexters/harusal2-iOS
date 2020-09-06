@@ -21,6 +21,21 @@ class SecondFooterView: UICollectionReusableView {
         self.addGestureRecognizer(tap)
     }
     
+    func updateUI(){
+        if expandHandler != nil{
+            //Handler가 초기화되어있지 않으면 Event 막음
+            if expandButton.currentImage == UIImage(named: "btn_dropdown"){
+                print("SecondFooterView -> 아래꺼로 바꿈")
+                expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
+                expandHandler?()
+            }else{
+                print("SecondFooterView -> 위꺼로 바꿈")
+                expandButton.setImage(UIImage(named: "btn_dropdown"), for: .normal)
+                contractHandler?()
+            }
+        }
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
     }

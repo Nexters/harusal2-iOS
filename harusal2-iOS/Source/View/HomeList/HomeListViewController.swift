@@ -30,18 +30,24 @@ class HomeListViewController: BaseViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        firstCellFooterFlag = true
         firstCV.dataSource = self
         firstCV.delegate = self
         self.setNavigationBlack()
         addCenterView()
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedTitle(_:)))
+        centerView.isUserInteractionEnabled = true
+        centerView.addGestureRecognizer(tap)
+        
        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getMonthData {
+        firstCellFooterFlag = true
+        viewModel.getMonthData{
             self.firstCV.reloadData()
         }
         let zeroCellSize : CGFloat = firstCellSize + CGFloat(65 * viewModel.getDailyData(day: viewModel.today).count)
@@ -60,17 +66,13 @@ class HomeListViewController: BaseViewController{
         
         centerView.addSubview(centerLabel)
         centerView.addSubview(centerButton)
+        self.navigationItem.titleView = centerView;
         
         //기간 선택 팝업 화면(Modal)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tappedTitle(_:)))
-        self.navigationItem.titleView?.isUserInteractionEnabled = true
-        self.navigationItem.titleView?.addGestureRecognizer(tap)
-        
-        self.navigationItem.titleView = centerView;
     }
     
     @objc func tappedTitle(_ sender: Any){
-        
+        self.showToast(vc: self, msg: "click", sec: 0.5)
     }
     
     @IBAction func tappedPlusButton(_ sender: Any) {
@@ -100,26 +102,37 @@ extension HomeListViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstCollectionViewCell", for: indexPath) as? FirstCollectionViewCell else {
             return UICollectionViewCell()
         }
-        if indexPath.item == 0 && self.firstCellFooterFlag{
-            self.firstCellFooterFlag = false
+        
+        if indexPath.item == 0{
             cell.label.text = "Today"
+            cell.label.frame = CGRect(x: 20, y: 20, width: 64, height: 25)
+            cell.secondCVTop.constant = 55
             cell.label.isHidden = false
-            cell.isTodayCellHandler = {() -> Bool in
-                return true
+            
+            if expandDic[0] != nil{
+                cell.isTodayCellHandler = {() -> Bool in
+                    return true
+                }
+            }else{
+                cell.isTodayCellHandler = {() -> Bool in
+                    return false
+                }
             }
         }else{
-            self.firstCellFooterFlag = false
-            cell.isTodayCellHandler = {() -> Bool in
-                return false
+            if expandDic[indexPath.item] != nil{
+                cell.isTodayCellHandler = {() -> Bool in
+                    return true
+                }
+            }else{
+                cell.isTodayCellHandler = {() -> Bool in
+                    return false
+                }
             }
-            if indexPath.item == 0{
-                cell.label.text = "Today"
-                cell.label.isHidden = false
-                cell.secondCVTop.constant = 55
-            }
-           else if indexPath.item == 1{
+            
+            if indexPath.item == 1{
                 cell.label.text = "Daily"
                 cell.label.isHidden = false
+                cell.label.frame = CGRect(x: 20, y: 20, width: 64, height: 25)
                 cell.secondCVTop.constant = 55
             }else{
                 cell.label.isHidden = true
@@ -180,17 +193,25 @@ extension HomeListViewController: UICollectionViewDataSource {
         //            애니메이션 처리 -> OK
         //            CollectionView Cell 의 애니메이션은 performBatchUpdates로 해결
         //            TableView의 CEll은 tableview.beginUpdates(), tableview.endUpdates() 로 해결 가능?
+
             collectionView.performBatchUpdates({
                 collectionView.collectionViewLayout.invalidateLayout()
-            }, completion: nil)
+            }, completion: { (finish) -> Void in
+                self.firstCV.reloadData()
+            })
+            
         }
         
         cell.contractFromFirstCollectionViewHandler = {() -> Void in
             self.nowExpandCellNum = indexPath.item
             self.expandDic[self.nowExpandCellNum] = nil
+            
+
             collectionView.performBatchUpdates({
                 collectionView.collectionViewLayout.invalidateLayout()
-            }, completion: nil)
+            }, completion: { (finish) -> Void in
+                self.firstCV.reloadData()
+            })
         }
         
         //여기서 Reload하지 않으면 내부 UI(날짜)가 바뀌지 않음
