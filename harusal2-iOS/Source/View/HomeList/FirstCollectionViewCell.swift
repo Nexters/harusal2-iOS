@@ -75,12 +75,12 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 
                 if self.isTodayCellHandler?() == true{
                     //첫 Cell만 Expand 버튼 Up 버튼으로
-                    print("firstCollectionVIewCell -> true")
+                    
                     footer.expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
                     
                     
                 }else{
-                    print("firstCollectionVIewCell -> false")
+                    
                     footer.expandButton.setImage(UIImage(named: "btn_dropdown"), for: .normal)
                     
                     

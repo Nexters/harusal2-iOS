@@ -8,16 +8,22 @@
 
 import UIKit
 
-class HomeListViewController: BaseViewController{
+class HomeListViewController: BaseViewController, SelectTermDelegate{
+    func selectBudget(budget: Budget) {
+        self.viewModel.selectBudget = budget
+        viewModel.getLatestBudget{
+            self.firstCV.reloadData()
+        }
+    }
+    
     @IBOutlet weak var firstCV : UICollectionView!
-    var centerView = UIView()
-    var centerButton = UIButton(type: .custom)
-    var centerLabel = UILabel()
+    let centerView = UIView()
+    let centerButton = UIButton(type: .custom)
+    let centerLabel = UILabel()
     var firstCellSize = CGFloat(230) // 처음 Cell Size
     var nowExpandCellSize = CGFloat(230) // 현재 Expand 버튼이 눌린 Cell에 설정할 크기
     var nowExpandCellNum = 0 // 현재 Expand 버튼이 눌린 Cell 번호
-    var viewModel: HomeListViewModel = HomeListViewModel()
-    var day = 0
+    let viewModel: HomeListViewModel = HomeListViewModel()
     var firstCellFooterFlag = true
     var expandDic : [Int : CGFloat] = [:] // Expand 된 CellNum : Cell 높이(기본높이 + Item 갯수)
 
@@ -46,12 +52,18 @@ class HomeListViewController: BaseViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateTitleUI()
         firstCellFooterFlag = true
+        viewModel.getLatestBudget(refresh: nil)
         viewModel.getMonthData{
             self.firstCV.reloadData()
         }
         let zeroCellSize : CGFloat = firstCellSize + CGFloat(65 * viewModel.getDailyData(day: viewModel.today).count)
         expandDic[0] = zeroCellSize
+    }
+    
+    func updateTitleUI(){
+        centerLabel.text = "\(viewModel.separateMonthDay(date: viewModel.budget.startDate))~\(viewModel.separateMonthDay(date: viewModel.budget.endDate))"
     }
     
     func addCenterView(){
@@ -62,7 +74,6 @@ class HomeListViewController: BaseViewController{
         centerButton.tintColor = .black
         
         centerLabel.frame = CGRect.init(x: 0, y: 0, width: 100, height: 20)
-        centerLabel.text = "07.06-08.05"
         
         centerView.addSubview(centerLabel)
         centerView.addSubview(centerButton)
@@ -72,7 +83,16 @@ class HomeListViewController: BaseViewController{
     }
     
     @objc func tappedTitle(_ sender: Any){
-        self.showToast(vc: self, msg: "click", sec: 0.5)
+        guard let sb = self.storyboard else{
+            return
+        }
+        guard let selectTermVC = sb.instantiateViewController(identifier: "SelectTermViewController") as? SelectTermViewController else{
+            return
+        }
+        selectTermVC.selectTermDelegate = self
+        selectTermVC.viewModel.nowBudget = self.viewModel.budget
+        
+        present(selectTermVC, animated: true, completion: nil)
     }
     
     @IBAction func tappedPlusButton(_ sender: Any) {
@@ -228,8 +248,7 @@ extension HomeListViewController: UICollectionViewDataSource {
                 guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FirstHeaderView", for: indexPath) as? FirstHeaderView else {
                     return UICollectionReusableView()
                 }
-                print(indexPath.item)
-                header.updateUI(money: viewModel.getLatestBudget())
+                header.updateUI(money: viewModel.getMoneyInOut(), startDate: viewModel.separateDate(date: viewModel.budget.startDate), endDate: viewModel.separateDate(date: viewModel.budget.endDate))
                 
                 //FirstCV 헤더 updateUI
                 

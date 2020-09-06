@@ -53,7 +53,7 @@ class ListEditViewController: BaseViewController {
         
         if let breakDown = viewModel.breakDown {
             amount = breakDown.amount
-            dateTextField.text = breakDown.date
+            dateTextField.text = Converter.shared.convertDate(breakDown.date)
             moneyTextField.text = numberFormatter.string(from: NSNumber(value: breakDown.amount))
             desTextView.text = breakDown.content
             switch breakDown.type{
@@ -89,12 +89,12 @@ class ListEditViewController: BaseViewController {
     }
     
     @objc func donePressed(){
-        viewModel.date = Converter.shared.convertDate(datePicker.date)
-        self.desTextView.resignFirstResponder()
+        viewModel.date = datePicker.date
+        self.view.endEditing(true)
     }
     
     @IBAction func tappedSelectDateButton(_ sender: Any) {
-        self.dateTextField.becomeFirstResponder()
+        self.view.endEditing(true)
     }
     
     @IBAction func saveInfo(_ sender: Any) {

@@ -1159,6 +1159,69 @@
             </objects>
             <point key="canvasLocation" x="3199" y="209"/>
         </scene>
+        <!--Select Term View Controller-->
+        <scene sceneID="x1f-m5-U6g">
+            <objects>
+                <viewController storyboardIdentifier="SelectTermViewController" id="hoc-tC-x1G" customClass="SelectTermViewController" customModule="harusal2_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A1n-93-99K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Izx-Q5-i2W">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SelectTermCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectTermCell" rowHeight="60" id="CIq-WF-013" customClass="SelectTermCell" customModule="harusal2_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CIq-WF-013" id="1vU-hK-e66">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlK-X3-UW7">
+                                                    <rect key="frame" x="20" y="18.5" width="46.5" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSP-sd-zaz">
+                                                    <rect key="frame" x="370" y="18" width="24" height="24"/>
+                                                    <state key="normal" image="radio btn_off_24"/>
+                                                    <state key="selected" image="radio btn_on_24"/>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="AlK-X3-UW7" firstAttribute="leading" secondItem="CIq-WF-013" secondAttribute="leading" constant="20" id="HcX-Fz-iDO"/>
+                                            <constraint firstItem="xSP-sd-zaz" firstAttribute="centerY" secondItem="CIq-WF-013" secondAttribute="centerY" id="bZq-UU-bL0"/>
+                                            <constraint firstItem="AlK-X3-UW7" firstAttribute="centerY" secondItem="CIq-WF-013" secondAttribute="centerY" id="llD-tL-Rtb"/>
+                                            <constraint firstAttribute="trailing" secondItem="xSP-sd-zaz" secondAttribute="trailing" constant="20" id="qZ9-CX-TxI"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="onOffButton" destination="xSP-sd-zaz" id="WvE-IP-7hi"/>
+                                            <outlet property="termLabel" destination="AlK-X3-UW7" id="IaG-WO-mft"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Izx-Q5-i2W" firstAttribute="top" secondItem="Rbm-3v-xG6" secondAttribute="top" id="6zX-fr-Med"/>
+                            <constraint firstItem="Rbm-3v-xG6" firstAttribute="trailing" secondItem="Izx-Q5-i2W" secondAttribute="trailing" id="7Zx-KZ-0M6"/>
+                            <constraint firstItem="Izx-Q5-i2W" firstAttribute="leading" secondItem="Rbm-3v-xG6" secondAttribute="leading" id="Muc-kD-LIw"/>
+                            <constraint firstItem="Rbm-3v-xG6" firstAttribute="bottom" secondItem="Izx-Q5-i2W" secondAttribute="bottom" id="aoI-CD-U69"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Rbm-3v-xG6"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Izx-Q5-i2W" id="kmG-Kq-lcB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2CJ-i4-nSS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3884.057971014493" y="205.58035714285714"/>
+        </scene>
         <!--예산 설정-->
         <scene sceneID="oyz-5a-sk1">
             <objects>
@@ -2142,6 +2205,8 @@
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="radio btn_off_24" width="24" height="24"/>
+        <image name="radio btn_on_24" width="24" height="24"/>
         <image name="splash img" width="146" height="179"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="ButtonBlack">

@@ -18,8 +18,9 @@ class FirstHeaderView: UICollectionReusableView{
         super.awakeFromNib()
     }
     
-    func updateUI(money: String){
+    func updateUI(money: String, startDate: String, endDate: String){
         moneyLabel.text = money
+        duringLabel.text = "\(startDate) ~ \(endDate)"
     }
     
 }

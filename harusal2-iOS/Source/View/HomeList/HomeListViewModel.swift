@@ -14,6 +14,7 @@ class HomeListViewModel{
     var breakDownList : [BreakDown] = []
     var today : Int = 0
     var budget: Budget = Budget()
+    var selectBudget: Budget?
     let db = DBRepository.shared // 싱글톤
     
     init() {
@@ -22,18 +23,14 @@ class HomeListViewModel{
             } ?? "0") ?? 0
     }
     
-//    func leftMonthMoney() -> Int{
-//
-//    }
-    
     func getMonthData(refresh: ()->()){
-        breakDownList = db.readMonthData()
+        breakDownList = db.readMonthData(startDate: budget.startDate, endDate: budget.endDate)
         refresh()
     }
     
     func getDailyData(day: Int) -> [BreakDown] {
         let todayData : [BreakDown] = breakDownList.filter {
-            return day == Int($0.date.split(separator: "-")[2])
+            return day == Int(Converter.shared.convertDate($0.date).split(separator: "-")[2])
         }
         return todayData
     }
@@ -60,27 +57,41 @@ class HomeListViewModel{
                return amount
     }
     
-    func getLatestBudget() -> String{
-        self.budget = db.readLatestBudget() ?? Budget()
-        let monthList = db.readMonthData()
-        
-        let monthIncome: Int = monthList.filter{
-            $0.type == 1
-        }.reduce(0) { (a: Int, b: BreakDown) -> Int in
-            return a + b.amount
+    func getLatestBudget(refresh: (()-> ())?){
+        if self.selectBudget == nil{
+            print("최근것")
+            self.budget = db.readLatestBudget() ?? Budget()
+        }else{
+            print("넘어온게 있음")
+            self.budget = selectBudget!
+            selectBudget = nil
         }
-        let monthOutcome: Int = monthList.filter{
-            $0.type == 0
-        }.reduce(0) { (a: Int, b: BreakDown) -> Int in
-            return a + b.amount
-        }
+        refresh?()
         
-        print("Income -> \(monthIncome) , Outcome -> \(monthOutcome)")
-        
-        let todayMoney = budget.money/budget.termDay
-        let monthInOut = todayMoney - monthOutcome+monthIncome
-        
-        return separateMoney(moneyStr: String(monthInOut))
+       
+    }
+    
+    func getMoneyInOut() -> String{
+        let monthList = db.readMonthData(startDate: budget.startDate, endDate: budget.endDate)
+               
+               let monthIncome: Int = monthList.filter{
+                   $0.type == 1
+               }.reduce(0) { (a: Int, b: BreakDown) -> Int in
+                   return a + b.amount
+               }
+               let monthOutcome: Int = monthList.filter{
+                   $0.type == 0
+               }.reduce(0) { (a: Int, b: BreakDown) -> Int in
+                   return a + b.amount
+               }
+               
+               
+               
+               let todayMoney = budget.money/budget.termDay
+               let monthInOut = todayMoney - monthOutcome+monthIncome
+               
+               
+               return separateMoney(moneyStr: String(monthInOut))
     }
     
     func separateMoney(moneyStr: String) -> String{
@@ -94,6 +105,21 @@ class HomeListViewModel{
         }else{
             return ""
         }
+    }
+    
+    func separateDate(date: Date) -> String{
+        let strDate = Converter.shared.convertDate(date)
+        var str = strDate.split(separator: "-").reduce("") { (first, second) -> String in
+            return first + "." + second
+        }
+        str.removeFirst()
+        return str
+    }
+    
+    func separateMonthDay(date: Date) -> String{
+        let strDate = Converter.shared.convertDate(date)
+        let str: String = strDate.split(separator: "-")[1] + "." + strDate.split(separator: "-")[2]
+        return str
     }
     
 }

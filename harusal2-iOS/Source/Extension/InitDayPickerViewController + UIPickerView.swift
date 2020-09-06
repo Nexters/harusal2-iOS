@@ -68,11 +68,13 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
         if self.values[row] == 1{
             //매월 1일로 설정했을 때 (a월 , b일)이라면 -> (a월, 마지막일수)
             str = "\(monthAndDay.0).\(self.values[row])~\(monthAndDay.0).\(getLastDay(month: monthAndDay.0))"
-            self.viewModel.setStartDate(date: "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.values[row])")
+        let date = "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.values[row])"
+            self.viewModel.setStartDate(date: Converter.shared.convertString(date))
         }else{
             //매월 1일로 설정했을 때 (a월 , b일)이라면 -> (a+1월, b-1일)
             str = "\(monthAndDay.0).\(self.values[row])~\(monthAndDay.0+1).\(self.values[row]-1)"
-            self.viewModel.setStartDate(date: "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.values[row])")
+            let date = "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.values[row])"
+            self.viewModel.setStartDate(date: Converter.shared.convertString(date))
         }
        
         monthlyBudgetDurationLabel.text = str

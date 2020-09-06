@@ -11,6 +11,7 @@ import UIKit
 class SplashViewController: BaseViewController {
 
     let sp = SharedPreference.shared
+    let db = DBRepository.shared
     @IBOutlet weak var imgViewBottom: NSLayoutConstraint!
     
     override func viewDidLoad() {

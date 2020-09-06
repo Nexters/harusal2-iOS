@@ -45,7 +45,6 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewModel.updateHeaderUI = { (todayMoney: String, todayBreakDown: String) -> Void in
             self.todayMoneyLabel.text = todayBreakDown
             self.todayMoneyDescriptionLabel.text = "오늘의 생활비 \(todayMoney)"

@@ -38,7 +38,7 @@ class InitDayViewController: BaseViewController {
         }
         
         sp.setFirstRun()
-        self.viewModel.setStartDate(date: Converter.shared.convertDate(Date()))
+        self.viewModel.setStartDate(date: Date())
         self.viewModel.setBudget()
         self.slideLeft(from: snapshot, to: vc)
        

@@ -60,6 +60,9 @@
 		EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFA24D7D6BA0074B752 /* HomeListViewController.swift */; };
 		EB538BFF24D7F1D80074B752 /* HomeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */; };
 		EB564D462503E3BC00AD2A1C /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB564D452503E3BC00AD2A1C /* UITableView+.swift */; };
+		EB573C762504B701007EA6EC /* SelectTermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB573C752504B701007EA6EC /* SelectTermViewController.swift */; };
+		EB573C782504B90E007EA6EC /* SelectTermViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB573C772504B90E007EA6EC /* SelectTermViewModel.swift */; };
+		EB573C7A2504C45E007EA6EC /* SelectTermDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB573C792504C45E007EA6EC /* SelectTermDelegate.swift */; };
 		EB5A815C24FFA908000957D3 /* welcome_coin.json in Resources */ = {isa = PBXBuildFile; fileRef = EB5A815B24FFA908000957D3 /* welcome_coin.json */; };
 		EB5A816624FFAB00000957D3 /* onboarding1.json in Resources */ = {isa = PBXBuildFile; fileRef = EB5A815D24FFAAFC000957D3 /* onboarding1.json */; };
 		EB5A816724FFAB00000957D3 /* onboarding2.json in Resources */ = {isa = PBXBuildFile; fileRef = EB5A815E24FFAAFD000957D3 /* onboarding2.json */; };
@@ -153,6 +156,9 @@
 		EB538BFA24D7D6BA0074B752 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
 		EB538BFE24D7F1D80074B752 /* HomeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewModel.swift; sourceTree = "<group>"; };
 		EB564D452503E3BC00AD2A1C /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		EB573C752504B701007EA6EC /* SelectTermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTermViewController.swift; sourceTree = "<group>"; };
+		EB573C772504B90E007EA6EC /* SelectTermViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTermViewModel.swift; sourceTree = "<group>"; };
+		EB573C792504C45E007EA6EC /* SelectTermDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTermDelegate.swift; sourceTree = "<group>"; };
 		EB5A815B24FFA908000957D3 /* welcome_coin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = welcome_coin.json; sourceTree = "<group>"; };
 		EB5A815D24FFAAFC000957D3 /* onboarding1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding1.json; sourceTree = "<group>"; };
 		EB5A815E24FFAAFD000957D3 /* onboarding2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = onboarding2.json; sourceTree = "<group>"; };
@@ -284,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				EB519B6D2500B1B600B29515 /* InitDay.swift */,
+				EB573C792504C45E007EA6EC /* SelectTermDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -459,6 +466,8 @@
 				EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */,
 				308F51F624FA612A003E5682 /* EditMoneyViewController.swift */,
 				308F51F824FA6148003E5682 /* EditDayViewController.swift */,
+				EB573C752504B701007EA6EC /* SelectTermViewController.swift */,
+				EB573C772504B90E007EA6EC /* SelectTermViewModel.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -664,6 +673,7 @@
 				EB4D09CC24D32EA500DF65D6 /* HomeViewModel.swift in Sources */,
 				EB4D09D024D339E000DF65D6 /* UIView+.swift in Sources */,
 				EB4CE94F24FE5FB800300148 /* Alarm.swift in Sources */,
+				EB573C762504B701007EA6EC /* SelectTermViewController.swift in Sources */,
 				EB52557124F403BF0002BD2E /* SecondFooterView.swift in Sources */,
 				EBF52AF424FE8B3300F1CE89 /* InitViewModel.swift in Sources */,
 				308F51F924FA6148003E5682 /* EditDayViewController.swift in Sources */,
@@ -676,6 +686,8 @@
 				EB826FD024F92FFB007C43C8 /* ListEditViewController + UITextFieldDelegate.swift in Sources */,
 				EB53842924DED3F00036902B /* BreakDown.swift in Sources */,
 				EB538BFB24D7D6BA0074B752 /* HomeListViewController.swift in Sources */,
+				EB573C7A2504C45E007EA6EC /* SelectTermDelegate.swift in Sources */,
+				EB573C782504B90E007EA6EC /* SelectTermViewModel.swift in Sources */,
 				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
 				EB5A817024FFE908000957D3 /* EditMoneyViewController + TextFieldDelegate.swift in Sources */,
 				EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */,

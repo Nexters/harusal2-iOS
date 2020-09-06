@@ -34,7 +34,7 @@ class AddRecordViewModel{
         data.amount = convertMoney(str: money)
         data.type = type
         data.content = content
-        data.date = date ?? Converter.shared.convertDate(Date())
+        data.date = date == Converter.shared.convertDate(Date()) ? Date() : Converter.shared.convertString(date!)
         print("저장 \(data)")
         repository.writeData(data: data)
         

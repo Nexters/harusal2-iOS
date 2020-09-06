@@ -34,38 +34,38 @@ class InitViewModel{
         return lastDate
     }
     
-    func setEndDate(date: String){
+    func setEndDate(date: Date){
         self.budget.endDate = date
     }
     
     func setTerm() {
-        let year = Int(String(self.budget.startDate.split(separator: "-")[0]))!
-        let month = Int(String(self.budget.startDate.split(separator: "-")[1]))!
-        let day = Int(String(self.budget.startDate.split(separator: "-")[2]))!
+        let year = Int(Converter.shared.convertDate(self.budget.startDate).split(separator: "-")[0])!
+        let month = Int(Converter.shared.convertDate(self.budget.startDate).split(separator: "-")[1])!
+        let day = Int(Converter.shared.convertDate(self.budget.startDate).split(separator: "-")[2].split(separator: " ")[0])!
         
         budget.termDay = getLastDay(month: month) //기간일수 설정
         if day == 1{
             //매월 1일로 설정했을 때 (a월 , b일)이라면 -> (a월, 마지막일수)
             let end = "\(year)-\(month)-\(getLastDay(month: month))"
-            setEndDate(date: end)
+            setEndDate(date: Converter.shared.convertString(end))
         }else{
             //매월 1일로 설정했을 때 (a월 , b일)이라면 -> (a+1월, b-1일)
             var end = ""
             if String(day-1).count == 1{
                 end = "\(year)-\(month+1)-0\(day-1)"
-                
             }else{
                 end = "\(year)-\(month+1)-\(day-1)"
-                
             }
+
             
-            setEndDate(date: end)
+            setEndDate(date: Converter.shared.convertString(end))
+            
         }
     }
     
     
-    func setStartDate(date: String){
-        print("넘어온거 --> \(date)")
+    func setStartDate(date: Date){
+        
         budget.startDate = date
         setTerm()
         
@@ -76,7 +76,7 @@ class InitViewModel{
     func setBudget(){
         
         budget.id = budget.autoIncrementKey()
-        print("set예산 --> \(budget)")
+        
         db.writeBudget(data: budget)
         
     }

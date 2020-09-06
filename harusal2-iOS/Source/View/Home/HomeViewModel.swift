@@ -33,7 +33,6 @@ class HomeViewModel{
         }else{
             mode =  "VeryGood"
         }
-        print(mode)
         return mode
         
     }
@@ -65,7 +64,7 @@ class HomeViewModel{
     }
     
     func getMonthInOut() -> (Int,Int){
-        let monthList = db.readMonthData()
+        let monthList = db.readMonthData(startDate: budget.startDate, endDate: budget.endDate)
         let monthIncome: Int = monthList.filter{
             $0.type == 1
         }.reduce(0) { (a: Int, b: BreakDown) -> Int in
