@@ -17,12 +17,12 @@ extension UITableView{
         let view = UILabel()
         view.text = str
         view.backgroundColor = color
-        view.textColor = .white
         view.textAlignment = .center
         
         let dashBorder = CAShapeLayer()
         dashBorder.lineWidth = 2
-        dashBorder.strokeColor = UIColor.white.cgColor
+        dashBorder.strokeColor = color == UIColor(named: "NormalMain") ? UIColor.black.cgColor : UIColor.white.cgColor
+        view.textColor = color == UIColor(named: "NormalMain") ? .black : .white
         dashBorder.lineDashPattern = [4,4]
         dashBorder.frame = emptyView.bounds
         dashBorder.fillColor = nil

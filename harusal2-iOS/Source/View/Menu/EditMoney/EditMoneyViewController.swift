@@ -10,16 +10,18 @@ import UIKit
 
 class EditMoneyViewController: UIViewController {
 
-    @IBOutlet weak var bugetPreDayLabel: UILabel!
+    @IBOutlet weak var budgetPerDayLabel: UILabel!
     @IBOutlet weak var editMoneyText: UITextField!
     @IBOutlet weak var doneButtonBottom: NSLayoutConstraint!
     @IBOutlet weak var doneButton: UIButton!
+    
+    let viewModel = EditMoneyViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "이번 달 생활비 수정"
         self.setNavigationBlack()
-        
+        viewModel.getMonthBudget()
         editMoneyText.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
                
@@ -28,7 +30,14 @@ class EditMoneyViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.editMoneyText.becomeFirstResponder()
+    }
+    
+    @IBAction func tappedDone(_ sender: Any){
+        viewModel.editMoney()
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
 }

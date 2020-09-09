@@ -83,6 +83,10 @@
 		EB826FD324F93038007C43C8 /* AddMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */; };
 		EB826FD524F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */; };
 		EB826FD724F94238007C43C8 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB826FD624F94238007C43C8 /* AddRecordViewController.swift */; };
+		EB8D3D1D2508901300C583A5 /* EditMoneyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D3D1C2508901300C583A5 /* EditMoneyViewModel.swift */; };
+		EB8D3D222508967F00C583A5 /* EditDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D3D212508967F00C583A5 /* EditDayViewModel.swift */; };
+		EB8D3D242508B72400C583A5 /* DataInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D3D232508B72400C583A5 /* DataInitViewController.swift */; };
+		EB8D3D272508B78400C583A5 /* DataInitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8D3D262508B78400C583A5 /* DataInitViewModel.swift */; };
 		EBF52AF424FE8B3300F1CE89 /* InitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF52AF324FE8B3300F1CE89 /* InitViewModel.swift */; };
 		EBF52AF624FE929900F1CE89 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF52AF524FE929900F1CE89 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
@@ -179,6 +183,10 @@
 		EB826FD224F93038007C43C8 /* AddMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMoneyViewController.swift; sourceTree = "<group>"; };
 		EB826FD424F931F6007C43C8 /* AddMoneyViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddMoneyViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 		EB826FD624F94238007C43C8 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
+		EB8D3D1C2508901300C583A5 /* EditMoneyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMoneyViewModel.swift; sourceTree = "<group>"; };
+		EB8D3D212508967F00C583A5 /* EditDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDayViewModel.swift; sourceTree = "<group>"; };
+		EB8D3D232508B72400C583A5 /* DataInitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInitViewController.swift; sourceTree = "<group>"; };
+		EB8D3D262508B78400C583A5 /* DataInitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInitViewModel.swift; sourceTree = "<group>"; };
 		EBF52AF324FE8B3300F1CE89 /* InitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitViewModel.swift; sourceTree = "<group>"; };
 		EBF52AF524FE929900F1CE89 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		F7CB0B5567532D1CC7B608AF /* Pods-harusal2-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-harusal2-iOS.release.xcconfig"; path = "Target Support Files/Pods-harusal2-iOS/Pods-harusal2-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -419,19 +427,11 @@
 			children = (
 				EB826FD124F93028007C43C8 /* Add */,
 				EB538BF624D7D17E0074B752 /* Empty */,
-				EB51E86624D09FCA00360B2A /* StoryBoard */,
 				EB4D09CB24D32EA500DF65D6 /* HomeViewModel.swift */,
 				EB4D09CD24D32EAE00DF65D6 /* HomeViewController.swift */,
 				EB53842624DED0E30036902B /* BreakDownCell.swift */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		EB51E86624D09FCA00360B2A /* StoryBoard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 		EB538BF624D7D17E0074B752 /* Empty */ = {
@@ -463,9 +463,10 @@
 		EB5D46CC24E52BF700E25800 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				EB8D3D252508B72A00C583A5 /* DataInit */,
+				EB8D3D1E2508953100C583A5 /* EditDay */,
+				EB8D3D1B2508900200C583A5 /* EditMoney */,
 				EB5D46CD24E52C0C00E25800 /* SlideMenuViewController.swift */,
-				308F51F624FA612A003E5682 /* EditMoneyViewController.swift */,
-				308F51F824FA6148003E5682 /* EditDayViewController.swift */,
 				EB573C752504B701007EA6EC /* SelectTermViewController.swift */,
 				EB573C772504B90E007EA6EC /* SelectTermViewModel.swift */,
 			);
@@ -499,6 +500,33 @@
 				EB51CD1B24FA2CC3006F0419 /* AddRecordViewModel.swift */,
 			);
 			path = Add;
+			sourceTree = "<group>";
+		};
+		EB8D3D1B2508900200C583A5 /* EditMoney */ = {
+			isa = PBXGroup;
+			children = (
+				308F51F624FA612A003E5682 /* EditMoneyViewController.swift */,
+				EB8D3D1C2508901300C583A5 /* EditMoneyViewModel.swift */,
+			);
+			path = EditMoney;
+			sourceTree = "<group>";
+		};
+		EB8D3D1E2508953100C583A5 /* EditDay */ = {
+			isa = PBXGroup;
+			children = (
+				308F51F824FA6148003E5682 /* EditDayViewController.swift */,
+				EB8D3D212508967F00C583A5 /* EditDayViewModel.swift */,
+			);
+			path = EditDay;
+			sourceTree = "<group>";
+		};
+		EB8D3D252508B72A00C583A5 /* DataInit */ = {
+			isa = PBXGroup;
+			children = (
+				EB8D3D232508B72400C583A5 /* DataInitViewController.swift */,
+				EB8D3D262508B78400C583A5 /* DataInitViewModel.swift */,
+			);
+			path = DataInit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -662,6 +690,7 @@
 				308F51F724FA612A003E5682 /* EditMoneyViewController.swift in Sources */,
 				EB52556924F39CE20002BD2E /* ListEditViewModel.swift in Sources */,
 				EB7F4EEB24EBD0C200D35DBB /* Converter.swift in Sources */,
+				EB8D3D242508B72400C583A5 /* DataInitViewController.swift in Sources */,
 				EB51668F24E7CE50004A9007 /* UITextField+.swift in Sources */,
 				EB4CE95124FE607200300148 /* Budget.swift in Sources */,
 				EB519B782500CF6C00B29515 /* OnBoarding2ViewController.swift in Sources */,
@@ -677,6 +706,7 @@
 				EB52557124F403BF0002BD2E /* SecondFooterView.swift in Sources */,
 				EBF52AF424FE8B3300F1CE89 /* InitViewModel.swift in Sources */,
 				308F51F924FA6148003E5682 /* EditDayViewController.swift in Sources */,
+				EB8D3D1D2508901300C583A5 /* EditMoneyViewModel.swift in Sources */,
 				308F51F524FA6103003E5682 /* AlarmViewController.swift in Sources */,
 				307BCD5F24E0116900A20E35 /* InitDayViewController.swift in Sources */,
 				EB51E84024D09D7900360B2A /* AppDelegate.swift in Sources */,
@@ -689,6 +719,7 @@
 				EB573C7A2504C45E007EA6EC /* SelectTermDelegate.swift in Sources */,
 				EB573C782504B90E007EA6EC /* SelectTermViewModel.swift in Sources */,
 				EB53842B24DF054C0036902B /* HomeViewController+UITableViewDelegate.swift in Sources */,
+				EB8D3D222508967F00C583A5 /* EditDayViewModel.swift in Sources */,
 				EB5A817024FFE908000957D3 /* EditMoneyViewController + TextFieldDelegate.swift in Sources */,
 				EB4D09CE24D32EAE00DF65D6 /* HomeViewController.swift in Sources */,
 				EB519B762500CF5C00B29515 /* OnBoarding1ViewController.swift in Sources */,
@@ -707,6 +738,7 @@
 				EB519B712500C2F800B29515 /* SplashViewController.swift in Sources */,
 				EB52556B24F39E430002BD2E /* ListDetailViewModel.swift in Sources */,
 				EB4731D124FCF90C00E91CED /* FirstCellViewModel.swift in Sources */,
+				EB8D3D272508B78400C583A5 /* DataInitViewModel.swift in Sources */,
 				EB519B6E2500B1B600B29515 /* InitDay.swift in Sources */,
 				EB51CD1E24FA5F49006F0419 /* Date+.swift in Sources */,
 				EB51668D24E79DD6004A9007 /* ListEditViewController.swift in Sources */,

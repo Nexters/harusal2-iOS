@@ -22,6 +22,7 @@ class DBRepository{
     
     func writeBudget(data: Budget){
         try! realm.write{
+            print(data)
             realm.add(data, update: .all)
         }
     }
@@ -68,6 +69,12 @@ class DBRepository{
     func removeAll() {
         try! realm.write{
             realm.deleteAll()
+        }
+    }
+    
+    func removeBreakDown(data: BreakDown){
+        try! realm.write{
+            realm.delete(data)
         }
     }
     

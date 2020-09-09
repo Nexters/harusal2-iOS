@@ -31,7 +31,9 @@ extension EditMoneyViewController: UITextFieldDelegate{
             if formatter.number(from: string) != nil{
                 if let formattedNumber = formatter.number(from: beforeFormattedString), let formattedString = formatter.string(from: formattedNumber){
                     textField.text = formattedString + "원"
-                    editDailyMoney(moneyStr: formattedNumber)
+                    editDailyMoney(moneyNum: formattedNumber)
+                    self.viewModel.money = Int(formattedNumber)
+                    self.budgetPerDayLabel.text = "\(editDailyMoney(moneyNum: formattedNumber))원"
                     //한글 Label 설정 클로저
                     
                     return false
@@ -56,11 +58,10 @@ extension EditMoneyViewController: UITextFieldDelegate{
         
     }
     
-    func editDailyMoney(moneyStr : NSNumber){
-//        let money = String(Int(moneyStr)).reversed().map{
-//            
-//        }
+    func editDailyMoney(moneyNum : NSNumber) -> Int{
+        let money = Int(moneyNum)/30
         
+        return money
         
         
     }

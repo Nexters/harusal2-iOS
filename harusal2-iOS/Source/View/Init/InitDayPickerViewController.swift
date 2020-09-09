@@ -15,8 +15,6 @@ class InitDayPickerViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     var viewModel = InitViewModel()
     let sp = SharedPreference.shared
-    lazy var monthAndDay = getMonthAndDay(date: Date())
-    var values: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +37,7 @@ class InitDayPickerViewController: UIViewController {
         guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
         
         sp.setFirstRun()
+        self.viewModel.setStartDate(date: Date())
         self.viewModel.setBudget()
         self.slideLeft(from: snapshot, to: vc)
     }

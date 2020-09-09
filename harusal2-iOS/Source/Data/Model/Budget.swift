@@ -22,15 +22,19 @@ import RealmSwift
     
     func autoIncrementKey() -> Int{
         let realm = try! Realm()
+        
         return (realm.objects(Budget.self).max(ofProperty: "id")
             as Int? ?? 0) + 1
     }
     
-    func update(money: Int, termDay: Int, startDate: Date, endDate: Date){
+    func updateMoney(money: Int){
         try! realm?.write{
             self.money = money
-            self.termDay = termDay
-            self.startDate = startDate
+        }
+    }
+    
+    func updateEndDate(endDate: Date){
+        try! realm?.write{
             self.endDate = endDate
         }
     }

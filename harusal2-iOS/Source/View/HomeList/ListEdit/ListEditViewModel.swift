@@ -13,6 +13,7 @@ class ListEditViewModel{
     var money: String = ""
     var content: String = ""
     var type: Int = 0
+    var breakDown : BreakDown?
     
     var date: Date?{
         didSet{
@@ -28,7 +29,13 @@ class ListEditViewModel{
         
     }
     
-    var breakDown : BreakDown?
+    func deleteBreakDown(){
+        guard let data = self.breakDown else{
+            return
+        }
+        
+        data.remove()
+    }
     
     func updateData(){
         guard let data = breakDown else{

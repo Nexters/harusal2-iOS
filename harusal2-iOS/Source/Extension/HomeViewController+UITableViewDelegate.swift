@@ -20,11 +20,9 @@ extension HomeViewController{
         let newTodayMoneyLabelCenterX: CGFloat = todayMoneyLabelCenterX.constant - y * 100/140
         let newCenterX : CGFloat = centerX.constant + y * 100/140
         let newMoneyTop : CGFloat = moneyTop.constant + y * 50/140
-        print("headerTop - >\(newHeaderViewTop)")
         
         if newHeaderViewHeight > headerViewMaxHeight{//280
             headerViewHeightConstraint.constant = headerViewMaxHeight
-//            animationViewHeightConstraint.constant = animationViewMaxHeight
             headerViewTop.constant = headerViewTopMax
             todayMoneyLabelCenterX.constant = todayMoneyLabelMaxX
             centerX.constant = minX
@@ -32,7 +30,6 @@ extension HomeViewController{
             animationView.layoutIfNeeded()
         } else if newHeaderViewHeight < headerViewMinHeight{//140
             headerViewHeightConstraint.constant = headerViewMinHeight
-//            animationViewHeightConstraint.constant = animationViewMinHeight
             headerViewTop.constant = -170+(self.navigationController?.navigationBar.frame.height)! // 170 -> height : 130, Top : 40, NavigationBar Height
             todayMoneyLabelCenterX.constant = todayMoneyLabelMinX
             moneyTop.constant = 62
@@ -40,9 +37,7 @@ extension HomeViewController{
             animationView.layoutIfNeeded()
         }else{
             headerViewHeightConstraint.constant = newHeaderViewHeight
-//            animationViewHeightConstraint.constant = newAnimationViewHeight
             animationView.alpha = (newHeaderViewHeight-140)/140
-            print(animationView.alpha)
             headerViewTop.constant = newHeaderViewTop
             moneyTop.constant = newMoneyTop
             centerX.constant = newCenterX
@@ -54,22 +49,3 @@ extension HomeViewController{
         
     }
 }
-
-//class ResizeImageView : UIImageView{
-//
-//    override var intrinsicContentSize: CGSize{
-//        if let myImage = self.image {
-//            let myImageWidth = myImage.size.width
-//            let myImageHeight = myImage.size.height
-//            let myViewWidth = self.frame.size.width
-//
-//            let ratio = myViewWidth/myImageWidth
-//            let scaledHeight = myImageHeight * ratio
-//
-//            return CGSize(width: myViewWidth, height: scaledHeight)
-//        }
-//
-//        return CGSize(width: -1.0, height: -1.0)
-//    }
-//
-//}

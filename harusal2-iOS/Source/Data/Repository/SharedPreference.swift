@@ -39,4 +39,9 @@ class SharedPreference{
     func setFirstRun(){
         sp.setValue("Run", forKey: "Run")
     }
+    
+    func removeData(){
+        sp.removeObject(forKey: "Run")
+        sp.removeObject(forKey: "OnBoarding")
+    }
 }

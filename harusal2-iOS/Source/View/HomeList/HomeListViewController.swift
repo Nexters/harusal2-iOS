@@ -83,16 +83,19 @@ class HomeListViewController: BaseViewController, SelectTermDelegate{
     }
     
     @objc func tappedTitle(_ sender: Any){
-        guard let sb = self.storyboard else{
+        if let navi = self.navigationController, let sb = self.storyboard{
+            guard let selectTermVC = sb.instantiateViewController(identifier: "SelectTermViewController") as? SelectTermViewController else{
+                return
+            }
+            selectTermVC.selectTermDelegate = self
+            selectTermVC.viewModel.nowBudget = self.viewModel.budget
+            
+            selectTermVC.modalPresentationStyle = .overCurrentContext
+            present(selectTermVC, animated: false, completion: nil)
+        }else{
             return
+            
         }
-        guard let selectTermVC = sb.instantiateViewController(identifier: "SelectTermViewController") as? SelectTermViewController else{
-            return
-        }
-        selectTermVC.selectTermDelegate = self
-        selectTermVC.viewModel.nowBudget = self.viewModel.budget
-        
-        present(selectTermVC, animated: true, completion: nil)
     }
     
     @IBAction func tappedPlusButton(_ sender: Any) {

@@ -31,7 +31,7 @@ extension InitMoneyViewController: UITextFieldDelegate{
             if formatter.number(from: string) != nil{
                 if let formattedNumber = formatter.number(from: beforeFormattedString), let formattedString = formatter.string(from: formattedNumber){
                     textField.text = formattedString + "원"
-                        self.money = Int(formattedNumber)
+                        self.money = Int(formattedNumber) // ViewModel에 money를 넣어야 하나?
                         self.budgetPerDayLabel.text = "\(editDailyMoney(moneyNum: formattedNumber))원"
                         //한글 Label 설정 클로저
                     
