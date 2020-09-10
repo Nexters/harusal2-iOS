@@ -35,6 +35,12 @@ import RealmSwift
         }
     }
     
+    func remove(){
+        try! realm?.write{
+            realm?.delete(self)
+        }
+    }
+    
     
     
 }

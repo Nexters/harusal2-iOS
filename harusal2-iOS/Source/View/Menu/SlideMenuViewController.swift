@@ -62,29 +62,25 @@ class SlideMenuViewController: BaseViewController {
     }
     
     @objc func tappedMoney() {
-        print("money")
         if let navi = self.navigationController, let storyBoard = self.storyboard{
             guard let moneyVC = storyBoard.instantiateViewController(identifier: "EditMoneyViewController") as? EditMoneyViewController else{
                 return
             }
             navi.pushViewController(moneyVC, animated: true)
         }else{
-            print("alarm")
             return
         }
     }
     
     @objc func tappedDay() {
-        print("day")
         if let navi = self.navigationController, let storyBoard = self.storyboard{
-            guard let dayVC = storyBoard.instantiateViewController(identifier: "EditDayViewController") as? EditDayViewController else{
-                print("??")
+            guard let alertVC = storyBoard.instantiateViewController(identifier: "EditDayViewController") as? EditDayViewController else{
                 return
             }
-            print("?")
-            navi.pushViewController(dayVC, animated: true)
+            
+            alertVC.modalPresentationStyle = .overCurrentContext
+            present(alertVC, animated: false, completion: nil)
         }else{
-            print("zz")
             return
             
         }
@@ -92,13 +88,13 @@ class SlideMenuViewController: BaseViewController {
     
     @objc func tappedinit() {
         if let navi = self.navigationController, let storyBoard = self.storyboard{
-            self.showToast(vc: self, msg: "삭제해야함", sec: 1.0)
-//            guard let initVC = storyBoard.instantiateViewController(identifier: "AlarmViewController") as? AlarmViewController else{
-//                return
-//            }
-//            navi.pushViewController(alarmVC, animated: true)
+            guard let initVC = storyBoard.instantiateViewController(identifier: "DataInitViewController") as? DataInitViewController else{
+                return
+            }
+            
+            initVC.modalPresentationStyle = .overCurrentContext
+            present(initVC, animated: false, completion: nil)
         }else{
-            print("zz")
             return
             
         }

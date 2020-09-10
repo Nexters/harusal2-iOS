@@ -19,7 +19,18 @@ class ListDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBlack()
+        addDeleteButton()
         updateUI()
+    }
+    
+    func addDeleteButton(){
+        let btn = UIBarButtonItem(image: UIImage(named: "icn_list delete_24"), style: .plain, target: self, action: #selector(self.tappedDelete))
+        self.navigationItem.rightBarButtonItem = btn
+    }
+    
+    @objc func tappedDelete(){
+        viewModel.deleteBreakDown()
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func tappedEditButton(_ sender: Any) {

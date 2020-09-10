@@ -11,6 +11,14 @@ import Foundation
 class ListDetailViewModel{
     
     var breakDown: BreakDown?
+    let db = DBRepository.shared
+    
+    func deleteBreakDown(){
+        guard let data = self.breakDown else{
+            return
+        }
+        db.removeBreakDown(data: data)
+    }
     
     
 }

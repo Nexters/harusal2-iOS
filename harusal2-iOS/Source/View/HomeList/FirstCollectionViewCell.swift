@@ -75,15 +75,9 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                 
                 if self.isTodayCellHandler?() == true{
                     //첫 Cell만 Expand 버튼 Up 버튼으로
-                    
                     footer.expandButton.setImage(UIImage(named: "btn_dropup_24"), for: .normal)
-                    
-                    
                 }else{
-                    
                     footer.expandButton.setImage(UIImage(named: "btn_dropdown"), for: .normal)
-                    
-                    
                 }
                 
                 if self.viewModel.dayList.count > 0{
@@ -92,15 +86,14 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
                         self.cellCount = self.viewModel.dayList.count
                         
                         self.expandFromFirstCollectionViewHandler?()
-//                        self.secondCV.reloadData()
                     }
                     footer.contractHandler = { () -> Void in
                         self.cellCount = 0
                         
                         self.contractFromFirstCollectionViewHandler?()
-//                        self.secondCV.reloadData()
                     }
                 }else{
+                    //데이터가 없을 때 FooterHandler 처리 X
                     footer.expandHandler = nil
                     footer.contractHandler = nil
                 }

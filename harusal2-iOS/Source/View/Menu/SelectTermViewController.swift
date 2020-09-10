@@ -23,6 +23,10 @@ class SelectTermViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func tappedBG(_ sender: Any){
+        self.dismiss(animated: false, completion: nil)
+    }
 
 }
 

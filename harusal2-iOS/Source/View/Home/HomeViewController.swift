@@ -30,7 +30,6 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var todayMoneyLabelCenterX: NSLayoutConstraint!
     @IBOutlet weak var centerX: NSLayoutConstraint!
     //    @IBOutlet weak var slideMenuCenterX: NSLayoutConstraint!
-    var state = 3
     var str : String = ""
     let headerViewMaxHeight: CGFloat = 280
     let headerViewMinHeight: CGFloat = 140
@@ -49,8 +48,6 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             self.todayMoneyLabel.text = todayBreakDown
             self.todayMoneyDescriptionLabel.text = "오늘의 생활비 \(todayMoney)"
         }
-        
-        
         todayDateLabel.text = "\(Converter.shared.convertDate(Date()))"
         breakDownTV.delegate = self
         breakDownTV.dataSource = self
@@ -66,6 +63,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             self.breakDownTV.reloadData()
         }
         viewModel.getLatestBudget()
+        
         str = viewModel.getMode()
         setColor()
         startLottie()
@@ -109,7 +107,6 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         var mainColor : UIColor
         var bgColor : UIColor
         
-        
         mainColor = UIColor(named: "\(str)Main") ?? UIColor.white
         bgColor = UIColor(named: "\(str)Background") ?? UIColor.white
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
@@ -119,6 +116,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         self.topView.backgroundColor = mainColor
         self.breakDownTV.backgroundColor = mainColor
         self.todayMoneyDescriptionLabel.backgroundColor = bgColor
+        
         
         changeTextColor(color: mainColor)
         

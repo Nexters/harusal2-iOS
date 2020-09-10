@@ -28,8 +28,7 @@ class ListEditViewController: BaseViewController {
         super.viewDidLoad()
         createDatePicker()
         self.setNavigationBlack()
-        print("aa\(self.view.frame.origin.y)")
-        
+        addDeleteButton()
         NotificationCenter.default.addObserver(self, selector: #selector(didShow), name: UIResponder.keyboardDidShowNotification, object: nil)
                
         NotificationCenter.default.addObserver(self, selector: #selector(willHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -45,6 +44,22 @@ class ListEditViewController: BaseViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func addDeleteButton(){
+        let btn = UIBarButtonItem(image: UIImage(named: "icn_list delete_24"), style: .plain, target: self, action: #selector(self.tappedDelete))
+        self.navigationItem.rightBarButtonItem = btn
+    }
+    
+    @objc func tappedDelete(){
+        viewModel.deleteBreakDown()
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
+            return
+        }
+        
+        guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
+        
+        self.slideLeft(from: snapshot, to: vc)
     }
     
     func updateUI(){
@@ -138,12 +153,10 @@ extension ListEditViewController: UITextViewDelegate{
     func textViewDidBeginEditing(_ textView: UITextView) {
             //TextView가 포커스를 얻었을 때
             isEditingTextView = true
-        print("yes")
         }
         
         func textViewDidChange(_ textView: UITextView) {
             
-            print("55")
             isEditingTextView = false
             let fixedWidth = textView.frame.size.width
             let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
@@ -156,7 +169,6 @@ extension ListEditViewController: UITextViewDelegate{
                 self.textViewHeight.constant = newSize.height
             }
     //        viewModel.content = textView.text
-    print("66")
         }
         func textViewDidEndEditing(_ textView: UITextView) {
             //TextView가 포커스를 잃었을 때

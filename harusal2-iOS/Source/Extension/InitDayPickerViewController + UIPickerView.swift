@@ -12,9 +12,9 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
     
     
     func setInitView(){
-        monthlyBudgetDurationLabel.text = "\(monthAndDay.0).\(monthAndDay.1+1)~\(monthAndDay.0+1).\(monthAndDay.1)"
+        monthlyBudgetDurationLabel.text = "\(viewModel.monthAndDay.0).\(viewModel.monthAndDay.1+1)~\(viewModel.monthAndDay.0+1).\(viewModel.monthAndDay.1)"
         
-        setPickerValues(todayMonth: monthAndDay.0, day: monthAndDay.1)
+        setPickerValues(todayMonth: viewModel.monthAndDay.0, day: viewModel.monthAndDay.1)
         setPickerDefaultValue()
     }
     
@@ -45,18 +45,11 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
         }
         
         for i in day...lastDate {
-            values.append(i)
+            self.viewModel.values.append(i)
         }
     }
    
-    func getMonthAndDay(date: Date)-> (Int,Int){
-        
-        let str = Converter.shared.convertDate(date)
-        let month: Int = Int(String(str.split(separator: "-")[1])) ?? 1
-        let day: Int = Int(String(str.split(separator: "-")[2])) ?? 1
-        
-        return (month,day)
-    }
+    
     
     func setPickerDefaultValue() {
         self.pickerView.selectRow(0, inComponent: 0, animated: true)
@@ -65,15 +58,15 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let today = Converter.shared.convertDate(Date())
         var str = ""
-        if self.values[row] == 1{
+        if self.viewModel.values[row] == 1{
             //매월 1일로 설정했을 때 (a월 , b일)이라면 -> (a월, 마지막일수)
-            str = "\(monthAndDay.0).\(self.values[row])~\(monthAndDay.0).\(getLastDay(month: monthAndDay.0))"
-        let date = "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.values[row])"
+            str = "\(viewModel.monthAndDay.0).\(self.viewModel.values[row])~\(viewModel.monthAndDay.0).\(getLastDay(month: viewModel.monthAndDay.0))"
+        let date = "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.viewModel.values[row])"
             self.viewModel.setStartDate(date: Converter.shared.convertString(date))
         }else{
             //매월 1일로 설정했을 때 (a월 , b일)이라면 -> (a+1월, b-1일)
-            str = "\(monthAndDay.0).\(self.values[row])~\(monthAndDay.0+1).\(self.values[row]-1)"
-            let date = "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.values[row])"
+            str = "\(viewModel.monthAndDay.0).\(self.viewModel.values[row])~\(viewModel.monthAndDay.0+1).\(self.viewModel.values[row]-1)"
+            let date = "\(today.split(separator: "-")[0])-\(today.split(separator: "-")[1])-\(self.viewModel.values[row])"
             self.viewModel.setStartDate(date: Converter.shared.convertString(date))
         }
        
@@ -85,11 +78,11 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.values.count
+        return self.viewModel.values.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(self.values[row])
+        return String(self.viewModel.values[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
@@ -109,7 +102,7 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
             pickerLabel?.textAlignment = .center
         }
         
-        pickerLabel?.text = String(values[row])
+        pickerLabel?.text = String(viewModel.values[row])
         pickerLabel?.textColor = UIColor(named: "ColorTextMain")
 
         return pickerLabel!

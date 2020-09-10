@@ -57,16 +57,16 @@ class InitMoneyViewController: UIViewController {
         }
     }
     
-    @IBAction func tappedCloseButton(_ sender: Any) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
-            return
-        }
-        
-        guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
-        
-//        self.showToast(vc: self, msg: "hello", sec: 2.0)
-        self.popLeft(from: snapshot, to: vc, toastMessage: "나중에 예산을 작성해주세요.", sec: 1.0)
-    }
+//    @IBAction func tappedCloseButton(_ sender: Any) {
+//        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeNavigation") else{
+//            return
+//        }
+//
+//        guard let snapshot = self.view.window?.snapshotView(afterScreenUpdates: true) else { return }
+//
+////        self.showToast(vc: self, msg: "hello", sec: 2.0)
+//        self.popLeft(from: snapshot, to: vc, toastMessage: "나중에 예산을 작성해주세요.", sec: 1.0)
+//    }
 }
 extension InitMoneyViewController {
     @objc private func adjustInputView(noti: Notification) {

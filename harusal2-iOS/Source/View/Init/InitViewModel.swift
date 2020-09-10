@@ -13,12 +13,15 @@ class InitViewModel{
     var budget : Budget = Budget()
     var today: Int
     let db = DBRepository.shared
+    var values: [Int] = []
+    lazy var monthAndDay = getMonthAndDay(date: Date())
     
     init() {
         today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
         String($0)
         } ?? "0")!
     }
+    
     
     func getLastDay(month: Int) -> Int {
         var lastDate = 0
@@ -32,6 +35,15 @@ class InitViewModel{
         }
         
         return lastDate
+    }
+    
+    func getMonthAndDay(date: Date)-> (Int,Int){
+        
+        let str = Converter.shared.convertDate(date)
+        let month: Int = Int(String(str.split(separator: "-")[1])) ?? 1
+        let day: Int = Int(String(str.split(separator: "-")[2])) ?? 1
+        
+        return (month,day)
     }
     
     func setEndDate(date: Date){
@@ -66,7 +78,7 @@ class InitViewModel{
     
     func setStartDate(date: Date){
         
-        budget.startDate = date
+        budget.startDate = Converter.shared.getDateZero(date)
         setTerm()
         
         

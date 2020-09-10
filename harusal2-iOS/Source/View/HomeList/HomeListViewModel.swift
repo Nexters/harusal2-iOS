@@ -21,10 +21,10 @@ class HomeListViewModel{
     
     
     init() {
-        today = 4
-//        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
-//            String($0)
-//            } ?? "0") ?? 0
+//        today = 30
+        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
+            String($0)
+            } ?? "0") ?? 0
     }
     
     func getCellNum() -> Int{
@@ -90,6 +90,7 @@ class HomeListViewModel{
     func getLatestBudget(refresh: (()-> ())?){
         if self.selectBudget == nil{
             self.budget = db.readLatestBudget() ?? Budget()
+            print(self.budget)
         }else{
             self.budget = selectBudget!
             selectBudget = nil
@@ -114,12 +115,15 @@ class HomeListViewModel{
                }
                
                
-               
+        if budget.termDay != 0{
                let todayMoney = budget.money/budget.termDay
                let monthInOut = todayMoney - monthOutcome+monthIncome
                
                
                return separateMoney(moneyStr: String(monthInOut))
+        }
+        
+        return "0"
     }
     
     func separateMoney(moneyStr: String) -> String{
@@ -147,17 +151,14 @@ class HomeListViewModel{
     func separateMonthDay(date: Date) -> String{
         let strDate = Converter.shared.convertDate(date)
         let str: String = strDate.split(separator: "-")[1] + "." + strDate.split(separator: "-")[2]
-        print("separate -> \(str)")
         return str
     }
     
     func getHeaderDay(index: Int) -> Int{
         if today - index > 0{
-            print(today-index)
             return today - index
         }else{
             let lastMonthDay = self.budget.termDay + today
-            print(lastMonthDay-index)
             return lastMonthDay - index
         }
     }
