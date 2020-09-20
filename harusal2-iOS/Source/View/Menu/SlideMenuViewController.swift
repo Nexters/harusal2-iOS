@@ -30,7 +30,8 @@ class SlideMenuViewController: BaseViewController {
         let moneyTap = UITapGestureRecognizer(target: self, action: #selector(self.tappedMoney))
         moneyView.addGestureRecognizer(moneyTap)
         
-        let dayTap = UITapGestureRecognizer(target: self, action: #selector(self.tappedDay))
+        let dayTap = UITapGestureRecognizer(target: self, action:
+            #selector(self.tappedDay))
         dayView.addGestureRecognizer(dayTap)
         
         let initTap = UITapGestureRecognizer(target: self, action: #selector(self.tappedinit))
@@ -49,7 +50,20 @@ class SlideMenuViewController: BaseViewController {
     
     }
     
-    @objc func tappedAlarm() {
+    @IBAction func tappedAlarmButton(_ sender: Any) {
+        tapAlarm()
+    }
+    @IBAction func tappedMoneyButton(_ sender: Any) {
+        tapMoney()
+    }
+    @IBAction func tappedDayButton(_ sender: Any) {
+        tapDay()
+    }
+    @IBAction func tappedInitButton(_ sender: Any) {
+        tapInit()
+    }
+    
+    func tapAlarm(){
         if let navi = self.navigationController, let storyBoard = self.storyboard{
             guard let alarmVC = storyBoard.instantiateViewController(identifier: "AlarmViewController") as? AlarmViewController else{
                 return
@@ -61,18 +75,18 @@ class SlideMenuViewController: BaseViewController {
         }
     }
     
-    @objc func tappedMoney() {
+    func tapMoney(){
         if let navi = self.navigationController, let storyBoard = self.storyboard{
-            guard let moneyVC = storyBoard.instantiateViewController(identifier: "EditMoneyViewController") as? EditMoneyViewController else{
-                return
-            }
-            navi.pushViewController(moneyVC, animated: true)
-        }else{
-            return
-        }
+                   guard let moneyVC = storyBoard.instantiateViewController(identifier: "EditMoneyViewController") as? EditMoneyViewController else{
+                       return
+                   }
+                   navi.pushViewController(moneyVC, animated: true)
+               }else{
+                   return
+               }
     }
     
-    @objc func tappedDay() {
+    func tapDay(){
         if let navi = self.navigationController, let storyBoard = self.storyboard{
             guard let alertVC = storyBoard.instantiateViewController(identifier: "EditDayViewController") as? EditDayViewController else{
                 return
@@ -86,18 +100,34 @@ class SlideMenuViewController: BaseViewController {
         }
     }
     
-    @objc func tappedinit() {
+    func tapInit(){
         if let navi = self.navigationController, let storyBoard = self.storyboard{
-            guard let initVC = storyBoard.instantiateViewController(identifier: "DataInitViewController") as? DataInitViewController else{
-                return
-            }
-            
-            initVC.modalPresentationStyle = .overCurrentContext
-            present(initVC, animated: false, completion: nil)
-        }else{
-            return
-            
-        }
+                   guard let initVC = storyBoard.instantiateViewController(identifier: "DataInitViewController") as? DataInitViewController else{
+                       return
+                   }
+                   
+                   initVC.modalPresentationStyle = .overCurrentContext
+                   present(initVC, animated: false, completion: nil)
+               }else{
+                   return
+                   
+               }
+    }
+    
+    @objc func tappedAlarm() {
+        tapAlarm()
+    }
+    
+    @objc func tappedMoney() {
+        tapMoney()
+    }
+    
+    @objc func tappedDay() {
+        tapDay()
+    }
+    
+    @objc func tappedinit() {
+       tapInit()
     }
     
     

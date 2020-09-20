@@ -116,8 +116,8 @@ class HomeListViewModel{
                
                
         if budget.termDay != 0{
-               let todayMoney = budget.money/budget.termDay
-               let monthInOut = todayMoney - monthOutcome+monthIncome
+               let monthMoney = budget.money
+               let monthInOut = monthMoney - monthOutcome+monthIncome
                
                
                return separateMoney(moneyStr: String(monthInOut))

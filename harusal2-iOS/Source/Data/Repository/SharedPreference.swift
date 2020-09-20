@@ -43,5 +43,25 @@ class SharedPreference{
     func removeData(){
         sp.removeObject(forKey: "Run")
         sp.removeObject(forKey: "OnBoarding")
+        sp.removeObject(forKey: "Alarm")
+        sp.removeObject(forKey: "9AM")
+        sp.removeObject(forKey: "12PM")
+        sp.removeObject(forKey: "8PM")
+    }
+    
+    func setAlarm(flag: Bool){
+        sp.setValue(flag, forKey: "Alarm")
+    }
+    
+    func getAlarm() -> Bool{
+        return sp.bool(forKey: "Alarm")
+    }
+    
+    func setAlarmTime(flag: Bool, id: String){
+        sp.setValue(flag, forKey: id)
+    }
+    
+    func getAlarmTime(id: String) -> Bool{
+        return sp.bool(forKey: id)
     }
 }
