@@ -8,12 +8,19 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        let center: UNUserNotificationCenter = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [UNAuthorizationOptions.alert, UNAuthorizationOptions.sound, UNAuthorizationOptions.badge]){ granted, error in
+            print("허용 여부 \(granted) , 오류 : \(error?.localizedDescription)")
+        }
+        
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
         schemaVersion: 7,
         migrationBlock: { migration, oldSchemaVersion in

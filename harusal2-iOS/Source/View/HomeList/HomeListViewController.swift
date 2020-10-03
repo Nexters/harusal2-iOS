@@ -170,11 +170,14 @@ extension HomeListViewController: UICollectionViewDataSource {
         //Cell Reuse될 때 초기화 -> 초기화 안했을 시 cell에 남아있던 cellCount 때문에 SecondCV의 Cell이 생김
         cell.cellCount = 0
         //SecondCV의 HeaderView 데이터 입력
-        cell.viewModel.headerData = (viewModel.getHeaderDay(index: indexPath.item),
-                                     viewModel.getDailyOutCome(day: viewModel.today - indexPath.item),
-                                     viewModel.getDailyInCome(day: viewModel.today - indexPath.item))
-        //SecondCV에 넣은 데이터 입력
-        cell.viewModel.dayList = self.viewModel.getDailyData(day: (cell.viewModel.headerData.0))        
+        
+            cell.viewModel.headerData = (self.viewModel.getHeaderDay(index: indexPath.item),
+                                         self.viewModel.getDailyOutCome(day: self.viewModel.today - indexPath.item),
+                                         self.viewModel.getDailyInCome(day: self.viewModel.today - indexPath.item))
+            //SecondCV에 넣은 데이터 입력
+            cell.viewModel.dayList = self.viewModel.getDailyData(day: (cell.viewModel.headerData.0))
+        
+       
         
         if self.expandDic[indexPath.item] != nil{
             // Expand되었던 Cell 저장해서 Reuse되었을 때 복구

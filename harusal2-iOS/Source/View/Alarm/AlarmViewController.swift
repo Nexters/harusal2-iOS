@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AlarmViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
 
@@ -34,6 +35,8 @@ class AlarmViewController: UIViewController,  UITableViewDelegate, UITableViewDa
             let content = UNMutableNotificationContent()
              content.title = "하루살이"
              content.body = "오늘의 기록을 남겨보세요!"
+            content.sound = UNNotificationSound.default
+            content.badge = 1
 
              var date = DateComponents()
              date.hour = hour
@@ -113,4 +116,5 @@ class AlarmViewController: UIViewController,  UITableViewDelegate, UITableViewDa
         self.alarmTableView.reloadData()
     }
 }
+
 

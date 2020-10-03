@@ -15,6 +15,15 @@ class EditDayViewModel{
     var values : [Int] = []
     lazy var monthAndDay = getMonthAndDay(date: Date())
     let db = DBRepository.shared
+    var today = 1
+    var textViewString = ""
+    
+    init() {
+        today = Int(Converter.shared.convertDate(Date()).split(separator: "-").last.map{
+            String($0)
+            } ?? "0") ?? 0
+        textViewString = "오늘은 \(today)일입니다. \(today)일부터로 시작일을 수정합니다. 수정 후에는 새롭게 한달 기준으로 하루 생활비가 책정됩니다."
+    }
     
     func getLastDay(month: Int) -> Int {
            var lastDate = 0
