@@ -24,12 +24,6 @@ class HomeEmptyViewController: BaseViewController {
     }
     
     override func addComponents() {
-        
-        
-        
-        
-        
-        
     }
     
     override func setConstraints() {

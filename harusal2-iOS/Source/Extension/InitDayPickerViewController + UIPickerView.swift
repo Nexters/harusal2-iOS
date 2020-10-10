@@ -12,7 +12,7 @@ extension InitDayPickerViewController : UIPickerViewDelegate, UIPickerViewDataSo
     
     
     func setInitView(){
-        monthlyBudgetDurationLabel.text = "\(viewModel.monthAndDay.0).\(viewModel.monthAndDay.1+1)~\(viewModel.monthAndDay.0+1).\(viewModel.monthAndDay.1)"
+        monthlyBudgetDurationLabel.text = "\(viewModel.monthAndDay.0).\(viewModel.monthAndDay.1)~\(viewModel.monthAndDay.0+1).\(viewModel.monthAndDay.1)"
         
         setPickerValues(todayMonth: viewModel.monthAndDay.0, day: viewModel.monthAndDay.1)
         setPickerDefaultValue()

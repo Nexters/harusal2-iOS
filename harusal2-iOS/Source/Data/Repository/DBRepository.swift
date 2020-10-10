@@ -95,24 +95,22 @@ class DBRepository{
     }
     
     func removeAll() {
-        queue.async {
             autoreleasepool{
                 try! self.realm.write{
                     self.realm.deleteAll()
             }
             }
-        }
+        
         
     }
     
     func removeBreakDown(data: BreakDown){
-        queue.async {
             autoreleasepool {
                 try! self.realm.write{
                     self.realm.delete(data)
                 }
             }
-        }
+        
        
     }
     

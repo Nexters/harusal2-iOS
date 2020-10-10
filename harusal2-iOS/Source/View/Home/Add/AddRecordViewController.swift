@@ -50,9 +50,10 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         descriptionTextView.layer.borderWidth = 1
         
         //UITextView 는 isEditing이 없어서 DidShowNotification을 사용
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardDidShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didShow), name: UIResponder.keyboardDidShowNotification, object: nil)
                
-        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         dateView.layer.borderWidth = 1
         dateView.layer.borderColor = UIColor.black.cgColor
@@ -67,9 +68,12 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         toolbar.setItems([doneBtn], animated: true)
         //assign toolbar
+        
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
         datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        datePicker.locale = Locale(identifier: "ko")
     }
 
     @objc func donePressed(){
@@ -93,13 +97,13 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
 
         viewModel.addData()
         
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             //ViewController 2개 이전으로 이동
              if let navi = self.navigationController, let viewControllers = self.navigationController?.viewControllers{
                 navi.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-            }else{
-                return
-            }
+//            }else{
+//                return
+//            }
         }
            
         
@@ -111,14 +115,10 @@ class AddRecordViewController: BaseViewController, UITextFieldDelegate {
     }
     
     @IBAction func tappedBG(_ sender: Any) {
-        if dateTextField.isEditing{
-            dateTextField.resignFirstResponder()
-        }
-        else if isEditingTextView{
-            descriptionTextView.resignFirstResponder()
-            isEditingTextView=false
-        }
+        self.view.endEditing(true)
+        isEditingTextView = false
     }
+    
 }
 
 extension AddRecordViewController: UITextViewDelegate{
@@ -129,9 +129,15 @@ extension AddRecordViewController: UITextViewDelegate{
     }
     
     func textViewDidChange(_ textView: UITextView) {
+        
+        isEditingTextView = false
         let fixedWidth = textView.frame.size.width
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-        if textView.frame.height < 80 {
+        
+        if newSize.height > 87{
+            self.textViewHeight.constant = 87
+        }
+        else if textView.frame.height < 80 {
             //1줄 높이일 때만 증가를 시킨다
             self.textViewHeight.constant = newSize.height
         }
@@ -145,20 +151,29 @@ extension AddRecordViewController: UITextViewDelegate{
 }
 
 extension AddRecordViewController{
-    @objc func adjustInputView(noti: Notification){
+    
+    @objc private func didShow(noti: Notification) {
         guard let userInfo = noti.userInfo else { return }
         // 키보드 높이에 따른 인풋뷰 위치 변경
         
         guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
             return
         }
-        
-        if noti.name == UIResponder.keyboardDidShowNotification, isEditingTextView==true{
+        if isEditingTextView == true{
+            isEditingTextView = false
             let keyboardHeight = keyboardFrame.height
-            let safeInsets = self.view.safeAreaInsets.bottom
-            self.doneButtonBottom.constant = keyboardHeight - safeInsets
-        } else if noti.name == UIResponder.keyboardWillHideNotification {
-            self.doneButtonBottom.constant = .zero
+            let safeInset = self.view.safeAreaInsets.bottom
+            
+            self.view.bounds.origin.y += (keyboardHeight - safeInset)
         }
+    }
+    
+    @objc private func willHide(noti: Notification) {
+        guard let userInfo = noti.userInfo else { return }
+        // 키보드 높이에 따른 인풋뷰 위치 변경
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        self.view.bounds.origin.y = .zero
     }
 }

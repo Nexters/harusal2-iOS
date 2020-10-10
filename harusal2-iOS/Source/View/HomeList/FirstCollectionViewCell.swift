@@ -18,7 +18,7 @@ class FirstCollectionViewCell: UICollectionViewCell {
     var expandFromFirstCollectionViewHandler : (() -> Void)?
     var contractFromFirstCollectionViewHandler : (() -> Void)?
     var isTodayCellHandler: (() -> Bool)?
-    var selectedSecondCell: (() -> Void)?
+    var selectedSecondCell: ((Int) -> Void)?
     var firstReload: (() -> Void)?
     let viewModel : FirstCellViewModel = FirstCellViewModel()
     var resizeHandler: (() -> Void)?
@@ -107,7 +107,7 @@ extension FirstCollectionViewCell: UICollectionViewDataSource{
 
 extension FirstCollectionViewCell: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedSecondCell?()
+        self.selectedSecondCell?(indexPath.row)
     }
 }
 

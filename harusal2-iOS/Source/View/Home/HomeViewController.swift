@@ -90,6 +90,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     func startLottie(){
         animation = AnimationView(name: "\(str)")
         animation?.contentMode = .scaleAspectFit
+        animation?.loopMode = .loop
         if let ani = self.animation{
             self.animationView.addSubview(ani)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {

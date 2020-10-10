@@ -101,6 +101,8 @@ class ListEditViewController: BaseViewController {
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
         datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        datePicker.locale = Locale(identifier: "ko")
     }
     
     @objc func donePressed(){

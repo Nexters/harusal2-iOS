@@ -48,24 +48,29 @@ class AddMoneyViewController: BaseViewController {
                 return
             }
             
-            
-            
             if let text = self.moneyTextField.text{
-                addRecordVC.viewModel.money = text
                 
-                switch segment.selectedSegmentIndex {
-                case 0:
-                    addRecordVC.viewModel.type = 0
-                case 1:
-                    addRecordVC.viewModel.type = 1
-                default:
-                    addRecordVC.viewModel.type = -1
+                if text.isEmpty{
+                    self.showToast(vc: self, msg: "금액을 입력해주세요.", sec: 1.0)
+                }
+                else{
+                
+                    addRecordVC.viewModel.money = text
+                    
+                    switch segment.selectedSegmentIndex {
+                    case 0:
+                        addRecordVC.viewModel.type = 0
+                    case 1:
+                        addRecordVC.viewModel.type = 1
+                    default:
+                        addRecordVC.viewModel.type = -1
+                    }
+                    navi.pushViewController(addRecordVC, animated: true)
                 }
             }else{
                 return
             }
             
-            navi.pushViewController(addRecordVC, animated: true)
         }else{
             return
         }

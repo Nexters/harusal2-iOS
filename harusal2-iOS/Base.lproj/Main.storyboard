@@ -742,7 +742,7 @@
                             <constraint firstItem="hxq-FR-gFn" firstAttribute="leading" secondItem="5bC-v6-Q4U" secondAttribute="leading" id="Y16-Q5-Dkd"/>
                             <constraint firstItem="gS5-dO-73L" firstAttribute="leading" secondItem="oeb-7r-MSv" secondAttribute="leading" id="ZDF-eC-mL8"/>
                             <constraint firstItem="x16-km-7x8" firstAttribute="leading" secondItem="oeb-7r-MSv" secondAttribute="leading" constant="20" id="aCr-fJ-15R"/>
-                            <constraint firstItem="CCf-IO-pKy" firstAttribute="firstBaseline" secondItem="ign-LU-RbX" secondAttribute="baseline" constant="20" symbolType="layoutAnchor" id="lwQ-Dg-GUP"/>
+                            <constraint firstItem="CCf-IO-pKy" firstAttribute="firstBaseline" secondItem="ign-LU-RbX" secondAttribute="baseline" constant="21" symbolType="layoutAnchor" id="lwQ-Dg-GUP"/>
                             <constraint firstItem="VZd-6o-Wlz" firstAttribute="top" secondItem="CCf-IO-pKy" secondAttribute="bottom" constant="50" id="mHJ-Wp-D16"/>
                             <constraint firstItem="gS5-dO-73L" firstAttribute="bottom" secondItem="oeb-7r-MSv" secondAttribute="bottom" id="odx-oE-cuh"/>
                             <constraint firstItem="AtA-zh-sYJ" firstAttribute="leading" secondItem="oeb-7r-MSv" secondAttribute="leading" constant="20" id="svX-4U-JvM"/>
@@ -1149,7 +1149,7 @@
                             <constraint firstItem="a79-KP-7kM" firstAttribute="trailing" secondItem="ouX-hz-zax" secondAttribute="trailing" id="prR-9q-HEn"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="obL-Dw-6ca" appends="YES" id="HbP-Gi-ThD"/>
+                            <outletCollection property="gestureRecognizers" destination="JK6-tK-1aj" appends="YES" id="xB0-BM-9Kg"/>
                         </connections>
                     </view>
                     <connections>
@@ -1164,9 +1164,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sv-G6-rEz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="obL-Dw-6ca">
+                <tapGestureRecognizer id="JK6-tK-1aj">
                     <connections>
-                        <action selector="tappedBG:" destination="Wp2-g3-J2Z" id="FzL-Z7-RkU"/>
+                        <action selector="tappedBG:" destination="Wp2-g3-J2Z" id="7m1-uo-SQh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -1292,7 +1292,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="이번달 하루 생활비" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIl-v8-eFW" userLabel="하루 생활비">
-                                <rect key="frame" x="22" y="417" width="90" height="14.5"/>
+                                <rect key="frame" x="22" y="757.5" width="90" height="14.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="2gi-Ac-cEL"/>
                                 </constraints>
@@ -1301,7 +1301,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFX-66-LTr" userLabel="하루 생활비">
-                                <rect key="frame" x="115" y="417" width="50" height="0.0"/>
+                                <rect key="frame" x="115" y="757.5" width="50" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="svv-DE-f7q"/>
                                 </constraints>
@@ -1314,19 +1314,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="kFX-66-LTr" firstAttribute="top" secondItem="gIl-v8-eFW" secondAttribute="top" id="0rx-gk-QAJ"/>
                             <constraint firstItem="qhU-mH-TDd" firstAttribute="leading" secondItem="hZH-Pm-E72" secondAttribute="leading" constant="20" id="ARL-UJ-io2"/>
                             <constraint firstItem="hZH-Pm-E72" firstAttribute="trailing" secondItem="F88-xH-tRr" secondAttribute="trailing" constant="20" id="Bpr-3C-VQW"/>
                             <constraint firstItem="qhU-mH-TDd" firstAttribute="top" secondItem="hZH-Pm-E72" secondAttribute="top" constant="32" id="Dj1-pz-Yjy"/>
                             <constraint firstItem="F88-xH-tRr" firstAttribute="leading" secondItem="hZH-Pm-E72" secondAttribute="leading" constant="20" id="PBT-vh-v0x"/>
                             <constraint firstItem="hZH-Pm-E72" firstAttribute="bottom" secondItem="WdY-pg-LpF" secondAttribute="bottom" id="Zxd-8X-zNR"/>
-                            <constraint firstItem="kFX-66-LTr" firstAttribute="top" secondItem="F88-xH-tRr" secondAttribute="bottom" constant="120" id="a24-A3-i3F"/>
+                            <constraint firstItem="WdY-pg-LpF" firstAttribute="top" secondItem="gIl-v8-eFW" secondAttribute="bottom" constant="20" id="cKp-hU-aqt"/>
                             <constraint firstItem="hZH-Pm-E72" firstAttribute="trailing" secondItem="qhU-mH-TDd" secondAttribute="trailing" constant="20" id="eDq-4Z-EQG"/>
                             <constraint firstItem="gIl-v8-eFW" firstAttribute="leading" secondItem="hZH-Pm-E72" secondAttribute="leading" constant="22" id="gNr-rl-3Ht"/>
                             <constraint firstItem="WdY-pg-LpF" firstAttribute="trailing" secondItem="hZH-Pm-E72" secondAttribute="trailing" id="iAD-pT-rNv"/>
                             <constraint firstItem="kFX-66-LTr" firstAttribute="leading" secondItem="gIl-v8-eFW" secondAttribute="trailing" constant="3" id="jTa-nF-P2b"/>
                             <constraint firstItem="WdY-pg-LpF" firstAttribute="leading" secondItem="hZH-Pm-E72" secondAttribute="leading" id="sxQ-VM-q6B"/>
                             <constraint firstItem="F88-xH-tRr" firstAttribute="top" secondItem="qhU-mH-TDd" secondAttribute="bottom" constant="50" id="vUK-c4-82G"/>
-                            <constraint firstItem="gIl-v8-eFW" firstAttribute="top" secondItem="F88-xH-tRr" secondAttribute="bottom" constant="120" id="yLt-N4-B6a"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="예산 설정" id="fKA-gv-jXx">

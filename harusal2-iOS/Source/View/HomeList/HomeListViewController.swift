@@ -181,14 +181,14 @@ extension HomeListViewController: UICollectionViewDataSource {
         
         if self.expandDic[indexPath.item] != nil{
             // Expand되었던 Cell 저장해서 Reuse되었을 때 복구
-            cell.selectedSecondCell = {
+            cell.selectedSecondCell = { index in
                 //SecondCell Click Event
                 if let navi = self.navigationController, let storyBoard = self.storyboard {
                     guard let listDetailVC = storyBoard.instantiateViewController(identifier: "ListDetailViewController") as? ListDetailViewController else{
                                     return
                     }
                     //전달할 변수
-                    listDetailVC.viewModel.breakDown = self.viewModel.breakDownList[indexPath.row]
+                    listDetailVC.viewModel.breakDown = self.viewModel.breakDownList[index]
                     navi.pushViewController(listDetailVC, animated: true)
                 } else {
                     return
